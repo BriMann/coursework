@@ -1,0 +1,6 @@
+x = 155
+print(f"x = {x:b}")
+n = 4
+y = x^(1<<n) 
+print(f"y = {y:b}") 
+  

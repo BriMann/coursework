@@ -1,0 +1,4 @@
+a. The first column is the memory location of the byte.
+   The second column is the byte itself.
+   The third column is the byte value
+b. The last row has the memory location, but the data type value is directly underneath it. Likely because it is a n\ command
