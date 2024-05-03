@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Goals (Gforth Manual)</title>
+
+<meta name="description" content="Goals (Gforth Manual)">
+<meta name="keywords" content="Goals (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="Gforth-Environment.html" rel="next" title="Gforth Environment">
+<link href="index.html" rel="prev" title="Top">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Goals"></span><div class="header">
+<p>
+Next: <a href="Gforth-Environment.html" accesskey="n" rel="next">Gforth Environment</a>, Previous: <a href="index.html" accesskey="p" rel="prev">Top</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Goals-of-Gforth"></span><h2 class="chapter">1 Goals of Gforth</h2>
+<span id="index-goals-of-the-Gforth-project"></span>
+<p>The goal of the Gforth Project is to develop a standard model for
+ANS Forth. This can be split into several subgoals:
+</p>
+<ul>
+<li> Gforth should conform to the ANS Forth Standard.
+</li><li> It should be a model, i.e. it should define all the
+implementation-dependent things.
+</li><li> It should become standard, i.e. widely accepted and used. This goal
+is the most difficult one.
+</li></ul>
+
+<p>To achieve these goals Gforth should be
+</p><ul>
+<li> Similar to previous models (fig-Forth, F83)
+</li><li> Powerful. It should provide for all the things that are considered
+necessary today and even some that are not yet considered necessary.
+</li><li> Efficient. It should not get the reputation of being exceptionally
+slow.
+</li><li> Free.
+</li><li> Available on many machines/easy to port.
+</li></ul>
+
+<p>Have we achieved these goals? Gforth conforms to the ANS Forth
+standard. It may be considered a model, but we have not yet documented
+which parts of the model are stable and which parts we are likely to
+change. It certainly has not yet become a de facto standard, but it
+appears to be quite popular. It has some similarities to and some
+differences from previous models. It has some powerful features, but not
+yet everything that we envisioned. We certainly have achieved our
+execution speed goals (see <a href="Performance.html">Performance</a>)<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.  It is free and available on many machines.
+</p>
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h3>
+<p>However, in 1998
+the bar was raised when the major commercial Forth vendors switched to
+native code compilers.</p>
+</div>
+
+
+
+</body>
+</html>

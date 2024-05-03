@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Flags and Comparisons Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Flags and Comparisons Tutorial (Gforth Manual)">
+<meta name="keywords" content="Flags and Comparisons Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="General-Loops-Tutorial.html" rel="next" title="General Loops Tutorial">
+<link href="Conditional-execution-Tutorial.html" rel="prev" title="Conditional execution Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Flags-and-Comparisons-Tutorial"></span><div class="header">
+<p>
+Next: <a href="General-Loops-Tutorial.html" accesskey="n" rel="next">General Loops Tutorial</a>, Previous: <a href="Conditional-execution-Tutorial.html" accesskey="p" rel="prev">Conditional execution Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Flags-and-Comparisons"></span><h3 class="section">3.17 Flags and Comparisons</h3>
+<span id="index-flags-tutorial"></span>
+<span id="index-comparison-tutorial"></span>
+
+<p>In a false-flag all bits are clear (0 when interpreted as integer).  In
+a canonical true-flag all bits are set (-1 as a twos-complement signed
+integer); in many contexts (e.g., <code>if</code>) any non-zero value is
+treated as true flag.
+</p>
+<div class="example">
+<pre class="example">false .
+true .
+true hex u. decimal
+</pre></div>
+
+<p>Comparison words produce canonical flags:
+</p>
+<div class="example">
+<pre class="example">1 1 = .
+1 0= .
+0 1 &lt; .
+0 0 &lt; .
+-1 1 u&lt; . \ type error, u&lt; interprets -1 as large unsigned number
+-1 1 &lt; .
+</pre></div>
+
+<p>Gforth supports all combinations of the prefixes <code>0 u d d0 du f f0</code>
+(or none) and the comparisons <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>.  Only a part of
+these combinations are standard (for details see the standard,
+<a href="Numeric-comparison.html">Numeric comparison</a>, <a href="Floating-Point.html">Floating Point</a> or <a href="Word-Index.html">Word Index</a>).
+</p>
+<p>You can use <code>and or xor invert</code> as operations on canonical flags.
+Actually they are bitwise operations:
+</p>
+<div class="example">
+<pre class="example">1 2 and .
+1 2 or .
+1 3 xor .
+1 invert .
+</pre></div>
+
+<p>You can convert a zero/non-zero flag into a canonical flag with
+<code>0&lt;&gt;</code> (and complement it on the way with <code>0=</code>).
+</p>
+<div class="example">
+<pre class="example">1 0= .
+1 0&lt;&gt; .
+</pre></div>
+
+<p>You can use the all-bits-set feature of canonical flags and the bitwise
+operation of the Boolean operations to avoid <code>if</code>s:
+</p>
+<div class="example">
+<pre class="example">: foo ( n1 -- n2 )
+  0= if
+    14
+  else
+    0
+  endif ;
+0 foo .
+1 foo .
+
+: foo ( n1 -- n2 )
+  0= 14 and ;
+0 foo .
+1 foo .
+</pre></div>
+
+<blockquote>
+<p><b>Assignment:</b> Write <code>min</code> without <code>if</code>.
+</p></blockquote>
+
+<p>For reference, see <a href="Boolean-Flags.html">Boolean Flags</a>, <a href="Numeric-comparison.html">Numeric comparison</a>, and
+<a href="Bitwise-operations.html">Bitwise operations</a>.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="General-Loops-Tutorial.html" accesskey="n" rel="next">General Loops Tutorial</a>, Previous: <a href="Conditional-execution-Tutorial.html" accesskey="p" rel="prev">Conditional execution Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

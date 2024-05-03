@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Aliases (Gforth Manual)</title>
+
+<meta name="description" content="Aliases (Gforth Manual)">
+<meta name="keywords" content="Aliases (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Defining-Words.html" rel="up" title="Defining Words">
+<link href="Interpretation-and-Compilation-Semantics.html" rel="next" title="Interpretation and Compilation Semantics">
+<link href="Deferred-Words.html" rel="prev" title="Deferred Words">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Aliases"></span><div class="header">
+<p>
+Previous: <a href="Deferred-Words.html" accesskey="p" rel="prev">Deferred Words</a>, Up: <a href="Defining-Words.html" accesskey="u" rel="up">Defining Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Aliases-1"></span><h4 class="subsection">5.9.10 Aliases</h4>
+<span id="index-aliases"></span>
+
+<p>The defining word <code>Alias</code> allows you to define a word by name that
+has the same behaviour as some other word. Here are two situation where
+this can be useful:
+</p>
+<ul>
+<li> When you want access to a word&rsquo;s definition from a different word list
+(for an example of this, see the definition of the <code>Root</code> word list
+in the Gforth source).
+</li><li> When you want to create a synonym; a definition that can be known by
+either of two names (for example, <code>THEN</code> and <code>ENDIF</code> are
+aliases).
+</li></ul>
+
+<p>Like deferred words, an alias has default compilation and interpretation
+semantics at the beginning (not the modifications of the other word),
+but you can change them in the usual ways (<code>immediate</code>,
+<code>compile-only</code>). For example:
+</p>
+<div class="example">
+<pre class="example">: foo ... ; immediate
+
+' foo Alias bar \ bar is not an immediate word
+' foo Alias fooby immediate \ fooby is an immediate word
+</pre></div>
+
+<p>Words that are aliases have the same xt, different headers in the
+dictionary, and consequently different name tokens (see <a href="Tokens-for-Words.html">Tokens for Words</a>) and possibly different immediate flags.  An alias can only have
+default or immediate compilation semantics; you can define aliases for
+combined words with <code>interpret/compile:</code> &ndash; see <a href="Combined-words.html">Combined words</a>.
+</p>
+<span id="index-Alias--xt-_0022name_0022-_002d_002d--gforth"></span>
+<span id="index-Alias"></span>
+<span id="index-Alias-1"></span>
+<div class="format">
+<pre class="format"><code>Alias</code>       <i>xt &quot;name&quot; &ndash;  </i>       gforth       &ldquo;Alias&rdquo;
+</pre></div>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Arbitrary control structures (Gforth Manual)</title>
+
+<meta name="description" content="Arbitrary control structures (Gforth Manual)">
+<meta name="keywords" content="Arbitrary control structures (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Control-Structures.html" rel="up" title="Control Structures">
+<link href="Calls-and-returns.html" rel="next" title="Calls and returns">
+<link href="Counted-Loops.html" rel="prev" title="Counted Loops">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Arbitrary-control-structures"></span><div class="header">
+<p>
+Next: <a href="Calls-and-returns.html" accesskey="n" rel="next">Calls and returns</a>, Previous: <a href="Counted-Loops.html" accesskey="p" rel="prev">Counted Loops</a>, Up: <a href="Control-Structures.html" accesskey="u" rel="up">Control Structures</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Arbitrary-control-structures-1"></span><h4 class="subsection">5.8.4 Arbitrary control structures</h4>
+<span id="index-control-structures_002c-user_002ddefined"></span>
+
+<span id="index-control_002dflow-stack"></span>
+<p>ANS Forth permits and supports using control structures in a non-nested
+way. Information about incomplete control structures is stored on the
+control-flow stack. This stack may be implemented on the Forth data
+stack, and this is what we have done in Gforth.
+</p>
+<span id="index-orig_002c-control_002dflow-stack-item"></span>
+<span id="index-dest_002c-control_002dflow-stack-item"></span>
+<p>An <i>orig</i> entry represents an unresolved forward branch, a <i>dest</i>
+entry represents a backward branch target. A few words are the basis for
+building any control structure possible (except control structures that
+need storage, like calls, coroutines, and backtracking).
+</p>
+
+<span id="index-IF--compilation-_002d_002d-orig-_003b-run_002dtime-f-_002d_002d--core"></span>
+<span id="index-IF"></span>
+<span id="index-IF-1"></span>
+<div class="format">
+<pre class="format"><code>IF</code>       <i>compilation &ndash; orig ; run-time f &ndash;  </i>       core       &ldquo;IF&rdquo;
+</pre></div>
+
+<span id="index-AHEAD--compilation-_002d_002d-orig-_003b-run_002dtime-_002d_002d--tools_002dext"></span>
+<span id="index-AHEAD"></span>
+<span id="index-AHEAD-1"></span>
+<div class="format">
+<pre class="format"><code>AHEAD</code>       <i>compilation &ndash; orig ; run-time &ndash;  </i>       tools-ext       &ldquo;AHEAD&rdquo;
+</pre></div>
+
+<span id="index-THEN--compilation-orig-_002d_002d-_003b-run_002dtime-_002d_002d--core"></span>
+<span id="index-THEN"></span>
+<span id="index-THEN-1"></span>
+<div class="format">
+<pre class="format"><code>THEN</code>       <i>compilation orig &ndash; ; run-time &ndash;  </i>       core       &ldquo;THEN&rdquo;
+</pre></div>
+
+<span id="index-BEGIN--compilation-_002d_002d-dest-_003b-run_002dtime-_002d_002d--core"></span>
+<span id="index-BEGIN"></span>
+<span id="index-BEGIN-1"></span>
+<div class="format">
+<pre class="format"><code>BEGIN</code>       <i>compilation &ndash; dest ; run-time &ndash;  </i>       core       &ldquo;BEGIN&rdquo;
+</pre></div>
+
+<span id="index-UNTIL--compilation-dest-_002d_002d-_003b-run_002dtime-f-_002d_002d--core"></span>
+<span id="index-UNTIL"></span>
+<span id="index-UNTIL-1"></span>
+<div class="format">
+<pre class="format"><code>UNTIL</code>       <i>compilation dest &ndash; ; run-time f &ndash;  </i>       core       &ldquo;UNTIL&rdquo;
+</pre></div>
+
+<span id="index-AGAIN--compilation-dest-_002d_002d-_003b-run_002dtime-_002d_002d--core_002dext"></span>
+<span id="index-AGAIN"></span>
+<span id="index-AGAIN-1"></span>
+<div class="format">
+<pre class="format"><code>AGAIN</code>       <i>compilation dest &ndash; ; run-time &ndash;  </i>       core-ext       &ldquo;AGAIN&rdquo;
+</pre></div>
+
+<span id="index-CS_002dPICK--_002e_002e_002e-u-_002d_002d-_002e_002e_002e-destu--tools_002dext"></span>
+<span id="index-CS_002dPICK"></span>
+<span id="index-CS_002dPICK-1"></span>
+<div class="format">
+<pre class="format"><code>CS-PICK</code>       <i>... u &ndash; ... destu  </i>       tools-ext       &ldquo;c-s-pick&rdquo;
+</pre></div>
+
+<span id="index-CS_002dROLL--destu_002forigu-_002e_002e-dest0_002forig0-u-_002d_002d-_002e_002e-dest0_002forig0-destu_002forigu--tools_002dext"></span>
+<span id="index-CS_002dROLL"></span>
+<span id="index-CS_002dROLL-1"></span>
+<div class="format">
+<pre class="format"><code>CS-ROLL</code>       <i>destu/origu .. dest0/orig0 u &ndash; .. dest0/orig0 destu/origu  </i>       tools-ext       &ldquo;c-s-roll&rdquo;
+</pre></div>
+
+
+
+<p>The Standard words <code>CS-PICK</code> and <code>CS-ROLL</code> allow you to
+manipulate the control-flow stack in a portable way. Without them, you
+would need to know how many stack items are occupied by a control-flow
+entry (many systems use one cell. In Gforth they currently take three,
+but this may change in the future).
+</p>
+<p>Some standard control structure words are built from these words:
+</p>
+
+<span id="index-ELSE--compilation-orig1-_002d_002d-orig2-_003b-run_002dtime-_002d_002d--core"></span>
+<span id="index-ELSE"></span>
+<span id="index-ELSE-1"></span>
+<div class="format">
+<pre class="format"><code>ELSE</code>       <i>compilation orig1 &ndash; orig2 ; run-time &ndash;  </i>       core       &ldquo;ELSE&rdquo;
+</pre></div>
+
+<span id="index-WHILE--compilation-dest-_002d_002d-orig-dest-_003b-run_002dtime-f-_002d_002d--core"></span>
+<span id="index-WHILE"></span>
+<span id="index-WHILE-1"></span>
+<div class="format">
+<pre class="format"><code>WHILE</code>       <i>compilation dest &ndash; orig dest ; run-time f &ndash;  </i>       core       &ldquo;WHILE&rdquo;
+</pre></div>
+
+<span id="index-REPEAT--compilation-orig-dest-_002d_002d-_003b-run_002dtime-_002d_002d--core"></span>
+<span id="index-REPEAT"></span>
+<span id="index-REPEAT-1"></span>
+<div class="format">
+<pre class="format"><code>REPEAT</code>       <i>compilation orig dest &ndash; ; run-time &ndash;  </i>       core       &ldquo;REPEAT&rdquo;
+</pre></div>
+
+
+
+<p>Gforth adds some more control-structure words:
+</p>
+
+<span id="index-ENDIF--compilation-orig-_002d_002d-_003b-run_002dtime-_002d_002d--gforth"></span>
+<span id="index-ENDIF"></span>
+<span id="index-ENDIF-1"></span>
+<div class="format">
+<pre class="format"><code>ENDIF</code>       <i>compilation orig &ndash; ; run-time &ndash;  </i>       gforth       &ldquo;ENDIF&rdquo;
+</pre></div>
+
+<span id="index-_003fDUP_002dIF--compilation-_002d_002d-orig-_003b-run_002dtime-n-_002d_002d-n_007c--gforth"></span>
+<span id="index-_003fDUP_002dIF"></span>
+<span id="index-_003fDUP_002dIF-1"></span>
+<div class="format">
+<pre class="format"><code>?DUP-IF</code>       <i>compilation &ndash; orig ; run-time n &ndash; n|  </i>       gforth       &ldquo;question-dupe-if&rdquo;
+</pre></div>
+<p>This is the preferred alternative to the idiom &quot;<code>?DUP IF</code>&quot;, since it can be
+better handled by tools like stack checkers. Besides, it&rsquo;s faster.
+</p>
+
+<span id="index-_003fDUP_002d0_003d_002dIF--compilation-_002d_002d-orig-_003b-run_002dtime-n-_002d_002d-n_007c--gforth"></span>
+<span id="index-_003fDUP_002d0_003d_002dIF"></span>
+<span id="index-_003fDUP_002d0_003d_002dIF-1"></span>
+<div class="format">
+<pre class="format"><code>?DUP-0=-IF</code>       <i>compilation &ndash; orig ; run-time n &ndash; n|  </i>       gforth       &ldquo;question-dupe-zero-equals-if&rdquo;
+</pre></div>
+
+
+
+<p>Counted loop words constitute a separate group of words:
+</p>
+
+<span id="index-_003fDO--compilation-_002d_002d-do_002dsys-_003b-run_002dtime-w1-w2-_002d_002d-_007c-loop_002dsys--core_002dext"></span>
+<span id="index-_003fDO"></span>
+<span id="index-_003fDO-1"></span>
+<div class="format">
+<pre class="format"><code>?DO</code>       <i>compilation &ndash; do-sys ; run-time w1 w2 &ndash; | loop-sys  </i>       core-ext       &ldquo;question-do&rdquo;
+</pre></div>
+
+<span id="index-_002bDO--compilation-_002d_002d-do_002dsys-_003b-run_002dtime-n1-n2-_002d_002d-_007c-loop_002dsys--gforth"></span>
+<span id="index-_002bDO"></span>
+<span id="index-_002bDO-1"></span>
+<div class="format">
+<pre class="format"><code>+DO</code>       <i>compilation &ndash; do-sys ; run-time n1 n2 &ndash; | loop-sys  </i>       gforth       &ldquo;plus-do&rdquo;
+</pre></div>
+
+<span id="index-U_002bDO--compilation-_002d_002d-do_002dsys-_003b-run_002dtime-u1-u2-_002d_002d-_007c-loop_002dsys--gforth"></span>
+<span id="index-U_002bDO"></span>
+<span id="index-U_002bDO-1"></span>
+<div class="format">
+<pre class="format"><code>U+DO</code>       <i>compilation &ndash; do-sys ; run-time u1 u2 &ndash; | loop-sys  </i>       gforth       &ldquo;u-plus-do&rdquo;
+</pre></div>
+
+<span id="index-_002dDO--compilation-_002d_002d-do_002dsys-_003b-run_002dtime-n1-n2-_002d_002d-_007c-loop_002dsys--gforth"></span>
+<span id="index-_002dDO"></span>
+<span id="index-_002dDO-1"></span>
+<div class="format">
+<pre class="format"><code>-DO</code>       <i>compilation &ndash; do-sys ; run-time n1 n2 &ndash; | loop-sys  </i>       gforth       &ldquo;minus-do&rdquo;
+</pre></div>
+
+<span id="index-U_002dDO--compilation-_002d_002d-do_002dsys-_003b-run_002dtime-u1-u2-_002d_002d-_007c-loop_002dsys--gforth"></span>
+<span id="index-U_002dDO"></span>
+<span id="index-U_002dDO-1"></span>
+<div class="format">
+<pre class="format"><code>U-DO</code>       <i>compilation &ndash; do-sys ; run-time u1 u2 &ndash; | loop-sys  </i>       gforth       &ldquo;u-minus-do&rdquo;
+</pre></div>
+
+<span id="index-DO--compilation-_002d_002d-do_002dsys-_003b-run_002dtime-w1-w2-_002d_002d-loop_002dsys--core"></span>
+<span id="index-DO"></span>
+<span id="index-DO-1"></span>
+<div class="format">
+<pre class="format"><code>DO</code>       <i>compilation &ndash; do-sys ; run-time w1 w2 &ndash; loop-sys  </i>       core       &ldquo;DO&rdquo;
+</pre></div>
+
+<span id="index-FOR--compilation-_002d_002d-do_002dsys-_003b-run_002dtime-u-_002d_002d-loop_002dsys--gforth"></span>
+<span id="index-FOR"></span>
+<span id="index-FOR-1"></span>
+<div class="format">
+<pre class="format"><code>FOR</code>       <i>compilation &ndash; do-sys ; run-time u &ndash; loop-sys  </i>       gforth       &ldquo;FOR&rdquo;
+</pre></div>
+
+<span id="index-LOOP--compilation-do_002dsys-_002d_002d-_003b-run_002dtime-loop_002dsys1-_002d_002d-_007c-loop_002dsys2--core"></span>
+<span id="index-LOOP"></span>
+<span id="index-LOOP-1"></span>
+<div class="format">
+<pre class="format"><code>LOOP</code>       <i>compilation do-sys &ndash; ; run-time loop-sys1 &ndash; | loop-sys2  </i>       core       &ldquo;LOOP&rdquo;
+</pre></div>
+
+<span id="index-_002bLOOP--compilation-do_002dsys-_002d_002d-_003b-run_002dtime-loop_002dsys1-n-_002d_002d-_007c-loop_002dsys2--core"></span>
+<span id="index-_002bLOOP"></span>
+<span id="index-_002bLOOP-1"></span>
+<div class="format">
+<pre class="format"><code>+LOOP</code>       <i>compilation do-sys &ndash; ; run-time loop-sys1 n &ndash; | loop-sys2  </i>       core       &ldquo;plus-loop&rdquo;
+</pre></div>
+
+<span id="index-_002dLOOP--compilation-do_002dsys-_002d_002d-_003b-run_002dtime-loop_002dsys1-u-_002d_002d-_007c-loop_002dsys2--gforth"></span>
+<span id="index-_002dLOOP"></span>
+<span id="index-_002dLOOP-1"></span>
+<div class="format">
+<pre class="format"><code>-LOOP</code>       <i>compilation do-sys &ndash; ; run-time loop-sys1 u &ndash; | loop-sys2  </i>       gforth       &ldquo;minus-loop&rdquo;
+</pre></div>
+
+<span id="index-NEXT--compilation-do_002dsys-_002d_002d-_003b-run_002dtime-loop_002dsys1-_002d_002d-_007c-loop_002dsys2--gforth"></span>
+<span id="index-NEXT"></span>
+<span id="index-NEXT-1"></span>
+<div class="format">
+<pre class="format"><code>NEXT</code>       <i>compilation do-sys &ndash; ; run-time loop-sys1 &ndash; | loop-sys2  </i>       gforth       &ldquo;NEXT&rdquo;
+</pre></div>
+
+<span id="index-LEAVE--compilation-_002d_002d-_003b-run_002dtime-loop_002dsys-_002d_002d--core"></span>
+<span id="index-LEAVE"></span>
+<span id="index-LEAVE-1"></span>
+<div class="format">
+<pre class="format"><code>LEAVE</code>       <i>compilation &ndash; ; run-time loop-sys &ndash;  </i>       core       &ldquo;LEAVE&rdquo;
+</pre></div>
+
+<span id="index-_003fLEAVE--compilation-_002d_002d-_003b-run_002dtime-f-_007c-f-loop_002dsys-_002d_002d--gforth"></span>
+<span id="index-_003fLEAVE"></span>
+<span id="index-_003fLEAVE-1"></span>
+<div class="format">
+<pre class="format"><code>?LEAVE</code>       <i>compilation &ndash; ; run-time f | f loop-sys &ndash;  </i>       gforth       &ldquo;question-leave&rdquo;
+</pre></div>
+
+<span id="index-unloop--R_003aw1-R_003aw2-_002d_002d--core"></span>
+<span id="index-unloop"></span>
+<span id="index-unloop-1"></span>
+<div class="format">
+<pre class="format"><code>unloop</code>       <i>R:w1 R:w2 &ndash; </i>       core       &ldquo;unloop&rdquo;
+</pre></div>
+
+<span id="index-DONE--compilation-orig-_002d_002d-_003b-run_002dtime-_002d_002d--gforth"></span>
+<span id="index-DONE"></span>
+<span id="index-DONE-1"></span>
+<div class="format">
+<pre class="format"><code>DONE</code>       <i>compilation orig &ndash; ; run-time &ndash;  </i>       gforth       &ldquo;DONE&rdquo;
+</pre></div>
+
+
+
+<p>The standard does not allow using <code>CS-PICK</code> and <code>CS-ROLL</code> on
+<i>do-sys</i>. Gforth allows it, but it&rsquo;s your job to ensure that for
+every <code>?DO</code> etc. there is exactly one <code>UNLOOP</code> on any path
+through the definition (<code>LOOP</code> etc. compile an <code>UNLOOP</code> on the
+fall-through path). Also, you have to ensure that all <code>LEAVE</code>s are
+resolved (by using one of the loop-ending words or <code>DONE</code>).
+</p>
+<p>Another group of control structure words are:
+</p>
+
+<span id="index-case--compilation-_002d_002d-case_002dsys-_003b-run_002dtime-_002d_002d--core_002dext"></span>
+<span id="index-case"></span>
+<span id="index-case-1"></span>
+<div class="format">
+<pre class="format"><code>case</code>       <i>compilation  &ndash; case-sys ; run-time  &ndash;  </i>       core-ext       &ldquo;case&rdquo;
+</pre></div>
+
+<span id="index-endcase--compilation-case_002dsys-_002d_002d-_003b-run_002dtime-x-_002d_002d--core_002dext"></span>
+<span id="index-endcase"></span>
+<span id="index-endcase-1"></span>
+<div class="format">
+<pre class="format"><code>endcase</code>       <i>compilation case-sys &ndash; ; run-time x &ndash;  </i>       core-ext       &ldquo;end-case&rdquo;
+</pre></div>
+
+<span id="index-of--compilation-_002d_002d-of_002dsys-_003b-run_002dtime-x1-x2-_002d_002d-_007cx1--core_002dext"></span>
+<span id="index-of"></span>
+<span id="index-of-1"></span>
+<div class="format">
+<pre class="format"><code>of</code>       <i>compilation  &ndash; of-sys ; run-time x1 x2 &ndash; |x1  </i>       core-ext       &ldquo;of&rdquo;
+</pre></div>
+
+<span id="index-endof--compilation-case_002dsys1-of_002dsys-_002d_002d-case_002dsys2-_003b-run_002dtime-_002d_002d--core_002dext"></span>
+<span id="index-endof"></span>
+<span id="index-endof-1"></span>
+<div class="format">
+<pre class="format"><code>endof</code>       <i>compilation case-sys1 of-sys &ndash; case-sys2 ; run-time  &ndash;  </i>       core-ext       &ldquo;end-of&rdquo;
+</pre></div>
+
+
+
+<p><i>case-sys</i> and <i>of-sys</i> cannot be processed using <code>CS-PICK</code> and
+<code>CS-ROLL</code>.
+</p>
+<span id="Programming-Style"></span><h4 class="subsubsection">5.8.4.1 Programming Style</h4>
+<span id="index-control-structures-programming-style"></span>
+<span id="index-programming-style_002c-arbitrary-control-structures"></span>
+
+<p>In order to ensure readability we recommend that you do not create
+arbitrary control structures directly, but define new control structure
+words for the control structure you want and use these words in your
+program. For example, instead of writing:
+</p>
+<div class="example">
+<pre class="example">BEGIN
+  ...
+IF [ 1 CS-ROLL ]
+  ...
+AGAIN THEN
+</pre></div>
+
+<p>we recommend defining control structure words, e.g.,
+</p>
+<div class="example">
+<pre class="example">: WHILE ( DEST -- ORIG DEST )
+ POSTPONE IF
+ 1 CS-ROLL ; immediate
+
+: REPEAT ( orig dest -- )
+ POSTPONE AGAIN
+ POSTPONE THEN ; immediate
+</pre></div>
+
+<p>and then using these to create the control structure:
+</p>
+<div class="example">
+<pre class="example">BEGIN
+  ...
+WHILE
+  ...
+REPEAT
+</pre></div>
+
+<p>That&rsquo;s much easier to read, isn&rsquo;t it? Of course, <code>REPEAT</code> and
+<code>WHILE</code> are predefined, so in this example it would not be
+necessary to define them.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Calls-and-returns.html" accesskey="n" rel="next">Calls and returns</a>, Previous: <a href="Counted-Loops.html" accesskey="p" rel="prev">Counted Loops</a>, Up: <a href="Control-Structures.html" accesskey="u" rel="up">Control Structures</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

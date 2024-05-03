@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Interpreter Directives (Gforth Manual)</title>
+
+<meta name="description" content="Interpreter Directives (Gforth Manual)">
+<meta name="keywords" content="Interpreter Directives (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="The-Text-Interpreter.html" rel="up" title="The Text Interpreter">
+<link href="The-Input-Stream.html" rel="next" title="The Input Stream">
+<link href="Interpret_002fCompile-states.html" rel="prev" title="Interpret/Compile states">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Interpreter-Directives"></span><div class="header">
+<p>
+Previous: <a href="Interpret_002fCompile-states.html" accesskey="p" rel="prev">Interpret/Compile states</a>, Up: <a href="The-Text-Interpreter.html" accesskey="u" rel="up">The Text Interpreter</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Interpreter-Directives-1"></span><h4 class="subsection">5.13.4 Interpreter Directives</h4>
+<span id="index-interpreter-directives"></span>
+<span id="index-conditional-compilation"></span>
+
+<p>These words are usually used in interpret state; typically to control
+which parts of a source file are processed by the text
+interpreter. There are only a few ANS Forth Standard words, but Gforth
+supplements these with a rich set of immediate control structure words
+to compensate for the fact that the non-immediate versions can only be
+used in compile state (see <a href="Control-Structures.html">Control Structures</a>). Typical usages:
+</p>
+<div class="example">
+<pre class="example">FALSE Constant HAVE-ASSEMBLER
+.
+.
+HAVE-ASSEMBLER [IF]
+: ASSEMBLER-FEATURE
+  ...
+;
+[ENDIF]
+.
+.
+: SEE
+  ... \ general-purpose SEE code
+  [ HAVE-ASSEMBLER [IF] ]
+  ... \ assembler-specific SEE code
+  [ [ENDIF] ]
+;
+</pre></div>
+
+
+<span id="index-_005bIF_005d--flag-_002d_002d--tools_002dext"></span>
+<span id="index-_005bIF_005d"></span>
+<span id="index-_005bIF_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[IF]</code>       <i>flag &ndash;  </i>       tools-ext       &ldquo;bracket-if&rdquo;
+</pre></div>
+<p>If flag is <code>TRUE</code> do nothing (and therefore
+execute subsequent words as normal). If flag is <code>FALSE</code>,
+parse and discard words from the parse
+area (refilling it if necessary using
+<code>REFILL</code>) including nested instances of <code>[IF]</code>..
+<code>[ELSE]</code>.. <code>[THEN]</code> and <code>[IF]</code>.. <code>[THEN]</code>
+until the balancing <code>[ELSE]</code> or <code>[THEN]</code> has been
+parsed and discarded. Immediate word.
+</p>
+
+<span id="index-_005bELSE_005d--_002d_002d--tools_002dext"></span>
+<span id="index-_005bELSE_005d"></span>
+<span id="index-_005bELSE_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[ELSE]</code>       <i>&ndash;  </i>       tools-ext       &ldquo;bracket-else&rdquo;
+</pre></div>
+<p>Parse and discard words from the parse
+area (refilling it if necessary using
+<code>REFILL</code>) including nested instances of <code>[IF]</code>..
+<code>[ELSE]</code>.. <code>[THEN]</code> and <code>[IF]</code>.. <code>[THEN]</code>
+until the balancing <code>[THEN]</code> has been parsed and discarded.
+<code>[ELSE]</code> only gets executed if the balancing <code>[IF]</code>
+was <code>TRUE</code>; if it was <code>FALSE</code>, <code>[IF]</code> would
+have parsed and discarded the <code>[ELSE]</code>, leaving the
+subsequent words to be executed as normal.
+Immediate word.
+</p>
+
+<span id="index-_005bTHEN_005d--_002d_002d--tools_002dext"></span>
+<span id="index-_005bTHEN_005d"></span>
+<span id="index-_005bTHEN_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[THEN]</code>       <i>&ndash;  </i>       tools-ext       &ldquo;bracket-then&rdquo;
+</pre></div>
+<p>Do nothing; used as a marker for other words to parse
+and discard up to. Immediate word.
+</p>
+
+<span id="index-_005bENDIF_005d--_002d_002d--gforth"></span>
+<span id="index-_005bENDIF_005d"></span>
+<span id="index-_005bENDIF_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[ENDIF]</code>       <i>&ndash;  </i>       gforth       &ldquo;bracket-end-if&rdquo;
+</pre></div>
+<p>Do nothing; synonym for <code>[THEN]</code>
+</p>
+
+
+<span id="index-_005bIFDEF_005d--_0022_003cspaces_003ename_0022-_002d_002d--gforth"></span>
+<span id="index-_005bIFDEF_005d"></span>
+<span id="index-_005bIFDEF_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[IFDEF]</code>       <i>&quot;&lt;spaces&gt;name&quot; &ndash;  </i>       gforth       &ldquo;bracket-if-def&rdquo;
+</pre></div>
+<p>If name is found in the current search-order, behave like
+<code>[IF]</code> with a <code>TRUE</code> flag, otherwise behave like
+<code>[IF]</code> with a <code>FALSE</code> flag. Immediate word.
+</p>
+
+<span id="index-_005bIFUNDEF_005d--_0022_003cspaces_003ename_0022-_002d_002d--gforth"></span>
+<span id="index-_005bIFUNDEF_005d"></span>
+<span id="index-_005bIFUNDEF_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[IFUNDEF]</code>       <i>&quot;&lt;spaces&gt;name&quot; &ndash;  </i>       gforth       &ldquo;bracket-if-un-def&rdquo;
+</pre></div>
+<p>If name is not found in the current search-order, behave like
+<code>[IF]</code> with a <code>TRUE</code> flag, otherwise behave like
+<code>[IF]</code> with a <code>FALSE</code> flag. Immediate word.
+</p>
+
+
+<span id="index-_005b_003fDO_005d--n_002dlimit-n_002dindex-_002d_002d--gforth"></span>
+<span id="index-_005b_003fDO_005d"></span>
+<span id="index-_005b_003fDO_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[?DO]</code>       <i>n-limit n-index &ndash;  </i>       gforth       &ldquo;bracket-question-do&rdquo;
+</pre></div>
+
+<span id="index-_005bDO_005d--n_002dlimit-n_002dindex-_002d_002d--gforth"></span>
+<span id="index-_005bDO_005d"></span>
+<span id="index-_005bDO_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[DO]</code>       <i>n-limit n-index &ndash;  </i>       gforth       &ldquo;bracket-do&rdquo;
+</pre></div>
+
+<span id="index-_005bFOR_005d--n-_002d_002d--gforth"></span>
+<span id="index-_005bFOR_005d"></span>
+<span id="index-_005bFOR_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[FOR]</code>       <i>n &ndash;  </i>       gforth       &ldquo;bracket-for&rdquo;
+</pre></div>
+
+<span id="index-_005bLOOP_005d--_002d_002d--gforth"></span>
+<span id="index-_005bLOOP_005d"></span>
+<span id="index-_005bLOOP_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[LOOP]</code>       <i>&ndash;  </i>       gforth       &ldquo;bracket-loop&rdquo;
+</pre></div>
+
+<span id="index-_005b_002bLOOP_005d--n-_002d_002d--gforth"></span>
+<span id="index-_005b_002bLOOP_005d"></span>
+<span id="index-_005b_002bLOOP_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[+LOOP]</code>       <i>n &ndash;  </i>       gforth       &ldquo;bracket-question-plus-loop&rdquo;
+</pre></div>
+
+<span id="index-_005bNEXT_005d--n-_002d_002d--gforth"></span>
+<span id="index-_005bNEXT_005d"></span>
+<span id="index-_005bNEXT_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[NEXT]</code>       <i>n &ndash;  </i>       gforth       &ldquo;bracket-next&rdquo;
+</pre></div>
+
+
+<span id="index-_005bBEGIN_005d--_002d_002d--gforth"></span>
+<span id="index-_005bBEGIN_005d"></span>
+<span id="index-_005bBEGIN_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[BEGIN]</code>       <i>&ndash;  </i>       gforth       &ldquo;bracket-begin&rdquo;
+</pre></div>
+
+<span id="index-_005bUNTIL_005d--flag-_002d_002d--gforth"></span>
+<span id="index-_005bUNTIL_005d"></span>
+<span id="index-_005bUNTIL_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[UNTIL]</code>       <i>flag &ndash;  </i>       gforth       &ldquo;bracket-until&rdquo;
+</pre></div>
+
+<span id="index-_005bAGAIN_005d--_002d_002d--gforth"></span>
+<span id="index-_005bAGAIN_005d"></span>
+<span id="index-_005bAGAIN_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[AGAIN]</code>       <i>&ndash;  </i>       gforth       &ldquo;bracket-again&rdquo;
+</pre></div>
+
+<span id="index-_005bWHILE_005d--flag-_002d_002d--gforth"></span>
+<span id="index-_005bWHILE_005d"></span>
+<span id="index-_005bWHILE_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[WHILE]</code>       <i>flag &ndash;  </i>       gforth       &ldquo;bracket-while&rdquo;
+</pre></div>
+
+<span id="index-_005bREPEAT_005d--_002d_002d--gforth"></span>
+<span id="index-_005bREPEAT_005d"></span>
+<span id="index-_005bREPEAT_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[REPEAT]</code>       <i>&ndash;  </i>       gforth       &ldquo;bracket-repeat&rdquo;
+</pre></div>
+
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Interpret_002fCompile-states.html" accesskey="p" rel="prev">Interpret/Compile states</a>, Up: <a href="The-Text-Interpreter.html" accesskey="u" rel="up">The Text Interpreter</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

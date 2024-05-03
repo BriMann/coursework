@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Blocks Files (Gforth Manual)</title>
+
+<meta name="description" content="Blocks Files (Gforth Manual)">
+<meta name="keywords" content="Blocks Files (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacs-and-Gforth.html" rel="up" title="Emacs and Gforth">
+<link href="Image-Files.html" rel="next" title="Image Files">
+<link href="Auto_002dIndentation.html" rel="prev" title="Auto-Indentation">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Blocks-Files"></span><div class="header">
+<p>
+Previous: <a href="Auto_002dIndentation.html" accesskey="p" rel="prev">Auto-Indentation</a>, Up: <a href="Emacs-and-Gforth.html" accesskey="u" rel="up">Emacs and Gforth</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Blocks-Files-1"></span><h3 class="section">12.5 Blocks Files</h3>
+<span id="index-blocks-files_002c-use-with-Emacs"></span>
+<p><code>forth-mode</code> Autodetects blocks files by checking whether the
+length of the first line exceeds 1023 characters.  It then tries to
+convert the file into normal text format.  When you save the file, it
+will be written to disk as normal stream-source file.
+</p>
+<p>If you want to write blocks files, use <code>forth-blocks-mode</code>.  It
+inherits all the features from <code>forth-mode</code>, plus some additions:
+</p>
+<ul>
+<li> Files are written to disk in blocks file format.
+</li><li> Screen numbers are displayed in the mode line (enumerated beginning
+with the value of &lsquo;forth-block-base&rsquo;)
+</li><li> Warnings are displayed when lines exceed 64 characters.
+</li><li> The beginning of the currently edited block is marked with an
+overlay-arrow. 
+</li></ul>
+
+<p>There are some restrictions you should be aware of.  When you open a
+blocks file that contains tabulator or newline characters, these
+characters will be translated into spaces when the file is written
+back to disk.  If tabs or newlines are encountered during blocks file
+reading, an error is output to the echo area. So have a look at the
+&lsquo;*Messages*&rsquo; buffer, when Emacs&rsquo; bell rings during reading.
+</p>
+<p>Please consult the docstring of <code>forth-blocks-mode</code> for more
+information by typing <kbd>C-h v forth-blocks-mode</kbd>).
+</p>
+
+
+
+</body>
+</html>

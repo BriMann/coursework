@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>floating-idef (Gforth Manual)</title>
+
+<meta name="description" content="floating-idef (Gforth Manual)">
+<meta name="keywords" content="floating-idef (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="The-optional-Floating_002dPoint-word-set.html" rel="up" title="The optional Floating-Point word set">
+<link href="floating_002dambcond.html" rel="next" title="floating-ambcond">
+<link href="The-optional-Floating_002dPoint-word-set.html" rel="prev" title="The optional Floating-Point word set">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="floating_002didef"></span><div class="header">
+<p>
+Next: <a href="floating_002dambcond.html" accesskey="n" rel="next">floating-ambcond</a>, Previous: <a href="The-optional-Floating_002dPoint-word-set.html" accesskey="p" rel="prev">The optional Floating-Point word set</a>, Up: <a href="The-optional-Floating_002dPoint-word-set.html" accesskey="u" rel="up">The optional Floating-Point word set</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Implementation-Defined-Options-5"></span><h4 class="subsection">8.7.1 Implementation Defined Options</h4>
+<span id="index-implementation_002ddefined-options_002c-floating_002dpoint-words"></span>
+<span id="index-floating_002dpoint-words_002c-implementation_002ddefined-options"></span>
+
+<dl compact="compact">
+<dt><i>format and range of floating point numbers:</i></dt>
+<dd><span id="index-format-and-range-of-floating-point-numbers"></span>
+<span id="index-floating-point-numbers_002c-format-and-range"></span>
+<p>System-dependent; the <code>double</code> type of C.
+</p>
+</dd>
+<dt><i>results of <code>REPRESENT</code> when <i>float</i> is out of range:</i></dt>
+<dd><span id="index-REPRESENT_002c-results-when-float-is-out-of-range"></span>
+<p>System dependent; <code>REPRESENT</code> is implemented using the C library
+function <code>ecvt()</code> and inherits its behaviour in this respect.
+</p>
+</dd>
+<dt><i>rounding or truncation of floating-point numbers:</i></dt>
+<dd><span id="index-rounding-of-floating_002dpoint-numbers"></span>
+<span id="index-truncation-of-floating_002dpoint-numbers"></span>
+<span id="index-floating_002dpoint-numbers_002c-rounding-or-truncation"></span>
+<p>System dependent; the rounding behaviour is inherited from the hosting C
+compiler. IEEE-FP-based (i.e., most) systems by default round to
+nearest, and break ties by rounding to even (i.e., such that the last
+bit of the mantissa is 0).
+</p>
+</dd>
+<dt><i>size of floating-point stack:</i></dt>
+<dd><span id="index-floating_002dpoint-stack-size"></span>
+<p><code>s&quot; FLOATING-STACK&quot; environment? drop .</code> gives the total size of
+the floating-point stack (in floats). You can specify this on startup
+with the command-line option <code>-f</code> (see <a href="Invoking-Gforth.html">Invoking Gforth</a>).
+</p>
+</dd>
+<dt><i>width of floating-point stack:</i></dt>
+<dd><span id="index-floating_002dpoint-stack-width"></span>
+<p><code>1 floats</code>.
+</p>
+</dd>
+</dl>
+
+
+
+
+
+</body>
+</html>

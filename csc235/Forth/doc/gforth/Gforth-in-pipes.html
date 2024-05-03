@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Gforth in pipes (Gforth Manual)</title>
+
+<meta name="description" content="Gforth in pipes (Gforth Manual)">
+<meta name="keywords" content="Gforth in pipes (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Gforth-Environment.html" rel="up" title="Gforth Environment">
+<link href="Startup-speed.html" rel="next" title="Startup speed">
+<link href="Gforth-Files.html" rel="prev" title="Gforth Files">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Gforth-in-pipes"></span><div class="header">
+<p>
+Next: <a href="Startup-speed.html" accesskey="n" rel="next">Startup speed</a>, Previous: <a href="Gforth-Files.html" accesskey="p" rel="prev">Gforth Files</a>, Up: <a href="Gforth-Environment.html" accesskey="u" rel="up">Gforth Environment</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Gforth-in-pipes-1"></span><h3 class="section">2.6 Gforth in pipes</h3>
+<span id="index-pipes_002c-Gforth-as-part-of"></span>
+
+<p>Gforth can be used in pipes created elsewhere (described here).  It can
+also create pipes on its own (see <a href="Pipes.html">Pipes</a>).
+</p>
+<span id="index-input-from-pipes"></span>
+<p>If you pipe into Gforth, your program should read with <code>read-file</code>
+or <code>read-line</code> from <code>stdin</code> (see <a href="General-files.html">General files</a>).
+<code>Key</code> does not recognize the end of input.  Words like
+<code>accept</code> echo the input and are therefore usually not useful for
+reading from a pipe.  You have to invoke the Forth program with an OS
+command-line option, as you have no chance to use the Forth command line
+(the text interpreter would try to interpret the pipe input).
+</p>
+<span id="index-output-in-pipes"></span>
+<p>You can output to a pipe with <code>type</code>, <code>emit</code>, <code>cr</code> etc.
+</p>
+<span id="index-silent-exiting-from-Gforth"></span>
+<p>When you write to a pipe that has been closed at the other end, Gforth
+receives a SIGPIPE signal (&ldquo;pipe broken&rdquo;).  Gforth translates this
+into the exception <code>broken-pipe-error</code>.  If your application does
+not catch that exception, the system catches it and exits, usually
+silently (unless you were working on the Forth command line; then it
+prints an error message and exits).  This is usually the desired
+behaviour.
+</p>
+<p>If you do not like this behaviour, you have to catch the exception
+yourself, and react to it.
+</p>
+<p>Here&rsquo;s an example of an invocation of Gforth that is usable in a pipe:
+</p>
+<div class="example">
+<pre class="example">gforth -e &quot;: foo begin pad dup 10 stdin read-file throw dup while \
+ type repeat ; foo bye&quot;
+</pre></div>
+
+<p>This example just copies the input verbatim to the output.  A very
+simple pipe containing this example looks like this:
+</p>
+<div class="example">
+<pre class="example">cat startup.fs |
+gforth -e &quot;: foo begin pad dup 80 stdin read-file throw dup while \
+ type repeat ; foo bye&quot;|
+head
+</pre></div>
+
+<span id="index-stderr-and-pipes"></span>
+<p>Pipes involving Gforth&rsquo;s <code>stderr</code> output do not work.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Startup-speed.html" accesskey="n" rel="next">Startup speed</a>, Previous: <a href="Gforth-Files.html" accesskey="p" rel="prev">Gforth Files</a>, Up: <a href="Gforth-Environment.html" accesskey="u" rel="up">Gforth Environment</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

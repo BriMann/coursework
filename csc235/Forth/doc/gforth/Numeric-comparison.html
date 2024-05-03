@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Numeric comparison (Gforth Manual)</title>
+
+<meta name="description" content="Numeric comparison (Gforth Manual)">
+<meta name="keywords" content="Numeric comparison (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Arithmetic.html" rel="up" title="Arithmetic">
+<link href="Mixed-precision.html" rel="next" title="Mixed precision">
+<link href="Bitwise-operations.html" rel="prev" title="Bitwise operations">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Numeric-comparison"></span><div class="header">
+<p>
+Next: <a href="Mixed-precision.html" accesskey="n" rel="next">Mixed precision</a>, Previous: <a href="Bitwise-operations.html" accesskey="p" rel="prev">Bitwise operations</a>, Up: <a href="Arithmetic.html" accesskey="u" rel="up">Arithmetic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Numeric-comparison-1"></span><h4 class="subsection">5.5.4 Numeric comparison</h4>
+<span id="index-numeric-comparison-words"></span>
+
+<p>Note that the words that compare for equality (<code>= &lt;&gt; 0= 0&lt;&gt; d= d&lt;&gt;
+d0= d0&lt;&gt;</code>) work for for both signed and unsigned numbers.
+</p>
+<span id="index-_003c--n1-n2-_002d_002d-f--core"></span>
+<span id="index-_003c"></span>
+<span id="index-_003c-1"></span>
+<div class="format">
+<pre class="format"><code>&lt;</code>       <i>n1 n2 &ndash; f </i>       core       &ldquo;less-than&rdquo;
+</pre></div>
+
+<span id="index-_003c_003d--n1-n2-_002d_002d-f--gforth"></span>
+<span id="index-_003c_003d"></span>
+<span id="index-_003c_003d-1"></span>
+<div class="format">
+<pre class="format"><code>&lt;=</code>       <i>n1 n2 &ndash; f </i>       gforth       &ldquo;less-or-equal&rdquo;
+</pre></div>
+
+<span id="index-_003c_003e--n1-n2-_002d_002d-f--core_002dext"></span>
+<span id="index-_003c_003e"></span>
+<span id="index-_003c_003e-1"></span>
+<div class="format">
+<pre class="format"><code>&lt;&gt;</code>       <i>n1 n2 &ndash; f </i>       core-ext       &ldquo;not-equals&rdquo;
+</pre></div>
+
+<span id="index-_003d--n1-n2-_002d_002d-f--core"></span>
+<span id="index-_003d"></span>
+<span id="index-_003d-1"></span>
+<div class="format">
+<pre class="format"><code>=</code>       <i>n1 n2 &ndash; f </i>       core       &ldquo;equals&rdquo;
+</pre></div>
+
+<span id="index-_003e--n1-n2-_002d_002d-f--core"></span>
+<span id="index-_003e"></span>
+<span id="index-_003e-1"></span>
+<div class="format">
+<pre class="format"><code>&gt;</code>       <i>n1 n2 &ndash; f </i>       core       &ldquo;greater-than&rdquo;
+</pre></div>
+
+<span id="index-_003e_003d--n1-n2-_002d_002d-f--gforth"></span>
+<span id="index-_003e_003d"></span>
+<span id="index-_003e_003d-1"></span>
+<div class="format">
+<pre class="format"><code>&gt;=</code>       <i>n1 n2 &ndash; f </i>       gforth       &ldquo;greater-or-equal&rdquo;
+</pre></div>
+
+
+<span id="index-0_003c--n-_002d_002d-f--core"></span>
+<span id="index-0_003c"></span>
+<span id="index-0_003c-1"></span>
+<div class="format">
+<pre class="format"><code>0&lt;</code>       <i>n &ndash; f </i>       core       &ldquo;zero-less-than&rdquo;
+</pre></div>
+
+<span id="index-0_003c_003d--n-_002d_002d-f--gforth"></span>
+<span id="index-0_003c_003d"></span>
+<span id="index-0_003c_003d-1"></span>
+<div class="format">
+<pre class="format"><code>0&lt;=</code>       <i>n &ndash; f </i>       gforth       &ldquo;zero-less-or-equal&rdquo;
+</pre></div>
+
+<span id="index-0_003c_003e--n-_002d_002d-f--core_002dext"></span>
+<span id="index-0_003c_003e"></span>
+<span id="index-0_003c_003e-1"></span>
+<div class="format">
+<pre class="format"><code>0&lt;&gt;</code>       <i>n &ndash; f </i>       core-ext       &ldquo;zero-not-equals&rdquo;
+</pre></div>
+
+<span id="index-0_003d--n-_002d_002d-f--core"></span>
+<span id="index-0_003d"></span>
+<span id="index-0_003d-1"></span>
+<div class="format">
+<pre class="format"><code>0=</code>       <i>n &ndash; f </i>       core       &ldquo;zero-equals&rdquo;
+</pre></div>
+
+<span id="index-0_003e--n-_002d_002d-f--core_002dext"></span>
+<span id="index-0_003e"></span>
+<span id="index-0_003e-1"></span>
+<div class="format">
+<pre class="format"><code>0&gt;</code>       <i>n &ndash; f </i>       core-ext       &ldquo;zero-greater-than&rdquo;
+</pre></div>
+
+<span id="index-0_003e_003d--n-_002d_002d-f--gforth"></span>
+<span id="index-0_003e_003d"></span>
+<span id="index-0_003e_003d-1"></span>
+<div class="format">
+<pre class="format"><code>0&gt;=</code>       <i>n &ndash; f </i>       gforth       &ldquo;zero-greater-or-equal&rdquo;
+</pre></div>
+
+
+<span id="index-u_003c--u1-u2-_002d_002d-f--core"></span>
+<span id="index-u_003c"></span>
+<span id="index-u_003c-1"></span>
+<div class="format">
+<pre class="format"><code>u&lt;</code>       <i>u1 u2 &ndash; f </i>       core       &ldquo;u-less-than&rdquo;
+</pre></div>
+
+<span id="index-u_003c_003d--u1-u2-_002d_002d-f--gforth"></span>
+<span id="index-u_003c_003d"></span>
+<span id="index-u_003c_003d-1"></span>
+<div class="format">
+<pre class="format"><code>u&lt;=</code>       <i>u1 u2 &ndash; f </i>       gforth       &ldquo;u-less-or-equal&rdquo;
+</pre></div>
+
+<span id="index-u_003e--u1-u2-_002d_002d-f--core_002dext"></span>
+<span id="index-u_003e"></span>
+<span id="index-u_003e-1"></span>
+<div class="format">
+<pre class="format"><code>u&gt;</code>       <i>u1 u2 &ndash; f </i>       core-ext       &ldquo;u-greater-than&rdquo;
+</pre></div>
+
+<span id="index-u_003e_003d--u1-u2-_002d_002d-f--gforth"></span>
+<span id="index-u_003e_003d"></span>
+<span id="index-u_003e_003d-1"></span>
+<div class="format">
+<pre class="format"><code>u&gt;=</code>       <i>u1 u2 &ndash; f </i>       gforth       &ldquo;u-greater-or-equal&rdquo;
+</pre></div>
+
+
+<span id="index-within--u1-u2-u3-_002d_002d-f--core_002dext"></span>
+<span id="index-within"></span>
+<span id="index-within-1"></span>
+<div class="format">
+<pre class="format"><code>within</code>       <i>u1 u2 u3 &ndash; f </i>       core-ext       &ldquo;within&rdquo;
+</pre></div>
+<p>u2=&lt;u1&lt;u3 or: u3=&lt;u2 and u1 is not in [u3,u2).  This works for
+unsigned and signed numbers (but not a mixture).  Another way to think
+about this word is to consider the numbers as a circle (wrapping
+around from <code>max-u</code> to 0 for unsigned, and from <code>max-n</code> to
+min-n for signed numbers); now consider the range from u2 towards
+increasing numbers up to and excluding u3 (giving an empty range if
+u2=u3); if u1 is in this range, <code>within</code> returns true.
+</p>
+
+<span id="index-d_003c--d1-d2-_002d_002d-f--double"></span>
+<span id="index-d_003c"></span>
+<span id="index-d_003c-1"></span>
+<div class="format">
+<pre class="format"><code>d&lt;</code>       <i>d1 d2 &ndash; f </i>       double       &ldquo;d-less-than&rdquo;
+</pre></div>
+
+<span id="index-d_003c_003d--d1-d2-_002d_002d-f--gforth"></span>
+<span id="index-d_003c_003d"></span>
+<span id="index-d_003c_003d-1"></span>
+<div class="format">
+<pre class="format"><code>d&lt;=</code>       <i>d1 d2 &ndash; f </i>       gforth       &ldquo;d-less-or-equal&rdquo;
+</pre></div>
+
+<span id="index-d_003c_003e--d1-d2-_002d_002d-f--gforth"></span>
+<span id="index-d_003c_003e"></span>
+<span id="index-d_003c_003e-1"></span>
+<div class="format">
+<pre class="format"><code>d&lt;&gt;</code>       <i>d1 d2 &ndash; f </i>       gforth       &ldquo;d-not-equals&rdquo;
+</pre></div>
+
+<span id="index-d_003d--d1-d2-_002d_002d-f--double"></span>
+<span id="index-d_003d"></span>
+<span id="index-d_003d-1"></span>
+<div class="format">
+<pre class="format"><code>d=</code>       <i>d1 d2 &ndash; f </i>       double       &ldquo;d-equals&rdquo;
+</pre></div>
+
+<span id="index-d_003e--d1-d2-_002d_002d-f--gforth"></span>
+<span id="index-d_003e"></span>
+<span id="index-d_003e-1"></span>
+<div class="format">
+<pre class="format"><code>d&gt;</code>       <i>d1 d2 &ndash; f </i>       gforth       &ldquo;d-greater-than&rdquo;
+</pre></div>
+
+<span id="index-d_003e_003d--d1-d2-_002d_002d-f--gforth"></span>
+<span id="index-d_003e_003d"></span>
+<span id="index-d_003e_003d-1"></span>
+<div class="format">
+<pre class="format"><code>d&gt;=</code>       <i>d1 d2 &ndash; f </i>       gforth       &ldquo;d-greater-or-equal&rdquo;
+</pre></div>
+
+
+<span id="index-d0_003c--d-_002d_002d-f--double"></span>
+<span id="index-d0_003c"></span>
+<span id="index-d0_003c-1"></span>
+<div class="format">
+<pre class="format"><code>d0&lt;</code>       <i>d &ndash; f </i>       double       &ldquo;d-zero-less-than&rdquo;
+</pre></div>
+
+<span id="index-d0_003c_003d--d-_002d_002d-f--gforth"></span>
+<span id="index-d0_003c_003d"></span>
+<span id="index-d0_003c_003d-1"></span>
+<div class="format">
+<pre class="format"><code>d0&lt;=</code>       <i>d &ndash; f </i>       gforth       &ldquo;d-zero-less-or-equal&rdquo;
+</pre></div>
+
+<span id="index-d0_003c_003e--d-_002d_002d-f--gforth"></span>
+<span id="index-d0_003c_003e"></span>
+<span id="index-d0_003c_003e-1"></span>
+<div class="format">
+<pre class="format"><code>d0&lt;&gt;</code>       <i>d &ndash; f </i>       gforth       &ldquo;d-zero-not-equals&rdquo;
+</pre></div>
+
+<span id="index-d0_003d--d-_002d_002d-f--double"></span>
+<span id="index-d0_003d"></span>
+<span id="index-d0_003d-1"></span>
+<div class="format">
+<pre class="format"><code>d0=</code>       <i>d &ndash; f </i>       double       &ldquo;d-zero-equals&rdquo;
+</pre></div>
+
+<span id="index-d0_003e--d-_002d_002d-f--gforth"></span>
+<span id="index-d0_003e"></span>
+<span id="index-d0_003e-1"></span>
+<div class="format">
+<pre class="format"><code>d0&gt;</code>       <i>d &ndash; f </i>       gforth       &ldquo;d-zero-greater-than&rdquo;
+</pre></div>
+
+<span id="index-d0_003e_003d--d-_002d_002d-f--gforth"></span>
+<span id="index-d0_003e_003d"></span>
+<span id="index-d0_003e_003d-1"></span>
+<div class="format">
+<pre class="format"><code>d0&gt;=</code>       <i>d &ndash; f </i>       gforth       &ldquo;d-zero-greater-or-equal&rdquo;
+</pre></div>
+
+
+<span id="index-du_003c--ud1-ud2-_002d_002d-f--double_002dext"></span>
+<span id="index-du_003c"></span>
+<span id="index-du_003c-1"></span>
+<div class="format">
+<pre class="format"><code>du&lt;</code>       <i>ud1 ud2 &ndash; f </i>       double-ext       &ldquo;d-u-less-than&rdquo;
+</pre></div>
+
+<span id="index-du_003c_003d--ud1-ud2-_002d_002d-f--gforth"></span>
+<span id="index-du_003c_003d"></span>
+<span id="index-du_003c_003d-1"></span>
+<div class="format">
+<pre class="format"><code>du&lt;=</code>       <i>ud1 ud2 &ndash; f </i>       gforth       &ldquo;d-u-less-or-equal&rdquo;
+</pre></div>
+
+<span id="index-du_003e--ud1-ud2-_002d_002d-f--gforth"></span>
+<span id="index-du_003e"></span>
+<span id="index-du_003e-1"></span>
+<div class="format">
+<pre class="format"><code>du&gt;</code>       <i>ud1 ud2 &ndash; f </i>       gforth       &ldquo;d-u-greater-than&rdquo;
+</pre></div>
+
+<span id="index-du_003e_003d--ud1-ud2-_002d_002d-f--gforth"></span>
+<span id="index-du_003e_003d"></span>
+<span id="index-du_003e_003d-1"></span>
+<div class="format">
+<pre class="format"><code>du&gt;=</code>       <i>ud1 ud2 &ndash; f </i>       gforth       &ldquo;d-u-greater-or-equal&rdquo;
+</pre></div>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Mixed-precision.html" accesskey="n" rel="next">Mixed precision</a>, Previous: <a href="Bitwise-operations.html" accesskey="p" rel="prev">Bitwise operations</a>, Up: <a href="Arithmetic.html" accesskey="u" rel="up">Arithmetic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

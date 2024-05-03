@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Files Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Files Tutorial (Gforth Manual)">
+<meta name="keywords" content="Files Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial.html" rel="next" title="Interpretation and Compilation Semantics and Immediacy Tutorial">
+<link href="Floating-Point-Tutorial.html" rel="prev" title="Floating Point Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Files-Tutorial"></span><div class="header">
+<p>
+Next: <a href="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial.html" accesskey="n" rel="next">Interpretation and Compilation Semantics and Immediacy Tutorial</a>, Previous: <a href="Floating-Point-Tutorial.html" accesskey="p" rel="prev">Floating Point Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Files-1"></span><h3 class="section">3.27 Files</h3>
+<span id="index-files-tutorial"></span>
+
+<p>This section gives a short introduction into how to use files inside
+Forth. It&rsquo;s broken up into five easy steps:
+</p>
+<ol>
+<li> Opened an ASCII text file for input
+</li><li> Opened a file for output
+</li><li> Read input file until string matched (or some other condition matched)
+</li><li> Wrote some lines from input ( modified or not) to output
+</li><li> Closed the files.
+</li></ol>
+
+<p>Reference: <a href="General-files.html">General files</a>.
+</p>
+<span id="Open-file-for-input"></span><h4 class="subsection">3.27.1 Open file for input</h4>
+
+<div class="example">
+<pre class="example">s&quot; foo.in&quot;  r/o open-file throw Value fd-in
+</pre></div>
+
+<span id="Create-file-for-output"></span><h4 class="subsection">3.27.2 Create file for output</h4>
+
+<div class="example">
+<pre class="example">s&quot; foo.out&quot; w/o create-file throw Value fd-out
+</pre></div>
+
+<p>The available file modes are r/o for read-only access, r/w for
+read-write access, and w/o for write-only access. You could open both
+files with r/w, too, if you like. All file words return error codes; for
+most applications, it&rsquo;s best to pass there error codes with <code>throw</code>
+to the outer error handler.
+</p>
+<p>If you want words for opening and assigning, define them as follows:
+</p>
+<div class="example">
+<pre class="example">0 Value fd-in
+0 Value fd-out
+: open-input ( addr u -- )  r/o open-file throw to fd-in ;
+: open-output ( addr u -- )  w/o create-file throw to fd-out ;
+</pre></div>
+
+<p>Usage example:
+</p>
+<div class="example">
+<pre class="example">s&quot; foo.in&quot; open-input
+s&quot; foo.out&quot; open-output
+</pre></div>
+
+<span id="Scan-file-for-a-particular-line"></span><h4 class="subsection">3.27.3 Scan file for a particular line</h4>
+
+<div class="example">
+<pre class="example">256 Constant max-line
+Create line-buffer  max-line 2 + allot
+
+: scan-file ( addr u -- )
+  begin
+      line-buffer max-line fd-in read-line throw
+  while
+         &gt;r 2dup line-buffer r&gt; compare 0=
+     until
+  else
+     drop
+  then
+  2drop ;
+</pre></div>
+
+<p><code>read-line ( addr u1 fd -- u2 flag ior )</code> reads up to u1 bytes into
+the buffer at addr, and returns the number of bytes read, a flag that is
+false when the end of file is reached, and an error code.
+</p>
+<p><code>compare ( addr1 u1 addr2 u2 -- n )</code> compares two strings and
+returns zero if both strings are equal. It returns a positive number if
+the first string is lexically greater, a negative if the second string
+is lexically greater.
+</p>
+<p>We haven&rsquo;t seen this loop here; it has two exits. Since the <code>while</code>
+exits with the number of bytes read on the stack, we have to clean up
+that separately; that&rsquo;s after the <code>else</code>.
+</p>
+<p>Usage example:
+</p>
+<div class="example">
+<pre class="example">s&quot; The text I search is here&quot; scan-file
+</pre></div>
+
+<span id="Copy-input-to-output"></span><h4 class="subsection">3.27.4 Copy input to output</h4>
+
+<div class="example">
+<pre class="example">: copy-file ( -- )
+  begin
+      line-buffer max-line fd-in read-line throw
+  while
+      line-buffer swap fd-out write-line throw
+  repeat ;
+</pre></div>
+
+<span id="Close-files"></span><h4 class="subsection">3.27.5 Close files</h4>
+
+<div class="example">
+<pre class="example">fd-in close-file throw
+fd-out close-file throw
+</pre></div>
+
+<p>Likewise, you can put that into definitions, too:
+</p>
+<div class="example">
+<pre class="example">: close-input ( -- )  fd-in close-file throw ;
+: close-output ( -- )  fd-out close-file throw ;
+</pre></div>
+
+<blockquote>
+<p><b>Assignment:</b> How could you modify <code>copy-file</code> so that it copies until a second line is
+matched? Can you write a program that extracts a section of a text file,
+given the line that starts and the line that terminates that section?
+</p></blockquote>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial.html" accesskey="n" rel="next">Interpretation and Compilation Semantics and Immediacy Tutorial</a>, Previous: <a href="Floating-Point-Tutorial.html" accesskey="p" rel="prev">Floating Point Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

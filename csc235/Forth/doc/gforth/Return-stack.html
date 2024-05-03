@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Return stack (Gforth Manual)</title>
+
+<meta name="description" content="Return stack (Gforth Manual)">
+<meta name="keywords" content="Return stack (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Stack-Manipulation.html" rel="up" title="Stack Manipulation">
+<link href="Locals-stack.html" rel="next" title="Locals stack">
+<link href="Floating-point-stack.html" rel="prev" title="Floating point stack">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Return-stack"></span><div class="header">
+<p>
+Next: <a href="Locals-stack.html" accesskey="n" rel="next">Locals stack</a>, Previous: <a href="Floating-point-stack.html" accesskey="p" rel="prev">Floating point stack</a>, Up: <a href="Stack-Manipulation.html" accesskey="u" rel="up">Stack Manipulation</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Return-stack-1"></span><h4 class="subsection">5.6.3 Return stack</h4>
+<span id="index-return-stack-manipulation-words"></span>
+<span id="index-stack-manipulation-words_002c-return-stack"></span>
+
+<span id="index-return-stack-and-locals"></span>
+<span id="index-locals-and-return-stack"></span>
+<p>A Forth system is allowed to keep local variables on the
+return stack. This is reasonable, as local variables usually eliminate
+the need to use the return stack explicitly. So, if you want to produce
+a standard compliant program and you are using local variables in a
+word, forget about return stack manipulations in that word (refer to the
+standard document for the exact rules).
+</p>
+<span id="index-_003er--w-_002d_002d-R_003aw--core"></span>
+<span id="index-_003er"></span>
+<span id="index-_003er-1"></span>
+<div class="format">
+<pre class="format"><code>&gt;r</code>       <i>w &ndash; R:w </i>       core       &ldquo;to-r&rdquo;
+</pre></div>
+
+<span id="index-r_003e--R_003aw-_002d_002d-w--core"></span>
+<span id="index-r_003e"></span>
+<span id="index-r_003e-1"></span>
+<div class="format">
+<pre class="format"><code>r&gt;</code>       <i>R:w &ndash; w </i>       core       &ldquo;r-from&rdquo;
+</pre></div>
+
+<span id="index-r_0040--_002d_002d-w-_003b-R_003a-w-_002d_002d-w--core"></span>
+<span id="index-r_0040"></span>
+<span id="index-r_0040-1"></span>
+<div class="format">
+<pre class="format"><code>r@</code>       <i>&ndash; w ; R: w &ndash; w  </i>       core       &ldquo;r-fetch&rdquo;
+</pre></div>
+
+<span id="index-rdrop--R_003aw-_002d_002d--gforth"></span>
+<span id="index-rdrop"></span>
+<span id="index-rdrop-1"></span>
+<div class="format">
+<pre class="format"><code>rdrop</code>       <i>R:w &ndash; </i>       gforth       &ldquo;rdrop&rdquo;
+</pre></div>
+
+<span id="index-2_003er--d-_002d_002d-R_003ad--core_002dext"></span>
+<span id="index-2_003er"></span>
+<span id="index-2_003er-1"></span>
+<div class="format">
+<pre class="format"><code>2&gt;r</code>       <i>d &ndash; R:d </i>       core-ext       &ldquo;two-to-r&rdquo;
+</pre></div>
+
+<span id="index-2r_003e--R_003ad-_002d_002d-d--core_002dext"></span>
+<span id="index-2r_003e"></span>
+<span id="index-2r_003e-1"></span>
+<div class="format">
+<pre class="format"><code>2r&gt;</code>       <i>R:d &ndash; d </i>       core-ext       &ldquo;two-r-from&rdquo;
+</pre></div>
+
+<span id="index-2r_0040--R_003ad-_002d_002d-R_003ad-d--core_002dext"></span>
+<span id="index-2r_0040"></span>
+<span id="index-2r_0040-1"></span>
+<div class="format">
+<pre class="format"><code>2r@</code>       <i>R:d &ndash; R:d d </i>       core-ext       &ldquo;two-r-fetch&rdquo;
+</pre></div>
+
+<span id="index-2rdrop--R_003ad-_002d_002d--gforth"></span>
+<span id="index-2rdrop"></span>
+<span id="index-2rdrop-1"></span>
+<div class="format">
+<pre class="format"><code>2rdrop</code>       <i>R:d &ndash; </i>       gforth       &ldquo;two-r-drop&rdquo;
+</pre></div>
+
+
+
+
+
+
+</body>
+</html>

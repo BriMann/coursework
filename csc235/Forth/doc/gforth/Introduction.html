@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Introduction (Gforth Manual)</title>
+
+<meta name="description" content="Introduction (Gforth Manual)">
+<meta name="keywords" content="Introduction (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="Introducing-the-Text-Interpreter.html" rel="next" title="Introducing the Text Interpreter">
+<link href="Wordlists-and-Search-Order-Tutorial.html" rel="prev" title="Wordlists and Search Order Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Introduction"></span><div class="header">
+<p>
+Next: <a href="Words.html" accesskey="n" rel="next">Words</a>, Previous: <a href="Tutorial.html" accesskey="p" rel="prev">Tutorial</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="An-Introduction-to-ANS-Forth"></span><h2 class="chapter">4 An Introduction to ANS Forth</h2>
+<span id="index-Forth-_002d-an-introduction"></span>
+
+<p>The difference of this chapter from the Tutorial (see <a href="Tutorial.html">Tutorial</a>) is
+that it is slower-paced in its examples, but uses them to dive deep into
+explaining Forth internals (not covered by the Tutorial).  Apart from
+that, this chapter covers far less material.  It is suitable for reading
+without using a computer.
+</p>
+<p>The primary purpose of this manual is to document Gforth. However, since
+Forth is not a widely-known language and there is a lack of up-to-date
+teaching material, it seems worthwhile to provide some introductory
+material.  For other sources of Forth-related
+information, see <a href="Forth_002drelated-information.html">Forth-related information</a>.
+</p>
+<p>The examples in this section should work on any ANS Forth; the
+output shown was produced using Gforth. Each example attempts to
+reproduce the exact output that Gforth produces. If you try out the
+examples (and you should), what you should type is shown <kbd>like this</kbd>
+and Gforth&rsquo;s response is shown <code>like this</code>. The single exception is
+that, where the example shows <tt class="key">RET</tt> it means that you should
+press the &ldquo;carriage return&rdquo; key. Unfortunately, some output formats for
+this manual cannot show the difference between <kbd>this</kbd> and
+<code>this</code> which will make trying out the examples harder (but not
+impossible).
+</p>
+<p>Forth is an unusual language. It provides an interactive development
+environment which includes both an interpreter and compiler. Forth
+programming style encourages you to break a problem down into many
+<span id="index-factoring"></span>
+small fragments (<em>factoring</em>), and then to develop and test each
+fragment interactively. Forth advocates assert that breaking the
+edit-compile-test cycle used by conventional programming languages can
+lead to great productivity improvements.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Introducing-the-Text-Interpreter.html" accesskey="1">Introducing the Text Interpreter</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stacks-and-Postfix-notation.html" accesskey="2">Stacks and Postfix notation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Your-first-definition.html" accesskey="3">Your first definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="How-does-that-work_003f.html" accesskey="4">How does that work?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Forth-is-written-in-Forth.html" accesskey="5">Forth is written in Forth</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Review-_002d-elements-of-a-Forth-system.html" accesskey="6">Review - elements of a Forth system</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Where-to-go-next.html" accesskey="7">Where to go next</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Exercises.html" accesskey="8">Exercises</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Words.html" accesskey="n" rel="next">Words</a>, Previous: <a href="Tutorial.html" accesskey="p" rel="prev">Tutorial</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

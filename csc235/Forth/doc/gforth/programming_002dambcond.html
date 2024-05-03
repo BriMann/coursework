@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>programming-ambcond (Gforth Manual)</title>
+
+<meta name="description" content="programming-ambcond (Gforth Manual)">
+<meta name="keywords" content="programming-ambcond (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="The-optional-Programming_002dTools-word-set.html" rel="up" title="The optional Programming-Tools word set">
+<link href="The-optional-Search_002dOrder-word-set.html" rel="next" title="The optional Search-Order word set">
+<link href="programming_002didef.html" rel="prev" title="programming-idef">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="programming_002dambcond"></span><div class="header">
+<p>
+Previous: <a href="programming_002didef.html" accesskey="p" rel="prev">programming-idef</a>, Up: <a href="The-optional-Programming_002dTools-word-set.html" accesskey="u" rel="up">The optional Programming-Tools word set</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Ambiguous-conditions-7"></span><h4 class="subsection">8.10.2 Ambiguous conditions</h4>
+<span id="index-programming_002dtools-words_002c-ambiguous-conditions"></span>
+<span id="index-ambiguous-conditions_002c-programming_002dtools-words"></span>
+
+<dl compact="compact">
+<dt><i>deleting the compilation word list (<code>FORGET</code>):</i></dt>
+<dd><span id="index-FORGET_002c-deleting-the-compilation-word-list"></span>
+<p>Not implemented (yet).
+</p>
+</dd>
+<dt><i>fewer than <i>u</i>+1 items on the control-flow stack (<code>CS-PICK</code>, <code>CS-ROLL</code>):</i></dt>
+<dd><span id="index-CS_002dPICK_002c-fewer-than-u_002b1-items-on-the-control-flow_002dstack"></span>
+<span id="index-CS_002dROLL_002c-fewer-than-u_002b1-items-on-the-control-flow_002dstack"></span>
+<span id="index-control_002dflow-stack-underflow"></span>
+<p>This typically results in an <code>abort&quot;</code> with a descriptive error
+message (may change into a <code>-22 throw</code> (Control structure mismatch)
+in the future). You may also get a memory access error. If you are
+unlucky, this ambiguous condition is not caught.
+</p>
+</dd>
+<dt><i><i>name</i> can&rsquo;t be found (<code>FORGET</code>):</i></dt>
+<dd><span id="index-FORGET_002c-name-can_0027t-be-found"></span>
+<p>Not implemented (yet).
+</p>
+</dd>
+<dt><i><i>name</i> not defined via <code>CREATE</code>:</i></dt>
+<dd><span id="index-_003bCODE_002c-name-not-defined-via-CREATE"></span>
+<p><code>;CODE</code> behaves like <code>DOES&gt;</code> in this respect, i.e., it changes
+the execution semantics of the last defined word no matter how it was
+defined.
+</p>
+</dd>
+<dt><i><code>POSTPONE</code> applied to <code>[IF]</code>:</i></dt>
+<dd><span id="index-POSTPONE-applied-to-_005bIF_005d"></span>
+<span id="index-_005bIF_005d-and-POSTPONE"></span>
+<p>After defining <code>: X POSTPONE [IF] ; IMMEDIATE</code>. <code>X</code> is
+equivalent to <code>[IF]</code>.
+</p>
+</dd>
+<dt><i>reaching the end of the input source before matching <code>[ELSE]</code> or <code>[THEN]</code>:</i></dt>
+<dd><span id="index-_005bIF_005d_002c-end-of-the-input-source-before-matching-_005bELSE_005d-or-_005bTHEN_005d"></span>
+<p>Continue in the same state of conditional compilation in the next outer
+input source. Currently there is no warning to the user about this.
+</p>
+</dd>
+<dt><i>removing a needed definition (<code>FORGET</code>):</i></dt>
+<dd><span id="index-FORGET_002c-removing-a-needed-definition"></span>
+<p>Not implemented (yet).
+</p>
+</dd>
+</dl>
+
+
+
+
+
+</body>
+</html>

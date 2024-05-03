@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>String Formats (Gforth Manual)</title>
+
+<meta name="description" content="String Formats (Gforth Manual)">
+<meta name="keywords" content="String Formats (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Other-I_002fO.html" rel="up" title="Other I/O">
+<link href="Displaying-characters-and-strings.html" rel="next" title="Displaying characters and strings">
+<link href="Formatted-numeric-output.html" rel="prev" title="Formatted numeric output">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="String-Formats"></span><div class="header">
+<p>
+Next: <a href="Displaying-characters-and-strings.html" accesskey="n" rel="next">Displaying characters and strings</a>, Previous: <a href="Formatted-numeric-output.html" accesskey="p" rel="prev">Formatted numeric output</a>, Up: <a href="Other-I_002fO.html" accesskey="u" rel="up">Other I/O</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="String-Formats-1"></span><h4 class="subsection">5.19.3 String Formats</h4>
+<span id="index-strings-_002d-see-character-strings"></span>
+<span id="index-character-strings-_002d-formats"></span>
+<span id="index-I_002fO-_002d-see-character-strings"></span>
+<span id="index-counted-strings"></span>
+
+
+<p>Forth commonly uses two different methods for representing character
+strings:
+</p>
+<ul>
+<li> <span id="index-address-of-counted-string"></span>
+<span id="index-counted-string"></span>
+As a <em>counted string</em>, represented by a <i>c-addr</i>. The char
+addressed by <i>c-addr</i> contains a character-count, <i>n</i>, of the
+string and the string occupies the subsequent <i>n</i> char addresses in
+memory.
+</li><li> As cell pair on the stack; <i>c-addr u</i>, where <i>u</i> is the length
+of the string in characters, and <i>c-addr</i> is the address of the
+first byte of the string.
+</li></ul>
+
+<p>ANS Forth encourages the use of the second format when representing
+strings.
+</p>
+
+<span id="index-count--c_002daddr1-_002d_002d-c_002daddr2-u--core"></span>
+<span id="index-count"></span>
+<span id="index-count-1"></span>
+<div class="format">
+<pre class="format"><code>count</code>       <i>c-addr1 &ndash; c-addr2 u </i>       core       &ldquo;count&rdquo;
+</pre></div>
+<p><i>c-addr2</i> is the first character and <i>u</i> the length of the
+counted string at <i>c-addr1</i>.
+</p>
+
+
+<p>For words that move, copy and search for strings see <a href="Memory-Blocks.html">Memory Blocks</a>. For words that display characters and strings see
+<a href="Displaying-characters-and-strings.html">Displaying characters and strings</a>.
+</p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Address arithmetic (Gforth Manual)</title>
+
+<meta name="description" content="Address arithmetic (Gforth Manual)">
+<meta name="keywords" content="Address arithmetic (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Memory.html" rel="up" title="Memory">
+<link href="Memory-Blocks.html" rel="next" title="Memory Blocks">
+<link href="Memory-Access.html" rel="prev" title="Memory Access">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Address-arithmetic"></span><div class="header">
+<p>
+Next: <a href="Memory-Blocks.html" accesskey="n" rel="next">Memory Blocks</a>, Previous: <a href="Memory-Access.html" accesskey="p" rel="prev">Memory Access</a>, Up: <a href="Memory.html" accesskey="u" rel="up">Memory</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Address-arithmetic-1"></span><h4 class="subsection">5.7.5 Address arithmetic</h4>
+<span id="index-address-arithmetic-words"></span>
+
+<p>Address arithmetic is the foundation on which you can build data
+structures like arrays, records (see <a href="Structures.html">Structures</a>) and objects
+(see <a href="Object_002doriented-Forth.html">Object-oriented Forth</a>).
+</p>
+<span id="index-address-unit"></span>
+<span id="index-au-_0028address-unit_0029"></span>
+<p>ANS Forth does not specify the sizes of the data types. Instead, it
+offers a number of words for computing sizes and doing address
+arithmetic. Address arithmetic is performed in terms of address units
+(aus); on most systems the address unit is one byte. Note that a
+character may have more than one au, so <code>chars</code> is no noop (on
+platforms where it is a noop, it compiles to nothing).
+</p>
+<p>The basic address arithmetic words are <code>+</code> and <code>-</code>.  E.g., if
+you have the address of a cell, perform <code>1 cells +</code>, and you will
+have the address of the next cell.
+</p>
+<span id="index-contiguous-regions-and-address-arithmetic"></span>
+<p>In ANS Forth you can perform address arithmetic only within a contiguous
+region, i.e., if you have an address into one region, you can only add
+and subtract such that the result is still within the region; you can
+only subtract or compare addresses from within the same contiguous
+region.  Reasons: several contiguous regions can be arranged in memory
+in any way; on segmented systems addresses may have unusual
+representations, such that address arithmetic only works within a
+region.  Gforth provides a few more guarantees (linear address space,
+dictionary grows upwards), but in general I have found it easy to stay
+within contiguous regions (exception: computing and comparing to the
+address just beyond the end of an array).
+</p>
+<span id="index-alignment-of-addresses-for-types"></span>
+<p>ANS Forth also defines words for aligning addresses for specific
+types. Many computers require that accesses to specific data types
+must only occur at specific addresses; e.g., that cells may only be
+accessed at addresses divisible by 4. Even if a machine allows unaligned
+accesses, it can usually perform aligned accesses faster. 
+</p>
+<p>For the performance-conscious: alignment operations are usually only
+necessary during the definition of a data structure, not during the
+(more frequent) accesses to it.
+</p>
+<p>ANS Forth defines no words for character-aligning addresses. This is not
+an oversight, but reflects the fact that addresses that are not
+char-aligned have no use in the standard and therefore will not be
+created.
+</p>
+<span id="index-CREATE-and-alignment"></span>
+<p>ANS Forth guarantees that addresses returned by <code>CREATE</code>d words
+are cell-aligned; in addition, Gforth guarantees that these addresses
+are aligned for all purposes.
+</p>
+<p>Note that the ANS Forth word <code>char</code> has nothing to do with address
+arithmetic.
+</p>
+
+<span id="index-chars--n1-_002d_002d-n2--core"></span>
+<span id="index-chars"></span>
+<span id="index-chars-1"></span>
+<div class="format">
+<pre class="format"><code>chars</code>       <i>n1 &ndash; n2  </i>       core       &ldquo;chars&rdquo;
+</pre></div>
+<p><i>n2</i> is the number of address units of <i>n1</i> chars.&quot;&quot;
+</p>
+
+<span id="index-char_002b--c_002daddr1-_002d_002d-c_002daddr2--core"></span>
+<span id="index-char_002b"></span>
+<span id="index-char_002b-1"></span>
+<div class="format">
+<pre class="format"><code>char+</code>       <i>c-addr1 &ndash; c-addr2 </i>       core       &ldquo;char-plus&rdquo;
+</pre></div>
+<p><code>1 chars +</code>.
+</p>
+<span id="index-cells--n1-_002d_002d-n2--core"></span>
+<span id="index-cells"></span>
+<span id="index-cells-1"></span>
+<div class="format">
+<pre class="format"><code>cells</code>       <i>n1 &ndash; n2 </i>       core       &ldquo;cells&rdquo;
+</pre></div>
+<p><i>n2</i> is the number of address units of <i>n1</i> cells.
+</p>
+<span id="index-cell_002b--a_002daddr1-_002d_002d-a_002daddr2--core"></span>
+<span id="index-cell_002b"></span>
+<span id="index-cell_002b-1"></span>
+<div class="format">
+<pre class="format"><code>cell+</code>       <i>a-addr1 &ndash; a-addr2 </i>       core       &ldquo;cell-plus&rdquo;
+</pre></div>
+<p><code>1 cells +</code>
+</p>
+<span id="index-cell--_002d_002d-u--gforth"></span>
+<span id="index-cell"></span>
+<span id="index-cell-1"></span>
+<div class="format">
+<pre class="format"><code>cell</code>       <i>&ndash; u  </i>       gforth       &ldquo;cell&rdquo;
+</pre></div>
+<p><code>Constant</code> &ndash; <code>1 cells</code>
+</p>
+
+<span id="index-aligned--c_002daddr-_002d_002d-a_002daddr--core"></span>
+<span id="index-aligned"></span>
+<span id="index-aligned-1"></span>
+<div class="format">
+<pre class="format"><code>aligned</code>       <i>c-addr &ndash; a-addr </i>       core       &ldquo;aligned&rdquo;
+</pre></div>
+<p><i>a-addr</i> is the first aligned address greater than or equal to <i>c-addr</i>.
+</p>
+<span id="index-floats--n1-_002d_002d-n2--float"></span>
+<span id="index-floats"></span>
+<span id="index-floats-1"></span>
+<div class="format">
+<pre class="format"><code>floats</code>       <i>n1 &ndash; n2 </i>       float       &ldquo;floats&rdquo;
+</pre></div>
+<p><i>n2</i> is the number of address units of <i>n1</i> floats.
+</p>
+<span id="index-float_002b--f_002daddr1-_002d_002d-f_002daddr2--float"></span>
+<span id="index-float_002b"></span>
+<span id="index-float_002b-1"></span>
+<div class="format">
+<pre class="format"><code>float+</code>       <i>f-addr1 &ndash; f-addr2 </i>       float       &ldquo;float-plus&rdquo;
+</pre></div>
+<p><code>1 floats +</code>.
+</p>
+<span id="index-float--_002d_002d-u--gforth"></span>
+<span id="index-float"></span>
+<span id="index-float-1"></span>
+<div class="format">
+<pre class="format"><code>float</code>       <i>&ndash; u  </i>       gforth       &ldquo;float&rdquo;
+</pre></div>
+<p><code>Constant</code> &ndash; the number of address units corresponding to a floating-point number.
+</p>
+
+<span id="index-faligned--c_002daddr-_002d_002d-f_002daddr--float"></span>
+<span id="index-faligned"></span>
+<span id="index-faligned-1"></span>
+<div class="format">
+<pre class="format"><code>faligned</code>       <i>c-addr &ndash; f-addr </i>       float       &ldquo;f-aligned&rdquo;
+</pre></div>
+<p><i>f-addr</i> is the first float-aligned address greater than or equal to <i>c-addr</i>.
+</p>
+<span id="index-sfloats--n1-_002d_002d-n2--float_002dext"></span>
+<span id="index-sfloats"></span>
+<span id="index-sfloats-1"></span>
+<div class="format">
+<pre class="format"><code>sfloats</code>       <i>n1 &ndash; n2 </i>       float-ext       &ldquo;s-floats&rdquo;
+</pre></div>
+<p><i>n2</i> is the number of address units of <i>n1</i>
+single-precision IEEE floating-point numbers.
+</p>
+<span id="index-sfloat_002b--sf_002daddr1-_002d_002d-sf_002daddr2--float_002dext"></span>
+<span id="index-sfloat_002b"></span>
+<span id="index-sfloat_002b-1"></span>
+<div class="format">
+<pre class="format"><code>sfloat+</code>       <i>sf-addr1 &ndash; sf-addr2  </i>       float-ext       &ldquo;s-float-plus&rdquo;
+</pre></div>
+<p><code>1 sfloats +</code>.
+</p>
+
+<span id="index-sfaligned--c_002daddr-_002d_002d-sf_002daddr--float_002dext"></span>
+<span id="index-sfaligned"></span>
+<span id="index-sfaligned-1"></span>
+<div class="format">
+<pre class="format"><code>sfaligned</code>       <i>c-addr &ndash; sf-addr </i>       float-ext       &ldquo;s-f-aligned&rdquo;
+</pre></div>
+<p><i>sf-addr</i> is the first single-float-aligned address greater
+than or equal to <i>c-addr</i>.
+</p>
+<span id="index-dfloats--n1-_002d_002d-n2--float_002dext"></span>
+<span id="index-dfloats"></span>
+<span id="index-dfloats-1"></span>
+<div class="format">
+<pre class="format"><code>dfloats</code>       <i>n1 &ndash; n2 </i>       float-ext       &ldquo;d-floats&rdquo;
+</pre></div>
+<p><i>n2</i> is the number of address units of <i>n1</i>
+double-precision IEEE floating-point numbers.
+</p>
+<span id="index-dfloat_002b--df_002daddr1-_002d_002d-df_002daddr2--float_002dext"></span>
+<span id="index-dfloat_002b"></span>
+<span id="index-dfloat_002b-1"></span>
+<div class="format">
+<pre class="format"><code>dfloat+</code>       <i>df-addr1 &ndash; df-addr2  </i>       float-ext       &ldquo;d-float-plus&rdquo;
+</pre></div>
+<p><code>1 dfloats +</code>.
+</p>
+
+<span id="index-dfaligned--c_002daddr-_002d_002d-df_002daddr--float_002dext"></span>
+<span id="index-dfaligned"></span>
+<span id="index-dfaligned-1"></span>
+<div class="format">
+<pre class="format"><code>dfaligned</code>       <i>c-addr &ndash; df-addr </i>       float-ext       &ldquo;d-f-aligned&rdquo;
+</pre></div>
+<p><i>df-addr</i> is the first double-float-aligned address greater
+than or equal to <i>c-addr</i>.
+</p>
+<span id="index-maxaligned--addr1-_002d_002d-addr2--gforth"></span>
+<span id="index-maxaligned"></span>
+<span id="index-maxaligned-1"></span>
+<div class="format">
+<pre class="format"><code>maxaligned</code>       <i>addr1 &ndash; addr2  </i>       gforth       &ldquo;maxaligned&rdquo;
+</pre></div>
+<p><i>addr2</i> is the first address after <i>addr1</i> that satisfies
+all alignment restrictions.
+maxaligned&quot;
+</p>
+
+<span id="index-cfaligned--addr1-_002d_002d-addr2--gforth"></span>
+<span id="index-cfaligned"></span>
+<span id="index-cfaligned-1"></span>
+<div class="format">
+<pre class="format"><code>cfaligned</code>       <i>addr1 &ndash; addr2  </i>       gforth       &ldquo;cfaligned&rdquo;
+</pre></div>
+<p><i>addr2</i> is the first address after <i>addr1</i> that is aligned for
+a code field (i.e., such that the corresponding body is maxaligned).
+</p>
+
+<span id="index-ADDRESS_002dUNIT_002dBITS--_002d_002d-n--environment"></span>
+<span id="index-ADDRESS_002dUNIT_002dBITS"></span>
+<span id="index-ADDRESS_002dUNIT_002dBITS-1"></span>
+<div class="format">
+<pre class="format"><code>ADDRESS-UNIT-BITS</code>       <i>&ndash; n  </i>       environment       &ldquo;ADDRESS-UNIT-BITS&rdquo;
+</pre></div>
+<p>Size of one address unit, in bits.
+</p>
+
+<span id="index-_002fw--_002d_002d-u--gforth"></span>
+<span id="index-_002fw"></span>
+<span id="index-_002fw-1"></span>
+<div class="format">
+<pre class="format"><code>/w</code>       <i>&ndash; u  </i>       gforth       &ldquo;slash-w&rdquo;
+</pre></div>
+<p>address units for a 16-bit value
+</p>
+
+<span id="index-_002fl--_002d_002d-u--gforth"></span>
+<span id="index-_002fl"></span>
+<span id="index-_002fl-1"></span>
+<div class="format">
+<pre class="format"><code>/l</code>       <i>&ndash; u  </i>       gforth       &ldquo;slash-l&rdquo;
+</pre></div>
+<p>address units for a 32-bit value
+</p>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Memory-Blocks.html" accesskey="n" rel="next">Memory Blocks</a>, Previous: <a href="Memory-Access.html" accesskey="p" rel="prev">Memory Access</a>, Up: <a href="Memory.html" accesskey="u" rel="up">Memory</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

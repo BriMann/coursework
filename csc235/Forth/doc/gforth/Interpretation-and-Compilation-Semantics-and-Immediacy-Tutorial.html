@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Interpretation and Compilation Semantics and Immediacy Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Interpretation and Compilation Semantics and Immediacy Tutorial (Gforth Manual)">
+<meta name="keywords" content="Interpretation and Compilation Semantics and Immediacy Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="Execution-Tokens-Tutorial.html" rel="next" title="Execution Tokens Tutorial">
+<link href="Files-Tutorial.html" rel="prev" title="Files Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial"></span><div class="header">
+<p>
+Next: <a href="Execution-Tokens-Tutorial.html" accesskey="n" rel="next">Execution Tokens Tutorial</a>, Previous: <a href="Files-Tutorial.html" accesskey="p" rel="prev">Files Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Interpretation-and-Compilation-Semantics-and-Immediacy"></span><h3 class="section">3.28 Interpretation and Compilation Semantics and Immediacy</h3>
+<span id="index-semantics-tutorial"></span>
+<span id="index-interpretation-semantics-tutorial"></span>
+<span id="index-compilation-semantics-tutorial"></span>
+<span id="index-immediate_002c-tutorial"></span>
+
+<p>When a word is compiled, it behaves differently from being interpreted.
+E.g., consider <code>+</code>:
+</p>
+<div class="example">
+<pre class="example">1 2 + .
+: foo + ;
+</pre></div>
+
+<p>These two behaviours are known as compilation and interpretation
+semantics.  For normal words (e.g., <code>+</code>), the compilation semantics
+is to append the interpretation semantics to the currently defined word
+(<code>foo</code> in the example above).  I.e., when <code>foo</code> is executed
+later, the interpretation semantics of <code>+</code> (i.e., adding two
+numbers) will be performed.
+</p>
+<p>However, there are words with non-default compilation semantics, e.g.,
+the control-flow words like <code>if</code>.  You can use <code>immediate</code> to
+change the compilation semantics of the last defined word to be equal to
+the interpretation semantics:
+</p>
+<div class="example">
+<pre class="example">: [FOO] ( -- )
+ 5 . ; immediate
+
+[FOO]
+: bar ( -- )
+  [FOO] ;
+bar
+see bar
+</pre></div>
+
+<p>Two conventions to mark words with non-default compilation semantics are
+names with brackets (more frequently used) and to write them all in
+upper case (less frequently used).
+</p>
+<p>In Gforth (and many other systems) you can also remove the
+interpretation semantics with <code>compile-only</code> (the compilation
+semantics is derived from the original interpretation semantics):
+</p>
+<div class="example">
+<pre class="example">: flip ( -- )
+ 6 . ; compile-only \ but not immediate
+flip
+
+: flop ( -- )
+ flip ;
+flop
+</pre></div>
+
+<p>In this example the interpretation semantics of <code>flop</code> is equal to
+the original interpretation semantics of <code>flip</code>.
+</p>
+<p>The text interpreter has two states: in interpret state, it performs the
+interpretation semantics of words it encounters; in compile state, it
+performs the compilation semantics of these words.
+</p>
+<p>Among other things, <code>:</code> switches into compile state, and <code>;</code>
+switches back to interpret state.  They contain the factors <code>]</code>
+(switch to compile state) and <code>[</code> (switch to interpret state), that
+do nothing but switch the state.
+</p>
+<div class="example">
+<pre class="example">: xxx ( -- )
+  [ 5 . ]
+;
+
+xxx
+see xxx
+</pre></div>
+
+<p>These brackets are also the source of the naming convention mentioned
+above.
+</p>
+<p>Reference: <a href="Interpretation-and-Compilation-Semantics.html">Interpretation and Compilation Semantics</a>.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Execution-Tokens-Tutorial.html" accesskey="n" rel="next">Execution Tokens Tutorial</a>, Previous: <a href="Files-Tutorial.html" accesskey="p" rel="prev">Files Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

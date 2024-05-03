@@ -1,0 +1,729 @@
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make clean
+rm -f zcalc.tab.o lex.yy.o prefix infix postfix zcalc.tab.h zcalc.tab.c lex.yy.c *.o
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1261:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1261 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./prefix
+3 + 4
+= 3
+syntax error 
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./prefix
++ 3 2
+= 5
+X =   x = 4 * 3 x
+syntax error 
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./prefix
+x = 4
+* 3 x
+= 12
+x = 5 + 6
+syntax error 
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./prefix[1Pfix[1Pfixofixsfixtfix
+bash: ./postfix: No such file or directory
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./postfix[1Prefix[4Pmake clean
+rm -f zcalc.tab.o lex.yy.o prefix infix postfix zcalc.tab.h zcalc.tab.c lex.yy.c *.o
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make clean[1P./postfix[1Prefix[4Pmake
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1261:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1261 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make clean
+rm -f zcalc.tab.o lex.yy.o prefix infix postfix zcalc.tab.h zcalc.tab.c lex.yy.c *.o
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make clean[K
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1261:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1261 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+bison -d infix.y --file-infix=zcalc
+bison: unrecognized option '--file-infix=zcalc'
+Try 'bison --help' for more information.
+make: *** [Makefile:33: infix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./infix
+bash: ./infix: No such file or directory
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make infuc[K[Kix
+bison -d infix.y --file-infix=zcalc
+bison: unrecognized option '--file-infix=zcalc'
+Try 'bison --help' for more information.
+make: *** [Makefile:33: infix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make infix[3P./infix[3Pmake
+bison -d infix.y --file-prefix=zcalc
+infix.y:37.1-7: error: invalid directive: ‘%center’
+   37 | %center '-' '+'
+      | ^~~~~~~
+infix.y:38.1-7: error: invalid directive: ‘%center’
+   38 | %center '*' '/'
+      | ^~~~~~~
+make: *** [Makefile:33: infix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make postfix
+bison -d postfix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1259:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1259 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o postfix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make postfix[K
+bison -d infix.y --file-prefix=zcalc
+infix.y:53.37-38: error: $2 of ‘expression’ has no declared type
+   53 |             | expression ')' { $$ = $2; }
+      |                                     ^~
+make: *** [Makefile:33: infix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d infix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1259:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1259 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o infix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./infix
+3 + 4
+= 7
+& 7 * 6
+= 42
+r = 5 _ -21
+(r + 50) / 3
+= 11.3333
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./infix[K[K[K[K[Kpostfix
+3 4 +
+= 7
+7 6 * 5 -
+= 37
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./postfix[2Pinfix[3Pmake
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:60.30-39: error: symbol ‘expresiion’ is used, but is not defined as a token and has no rules
+   60 |             | '^' expression expresiion { $$ = $2 ^ $3;}
+      |                              ^~~~~~~~~~
+prefix.y:60.53-54: error: $3 of ‘expression’ has no declared type
+   60 |             | '^' expression expresiion { $$ = $2 ^ $3;}
+      |                                                     ^~
+make: *** [Makefile:26: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1266:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1266 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:60:75:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary ^ (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   60 |             | '^' expression expression { $$ = $2 ^ $3;}
+      |                                                                           [01;31m[K^[m[K                
+      |                                                                    [32m[K|[m[K                 [34m[K|[m[K
+      |                                                                    [32m[Kdouble[m[K            [34m[Kdouble[m[K
+make: *** [Makefile:27: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1266:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1266 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make./postfix[K[K[K[K[K[K[Kprefix
+& 7 6
+= 1
+& 0 1
+= 0
+| 3 4
+= 1
+ | 0 0^[[D^[[D^[[D            
+= 0
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./prefix[4Pmake
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1266:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1266 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make./prefix
+syntax error 
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./prefix[4Pmake
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:37.7-10: warning: extra characters in character literal [-Wother]
+   37 | %left '**' 
+      |       ^~~~
+prefix.y:39.7-10: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |       ^~~~
+prefix.y:39.12-15: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |            ^~~~
+prefix.y:41.1-5: error: %left redeclaration for '*'
+   41 | %left '*' '/'
+      | ^~~~~
+prefix.y:37.1-5:     previous declaration
+   37 | %left '**' 
+      | ^~~~~
+prefix.y:56.15-18: warning: extra characters in character literal [-Wother]
+   56 |             | '<<' expression expression {$$ = $2 << $3}
+      |               ^~~~
+prefix.y:57.15-18: warning: extra characters in character literal [-Wother]
+   57 |             | '>>' expression expression {$$ = $2 >> $3}
+      |               ^~~~
+make: *** [Makefile:26: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:37.7-10: warning: extra characters in character literal [-Wother]
+   37 | %left '**' 
+      |       ^~~~
+prefix.y:39.7-10: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |       ^~~~
+prefix.y:39.12-15: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |            ^~~~
+prefix.y:41.1-5: error: %left redeclaration for '*'
+   41 | %left '*' '/'
+      | ^~~~~
+prefix.y:37.1-5:     previous declaration
+   37 | %left '**' 
+      | ^~~~~
+prefix.y:54.13-16: warning: extra characters in character literal [-Wother]
+   54 | expression: '**' expression expression { $$ = $2 ** $3}
+      |             ^~~~
+prefix.y:57.15-18: warning: extra characters in character literal [-Wother]
+   57 |             | '<<' expression expression {$$ = $2 << $3}
+      |               ^~~~
+prefix.y:58.15-18: warning: extra characters in character literal [-Wother]
+   58 |             | '>>' expression expression {$$ = $2 >> $3}
+      |               ^~~~
+make: *** [Makefile:26: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:37.7-10: warning: extra characters in character literal [-Wother]
+   37 | %left '**' 
+      |       ^~~~
+prefix.y:39.7-10: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |       ^~~~
+prefix.y:39.12-15: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |            ^~~~
+prefix.y:41.1-5: error: %left redeclaration for '*'
+   41 | %left '*' '/'
+      | ^~~~~
+prefix.y:37.1-5:     previous declaration
+   37 | %left '**' 
+      | ^~~~~
+prefix.y:54.13-16: warning: extra characters in character literal [-Wother]
+   54 | expression: '**' expression expression { $$ = $2 ^ $3}
+      |             ^~~~
+prefix.y:57.15-18: warning: extra characters in character literal [-Wother]
+   57 |             | '<<' expression expression {$$ = $2 << $3}
+      |               ^~~~
+prefix.y:58.15-18: warning: extra characters in character literal [-Wother]
+   58 |             | '>>' expression expression {$$ = $2 >> $3}
+      |               ^~~~
+make: *** [Makefile:26: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:39.7-10: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |       ^~~~
+prefix.y:39.12-15: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |            ^~~~
+prefix.y:57.15-18: warning: extra characters in character literal [-Wother]
+   57 |             | '<<' expression expression {$$ = $2 << $3}
+      |               ^~~~
+prefix.y:58.15-18: warning: extra characters in character literal [-Wother]
+   58 |             | '>>' expression expression {$$ = $2 >> $3}
+      |               ^~~~
+prefix.y:54.12: warning: empty rule for typed nonterminal, and no action [-Wother]
+   54 | expression: /*'**' expression expression { $$ = $2 ^ $3}*/
+      |            ^
+prefix.y: warning: 247 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1273:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1273 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:57:75:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary << (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   57 |             | '<<' expression expression {$$ = $2 << $3}
+      |                                                                           [01;31m[K^[m[K                 
+      |                                                                    [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                    [32m[Kdouble[m[K             [34m[Kdouble[m[K
+[01m[Kprefix.y:57:93:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+   57 |             | '<<' expression expression {$$ = $2 << $3}
+      |                                                                                             [01;31m[K^[m[K
+      |                                                                                             [32m[K;[m[K
+[01m[Kprefix.y:58:75:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary >> (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   58 |             | '>>' expression expression {$$ = $2 >> $3}
+      |                                                                           [01;31m[K^[m[K                 
+      |                                                                    [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                    [32m[Kdouble[m[K             [34m[Kdouble[m[K
+[01m[Kprefix.y:58:93:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+   58 |             | '>>' expression expression {$$ = $2 >> $3}
+      |                                                                                             [01;31m[K^[m[K
+      |                                                                                             [32m[K;[m[K
+make: *** [Makefile:27: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:39.7-10: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |       ^~~~
+prefix.y:39.12-15: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |            ^~~~
+prefix.y:57.15-18: warning: extra characters in character literal [-Wother]
+   57 |             | '<<' expression expression {$$ = $2 << $3; }
+      |               ^~~~
+prefix.y:58.15-18: warning: extra characters in character literal [-Wother]
+   58 |             | '>>' expression expression {$$ = $2 >> $3; }
+      |               ^~~~
+prefix.y:54.12: warning: empty rule for typed nonterminal, and no action [-Wother]
+   54 | expression: /*'**' expression expression { $$ = $2 ^ $3}*/
+      |            ^
+prefix.y: warning: 247 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1273:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1273 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:57:75:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary << (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   57 |             | '<<' expression expression {$$ = $2 << $3; [32m[K}[m[K
+      |                                                          [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                    [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                    [32m[Kdouble[m[K             [34m[Kdouble[m[K
+[01m[Kprefix.y:58:75:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary >> (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   58 |             | '>>' expression expression {$$ = $2 >> $3; [32m[K}[m[K
+      |                                                          [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                    [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                    [32m[Kdouble[m[K             [34m[Kdouble[m[K
+make: *** [Makefile:27: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:39.7-10: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |       ^~~~
+prefix.y:39.12-15: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |            ^~~~
+prefix.y:57.15-18: warning: extra characters in character literal [-Wother]
+   57 |             | '<<' expression expression {$$ = $2 << $3; }
+      |               ^~~~
+prefix.y:58.15-18: warning: extra characters in character literal [-Wother]
+   58 |             | '>>' expression expression {$$ = $2 >> $3; }
+      |               ^~~~
+prefix.y:54.12: warning: empty rule for typed nonterminal, and no action [-Wother]
+   54 | expression: /*'**' expression expression { $$ = $2, $3)}*/
+      |            ^
+prefix.y: warning: 247 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1273:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1273 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:57:75:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary << (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   57 |             | '<<' expression expression {$$ = $2 << $3; [32m[K}[m[K
+      |                                                          [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                    [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                    [32m[Kdouble[m[K             [34m[Kdouble[m[K
+[01m[Kprefix.y:58:75:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary >> (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   58 |             | '>>' expression expression {$$ = $2 >> $3; [32m[K}[m[K
+      |                                                          [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                    [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                    [32m[Kdouble[m[K             [34m[Kdouble[m[K
+make: *** [Makefile:27: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:37.7-10: warning: extra characters in character literal [-Wother]
+   37 | %left '**' 
+      |       ^~~~
+prefix.y:39.7-10: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |       ^~~~
+prefix.y:39.12-15: warning: extra characters in character literal [-Wother]
+   39 | %left '<<' '>>'
+      |            ^~~~
+prefix.y:41.1-5: error: %left redeclaration for '*'
+   41 | %left '*' '/'
+      | ^~~~~
+prefix.y:37.1-5:     previous declaration
+   37 | %left '**' 
+      | ^~~~~
+prefix.y:54.13-16: warning: extra characters in character literal [-Wother]
+   54 | expression: '**' expression expression { $$ = pow($2, $3)}
+      |             ^~~~
+prefix.y:57.15-18: warning: extra characters in character literal [-Wother]
+   57 |             | '<<' expression expression {$$ = $2 << $3; }
+      |               ^~~~
+prefix.y:58.15-18: warning: extra characters in character literal [-Wother]
+   58 |             | '>>' expression expression {$$ = $2 >> $3; }
+      |               ^~~~
+make: *** [Makefile:26: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:43.1-11: error: invalid directive: ‘%presedence’
+   43 | %presedence RSHIFT_OP LSHIFT_OP
+      | ^~~~~~~~~~~
+prefix.y:44.1-11: error: invalid directive: ‘%presedence’
+   44 | %presedence '~'
+      | ^~~~~~~~~~~
+make: *** [Makefile:26: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1280:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1280 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:59:99:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+   59 | expression: POWER_OP expression expression { $$ = pow($2, $3)}
+      |                                                                                                   [01;31m[K^[m[K
+      |                                                                                                   [32m[K;[m[K
+[01m[Kprefix.y:65:80:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary << (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   65 |             | LSHIFT_OP expression expression {$$ = $2 << $3; [32m[K}[m[K
+      |                                                               [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                         [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                         [32m[Kdouble[m[K             [34m[Kdouble[m[K
+[01m[Kprefix.y:66:80:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary >> (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   66 |             | RSHIFT_OP expression expression {$$ = $2 >> $3; [32m[K}[m[K
+      |                                                               [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                         [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                         [32m[Kdouble[m[K             [34m[Kdouble[m[K
+make: *** [Makefile:27: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1280:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1280 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:59:99:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+   59 | expression: POWER_OP expression expression { $$ = pow($2, $3)}
+      |                                                                                                   [01;31m[K^[m[K
+      |                                                                                                   [32m[K;[m[K
+[01m[Kprefix.y:65:80:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary << (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   65 |             | LSHIFT_OP expression expression {$$ = $2 << $3; [32m[K}[m[K
+      |                                                               [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                         [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                         [32m[Kdouble[m[K             [34m[Kdouble[m[K
+[01m[Kprefix.y:66:80:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary >> (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   66 |             | RSHIFT_OP expression expression {$$ = $2 >> $3; [32m[K}[m[K
+      |                                                               [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                         [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                         [32m[Kdouble[m[K             [34m[Kdouble[m[K
+make: *** [Makefile:27: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:59.13-22: warning: extra characters in character literal [-Wother]
+   59 | expression: 'POWER_OP' expression expression { $$ = pow($2, $3);}
+      |             ^~~~~~~~~~
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1281:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1281 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:65:80:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary << (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   65 |             | LSHIFT_OP expression expression {$$ = $2 << $3; [32m[K}[m[K
+      |                                                               [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                         [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                         [32m[Kdouble[m[K             [34m[Kdouble[m[K
+[01m[Kprefix.y:66:80:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary >> (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   66 |             | RSHIFT_OP expression expression {$$ = $2 >> $3; [32m[K}[m[K
+      |                                                               [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                         [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                         [32m[Kdouble[m[K             [34m[Kdouble[m[K
+make: *** [Makefile:27: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+prefix.y:59.13-22: warning: extra characters in character literal [-Wother]
+   59 | expression: 'POWER_OP' expression expression { $$ = pow($2, $3);}
+      |             ^~~~~~~~~~
+prefix.y:65.15-25: warning: extra characters in character literal [-Wother]
+   65 |             | 'LSHIFT_OP' expression expression {$$ = $2 << $3; }
+      |               ^~~~~~~~~~~
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1281:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1281 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:65:82:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary << (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   65 |             | 'LSHIFT_OP' expression expression {$$ = $2 << $3; [32m[K}[m[K
+      |                                                                 [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                           [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                           [32m[Kdouble[m[K             [34m[Kdouble[m[K
+[01m[Kprefix.y:66:80:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary >> (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   66 |             | RSHIFT_OP expression expression {$$ = $2 >> $3; [32m[K}[m[K
+      |                                                               [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                         [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                         [32m[Kdouble[m[K             [34m[Kdouble[m[K
+make: *** [Makefile:27: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1280:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1280 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:65:80:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary << (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   65 |             | LSHIFT_OP expression expression {$$ = $2 << $3; [32m[K}[m[K
+      |                                                               [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                         [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                         [32m[Kdouble[m[K             [34m[Kdouble[m[K
+[01m[Kprefix.y:66:80:[m[K [01;31m[Kerror: [m[Kinvalid operands to binary >> (have ‘[01m[Kdouble[m[K’ and ‘[01m[Kdouble[m[K’)
+   66 |             | RSHIFT_OP expression expression {$$ = $2 >> $3; [32m[K}[m[K
+      |                                                               [32m[K~[m[K                [01;31m[K^[m[K                 
+      |                                                                         [32m[K|[m[K                  [34m[K|[m[K
+      |                                                                         [32m[Kdouble[m[K             [34m[Kdouble[m[K
+make: *** [Makefile:27: prefix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1280:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1280 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:57:34:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%g[m[K’ expects argument of type ‘[01m[Kdouble[m[K’, but argument 2 has type ‘[01m[Kint[m[K’ [[01;35m[K-Wformat=[m[K]
+   57 |            | expression { printf([01;35m[K"= %g\n"[m[K, [32m[K$1); }[m[K
+      |                                  [01;35m[K^~~~~~~~[m[K  [32m[K~~~~~~[m[K         
+      |                                                     [32m[K|[m[K
+      |                                                     [32m[Kint[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+bison -d infix.y --file-prefix=zcalc
+infix.y:43.1-11: error: invalid directive: ‘%presedence’
+   43 | %presedence RSHIFT_OP LSHIFT_OP
+      | ^~~~~~~~~~~
+infix.y:44.1-11: error: invalid directive: ‘%presedence’
+   44 | %presedence '~'
+      | ^~~~~~~~~~~
+make: *** [Makefile:33: infix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1280:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1280 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kprefix.y:57:34:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%g[m[K’ expects argument of type ‘[01m[Kdouble[m[K’, but argument 2 has type ‘[01m[Kint[m[K’ [[01;35m[K-Wformat=[m[K]
+   57 |            | expression { printf([01;35m[K"= %g\n"[m[K, [32m[K$1); }[m[K
+      |                                  [01;35m[K^~~~~~~~[m[K  [32m[K~~~~~~[m[K         
+      |                                                     [32m[K|[m[K
+      |                                                     [32m[Kint[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+bison -d infix.y --file-prefix=zcalc
+infix.y:43.1-11: error: invalid directive: ‘%presedence’
+   43 | %presedence RSHIFT_OP LSHIFT_OP
+      | ^~~~~~~~~~~
+infix.y:44.1-11: error: invalid directive: ‘%presedence’
+   44 | %presedence '~'
+      | ^~~~~~~~~~~
+make: *** [Makefile:33: infix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d infix.y --file-prefix=zcalc
+infix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1283:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1283 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kinfix.y:57:34:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%g[m[K’ expects argument of type ‘[01m[Kdouble[m[K’, but argument 2 has type ‘[01m[Kint[m[K’ [[01;35m[K-Wformat=[m[K]
+   57 |            | expression { printf([01;35m[K"= %g\n"[m[K, [32m[K$1); }[m[K
+      |                                  [01;35m[K^~~~~~~~[m[K  [32m[K~~~~~~[m[K         
+      |                                                     [32m[K|[m[K
+      |                                                     [32m[Kint[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o infix zcalc.tab.o lex.yy.o -lm
+bison -d postfix.y --file-prefix=zcalc
+postfix.y:40.15-18: warning: symbol NAME redeclared [-Wother]
+   40 | %token <symp> NAME
+      |               ^~~~
+postfix.y:34.15-18:     previous declaration
+   34 | %token <symp> NAME
+      |               ^~~~
+postfix.y:40.8-13: error: %type redeclaration for NAME
+   40 | %token <symp> NAME
+      |        ^~~~~~
+postfix.y:34.8-13:     previous declaration
+   34 | %token <symp> NAME
+      |        ^~~~~~
+postfix.y:41.15-20: warning: symbol NUMBER redeclared [-Wother]
+   41 | %token <dval> NUMBER
+      |               ^~~~~~
+postfix.y:35.15-20:     previous declaration
+   35 | %token <dval> NUMBER
+      |               ^~~~~~
+postfix.y:41.8-13: error: %type redeclaration for NUMBER
+   41 | %token <dval> NUMBER
+      |        ^~~~~~
+postfix.y:35.8-13:     previous declaration
+   35 | %token <dval> NUMBER
+      |        ^~~~~~
+make: *** [Makefile:40: postfix] Error 1
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d postfix.y --file-prefix=zcalc
+postfix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1266:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1266 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+[01m[Kpostfix.y:58:34:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%g[m[K’ expects argument of type ‘[01m[Kdouble[m[K’, but argument 2 has type ‘[01m[Kint[m[K’ [[01;35m[K-Wformat=[m[K]
+   58 |            | expression { printf([01;35m[K"= %g\n"[m[K, [32m[K$1); }[m[K
+      |                                  [01;35m[K^~~~~~~~[m[K  [32m[K~~~~~~[m[K         
+      |                                                     [32m[K|[m[K
+      |                                                     [32m[Kint[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o postfix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1280:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1280 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+bison -d infix.y --file-prefix=zcalc
+infix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1283:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1283 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o infix zcalc.tab.o lex.yy.o -lm
+bison -d postfix.y --file-prefix=zcalc
+postfix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1266:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1266 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o postfix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./postfix
+3 4 **
+= 12
+syntax error 
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ [K]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ [K]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ [K]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ [K]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ [K]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ [K]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ [K]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make all
+bison -d infix.y --file-prefix=zcalc
+infix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1283:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1283 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o infix zcalc.tab.o lex.yy.o -lm
+bison -d postfix.y --file-prefix=zcalc
+postfix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1266:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1266 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o postfix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make all
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1280:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1280 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+bison -d infix.y --file-prefix=zcalc
+infix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1283:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1283 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o infix zcalc.tab.o lex.yy.o -lm
+bison -d postfix.y --file-prefix=zcalc
+postfix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1266:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1266 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o postfix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make all./postfix
+3 2 **
+= 9
+7 >>3  3    3 >>
+= 0
+5 <<  2 <<
+= 20
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ./postfix[1Pmake all
+make: Nothing to be done for 'all'.
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make all./postfix[1Pmake all./postfix[5Pmake
+make: Nothing to be done for 'all'.
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make clean
+rm -f zcalc.tab.o lex.yy.o prefix infix postfix zcalc.tab.h zcalc.tab.c lex.yy.c *.o
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ make clean[K all
+bison -d prefix.y --file-prefix=zcalc
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1280:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1280 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o prefix zcalc.tab.o lex.yy.o -lm
+bison -d infix.y --file-prefix=zcalc
+infix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1283:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1283 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o infix zcalc.tab.o lex.yy.o -lm
+bison -d postfix.y --file-prefix=zcalc
+postfix.y: warning: 4 shift/reduce conflicts [-Wconflicts-sr]
+gcc -c  -o zcalc.tab.o zcalc.tab.c
+[01m[Kzcalc.tab.c:[m[K In function ‘[01m[Kyyparse[m[K’:
+[01m[Kzcalc.tab.c:1266:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kyylex[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+ 1266 |       yychar = [01;35m[Kyylex[m[K ();
+      |                [01;35m[K^~~~~[m[K
+flex  zcalc.l
+gcc -c  -o lex.yy.o lex.yy.c
+gcc  -o postfix zcalc.tab.o lex.yy.o -lm
+]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ ]0;~/csc235/PS03[01;34m~/csc235/PS03[00m$ 

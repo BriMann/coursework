@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Forth is written in Forth (Gforth Manual)</title>
+
+<meta name="description" content="Forth is written in Forth (Gforth Manual)">
+<meta name="keywords" content="Forth is written in Forth (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Introduction.html" rel="up" title="Introduction">
+<link href="Review-_002d-elements-of-a-Forth-system.html" rel="next" title="Review - elements of a Forth system">
+<link href="How-does-that-work_003f.html" rel="prev" title="How does that work?">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Forth-is-written-in-Forth"></span><div class="header">
+<p>
+Next: <a href="Review-_002d-elements-of-a-Forth-system.html" accesskey="n" rel="next">Review - elements of a Forth system</a>, Previous: <a href="How-does-that-work_003f.html" accesskey="p" rel="prev">How does that work?</a>, Up: <a href="Introduction.html" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Forth-is-written-in-Forth-1"></span><h3 class="section">4.5 Forth is written in Forth</h3>
+<span id="index-structure-of-Forth-programs"></span>
+
+<p>When you start up a Forth compiler, a large number of definitions
+already exist. In Forth, you develop a new application using bottom-up
+programming techniques to create new definitions that are defined in
+terms of existing definitions. As you create each definition you can
+test and debug it interactively.
+</p>
+<p>If you have tried out the examples in this section, you will probably
+have typed them in by hand; when you leave Gforth, your definitions will
+be lost. You can avoid this by using a text editor to enter Forth source
+code into a file, and then loading code from the file using
+<code>include</code> (see <a href="Forth-source-files.html">Forth source files</a>). A Forth source file is
+processed by the text interpreter, just as though you had typed it in by
+hand<a id="DOCF8" href="#FOOT8"><sup>8</sup></a>.
+</p>
+<p>Gforth also supports the traditional Forth alternative to using text
+files for program entry (see <a href="Blocks.html">Blocks</a>).
+</p>
+<p>In common with many, if not most, Forth compilers, most of Gforth is
+actually written in Forth. All of the <samp>.fs</samp> files in the
+installation directory<a id="DOCF9" href="#FOOT9"><sup>9</sup></a> are Forth source files, which you can
+study to see examples of Forth programming.
+</p>
+<p>Gforth maintains a history file that records every line that you type to
+the text interpreter. This file is preserved between sessions, and is
+used to provide a command-line recall facility. If you enter long
+definitions by hand, you can use a text editor to paste them out of the
+history file into a Forth source file for reuse at a later time
+(for more information see <a href="Command_002dline-editing.html">Command-line editing</a>).
+</p>
+
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT8" href="#DOCF8">(8)</a></h3>
+<p>Actually, there are some subtle differences &ndash; see
+<a href="The-Text-Interpreter.html">The Text Interpreter</a>.</p>
+<h5><a id="FOOT9" href="#DOCF9">(9)</a></h3>
+<p>For example,
+<samp>/usr/local/share/gforth...</samp></p>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Review-_002d-elements-of-a-Forth-system.html" accesskey="n" rel="next">Review - elements of a Forth system</a>, Previous: <a href="How-does-that-work_003f.html" accesskey="p" rel="prev">How does that work?</a>, Up: <a href="Introduction.html" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

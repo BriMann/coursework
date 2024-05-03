@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Common Assembler (Gforth Manual)</title>
+
+<meta name="description" content="Common Assembler (Gforth Manual)">
+<meta name="keywords" content="Common Assembler (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Assembler-and-Code-Words.html" rel="up" title="Assembler and Code Words">
+<link href="Common-Disassembler.html" rel="next" title="Common Disassembler">
+<link href="Code-and-_003bcode.html" rel="prev" title="Code and ;code">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Common-Assembler"></span><div class="header">
+<p>
+Next: <a href="Common-Disassembler.html" accesskey="n" rel="next">Common Disassembler</a>, Previous: <a href="Code-and-_003bcode.html" accesskey="p" rel="prev">Code and ;code</a>, Up: <a href="Assembler-and-Code-Words.html" accesskey="u" rel="up">Assembler and Code Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Common-Assembler-1"></span><h4 class="subsection">5.26.2 Common Assembler</h4>
+
+<p>The assemblers in Gforth generally use a postfix syntax, i.e., the
+instruction name follows the operands.
+</p>
+<p>The operands are passed in the usual order (the same that is used in the
+manual of the architecture).  Since they all are Forth words, they have
+to be separated by spaces; you can also use Forth words to compute the
+operands.
+</p>
+<p>The instruction names usually end with a <code>,</code>.  This makes it easier
+to visually separate instructions if you put several of them on one
+line; it also avoids shadowing other Forth words (e.g., <code>and</code>).
+</p>
+<p>Registers are usually specified by number; e.g., (decimal) <code>11</code>
+specifies registers R11 and F11 on the Alpha architecture (which one,
+depends on the instruction).  The usual names are also available, e.g.,
+<code>s2</code> for R11 on Alpha.
+</p>
+<p>Control flow is specified similar to normal Forth code (see <a href="Arbitrary-control-structures.html">Arbitrary control structures</a>), with <code>if,</code>, <code>ahead,</code>, <code>then,</code>,
+<code>begin,</code>, <code>until,</code>, <code>again,</code>, <code>cs-roll</code>,
+<code>cs-pick</code>, <code>else,</code>, <code>while,</code>, and <code>repeat,</code>.  The
+conditions are specified in a way specific to each assembler.
+</p>
+<p>Note that the register assignments of the Gforth engine can change
+between Gforth versions, or even between different compilations of the
+same Gforth version (e.g., if you use a different GCC version).  So if
+you want to refer to Gforth&rsquo;s registers (e.g., the stack pointer or
+TOS), I recommend defining your own words for refering to these
+registers, and using them later on; then you can easily adapt to a
+changed register assignment.  The stability of the register assignment
+is usually better if you build Gforth with <code>--enable-force-reg</code>.
+</p>
+<p>The most common use of these registers is to dispatch to the next word
+(the <code>next</code> routine).  A portable way to do this is to jump to
+<code>' noop &gt;code-address</code> (of course, this is less efficient than
+integrating the <code>next</code> code and scheduling it well).
+</p>
+<p>Another difference between Gforth version is that the top of stack is
+kept in memory in <code>gforth</code> and, on most platforms, in a register in
+<code>gforth-fast</code>.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Common-Disassembler.html" accesskey="n" rel="next">Common Disassembler</a>, Previous: <a href="Code-and-_003bcode.html" accesskey="p" rel="prev">Code and ;code</a>, Up: <a href="Assembler-and-Code-Words.html" accesskey="u" rel="up">Assembler and Code Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

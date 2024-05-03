@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Control Structures (Gforth Manual)</title>
+
+<meta name="description" content="Control Structures (Gforth Manual)">
+<meta name="keywords" content="Control Structures (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Words.html" rel="up" title="Words">
+<link href="Selection.html" rel="next" title="Selection">
+<link href="Memory-Blocks.html" rel="prev" title="Memory Blocks">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Control-Structures"></span><div class="header">
+<p>
+Next: <a href="Defining-Words.html" accesskey="n" rel="next">Defining Words</a>, Previous: <a href="Memory.html" accesskey="p" rel="prev">Memory</a>, Up: <a href="Words.html" accesskey="u" rel="up">Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Control-Structures-1"></span><h3 class="section">5.8 Control Structures</h3>
+<span id="index-control-structures"></span>
+
+<p>Control structures in Forth cannot be used interpretively, only in a
+colon definition<a id="DOCF12" href="#FOOT12"><sup>12</sup></a>. We do
+not like this limitation, but have not seen a satisfying way around it
+yet, although many schemes have been proposed.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Selection.html" accesskey="1">Selection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">IF ... ELSE ... ENDIF
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Simple-Loops.html" accesskey="2">Simple Loops</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">BEGIN ...
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Counted-Loops.html" accesskey="3">Counted Loops</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">DO
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Arbitrary-control-structures.html" accesskey="4">Arbitrary control structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Calls-and-returns.html" accesskey="5">Calls and returns</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Exception-Handling.html" accesskey="6">Exception Handling</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT12" href="#DOCF12">(12)</a></h3>
+<p>To be precise, they have no interpretation
+semantics (see <a href="Interpretation-and-Compilation-Semantics.html">Interpretation and Compilation Semantics</a>).</p>
+</div>
+
+
+
+</body>
+</html>

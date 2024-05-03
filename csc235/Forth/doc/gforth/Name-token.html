@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Name token (Gforth Manual)</title>
+
+<meta name="description" content="Name token (Gforth Manual)">
+<meta name="keywords" content="Name token (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tokens-for-Words.html" rel="up" title="Tokens for Words">
+<link href="Compiling-words.html" rel="next" title="Compiling words">
+<link href="Compilation-token.html" rel="prev" title="Compilation token">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Name-token"></span><div class="header">
+<p>
+Previous: <a href="Compilation-token.html" accesskey="p" rel="prev">Compilation token</a>, Up: <a href="Tokens-for-Words.html" accesskey="u" rel="up">Tokens for Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Name-token-1"></span><h4 class="subsection">5.11.3 Name token</h4>
+
+<span id="index-name-token"></span>
+<p>Gforth represents named words by the <em>name token</em>, (<i>nt</i>).  Name
+token is an abstract data type that occurs as argument or result of the
+words below.
+</p>
+<span id="index-name-field-address"></span>
+<span id="index-NFA"></span>
+<p>The closest thing to the nt in older Forth systems is the name field
+address (NFA), but there are significant differences: in older Forth
+systems each word had a unique NFA, LFA, CFA and PFA (in this order, or
+LFA, NFA, CFA, PFA) and there were words for getting from one to the
+next.  In contrast, in Gforth 0&hellip;n nts correspond to one xt; there
+is a link field in the structure identified by the name token, but
+searching usually uses a hash table external to these structures; the
+name in Gforth has a cell-wide count-and-flags field, and the nt is not
+implemented as the address of that count field.
+</p>
+<span id="index-find_002dname--c_002daddr-u-_002d_002d-nt-_007c-0--gforth"></span>
+<span id="index-find_002dname"></span>
+<span id="index-find_002dname-1"></span>
+<div class="format">
+<pre class="format"><code>find-name</code>       <i>c-addr u &ndash; nt | 0  </i>       gforth       &ldquo;find-name&rdquo;
+</pre></div>
+<p>Find the name <i>c-addr u</i> in the current search
+order. Return its <i>nt</i>, if found, otherwise 0.
+</p>
+
+<span id="index-latest--_002d_002d-nt--gforth"></span>
+<span id="index-latest"></span>
+<span id="index-latest-1"></span>
+<div class="format">
+<pre class="format"><code>latest</code>       <i>&ndash; nt  </i>       gforth       &ldquo;latest&rdquo;
+</pre></div>
+<p><var>nt</var> is the name token of the last word defined; it is 0 if the
+last word has no name.
+</p>
+
+<span id="index-_003ename--xt-_002d_002d-nt_007c0--gforth"></span>
+<span id="index-_003ename"></span>
+<span id="index-_003ename-1"></span>
+<div class="format">
+<pre class="format"><code>&gt;name</code>       <i>xt &ndash; nt|0  </i>       gforth       &ldquo;to-name&rdquo;
+</pre></div>
+<p>tries to find the name token <var>nt</var> of the word represented
+by <var>xt</var>; returns 0 if it fails.  This word is not
+absolutely reliable, it may give false positives and produce
+wrong nts.
+</p>
+
+<span id="index-name_003eint--nt-_002d_002d-xt--gforth"></span>
+<span id="index-name_003eint"></span>
+<span id="index-name_003eint-1"></span>
+<div class="format">
+<pre class="format"><code>name&gt;int</code>       <i>nt &ndash; xt  </i>       gforth       &ldquo;name-to-int&rdquo;
+</pre></div>
+<p><i>xt</i> represents the interpretation semantics of the word
+<i>nt</i>. If <i>nt</i> has no interpretation semantics (i.e. is
+<code>compile-only</code>), <i>xt</i> is the execution token for
+<code>ticking-compile-only-error</code>, which performs <code>-2048 throw</code>.
+</p>
+
+<span id="index-name_003fint--nt-_002d_002d-xt--gforth"></span>
+<span id="index-name_003fint"></span>
+<span id="index-name_003fint-1"></span>
+<div class="format">
+<pre class="format"><code>name?int</code>       <i>nt &ndash; xt  </i>       gforth       &ldquo;name-question-int&rdquo;
+</pre></div>
+<p>Like <code>name&gt;int</code>, but perform <code>-2048 throw</code> if <i>nt</i>
+has no interpretation semantics.
+</p>
+
+<span id="index-name_003ecomp--nt-_002d_002d-w-xt--gforth"></span>
+<span id="index-name_003ecomp"></span>
+<span id="index-name_003ecomp-1"></span>
+<div class="format">
+<pre class="format"><code>name&gt;comp</code>       <i>nt &ndash; w xt  </i>       gforth       &ldquo;name-to-comp&rdquo;
+</pre></div>
+<p><i>w xt</i> is the compilation token for the word <i>nt</i>.
+</p>
+
+<span id="index-name_003estring--nt-_002d_002d-addr-count--gforth"></span>
+<span id="index-name_003estring"></span>
+<span id="index-name_003estring-1"></span>
+<div class="format">
+<pre class="format"><code>name&gt;string</code>       <i>nt &ndash; addr count  </i>       gforth       &ldquo;name-to-string&rdquo;
+</pre></div>
+<p><i>addr count</i> is the name of the word represented by <i>nt</i>.
+</p>
+
+<span id="index-id_002e--nt-_002d_002d--gforth"></span>
+<span id="index-id_002e"></span>
+<span id="index-id_002e-1"></span>
+<div class="format">
+<pre class="format"><code>id.</code>       <i>nt &ndash;  </i>       gforth       &ldquo;i-d-dot&rdquo;
+</pre></div>
+<p>Print the name of the word represented by <var>nt</var>.
+</p>
+
+<span id="index-_002ename--nt-_002d_002d--gforth_002dobsolete"></span>
+<span id="index-_002ename"></span>
+<span id="index-_002ename-1"></span>
+<div class="format">
+<pre class="format"><code>.name</code>       <i>nt &ndash;  </i>       gforth-obsolete       &ldquo;dot-name&rdquo;
+</pre></div>
+<p>Gforth &lt;=0.5.0 name for <code>id.</code>.
+</p>
+
+<span id="index-_002eid--nt-_002d_002d--F83"></span>
+<span id="index-_002eid"></span>
+<span id="index-_002eid-1"></span>
+<div class="format">
+<pre class="format"><code>.id</code>       <i>nt &ndash;  </i>       F83       &ldquo;dot-i-d&rdquo;
+</pre></div>
+<p>F83 name for <code>id.</code>.
+</p>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Compilation-token.html" accesskey="p" rel="prev">Compilation token</a>, Up: <a href="Tokens-for-Words.html" accesskey="u" rel="up">Tokens for Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

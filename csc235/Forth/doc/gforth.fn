@@ -1,0 +1,809 @@
+\entry{bye}{6}{\code {bye \var { -- } tools-ext}}
+\entry{(}{51}{\code {( \var { compilation 'ccc<close-paren>' -- ; run-time -- } core,file}}
+\entry{{\indexbackslash}}{52}{\code {\backslashchar {} \var { compilation 'ccc<newline>' -- ; run-time -- } core-ext,block-ext}}
+\entry{{\indexbackslash}G}{52}{\code {\backslashchar {}G \var { compilation 'ccc<newline>' -- ; run-time -- } gforth}}
+\entry{true}{52}{\code {true \var { -- f } core-ext}}
+\entry{false}{52}{\code {false \var { -- f } core-ext}}
+\entry{on}{52}{\code {on \var { a-addr -- } gforth}}
+\entry{off}{52}{\code {off \var { a-addr -- } gforth}}
+\entry{+}{52}{\code {+ \var { n1 n2 -- n } core}}
+\entry{1+}{52}{\code {1+ \var { n1 -- n2 } core}}
+\entry{under+}{52}{\code {under+ \var { n1 n2 n3 -- n n2 } gforth}}
+\entry{-}{53}{\code {- \var { n1 n2 -- n } core}}
+\entry{1-}{53}{\code {1- \var { n1 -- n2 } core}}
+\entry{*}{53}{\code {* \var { n1 n2 -- n } core}}
+\entry{/}{53}{\code {/ \var { n1 n2 -- n } core}}
+\entry{mod}{53}{\code {mod \var { n1 n2 -- n } core}}
+\entry{/mod}{53}{\code {/mod \var { n1 n2 -- n3 n4 } core}}
+\entry{negate}{53}{\code {negate \var { n1 -- n2 } core}}
+\entry{abs}{53}{\code {abs \var { n -- u } core}}
+\entry{min}{53}{\code {min \var { n1 n2 -- n } core}}
+\entry{max}{53}{\code {max \var { n1 n2 -- n } core}}
+\entry{FLOORED}{53}{\code {FLOORED \var { -- f } environment}}
+\entry{s>d}{53}{\code {s>d \var { n -- d } core}}
+\entry{d>s}{53}{\code {d>s \var { d -- n } double}}
+\entry{d+}{53}{\code {d+ \var { d1 d2 -- d } double}}
+\entry{d-}{53}{\code {d- \var { d1 d2 -- d } double}}
+\entry{dnegate}{53}{\code {dnegate \var { d1 -- d2 } double}}
+\entry{dabs}{53}{\code {dabs \var { d -- ud } double}}
+\entry{dmin}{53}{\code {dmin \var { d1 d2 -- d } double}}
+\entry{dmax}{53}{\code {dmax \var { d1 d2 -- d } double}}
+\entry{and}{53}{\code {and \var { w1 w2 -- w } core}}
+\entry{or}{53}{\code {or \var { w1 w2 -- w } core}}
+\entry{xor}{53}{\code {xor \var { w1 w2 -- w } core}}
+\entry{invert}{53}{\code {invert \var { w1 -- w2 } core}}
+\entry{lshift}{53}{\code {lshift \var { u1 n -- u2 } core}}
+\entry{rshift}{53}{\code {rshift \var { u1 n -- u2 } core}}
+\entry{2*}{54}{\code {2* \var { n1 -- n2 } core}}
+\entry{d2*}{54}{\code {d2* \var { d1 -- d2 } double}}
+\entry{2/}{54}{\code {2/ \var { n1 -- n2 } core}}
+\entry{d2/}{54}{\code {d2/ \var { d1 -- d2 } double}}
+\entry{<}{54}{\code {< \var { n1 n2 -- f } core}}
+\entry{<=}{54}{\code {<= \var { n1 n2 -- f } gforth}}
+\entry{<>}{54}{\code {<> \var { n1 n2 -- f } core-ext}}
+\entry{=}{54}{\code {= \var { n1 n2 -- f } core}}
+\entry{>}{54}{\code {> \var { n1 n2 -- f } core}}
+\entry{>=}{54}{\code {>= \var { n1 n2 -- f } gforth}}
+\entry{0<}{54}{\code {0< \var { n -- f } core}}
+\entry{0<=}{54}{\code {0<= \var { n -- f } gforth}}
+\entry{0<>}{54}{\code {0<> \var { n -- f } core-ext}}
+\entry{0=}{54}{\code {0= \var { n -- f } core}}
+\entry{0>}{54}{\code {0> \var { n -- f } core-ext}}
+\entry{0>=}{54}{\code {0>= \var { n -- f } gforth}}
+\entry{u<}{54}{\code {u< \var { u1 u2 -- f } core}}
+\entry{u<=}{54}{\code {u<= \var { u1 u2 -- f } gforth}}
+\entry{u>}{54}{\code {u> \var { u1 u2 -- f } core-ext}}
+\entry{u>=}{54}{\code {u>= \var { u1 u2 -- f } gforth}}
+\entry{within}{54}{\code {within \var { u1 u2 u3 -- f } core-ext}}
+\entry{d<}{54}{\code {d< \var { d1 d2 -- f } double}}
+\entry{d<=}{54}{\code {d<= \var { d1 d2 -- f } gforth}}
+\entry{d<>}{54}{\code {d<> \var { d1 d2 -- f } gforth}}
+\entry{d=}{54}{\code {d= \var { d1 d2 -- f } double}}
+\entry{d>}{55}{\code {d> \var { d1 d2 -- f } gforth}}
+\entry{d>=}{55}{\code {d>= \var { d1 d2 -- f } gforth}}
+\entry{d0<}{55}{\code {d0< \var { d -- f } double}}
+\entry{d0<=}{55}{\code {d0<= \var { d -- f } gforth}}
+\entry{d0<>}{55}{\code {d0<> \var { d -- f } gforth}}
+\entry{d0=}{55}{\code {d0= \var { d -- f } double}}
+\entry{d0>}{55}{\code {d0> \var { d -- f } gforth}}
+\entry{d0>=}{55}{\code {d0>= \var { d -- f } gforth}}
+\entry{du<}{55}{\code {du< \var { ud1 ud2 -- f } double-ext}}
+\entry{du<=}{55}{\code {du<= \var { ud1 ud2 -- f } gforth}}
+\entry{du>}{55}{\code {du> \var { ud1 ud2 -- f } gforth}}
+\entry{du>=}{55}{\code {du>= \var { ud1 ud2 -- f } gforth}}
+\entry{m+}{55}{\code {m+ \var { d1 n -- d2 } double}}
+\entry{*/}{55}{\code {*/ \var { n1 n2 n3 -- n4 } core}}
+\entry{*/mod}{55}{\code {*/mod \var { n1 n2 n3 -- n4 n5 } core}}
+\entry{m*}{55}{\code {m* \var { n1 n2 -- d } core}}
+\entry{um*}{55}{\code {um* \var { u1 u2 -- ud } core}}
+\entry{m*/}{55}{\code {m*/ \var { d1 n2 u3 -- dquot } double}}
+\entry{um/mod}{55}{\code {um/mod \var { ud u1 -- u2 u3 } core}}
+\entry{fm/mod}{55}{\code {fm/mod \var { d1 n1 -- n2 n3 } core}}
+\entry{sm/rem}{55}{\code {sm/rem \var { d1 n1 -- n2 n3 } core}}
+\entry{d>f}{56}{\code {d>f \var { d -- r } float}}
+\entry{f>d}{56}{\code {f>d \var { r -- d } float}}
+\entry{f+}{56}{\code {f+ \var { r1 r2 -- r3 } float}}
+\entry{f-}{56}{\code {f- \var { r1 r2 -- r3 } float}}
+\entry{f*}{56}{\code {f* \var { r1 r2 -- r3 } float}}
+\entry{f/}{56}{\code {f/ \var { r1 r2 -- r3 } float}}
+\entry{fnegate}{56}{\code {fnegate \var { r1 -- r2 } float}}
+\entry{fabs}{56}{\code {fabs \var { r1 -- r2 } float-ext}}
+\entry{fmax}{56}{\code {fmax \var { r1 r2 -- r3 } float}}
+\entry{fmin}{56}{\code {fmin \var { r1 r2 -- r3 } float}}
+\entry{floor}{56}{\code {floor \var { r1 -- r2 } float}}
+\entry{fround}{56}{\code {fround \var { r1 -- r2 } float}}
+\entry{f**}{56}{\code {f** \var { r1 r2 -- r3 } float-ext}}
+\entry{fsqrt}{56}{\code {fsqrt \var { r1 -- r2 } float-ext}}
+\entry{fexp}{56}{\code {fexp \var { r1 -- r2 } float-ext}}
+\entry{fexpm1}{56}{\code {fexpm1 \var { r1 -- r2 } float-ext}}
+\entry{fln}{56}{\code {fln \var { r1 -- r2 } float-ext}}
+\entry{flnp1}{56}{\code {flnp1 \var { r1 -- r2 } float-ext}}
+\entry{flog}{56}{\code {flog \var { r1 -- r2 } float-ext}}
+\entry{falog}{56}{\code {falog \var { r1 -- r2 } float-ext}}
+\entry{f2*}{56}{\code {f2* \var { r1 -- r2 } gforth}}
+\entry{f2/}{56}{\code {f2/ \var { r1 -- r2 } gforth}}
+\entry{1/f}{56}{\code {1/f \var { r1 -- r2 } gforth}}
+\entry{precision}{57}{\code {precision \var { -- u } float-ext}}
+\entry{set-precision}{57}{\code {set-precision \var { u -- } float-ext}}
+\entry{fsin}{57}{\code {fsin \var { r1 -- r2 } float-ext}}
+\entry{fcos}{57}{\code {fcos \var { r1 -- r2 } float-ext}}
+\entry{fsincos}{57}{\code {fsincos \var { r1 -- r2 r3 } float-ext}}
+\entry{ftan}{57}{\code {ftan \var { r1 -- r2 } float-ext}}
+\entry{fasin}{57}{\code {fasin \var { r1 -- r2 } float-ext}}
+\entry{facos}{57}{\code {facos \var { r1 -- r2 } float-ext}}
+\entry{fatan}{57}{\code {fatan \var { r1 -- r2 } float-ext}}
+\entry{fatan2}{57}{\code {fatan2 \var { r1 r2 -- r3 } float-ext}}
+\entry{fsinh}{57}{\code {fsinh \var { r1 -- r2 } float-ext}}
+\entry{fcosh}{57}{\code {fcosh \var { r1 -- r2 } float-ext}}
+\entry{ftanh}{57}{\code {ftanh \var { r1 -- r2 } float-ext}}
+\entry{fasinh}{57}{\code {fasinh \var { r1 -- r2 } float-ext}}
+\entry{facosh}{57}{\code {facosh \var { r1 -- r2 } float-ext}}
+\entry{fatanh}{57}{\code {fatanh \var { r1 -- r2 } float-ext}}
+\entry{pi}{57}{\code {pi \var { -- r } gforth}}
+\entry{f~rel}{57}{\code {f~rel \var { r1 r2 r3 -- flag } gforth}}
+\entry{f~abs}{57}{\code {f~abs \var { r1 r2 r3 -- flag } gforth}}
+\entry{f~}{57}{\code {f~ \var { r1 r2 r3 -- flag } float-ext}}
+\entry{f=}{57}{\code {f= \var { r1 r2 -- f } gforth}}
+\entry{f<>}{57}{\code {f<> \var { r1 r2 -- f } gforth}}
+\entry{f<}{57}{\code {f< \var { r1 r2 -- f } float}}
+\entry{f<=}{57}{\code {f<= \var { r1 r2 -- f } gforth}}
+\entry{f>}{58}{\code {f> \var { r1 r2 -- f } gforth}}
+\entry{f>=}{58}{\code {f>= \var { r1 r2 -- f } gforth}}
+\entry{f0<}{58}{\code {f0< \var { r -- f } float}}
+\entry{f0<=}{58}{\code {f0<= \var { r -- f } gforth}}
+\entry{f0<>}{58}{\code {f0<> \var { r -- f } gforth}}
+\entry{f0=}{58}{\code {f0= \var { r -- f } float}}
+\entry{f0>}{58}{\code {f0> \var { r -- f } gforth}}
+\entry{f0>=}{58}{\code {f0>= \var { r -- f } gforth}}
+\entry{drop}{58}{\code {drop \var { w -- } core}}
+\entry{nip}{58}{\code {nip \var { w1 w2 -- w2 } core-ext}}
+\entry{dup}{58}{\code {dup \var { w -- w w } core}}
+\entry{over}{58}{\code {over \var { w1 w2 -- w1 w2 w1 } core}}
+\entry{tuck}{58}{\code {tuck \var { w1 w2 -- w2 w1 w2 } core-ext}}
+\entry{swap}{58}{\code {swap \var { w1 w2 -- w2 w1 } core}}
+\entry{pick}{58}{\code {pick \var { S:... u -- S:... w } core-ext}}
+\entry{rot}{58}{\code {rot \var { w1 w2 w3 -- w2 w3 w1 } core}}
+\entry{-rot}{58}{\code {-rot \var { w1 w2 w3 -- w3 w1 w2 } gforth}}
+\entry{?dup}{58}{\code {?dup \var { w -- S:... w } core}}
+\entry{roll}{58}{\code {roll \var { x0 x1 .. xn n -- x1 .. xn x0 } core-ext}}
+\entry{2drop}{58}{\code {2drop \var { w1 w2 -- } core}}
+\entry{2nip}{58}{\code {2nip \var { w1 w2 w3 w4 -- w3 w4 } gforth}}
+\entry{2dup}{58}{\code {2dup \var { w1 w2 -- w1 w2 w1 w2 } core}}
+\entry{2over}{58}{\code {2over \var { w1 w2 w3 w4 -- w1 w2 w3 w4 w1 w2 } core}}
+\entry{2tuck}{58}{\code {2tuck \var { w1 w2 w3 w4 -- w3 w4 w1 w2 w3 w4 } gforth}}
+\entry{2swap}{58}{\code {2swap \var { w1 w2 w3 w4 -- w3 w4 w1 w2 } core}}
+\entry{2rot}{58}{\code {2rot \var { w1 w2 w3 w4 w5 w6 -- w3 w4 w5 w6 w1 w2 } double-ext}}
+\entry{floating-stack}{59}{\code {floating-stack \var { -- n } environment}}
+\entry{fdrop}{59}{\code {fdrop \var { r -- } float}}
+\entry{fnip}{59}{\code {fnip \var { r1 r2 -- r2 } gforth}}
+\entry{fdup}{59}{\code {fdup \var { r -- r r } float}}
+\entry{fover}{59}{\code {fover \var { r1 r2 -- r1 r2 r1 } float}}
+\entry{ftuck}{59}{\code {ftuck \var { r1 r2 -- r2 r1 r2 } gforth}}
+\entry{fswap}{59}{\code {fswap \var { r1 r2 -- r2 r1 } float}}
+\entry{fpick}{59}{\code {fpick \var { f:... u -- f:... r } gforth}}
+\entry{frot}{59}{\code {frot \var { r1 r2 r3 -- r2 r3 r1 } float}}
+\entry{>r}{59}{\code {>r \var { w -- R:w } core}}
+\entry{r>}{59}{\code {r> \var { R:w -- w } core}}
+\entry{r{\indexatchar}}{59}{\code {r\@ \var { -- w ; R: w -- w } core}}
+\entry{rdrop}{59}{\code {rdrop \var { R:w -- } gforth}}
+\entry{2>r}{59}{\code {2>r \var { d -- R:d } core-ext}}
+\entry{2r>}{59}{\code {2r> \var { R:d -- d } core-ext}}
+\entry{2r{\indexatchar}}{59}{\code {2r\@ \var { R:d -- R:d d } core-ext}}
+\entry{2rdrop}{59}{\code {2rdrop \var { R:d -- } gforth}}
+\entry{sp0}{60}{\code {sp0 \var { -- a-addr } gforth}}
+\entry{sp{\indexatchar}}{60}{\code {sp\@ \var { S:... -- a-addr } gforth}}
+\entry{sp!}{60}{\code {sp! \var { a-addr -- S:... } gforth}}
+\entry{fp0}{60}{\code {fp0 \var { -- a-addr } gforth}}
+\entry{fp{\indexatchar}}{60}{\code {fp\@ \var { f:... -- f-addr } gforth}}
+\entry{fp!}{60}{\code {fp! \var { f-addr -- f:... } gforth}}
+\entry{rp0}{60}{\code {rp0 \var { -- a-addr } gforth}}
+\entry{rp{\indexatchar}}{60}{\code {rp\@ \var { -- a-addr } gforth}}
+\entry{rp!}{60}{\code {rp! \var { a-addr -- } gforth}}
+\entry{lp0}{60}{\code {lp0 \var { -- a-addr } gforth}}
+\entry{lp{\indexatchar}}{60}{\code {lp\@ \var { -- addr } gforth}}
+\entry{lp!}{60}{\code {lp! \var { c-addr -- } gforth}}
+\entry{here}{61}{\code {here \var { -- addr } core}}
+\entry{unused}{61}{\code {unused \var { -- u } core-ext}}
+\entry{allot}{61}{\code {allot \var { n -- } core}}
+\entry{c,}{61}{\code {c, \var { c -- } core}}
+\entry{f,}{61}{\code {f, \var { f -- } gforth}}
+\entry{,}{61}{\code {, \var { w -- } core}}
+\entry{2,}{61}{\code {2, \var { w1 w2 -- } gforth}}
+\entry{align}{61}{\code {align \var { -- } core}}
+\entry{falign}{61}{\code {falign \var { -- } float}}
+\entry{sfalign}{61}{\code {sfalign \var { -- } float-ext}}
+\entry{dfalign}{62}{\code {dfalign \var { -- } float-ext}}
+\entry{maxalign}{62}{\code {maxalign \var { -- } gforth}}
+\entry{cfalign}{62}{\code {cfalign \var { -- } gforth}}
+\entry{allocate}{62}{\code {allocate \var { u -- a-addr wior } memory}}
+\entry{free}{62}{\code {free \var { a-addr -- wior } memory}}
+\entry{resize}{62}{\code {resize \var { a-addr1 u -- a-addr2 wior } memory}}
+\entry{{\indexatchar}}{62}{\code {\@ \var { a-addr -- w } core}}
+\entry{!}{62}{\code {! \var { w a-addr -- } core}}
+\entry{+!}{62}{\code {+! \var { n a-addr -- } core}}
+\entry{c{\indexatchar}}{62}{\code {c\@ \var { c-addr -- c } core}}
+\entry{c!}{62}{\code {c! \var { c c-addr -- } core}}
+\entry{2{\indexatchar}}{63}{\code {2\@ \var { a-addr -- w1 w2 } core}}
+\entry{2!}{63}{\code {2! \var { w1 w2 a-addr -- } core}}
+\entry{f{\indexatchar}}{63}{\code {f\@ \var { f-addr -- r } float}}
+\entry{f!}{63}{\code {f! \var { r f-addr -- } float}}
+\entry{sf{\indexatchar}}{63}{\code {sf\@ \var { sf-addr -- r } float-ext}}
+\entry{sf!}{63}{\code {sf! \var { r sf-addr -- } float-ext}}
+\entry{df{\indexatchar}}{63}{\code {df\@ \var { df-addr -- r } float-ext}}
+\entry{df!}{63}{\code {df! \var { r df-addr -- } float-ext}}
+\entry{sw{\indexatchar}}{63}{\code {sw\@ \var { c-addr -- n } gforth}}
+\entry{uw{\indexatchar}}{63}{\code {uw\@ \var { c-addr -- u } gforth}}
+\entry{w!}{63}{\code {w! \var { w c-addr -- } gforth}}
+\entry{sl{\indexatchar}}{63}{\code {sl\@ \var { c-addr -- n } gforth}}
+\entry{ul{\indexatchar}}{63}{\code {ul\@ \var { c-addr -- u } gforth}}
+\entry{l!}{63}{\code {l! \var { w c-addr -- } gforth}}
+\entry{chars}{64}{\code {chars \var { n1 -- n2 } core}}
+\entry{char+}{64}{\code {char+ \var { c-addr1 -- c-addr2 } core}}
+\entry{cells}{64}{\code {cells \var { n1 -- n2 } core}}
+\entry{cell+}{64}{\code {cell+ \var { a-addr1 -- a-addr2 } core}}
+\entry{cell}{64}{\code {cell \var { -- u } gforth}}
+\entry{aligned}{64}{\code {aligned \var { c-addr -- a-addr } core}}
+\entry{floats}{64}{\code {floats \var { n1 -- n2 } float}}
+\entry{float+}{64}{\code {float+ \var { f-addr1 -- f-addr2 } float}}
+\entry{float}{64}{\code {float \var { -- u } gforth}}
+\entry{faligned}{64}{\code {faligned \var { c-addr -- f-addr } float}}
+\entry{sfloats}{65}{\code {sfloats \var { n1 -- n2 } float-ext}}
+\entry{sfloat+}{65}{\code {sfloat+ \var { sf-addr1 -- sf-addr2 } float-ext}}
+\entry{sfaligned}{65}{\code {sfaligned \var { c-addr -- sf-addr } float-ext}}
+\entry{dfloats}{65}{\code {dfloats \var { n1 -- n2 } float-ext}}
+\entry{dfloat+}{65}{\code {dfloat+ \var { df-addr1 -- df-addr2 } float-ext}}
+\entry{dfaligned}{65}{\code {dfaligned \var { c-addr -- df-addr } float-ext}}
+\entry{maxaligned}{65}{\code {maxaligned \var { addr1 -- addr2 } gforth}}
+\entry{cfaligned}{65}{\code {cfaligned \var { addr1 -- addr2 } gforth}}
+\entry{ADDRESS-UNIT-BITS}{65}{\code {ADDRESS-UNIT-BITS \var { -- n } environment}}
+\entry{/w}{65}{\code {/w \var { -- u } gforth}}
+\entry{/l}{65}{\code {/l \var { -- u } gforth}}
+\entry{move}{65}{\code {move \var { c-from c-to ucount -- } core}}
+\entry{erase}{65}{\code {erase \var { addr u -- } core-ext}}
+\entry{cmove}{65}{\code {cmove \var { c-from c-to u -- } string}}
+\entry{cmove>}{66}{\code {cmove> \var { c-from c-to u -- } string}}
+\entry{fill}{66}{\code {fill \var { c-addr u c -- } core}}
+\entry{blank}{66}{\code {blank \var { c-addr u -- } string}}
+\entry{compare}{66}{\code {compare \var { c-addr1 u1 c-addr2 u2 -- n } string}}
+\entry{str=}{66}{\code {str= \var { c-addr1 u1 c-addr2 u2 -- f } gforth}}
+\entry{str<}{66}{\code {str< \var { c-addr1 u1 c-addr2 u2 -- f } gforth}}
+\entry{string-prefix?}{66}{\code {string-prefix? \var { c-addr1 u1 c-addr2 u2 -- f } gforth}}
+\entry{search}{66}{\code {search \var { c-addr1 u1 c-addr2 u2 -- c-addr3 u3 flag } string}}
+\entry{-trailing}{66}{\code {-trailing \var { c_addr u1 -- c_addr u2 } string}}
+\entry{/string}{66}{\code {/string \var { c-addr1 u1 n -- c-addr2 u2 } string}}
+\entry{bounds}{66}{\code {bounds \var { addr u -- addr+u addr } gforth}}
+\entry{pad}{66}{\code {pad \var { -- c-addr } core-ext}}
+\entry{i}{68}{\code {i \var { R:n -- R:n n } core}}
+\entry{j}{69}{\code {j \var { R:w R:w1 R:w2 -- w R:w R:w1 R:w2 } core}}
+\entry{k}{69}{\code {k \var { R:w R:w1 R:w2 R:w3 R:w4 -- w R:w R:w1 R:w2 R:w3 R:w4 } gforth}}
+\entry{IF}{70}{\code {IF \var { compilation -- orig ; run-time f -- } core}}
+\entry{AHEAD}{70}{\code {AHEAD \var { compilation -- orig ; run-time -- } tools-ext}}
+\entry{THEN}{70}{\code {THEN \var { compilation orig -- ; run-time -- } core}}
+\entry{BEGIN}{70}{\code {BEGIN \var { compilation -- dest ; run-time -- } core}}
+\entry{UNTIL}{70}{\code {UNTIL \var { compilation dest -- ; run-time f -- } core}}
+\entry{AGAIN}{70}{\code {AGAIN \var { compilation dest -- ; run-time -- } core-ext}}
+\entry{CS-PICK}{70}{\code {CS-PICK \var { ... u -- ... destu } tools-ext}}
+\entry{CS-ROLL}{70}{\code {CS-ROLL \var { destu/origu .. dest0/orig0 u -- .. dest0/orig0 destu/origu } tools-ext}}
+\entry{ELSE}{71}{\code {ELSE \var { compilation orig1 -- orig2 ; run-time -- } core}}
+\entry{WHILE}{71}{\code {WHILE \var { compilation dest -- orig dest ; run-time f -- } core}}
+\entry{REPEAT}{71}{\code {REPEAT \var { compilation orig dest -- ; run-time -- } core}}
+\entry{ENDIF}{71}{\code {ENDIF \var { compilation orig -- ; run-time -- } gforth}}
+\entry{?DUP-IF}{71}{\code {?DUP-IF \var { compilation -- orig ; run-time n -- n| } gforth}}
+\entry{?DUP-0=-IF}{71}{\code {?DUP-0=-IF \var { compilation -- orig ; run-time n -- n| } gforth}}
+\entry{?DO}{71}{\code {?DO \var { compilation -- do-sys ; run-time w1 w2 -- | loop-sys } core-ext}}
+\entry{+DO}{71}{\code {+DO \var { compilation -- do-sys ; run-time n1 n2 -- | loop-sys } gforth}}
+\entry{U+DO}{71}{\code {U+DO \var { compilation -- do-sys ; run-time u1 u2 -- | loop-sys } gforth}}
+\entry{-DO}{71}{\code {-DO \var { compilation -- do-sys ; run-time n1 n2 -- | loop-sys } gforth}}
+\entry{U-DO}{71}{\code {U-DO \var { compilation -- do-sys ; run-time u1 u2 -- | loop-sys } gforth}}
+\entry{DO}{71}{\code {DO \var { compilation -- do-sys ; run-time w1 w2 -- loop-sys } core}}
+\entry{FOR}{71}{\code {FOR \var { compilation -- do-sys ; run-time u -- loop-sys } gforth}}
+\entry{LOOP}{71}{\code {LOOP \var { compilation do-sys -- ; run-time loop-sys1 -- | loop-sys2 } core}}
+\entry{+LOOP}{71}{\code {+LOOP \var { compilation do-sys -- ; run-time loop-sys1 n -- | loop-sys2 } core}}
+\entry{-LOOP}{71}{\code {-LOOP \var { compilation do-sys -- ; run-time loop-sys1 u -- | loop-sys2 } gforth}}
+\entry{NEXT}{71}{\code {NEXT \var { compilation do-sys -- ; run-time loop-sys1 -- | loop-sys2 } gforth}}
+\entry{LEAVE}{71}{\code {LEAVE \var { compilation -- ; run-time loop-sys -- } core}}
+\entry{?LEAVE}{71}{\code {?LEAVE \var { compilation -- ; run-time f | f loop-sys -- } gforth}}
+\entry{unloop}{71}{\code {unloop \var { R:w1 R:w2 -- } core}}
+\entry{DONE}{71}{\code {DONE \var { compilation orig -- ; run-time -- } gforth}}
+\entry{case}{71}{\code {case \var { compilation -- case-sys ; run-time -- } core-ext}}
+\entry{endcase}{71}{\code {endcase \var { compilation case-sys -- ; run-time x -- } core-ext}}
+\entry{of}{71}{\code {of \var { compilation -- of-sys ; run-time x1 x2 -- |x1 } core-ext}}
+\entry{endof}{71}{\code {endof \var { compilation case-sys1 of-sys -- case-sys2 ; run-time -- } core-ext}}
+\entry{recursive}{72}{\code {recursive \var { compilation -- ; run-time -- } gforth}}
+\entry{recurse}{72}{\code {recurse \var { compilation -- ; run-time ?? -- ?? } core}}
+\entry{EXIT}{73}{\code {EXIT \var { compilation -- ; run-time nest-sys -- } core}}
+\entry{;s}{73}{\code {;s \var { R:w -- } gforth}}
+\entry{throw}{73}{\code {throw \var { y1 .. ym nerror -- y1 .. ym / z1 .. zn error } exception}}
+\entry{exception}{73}{\code {exception \var { addr u -- n } gforth}}
+\entry{catch}{74}{\code {catch \var { ... xt -- ... n } exception}}
+\entry{nothrow}{74}{\code {nothrow \var { -- } gforth}}
+\entry{try}{74}{\code {try \var { compilation -- orig ; run-time -- R:sys1 } gforth}}
+\entry{endtry}{74}{\code {endtry \var { compilation -- ; run-time R:sys1 -- } gforth}}
+\entry{iferror}{74}{\code {iferror \var { compilation orig1 -- orig2 ; run-time -- } gforth}}
+\entry{restore}{75}{\code {restore \var { compilation orig1 -- ; run-time -- } gforth}}
+\entry{endtry-iferror}{76}{\code {endtry-iferror \var { compilation orig1 -- orig2 ; run-time R:sys1 -- } gforth}}
+\entry{ABORT"}{76}{\code {ABORT" \var { compilation 'ccc"' -- ; run-time f -- } core,exception-ext}}
+\entry{abort}{76}{\code {abort \var { ?? -- ?? } core,exception-ext}}
+\entry{Create}{76}{\code {Create \var { "name" -- } core}}
+\entry{Variable}{77}{\code {Variable \var { "name" -- } core}}
+\entry{2Variable}{77}{\code {2Variable \var { "name" -- } double}}
+\entry{fvariable}{77}{\code {fvariable \var { "name" -- } float}}
+\entry{User}{78}{\code {User \var { "name" -- } gforth}}
+\entry{Constant}{78}{\code {Constant \var { w "name" -- } core}}
+\entry{2Constant}{78}{\code {2Constant \var { w1 w2 "name" -- } double}}
+\entry{fconstant}{78}{\code {fconstant \var { r "name" -- } float}}
+\entry{Value}{79}{\code {Value \var { w "name" -- } core-ext}}
+\entry{TO}{79}{\code {TO \var { c|w|d|r "name" -- } core-ext,local}}
+\entry{:}{79}{\code {: \var { "name" -- colon-sys } core}}
+\entry{;}{79}{\code {; \var { compilation colon-sys -- ; run-time nest-sys } core}}
+\entry{:noname}{79}{\code {:noname \var { -- xt colon-sys } core-ext}}
+\entry{noname}{79}{\code {noname \var { -- } gforth}}
+\entry{latestxt}{80}{\code {latestxt \var { -- xt } gforth}}
+\entry{nextname}{80}{\code {nextname \var { c-addr u -- } gforth}}
+\entry{DOES>}{84}{\code {DOES> \var { compilation colon-sys1 -- colon-sys2 ; run-time nest-sys -- } core}}
+\entry{>body}{84}{\code {>body \var { xt -- a_addr } core}}
+\entry{const-does>}{86}{\code {const-does> \var { run-time: w*uw r*ur uw ur "name" -- } gforth}}
+\entry{Defer}{88}{\code {Defer \var { "name" -- } gforth}}
+\entry{defer!}{88}{\code {defer! \var { xt xt-deferred -- } gforth}}
+\entry{IS}{88}{\code {IS \var { compilation/interpretation "name-deferred" -- ; run-time xt -- } gforth}}
+\entry{defer{\indexatchar}}{88}{\code {defer\@ \var { xt-deferred -- xt } gforth}}
+\entry{action-of}{88}{\code {action-of \var { interpretation "name" -- xt; compilation "name" -- ; run-time -- xt } gforth}}
+\entry{defers}{88}{\code {defers \var { compilation "name" -- ; run-time ... -- ... } gforth}}
+\entry{Alias}{89}{\code {Alias \var { xt "name" -- } gforth}}
+\entry{immediate}{89}{\code {immediate \var { -- } core}}
+\entry{compile-only}{89}{\code {compile-only \var { -- } gforth}}
+\entry{restrict}{89}{\code {restrict \var { -- } gforth}}
+\entry{interpret/compile:}{90}{\code {interpret/compile: \var { interp-xt comp-xt "name" -- } gforth}}
+\entry{create-interpret/compile}{91}{\code {create-interpret/compile \var { "name" -- } gforth}}
+\entry{interpretation>}{91}{\code {interpretation> \var { compilation. -- orig colon-sys } gforth}}
+\entry{<interpretation}{91}{\code {<interpretation \var { compilation. orig colon-sys -- } gforth}}
+\entry{compilation>}{91}{\code {compilation> \var { compilation. -- orig colon-sys } gforth}}
+\entry{<compilation}{91}{\code {<compilation \var { compilation. orig colon-sys -- } gforth}}
+\entry{'}{92}{\code {' \var { "name" -- xt } core}}
+\entry{[']}{92}{\code {['] \var { compilation. "name" -- ; run-time. -- xt } core}}
+\entry{execute}{92}{\code {execute \var { xt -- } core}}
+\entry{perform}{92}{\code {perform \var { a-addr -- } gforth}}
+\entry{[COMP']}{93}{\code {[COMP'] \var { compilation "name" -- ; run-time -- w xt } gforth}}
+\entry{COMP'}{93}{\code {COMP' \var { "name" -- w xt } gforth}}
+\entry{postpone,}{93}{\code {postpone, \var { w xt -- } gforth}}
+\entry{find-name}{93}{\code {find-name \var { c-addr u -- nt | 0 } gforth}}
+\entry{latest}{93}{\code {latest \var { -- nt } gforth}}
+\entry{>name}{93}{\code {>name \var { xt -- nt|0 } gforth}}
+\entry{name>int}{93}{\code {name>int \var { nt -- xt } gforth}}
+\entry{name?int}{93}{\code {name?int \var { nt -- xt } gforth}}
+\entry{name>comp}{93}{\code {name>comp \var { nt -- w xt } gforth}}
+\entry{name>string}{93}{\code {name>string \var { nt -- addr count } gforth}}
+\entry{id.}{93}{\code {id. \var { nt -- } gforth}}
+\entry{.name}{93}{\code {.name \var { nt -- } gforth-obsolete}}
+\entry{.id}{94}{\code {.id \var { nt -- } F83}}
+\entry{[}{94}{\code {[ \var { -- } core}}
+\entry{]}{94}{\code {] \var { -- } core}}
+\entry{Literal}{94}{\code {Literal \var { compilation n -- ; run-time -- n } core}}
+\entry{]L}{94}{\code {]L \var { compilation: n -- ; run-time: -- n } gforth}}
+\entry{2Literal}{95}{\code {2Literal \var { compilation w1 w2 -- ; run-time -- w1 w2 } double}}
+\entry{FLiteral}{95}{\code {FLiteral \var { compilation r -- ; run-time -- r } float}}
+\entry{SLiteral}{95}{\code {SLiteral \var { Compilation c-addr1 u ; run-time -- c-addr2 u } string}}
+\entry{postpone}{95}{\code {postpone \var { "name" -- } core}}
+\entry{[compile]}{95}{\code {[compile] \var { compilation "name" -- ; run-time ? -- ? } core-ext}}
+\entry{compile,}{96}{\code {compile, \var { xt -- } core-ext}}
+\entry{>in}{99}{\code {>in \var { -- addr } core}}
+\entry{source}{99}{\code {source \var { -- addr u } core}}
+\entry{tib}{99}{\code {tib \var { -- addr } core-ext-obsolescent}}
+\entry{#tib}{99}{\code {#tib \var { -- addr } core-ext-obsolescent}}
+\entry{source-id}{100}{\code {source-id \var { -- 0 | -1 | fileid } core-ext,file}}
+\entry{blk}{100}{\code {blk \var { -- addr } block}}
+\entry{save-input}{100}{\code {save-input \var { -- x1 .. xn n } core-ext}}
+\entry{restore-input}{100}{\code {restore-input \var { x1 .. xn n -- flag } core-ext}}
+\entry{evaluate}{100}{\code {evaluate \var { ... addr u -- ... } core,block}}
+\entry{query}{100}{\code {query \var { -- } core-ext-obsolescent}}
+\entry{dpl}{101}{\code {dpl \var { -- a-addr } gforth}}
+\entry{base-execute}{101}{\code {base-execute \var { i*x xt u -- j*x } gforth}}
+\entry{base}{101}{\code {base \var { -- a-addr } core}}
+\entry{hex}{101}{\code {hex \var { -- } core-ext}}
+\entry{decimal}{101}{\code {decimal \var { -- } core}}
+\entry{[IF]}{103}{\code {[IF] \var { flag -- } tools-ext}}
+\entry{[ELSE]}{103}{\code {[ELSE] \var { -- } tools-ext}}
+\entry{[THEN]}{103}{\code {[THEN] \var { -- } tools-ext}}
+\entry{[ENDIF]}{103}{\code {[ENDIF] \var { -- } gforth}}
+\entry{[IFDEF]}{103}{\code {[IFDEF] \var { "<spaces>name" -- } gforth}}
+\entry{[IFUNDEF]}{103}{\code {[IFUNDEF] \var { "<spaces>name" -- } gforth}}
+\entry{[?DO]}{103}{\code {[?DO] \var { n-limit n-index -- } gforth}}
+\entry{[DO]}{103}{\code {[DO] \var { n-limit n-index -- } gforth}}
+\entry{[FOR]}{103}{\code {[FOR] \var { n -- } gforth}}
+\entry{[LOOP]}{103}{\code {[LOOP] \var { -- } gforth}}
+\entry{[+LOOP]}{103}{\code {[+LOOP] \var { n -- } gforth}}
+\entry{[NEXT]}{103}{\code {[NEXT] \var { n -- } gforth}}
+\entry{[BEGIN]}{103}{\code {[BEGIN] \var { -- } gforth}}
+\entry{[UNTIL]}{103}{\code {[UNTIL] \var { flag -- } gforth}}
+\entry{[AGAIN]}{103}{\code {[AGAIN] \var { -- } gforth}}
+\entry{[WHILE]}{103}{\code {[WHILE] \var { flag -- } gforth}}
+\entry{[REPEAT]}{103}{\code {[REPEAT] \var { -- } gforth}}
+\entry{parse}{104}{\code {parse \var { char "ccc<char>" -- c-addr u } core-ext}}
+\entry{parse-name}{104}{\code {parse-name \var { "name" -- c-addr u } gforth}}
+\entry{parse-word}{104}{\code {parse-word \var { -- c-addr u } gforth-obsolete}}
+\entry{name}{104}{\code {name \var { -- c-addr u } gforth-obsolete}}
+\entry{word}{104}{\code {word \var { char "<chars>ccc<char>-- c-addr } core}}
+\entry{refill}{104}{\code {refill \var { -- flag } core-ext,block-ext,file-ext}}
+\entry{execute-parsing}{104}{\code {execute-parsing \var { ... addr u xt -- ... } gforth}}
+\entry{execute-parsing-file}{105}{\code {execute-parsing-file \var { i*x fileid xt -- j*x } gforth}}
+\entry{forth-wordlist}{105}{\code {forth-wordlist \var { -- wid } search}}
+\entry{definitions}{105}{\code {definitions \var { -- } search}}
+\entry{get-current}{105}{\code {get-current \var { -- wid } search}}
+\entry{set-current}{105}{\code {set-current \var { wid -- } search}}
+\entry{get-order}{105}{\code {get-order \var { -- widn .. wid1 n } search}}
+\entry{set-order}{105}{\code {set-order \var { widn .. wid1 n -- } search}}
+\entry{wordlist}{106}{\code {wordlist \var { -- wid } search}}
+\entry{table}{106}{\code {table \var { -- wid } gforth}}
+\entry{>order}{106}{\code {>order \var { wid -- } gforth}}
+\entry{previous}{106}{\code {previous \var { -- } search-ext}}
+\entry{also}{106}{\code {also \var { -- } search-ext}}
+\entry{Forth}{106}{\code {Forth \var { -- } search-ext}}
+\entry{Only}{106}{\code {Only \var { -- } search-ext}}
+\entry{order}{106}{\code {order \var { -- } search-ext}}
+\entry{find}{106}{\code {find \var { c-addr -- xt +-1 | c-addr 0 } core,search}}
+\entry{search-wordlist}{106}{\code {search-wordlist \var { c-addr count wid -- 0 | xt +-1 } search}}
+\entry{words}{106}{\code {words \var { -- } tools}}
+\entry{vlist}{107}{\code {vlist \var { -- } gforth}}
+\entry{Root}{107}{\code {Root \var { -- } gforth}}
+\entry{Vocabulary}{107}{\code {Vocabulary \var { "name" -- } gforth}}
+\entry{seal}{107}{\code {seal \var { -- } gforth}}
+\entry{vocs}{107}{\code {vocs \var { -- } gforth}}
+\entry{current}{107}{\code {current \var { -- addr } gforth}}
+\entry{context}{107}{\code {context \var { -- addr } gforth}}
+\entry{environment?}{109}{\code {environment? \var { c-addr u -- false / ... true } core}}
+\entry{environment-wordlist}{109}{\code {environment-wordlist \var { -- wid } gforth}}
+\entry{gforth}{109}{\code {gforth \var { -- c-addr u } gforth-environment}}
+\entry{os-class}{109}{\code {os-class \var { -- c-addr u } gforth-environment}}
+\entry{include-file}{111}{\code {include-file \var { i*x wfileid -- j*x } file}}
+\entry{included}{111}{\code {included \var { i*x c-addr u -- j*x } file}}
+\entry{included?}{111}{\code {included? \var { c-addr u -- f } gforth}}
+\entry{include}{111}{\code {include \var { ... "file" -- ... } gforth}}
+\entry{required}{111}{\code {required \var { i*x addr u -- i*x } gforth}}
+\entry{require}{111}{\code {require \var { ... "file" -- ... } gforth}}
+\entry{needs}{111}{\code {needs \var { ... "name" -- ... } gforth}}
+\entry{sourcefilename}{111}{\code {sourcefilename \var { -- c-addr u } gforth}}
+\entry{sourceline#}{111}{\code {sourceline# \var { -- u } gforth}}
+\entry{r/o}{111}{\code {r/o \var { -- fam } file}}
+\entry{r/w}{111}{\code {r/w \var { -- fam } file}}
+\entry{w/o}{111}{\code {w/o \var { -- fam } file}}
+\entry{bin}{111}{\code {bin \var { fam1 -- fam2 } file}}
+\entry{open-file}{112}{\code {open-file \var { c-addr u wfam -- wfileid wior } file}}
+\entry{create-file}{112}{\code {create-file \var { c-addr u wfam -- wfileid wior } file}}
+\entry{close-file}{112}{\code {close-file \var { wfileid -- wior } file}}
+\entry{delete-file}{112}{\code {delete-file \var { c-addr u -- wior } file}}
+\entry{rename-file}{112}{\code {rename-file \var { c-addr1 u1 c-addr2 u2 -- wior } file-ext}}
+\entry{read-file}{112}{\code {read-file \var { c-addr u1 wfileid -- u2 wior } file}}
+\entry{read-line}{112}{\code {read-line \var { c_addr u1 wfileid -- u2 flag wior } file}}
+\entry{key-file}{112}{\code {key-file \var { wfileid -- c } gforth}}
+\entry{key?-file}{112}{\code {key?-file \var { wfileid -- f } gforth}}
+\entry{write-file}{112}{\code {write-file \var { c-addr u1 wfileid -- wior } file}}
+\entry{write-line}{112}{\code {write-line \var { c-addr u fileid -- ior } file}}
+\entry{emit-file}{112}{\code {emit-file \var { c wfileid -- wior } gforth}}
+\entry{flush-file}{112}{\code {flush-file \var { wfileid -- wior } file-ext}}
+\entry{file-status}{112}{\code {file-status \var { c-addr u -- wfam wior } file-ext}}
+\entry{file-position}{112}{\code {file-position \var { wfileid -- ud wior } file}}
+\entry{reposition-file}{112}{\code {reposition-file \var { ud wfileid -- wior } file}}
+\entry{file-size}{112}{\code {file-size \var { wfileid -- ud wior } file}}
+\entry{resize-file}{112}{\code {resize-file \var { ud wfileid -- wior } file}}
+\entry{slurp-file}{112}{\code {slurp-file \var { c-addr1 u1 -- c-addr2 u2 } gforth}}
+\entry{slurp-fid}{112}{\code {slurp-fid \var { fid -- addr u } gforth}}
+\entry{stdin}{112}{\code {stdin \var { -- wfileid } gforth}}
+\entry{stdout}{112}{\code {stdout \var { -- wfileid } gforth}}
+\entry{stderr}{112}{\code {stderr \var { -- wfileid } gforth}}
+\entry{outfile-execute}{113}{\code {outfile-execute \var { ... xt file-id -- ... } gforth}}
+\entry{infile-execute}{113}{\code {infile-execute \var { ... xt file-id -- ... } gforth}}
+\entry{fpath}{113}{\code {fpath \var { -- path-addr } gforth}}
+\entry{open-path-file}{114}{\code {open-path-file \var { addr1 u1 path-addr -- wfileid addr2 u2 0 | ior } gforth}}
+\entry{path-allot}{114}{\code {path-allot \var { umax -- } gforth}}
+\entry{clear-path}{114}{\code {clear-path \var { path-addr -- } gforth}}
+\entry{also-path}{114}{\code {also-path \var { c-addr len path-addr -- } gforth}}
+\entry{.path}{114}{\code {.path \var { path-addr -- } gforth}}
+\entry{path+}{114}{\code {path+ \var { path-addr "dir" -- } gforth}}
+\entry{path=}{114}{\code {path= \var { path-addr "dir1|dir2|dir3" } gforth}}
+\entry{open-blocks}{116}{\code {open-blocks \var { c-addr u -- } gforth}}
+\entry{use}{116}{\code {use \var { "file" -- } gforth}}
+\entry{block-offset}{116}{\code {block-offset \var { -- addr } gforth}}
+\entry{get-block-fid}{116}{\code {get-block-fid \var { -- wfileid } gforth}}
+\entry{block-position}{116}{\code {block-position \var { u -- } block}}
+\entry{list}{116}{\code {list \var { u -- } block-ext}}
+\entry{scr}{117}{\code {scr \var { -- a-addr } block-ext}}
+\entry{block}{117}{\code {block \var { u -- a-addr } block}}
+\entry{buffer}{117}{\code {buffer \var { u -- a-addr } block}}
+\entry{empty-buffers}{117}{\code {empty-buffers \var { -- } block-ext}}
+\entry{empty-buffer}{117}{\code {empty-buffer \var { buffer -- } gforth}}
+\entry{update}{117}{\code {update \var { -- } block}}
+\entry{updated?}{117}{\code {updated? \var { n -- f } gforth}}
+\entry{save-buffers}{117}{\code {save-buffers \var { -- } block}}
+\entry{save-buffer}{117}{\code {save-buffer \var { buffer -- } gforth}}
+\entry{flush}{117}{\code {flush \var { -- } block}}
+\entry{load}{117}{\code {load \var { i*x n -- j*x } block}}
+\entry{thru}{117}{\code {thru \var { i*x n1 n2 -- j*x } block-ext}}
+\entry{+load}{117}{\code {+load \var { i*x n -- j*x } gforth}}
+\entry{+thru}{117}{\code {+thru \var { i*x n1 n2 -- j*x } gforth}}
+\entry{-->}{117}{\code {--> \var { -- } gforth}}
+\entry{block-included}{118}{\code {block-included \var { a-addr u -- } gforth}}
+\entry{.}{118}{\code {. \var { n -- } core}}
+\entry{dec.}{118}{\code {dec. \var { n -- } gforth}}
+\entry{hex.}{118}{\code {hex. \var { u -- } gforth}}
+\entry{u.}{118}{\code {u. \var { u -- } core}}
+\entry{.r}{118}{\code {.r \var { n1 n2 -- } core-ext}}
+\entry{u.r}{118}{\code {u.r \var { u n -- } core-ext}}
+\entry{d.}{118}{\code {d. \var { d -- } double}}
+\entry{ud.}{118}{\code {ud. \var { ud -- } gforth}}
+\entry{d.r}{118}{\code {d.r \var { d n -- } double}}
+\entry{ud.r}{118}{\code {ud.r \var { ud n -- } gforth}}
+\entry{f.}{119}{\code {f. \var { r -- } float-ext}}
+\entry{fe.}{119}{\code {fe. \var { r -- } float-ext}}
+\entry{fs.}{119}{\code {fs. \var { r -- } float-ext}}
+\entry{f.rdp}{119}{\code {f.rdp \var { rf +nr +nd +np -- } gforth}}
+\entry{<#}{120}{\code {<# \var { -- } core}}
+\entry{<<#}{120}{\code {<<# \var { -- } gforth}}
+\entry{#}{120}{\code {# \var { ud1 -- ud2 } core}}
+\entry{#s}{120}{\code {#s \var { ud -- 0 0 } core}}
+\entry{hold}{120}{\code {hold \var { char -- } core}}
+\entry{sign}{120}{\code {sign \var { n -- } core}}
+\entry{#>}{120}{\code {#> \var { xd -- addr u } core}}
+\entry{#>>}{120}{\code {#>> \var { -- } gforth}}
+\entry{represent}{120}{\code {represent \var { r c-addr u -- n f1 f2 } float}}
+\entry{f>str-rdp}{120}{\code {f>str-rdp \var { rf +nr +nd +np -- c-addr nr } gforth}}
+\entry{f>buf-rdp}{120}{\code {f>buf-rdp \var { rf c-addr +nr +nd +np -- } gforth}}
+\entry{count}{122}{\code {count \var { c-addr1 -- c-addr2 u } core}}
+\entry{bl}{122}{\code {bl \var { -- c-char } core}}
+\entry{space}{122}{\code {space \var { -- } core}}
+\entry{spaces}{122}{\code {spaces \var { u -- } core}}
+\entry{emit}{122}{\code {emit \var { c -- } core}}
+\entry{toupper}{122}{\code {toupper \var { c1 -- c2 } gforth}}
+\entry{."}{122}{\code {." \var { compilation 'ccc"' -- ; run-time -- } core}}
+\entry{.(}{123}{\code {.( \var { compilation&interpretation "ccc<paren>" -- } core-ext}}
+\entry{.{\indexbackslash}"}{123}{\code {.\backslashchar {}" \var { compilation 'ccc"' -- ; run-time -- } gforth}}
+\entry{type}{123}{\code {type \var { c-addr u -- } core}}
+\entry{typewhite}{123}{\code {typewhite \var { addr n -- } gforth}}
+\entry{cr}{123}{\code {cr \var { -- } core}}
+\entry{S"}{123}{\code {S" \var { compilation 'ccc"' -- ; run-time -- c-addr u } core,file}}
+\entry{s{\indexbackslash}"}{123}{\code {s\backslashchar {}" \var { compilation 'ccc"' -- ; run-time -- c-addr u } gforth}}
+\entry{C"}{123}{\code {C" \var { compilation "ccc<quote>" -- ; run-time -- c-addr } core-ext}}
+\entry{char}{123}{\code {char \var { '<spaces>ccc' -- c } core}}
+\entry{[Char]}{123}{\code {[Char] \var { compilation '<spaces>ccc' -- ; run-time -- c } core}}
+\entry{at-xy}{124}{\code {at-xy \var { u1 u2 -- } facility}}
+\entry{form}{124}{\code {form \var { -- urows ucols } gforth}}
+\entry{page}{125}{\code {page \var { -- } facility}}
+\entry{key}{125}{\code {key \var { -- char } core}}
+\entry{key?}{125}{\code {key? \var { -- flag } facility}}
+\entry{ekey}{125}{\code {ekey \var { -- u } facility-ext}}
+\entry{ekey>char}{125}{\code {ekey>char \var { u -- u false | c true } facility-ext}}
+\entry{ekey>fkey}{125}{\code {ekey>fkey \var { u1 -- u2 f } X:ekeys}}
+\entry{ekey?}{125}{\code {ekey? \var { -- flag } facility-ext}}
+\entry{k-left}{126}{\code {k-left \var { -- u } X:ekeys}}
+\entry{k-right}{126}{\code {k-right \var { -- u } X:ekeys}}
+\entry{k-up}{126}{\code {k-up \var { -- u } X:ekeys}}
+\entry{k-down}{126}{\code {k-down \var { -- u } X:ekeys}}
+\entry{k-home}{126}{\code {k-home \var { -- u } X:ekeys}}
+\entry{k-end}{126}{\code {k-end \var { -- u } X:ekeys}}
+\entry{k-prior}{126}{\code {k-prior \var { -- u } X:ekeys}}
+\entry{k-next}{126}{\code {k-next \var { -- u } X:ekeys}}
+\entry{k-insert}{126}{\code {k-insert \var { -- u } X:ekeys}}
+\entry{k-delete}{126}{\code {k-delete \var { -- u } X:ekeys}}
+\entry{k-f1}{126}{\code {k-f1 \var { -- u } X:ekeys}}
+\entry{k-f2}{126}{\code {k-f2 \var { -- u } X:ekeys}}
+\entry{k-f3}{126}{\code {k-f3 \var { -- u } X:ekeys}}
+\entry{k-f4}{126}{\code {k-f4 \var { -- u } X:ekeys}}
+\entry{k-f5}{126}{\code {k-f5 \var { -- u } X:ekeys}}
+\entry{k-f6}{126}{\code {k-f6 \var { -- u } X:ekeys}}
+\entry{k-f7}{126}{\code {k-f7 \var { -- u } X:ekeys}}
+\entry{k-f8}{126}{\code {k-f8 \var { -- u } X:ekeys}}
+\entry{k-f9}{126}{\code {k-f9 \var { -- u } X:ekeys}}
+\entry{k-f10}{126}{\code {k-f10 \var { -- u } X:ekeys}}
+\entry{k-f11}{126}{\code {k-f11 \var { -- u } X:ekeys}}
+\entry{k-f12}{126}{\code {k-f12 \var { -- u } X:ekeys}}
+\entry{k-shift-mask}{126}{\code {k-shift-mask \var { -- u } X:ekeys}}
+\entry{k-ctrl-mask}{126}{\code {k-ctrl-mask \var { -- u } X:ekeys}}
+\entry{k-alt-mask}{126}{\code {k-alt-mask \var { -- u } X:ekeys}}
+\entry{accept}{127}{\code {accept \var { c-addr +n1 -- +n2 } core}}
+\entry{edit-line}{127}{\code {edit-line \var { c-addr n1 n2 -- n3 } gforth}}
+\entry{s>number?}{127}{\code {s>number? \var { addr u -- d f } gforth}}
+\entry{s>unumber?}{127}{\code {s>unumber? \var { c-addr u -- ud flag } gforth}}
+\entry{>number}{127}{\code {>number \var { ud1 c-addr1 u1 -- ud2 c-addr2 u2 } core}}
+\entry{>float}{127}{\code {>float \var { c-addr u -- f:... flag } float}}
+\entry{convert}{127}{\code {convert \var { ud1 c-addr1 -- ud2 c-addr2 } core-ext-obsolescent}}
+\entry{expect}{127}{\code {expect \var { c-addr +n -- } core-ext-obsolescent}}
+\entry{span}{128}{\code {span \var { -- c-addr } core-ext-obsolescent}}
+\entry{open-pipe}{128}{\code {open-pipe \var { c-addr u wfam -- wfileid wior } gforth}}
+\entry{close-pipe}{128}{\code {close-pipe \var { wfileid -- wretval wior } gforth}}
+\entry{broken-pipe-error}{128}{\code {broken-pipe-error \var { -- n } gforth}}
+\entry{xc-size}{128}{\code {xc-size \var { xc -- u } xchar-ext}}
+\entry{x-size}{128}{\code {x-size \var { xc-addr u1 -- u2 } xchar}}
+\entry{xc{\indexatchar}+}{128}{\code {xc\@+ \var { xc-addr1 -- xc-addr2 xc } xchar-ext}}
+\entry{xc!+?}{129}{\code {xc!+? \var { xc xc-addr1 u1 -- xc-addr2 u2 f } xchar-ext}}
+\entry{xchar+}{129}{\code {xchar+ \var { xc-addr1 -- xc-addr2 } xchar-ext}}
+\entry{xchar-}{129}{\code {xchar- \var { xc-addr1 -- xc-addr2 } xchar-ext}}
+\entry{+x/string}{129}{\code {+x/string \var { xc-addr1 u1 -- xc-addr2 u2 } xchar}}
+\entry{x{\indexbackslash}string-}{129}{\code {x\backslashchar {}string- \var { xc-addr1 u1 -- xc-addr1 u2 } xchar}}
+\entry{-trailing-garbage}{129}{\code {-trailing-garbage \var { xc-addr u1 -- addr u2 } xchar-ext}}
+\entry{x-width}{129}{\code {x-width \var { xc-addr u -- n } xchar-ext}}
+\entry{xkey}{129}{\code {xkey \var { -- xc } xchar-ext}}
+\entry{xemit}{129}{\code {xemit \var { xc -- } xchar-ext}}
+\entry{xchar-encoding}{129}{\code {xchar-encoding \var { -- addr u } xchar-ext}}
+\entry{next-arg}{130}{\code {next-arg \var { -- addr u } gforth}}
+\entry{arg}{130}{\code {arg \var { u -- addr count } gforth}}
+\entry{shift-args}{130}{\code {shift-args \var { -- } gforth}}
+\entry{argc}{130}{\code {argc \var { -- addr } gforth}}
+\entry{argv}{130}{\code {argv \var { -- addr } gforth}}
+\entry{scope}{132}{\code {scope \var { compilation -- scope ; run-time -- } gforth}}
+\entry{endscope}{132}{\code {endscope \var { compilation scope -- ; run-time -- } gforth}}
+\entry{UNREACHABLE}{132}{\code {UNREACHABLE \var { -- } gforth}}
+\entry{ASSUME-LIVE}{133}{\code {ASSUME-LIVE \var { orig -- orig } gforth}}
+\entry{{\indexatchar}local#}{135}{\code {\@local# \var { #noffset -- w } gforth}}
+\entry{f{\indexatchar}local#}{135}{\code {f\@local# \var { #noffset -- r } gforth}}
+\entry{laddr#}{135}{\code {laddr# \var { #noffset -- c-addr } gforth}}
+\entry{lp+!#}{135}{\code {lp+!# \var { #noffset -- } gforth}}
+\entry{lp!}{136}{\code {lp! \var { c-addr -- } gforth}}
+\entry{>l}{136}{\code {>l \var { w -- } gforth}}
+\entry{f>l}{136}{\code {f>l \var { r -- } gforth}}
+\entry{compile-lp+!}{136}{\code {compile-lp+! \var { n -- } gforth}}
+\entry{common-list}{137}{\code {common-list \var { list1 list2 -- list3 } gforth-internal}}
+\entry{sub-list?}{137}{\code {sub-list? \var { list1 list2 -- f } gforth-internal}}
+\entry{list-size}{137}{\code {list-size \var { list -- u } gforth-internal}}
+\entry{(local)}{138}{\code {(local) \var { addr u -- } local}}
+\entry{%align}{141}{\code {%align \var { align size -- } gforth}}
+\entry{%alignment}{141}{\code {%alignment \var { align size -- align } gforth}}
+\entry{%alloc}{141}{\code {%alloc \var { align size -- addr } gforth}}
+\entry{%allocate}{141}{\code {%allocate \var { align size -- addr ior } gforth}}
+\entry{%allot}{141}{\code {%allot \var { align size -- addr } gforth}}
+\entry{cell%}{142}{\code {cell% \var { -- align size } gforth}}
+\entry{char%}{142}{\code {char% \var { -- align size } gforth}}
+\entry{dfloat%}{142}{\code {dfloat% \var { -- align size } gforth}}
+\entry{double%}{142}{\code {double% \var { -- align size } gforth}}
+\entry{end-struct}{142}{\code {end-struct \var { align size "name" -- } gforth}}
+\entry{field}{142}{\code {field \var { align1 offset1 align size "name" -- align2 offset2 } gforth}}
+\entry{float%}{142}{\code {float% \var { -- align size } gforth}}
+\entry{naligned}{142}{\code {naligned \var { addr1 n -- addr2 } gforth}}
+\entry{sfloat%}{142}{\code {sfloat% \var { -- align size } gforth}}
+\entry{%size}{142}{\code {%size \var { align size -- size } gforth}}
+\entry{struct}{142}{\code {struct \var { -- align size } gforth}}
+\entry{begin-structure}{142}{\code {begin-structure \var { "name" -- struct-sys 0 } X:structures}}
+\entry{end-structure}{142}{\code {end-structure \var { struct-sys +n -- } X:structures}}
+\entry{+field}{142}{\code {+field \var { n1 n2 "name" -- n3 } X:structures}}
+\entry{cfield:}{142}{\code {cfield: \var { u1 "name" -- u2 } X:structures}}
+\entry{field:}{143}{\code {field: \var { u1 "name" -- u2 } X:structures}}
+\entry{2field:}{143}{\code {2field: \var { u1 "name" -- u2 } gforth}}
+\entry{ffield:}{143}{\code {ffield: \var { u1 "name" -- u2 } X:structures}}
+\entry{sffield:}{143}{\code {sffield: \var { u1 "name" -- u2 } X:structures}}
+\entry{dffield:}{143}{\code {dffield: \var { u1 "name" -- u2 } X:structures}}
+\entry{bind}{151}{\code {bind \var { ... "class" "selector" -- ... } objects}}
+\entry{<bind>}{151}{\code {<bind> \var { class selector-xt -- xt } objects}}
+\entry{bind'}{152}{\code {bind' \var { "class" "selector" -- xt } objects}}
+\entry{[bind]}{152}{\code {[bind] \var { compile-time: "class" "selector" -- ; run-time: ... object -- ... } objects}}
+\entry{class}{152}{\code {class \var { parent-class -- align offset } objects}}
+\entry{class->map}{152}{\code {class->map \var { class -- map } objects}}
+\entry{class-inst-size}{152}{\code {class-inst-size \var { class -- addr } objects}}
+\entry{class-override!}{152}{\code {class-override! \var { xt sel-xt class-map -- } objects}}
+\entry{class-previous}{152}{\code {class-previous \var { class -- } objects}}
+\entry{class>order}{152}{\code {class>order \var { class -- } objects}}
+\entry{construct}{152}{\code {construct \var { ... object -- } objects}}
+\entry{current'}{152}{\code {current' \var { "selector" -- xt } objects}}
+\entry{[current]}{152}{\code {[current] \var { compile-time: "selector" -- ; run-time: ... object -- ... } objects}}
+\entry{current-interface}{152}{\code {current-interface \var { -- addr } objects}}
+\entry{dict-new}{152}{\code {dict-new \var { ... class -- object } objects}}
+\entry{end-class}{152}{\code {end-class \var { align offset "name" -- } objects}}
+\entry{end-class-noname}{152}{\code {end-class-noname \var { align offset -- class } objects}}
+\entry{end-interface}{152}{\code {end-interface \var { "name" -- } objects}}
+\entry{end-interface-noname}{153}{\code {end-interface-noname \var { -- interface } objects}}
+\entry{end-methods}{153}{\code {end-methods \var { -- } objects}}
+\entry{exitm}{153}{\code {exitm \var { -- } objects}}
+\entry{heap-new}{153}{\code {heap-new \var { ... class -- object } objects}}
+\entry{implementation}{153}{\code {implementation \var { interface -- } objects}}
+\entry{init-object}{153}{\code {init-object \var { ... class object -- } objects}}
+\entry{inst-value}{153}{\code {inst-value \var { align1 offset1 "name" -- align2 offset2 } objects}}
+\entry{inst-var}{153}{\code {inst-var \var { align1 offset1 align size "name" -- align2 offset2 } objects}}
+\entry{interface}{153}{\code {interface \var { -- } objects}}
+\entry{m:}{153}{\code {m: \var { -- xt colon-sys; run-time: object -- } objects}}
+\entry{:m}{153}{\code {:m \var { "name" -- xt; run-time: object -- } objects}}
+\entry{;m}{153}{\code {;m \var { colon-sys --; run-time: -- } objects}}
+\entry{method}{153}{\code {method \var { xt "name" -- } objects}}
+\entry{methods}{153}{\code {methods \var { class -- } objects}}
+\entry{object}{153}{\code {object \var { -- class } objects}}
+\entry{overrides}{153}{\code {overrides \var { xt "selector" -- } objects}}
+\entry{[parent]}{154}{\code {[parent] \var { compile-time: "selector" -- ; run-time: ... object -- ... } objects}}
+\entry{print}{154}{\code {print \var { object -- } objects}}
+\entry{protected}{154}{\code {protected \var { -- } objects}}
+\entry{public}{154}{\code {public \var { -- } objects}}
+\entry{selector}{154}{\code {selector \var { "name" -- } objects}}
+\entry{this}{154}{\code {this \var { -- object } objects}}
+\entry{<to-inst>}{154}{\code {<to-inst> \var { w xt -- } objects}}
+\entry{[to-inst]}{154}{\code {[to-inst] \var { compile-time: "name" -- ; run-time: w -- } objects}}
+\entry{to-this}{154}{\code {to-this \var { object -- } objects}}
+\entry{xt-new}{154}{\code {xt-new \var { ... class xt -- object } objects}}
+\entry{class}{156}{\code {class \var { "name" -- } oof}}
+\entry{definitions}{156}{\code {definitions \var { -- } oof}}
+\entry{class?}{156}{\code {class? \var { o -- flag } oof}}
+\entry{init}{156}{\code {init \var { ... -- } oof}}
+\entry{dispose}{156}{\code {dispose \var { -- } oof}}
+\entry{new}{156}{\code {new \var { -- o } oof}}
+\entry{new[]}{156}{\code {new[] \var { n -- o } oof}}
+\entry{:}{156}{\code {: \var { "name" -- } oof}}
+\entry{ptr}{156}{\code {ptr \var { "name" -- } oof}}
+\entry{asptr}{156}{\code {asptr \var { o "name" -- } oof}}
+\entry{[]}{156}{\code {[] \var { n "name" -- } oof}}
+\entry{::}{156}{\code {:: \var { "name" -- } oof}}
+\entry{super}{156}{\code {super \var { "name" -- } oof}}
+\entry{self}{156}{\code {self \var { -- o } oof}}
+\entry{bind}{156}{\code {bind \var { o "name" -- } oof}}
+\entry{bound}{156}{\code {bound \var { class addr "name" -- } oof}}
+\entry{link}{156}{\code {link \var { "name" -- class addr } oof}}
+\entry{is}{156}{\code {is \var { xt "name" -- } oof}}
+\entry{'}{157}{\code {' \var { "name" -- xt } oof}}
+\entry{postpone}{157}{\code {postpone \var { "name" -- } oof}}
+\entry{with}{157}{\code {with \var { o -- } oof}}
+\entry{endwith}{157}{\code {endwith \var { -- } oof}}
+\entry{var}{157}{\code {var \var { size -- } oof}}
+\entry{ptr}{157}{\code {ptr \var { -- } oof}}
+\entry{asptr}{157}{\code {asptr \var { class -- } oof}}
+\entry{defer}{157}{\code {defer \var { -- } oof}}
+\entry{early}{157}{\code {early \var { -- } oof}}
+\entry{method}{157}{\code {method \var { -- } oof}}
+\entry{static}{157}{\code {static \var { -- } oof}}
+\entry{how:}{157}{\code {how: \var { -- } oof}}
+\entry{class;}{157}{\code {class; \var { -- } oof}}
+\entry{object}{158}{\code {object \var { -- a-addr } mini-oof}}
+\entry{method}{158}{\code {method \var { m v "name" -- m' v } mini-oof}}
+\entry{var}{158}{\code {var \var { m v size "name" -- m v' } mini-oof}}
+\entry{class}{158}{\code {class \var { class -- class selectors vars } mini-oof}}
+\entry{end-class}{158}{\code {end-class \var { class selectors vars "name" -- } mini-oof}}
+\entry{defines}{158}{\code {defines \var { xt class "name" -- } mini-oof}}
+\entry{new}{158}{\code {new \var { class -- o } mini-oof}}
+\entry{::}{158}{\code {:: \var { class "name" -- } mini-oof}}
+\entry{.s}{162}{\code {.s \var { -- } tools}}
+\entry{f.s}{162}{\code {f.s \var { -- } gforth}}
+\entry{maxdepth-.s}{162}{\code {maxdepth-.s \var { -- addr } gforth}}
+\entry{depth}{162}{\code {depth \var { -- +n } core}}
+\entry{fdepth}{162}{\code {fdepth \var { -- +n } float}}
+\entry{clearstack}{162}{\code {clearstack \var { ... -- } gforth}}
+\entry{clearstacks}{162}{\code {clearstacks \var { ... -- } gforth}}
+\entry{?}{162}{\code {? \var { a-addr -- } tools}}
+\entry{dump}{162}{\code {dump \var { addr u -- } tools}}
+\entry{see}{162}{\code {see \var { "<spaces>name" -- } tools}}
+\entry{xt-see}{162}{\code {xt-see \var { xt -- } gforth}}
+\entry{simple-see}{163}{\code {simple-see \var { "name" -- } gforth}}
+\entry{simple-see-range}{163}{\code {simple-see-range \var { addr1 addr2 -- } gforth}}
+\entry{see-code}{163}{\code {see-code \var { "name" -- } gforth}}
+\entry{see-code-range}{163}{\code {see-code-range \var { addr1 addr2 -- } gforth}}
+\entry{marker}{163}{\code {marker \var { "<spaces> name" -- } core-ext}}
+\entry{~~}{164}{\code {~~ \var { -- } gforth}}
+\entry{printdebugdata}{164}{\code {printdebugdata \var { -- } gforth}}
+\entry{.debugline}{164}{\code {.debugline \var { nfile nline -- } gforth}}
+\entry{assert0(}{164}{\code {assert0( \var { -- } gforth}}
+\entry{assert1(}{164}{\code {assert1( \var { -- } gforth}}
+\entry{assert2(}{164}{\code {assert2( \var { -- } gforth}}
+\entry{assert3(}{164}{\code {assert3( \var { -- } gforth}}
+\entry{assert(}{165}{\code {assert( \var { -- } gforth}}
+\entry{)}{165}{\code {) \var { -- } gforth}}
+\entry{assert-level}{165}{\code {assert-level \var { -- a-addr } gforth}}
+\entry{dbg}{166}{\code {dbg \var { "name" -- } gforth}}
+\entry{break:}{166}{\code {break: \var { -- } gforth}}
+\entry{break"}{166}{\code {break" \var { 'ccc"' -- } gforth}}
+\entry{{\indexbackslash}c}{168}{\code {\backslashchar {}c \var { "rest-of-line" -- } gforth}}
+\entry{c-function}{168}{\code {c-function \var { "forth-name" "c-name" "\lbracechar {}type\rbracechar {}" "--" "type" -- } gforth}}
+\entry{c-library-name}{169}{\code {c-library-name \var { c-addr u -- } gforth}}
+\entry{c-library}{169}{\code {c-library \var { "name" -- } gforth}}
+\entry{end-c-library}{169}{\code {end-c-library \var { -- } gforth}}
+\entry{clear-libs}{170}{\code {clear-libs \var { -- } gforth}}
+\entry{add-lib}{170}{\code {add-lib \var { c-addr u -- } gforth}}
+\entry{open-lib}{170}{\code {open-lib \var { c-addr1 u1 -- u2 } gforth}}
+\entry{lib-sym}{170}{\code {lib-sym \var { c-addr1 u1 u2 -- u3 } gforth}}
+\entry{lib-error}{170}{\code {lib-error \var { -- c-addr u } gforth}}
+\entry{call-c}{170}{\code {call-c \var { ... w -- ... } gforth}}
+\entry{assembler}{171}{\code {assembler \var { -- } tools-ext}}
+\entry{init-asm}{171}{\code {init-asm \var { -- } gforth}}
+\entry{code}{171}{\code {code \var { "name" -- colon-sys } tools-ext}}
+\entry{end-code}{171}{\code {end-code \var { colon-sys -- } gforth}}
+\entry{;code}{171}{\code {;code \var { compilation. colon-sys1 -- colon-sys2 } tools-ext}}
+\entry{flush-icache}{171}{\code {flush-icache \var { c-addr u -- } gforth}}
+\entry{discode}{173}{\code {discode \var { addr u -- } gforth}}
+\entry{threading-method}{178}{\code {threading-method \var { -- n } gforth}}
+\entry{>code-address}{179}{\code {>code-address \var { xt -- c_addr } gforth}}
+\entry{code-address!}{179}{\code {code-address! \var { c_addr xt -- } gforth}}
+\entry{>does-code}{179}{\code {>does-code \var { xt -- a_addr } gforth}}
+\entry{does-code!}{179}{\code {does-code! \var { a_addr xt -- } gforth}}
+\entry{does-handler!}{179}{\code {does-handler! \var { a_addr -- } gforth}}
+\entry{/does-handler}{179}{\code {/does-handler \var { -- n } gforth}}
+\entry{docol:}{179}{\code {docol: \var { -- addr } gforth}}
+\entry{docon:}{179}{\code {docon: \var { -- addr } gforth}}
+\entry{dovar:}{179}{\code {dovar: \var { -- addr } gforth}}
+\entry{douser:}{179}{\code {douser: \var { -- addr } gforth}}
+\entry{dodefer:}{179}{\code {dodefer: \var { -- addr } gforth}}
+\entry{dofield:}{179}{\code {dofield: \var { -- addr } gforth}}
+\entry{>definer}{180}{\code {>definer \var { xt -- definer } gforth}}
+\entry{definer!}{180}{\code {definer! \var { definer xt -- } gforth}}
+\entry{sh}{180}{\code {sh \var { "..." -- } gforth}}
+\entry{system}{180}{\code {system \var { c-addr u -- } gforth}}
+\entry{$?}{180}{\code {$? \var { -- n } gforth}}
+\entry{getenv}{180}{\code {getenv \var { c-addr1 u1 -- c-addr2 u2 } gforth}}
+\entry{ms}{180}{\code {ms \var { u -- } facility-ext}}
+\entry{time&date}{180}{\code {time&date \var { -- nsec nmin nhour nday nmonth nyear } facility-ext}}
+\entry{utime}{180}{\code {utime \var { -- dtime } gforth}}
+\entry{cputime}{180}{\code {cputime \var { -- duser dsystem } gforth}}
+\entry{quit}{181}{\code {quit \var { ?? -- ?? } core}}
+\entry{savesystem}{207}{\code {savesystem \var { "name" -- } gforth}}
+\entry{#!}{210}{\code {#! \var { -- } gforth}}
+\entry{'cold}{210}{\code {'cold \var { -- } gforth}}
+\entry{bootmessage}{210}{\code {bootmessage \var { -- } gforth}}

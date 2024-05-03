@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Command-line editing (Gforth Manual)</title>
+
+<meta name="description" content="Command-line editing (Gforth Manual)">
+<meta name="keywords" content="Command-line editing (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Gforth-Environment.html" rel="up" title="Gforth Environment">
+<link href="Environment-variables.html" rel="next" title="Environment variables">
+<link href="Leaving-Gforth.html" rel="prev" title="Leaving Gforth">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Command_002dline-editing"></span><div class="header">
+<p>
+Next: <a href="Environment-variables.html" accesskey="n" rel="next">Environment variables</a>, Previous: <a href="Leaving-Gforth.html" accesskey="p" rel="prev">Leaving Gforth</a>, Up: <a href="Gforth-Environment.html" accesskey="u" rel="up">Gforth Environment</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Command_002dline-editing-1"></span><h3 class="section">2.3 Command-line editing</h3>
+<span id="index-command_002dline-editing"></span>
+
+<p>Gforth maintains a history file that records every line that you type to
+the text interpreter. This file is preserved between sessions, and is
+used to provide a command-line recall facility; if you type <kbd>Ctrl-P</kbd>
+repeatedly you can recall successively older commands from this (or
+previous) session(s). The full list of command-line editing facilities is:
+</p>
+<ul>
+<li> <kbd>Ctrl-p</kbd> (&ldquo;previous&rdquo;) (or up-arrow) to recall successively older
+commands from the history buffer.
+</li><li> <kbd>Ctrl-n</kbd> (&ldquo;next&rdquo;) (or down-arrow) to recall successively newer commands
+from the history buffer.
+</li><li> <kbd>Ctrl-f</kbd> (or right-arrow) to move the cursor right, non-destructively.
+</li><li> <kbd>Ctrl-b</kbd> (or left-arrow) to move the cursor left, non-destructively.
+</li><li> <kbd>Ctrl-h</kbd> (backspace) to delete the character to the left of the cursor,
+closing up the line.
+</li><li> <kbd>Ctrl-k</kbd> to delete (&ldquo;kill&rdquo;) from the cursor to the end of the line.
+</li><li> <kbd>Ctrl-a</kbd> to move the cursor to the start of the line.
+</li><li> <kbd>Ctrl-e</kbd> to move the cursor to the end of the line.
+</li><li> <tt class="key">RET</tt> (<kbd>Ctrl-m</kbd>) or <tt class="key">LFD</tt> (<kbd>Ctrl-j</kbd>) to submit the current
+line.
+</li><li> <tt class="key">TAB</tt> to step through all possible full-word completions of the word
+currently being typed.
+</li><li> <kbd>Ctrl-d</kbd> on an empty line line to terminate Gforth (gracefully,
+using <code>bye</code>). 
+</li><li> <kbd>Ctrl-x</kbd> (or <code>Ctrl-d</code> on a non-empty line) to delete the
+character under the cursor.
+</li></ul>
+
+<p>When editing, displayable characters are inserted to the left of the
+cursor position; the line is always in &ldquo;insert&rdquo; (as opposed to
+&ldquo;overstrike&rdquo;) mode.
+</p>
+<span id="index-history-file"></span>
+<span id="index-_002egforth_002dhistory"></span>
+<p>On Unix systems, the history file is <samp>~/.gforth-history</samp> by
+default<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>. You
+can find out the name and location of your history file using:
+</p>
+<div class="example">
+<pre class="example">history-file type \ Unix-class systems
+
+history-file type \ Other systems
+history-dir  type
+</pre></div>
+
+<p>If you enter long definitions by hand, you can use a text editor to
+paste them out of the history file into a Forth source file for reuse at
+a later time.
+</p>
+<p>Gforth never trims the size of the history file, so you should do this
+periodically, if necessary.
+</p>
+
+
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h3>
+<p>i.e. it is stored in the user&rsquo;s home directory.</p>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Environment-variables.html" accesskey="n" rel="next">Environment variables</a>, Previous: <a href="Leaving-Gforth.html" accesskey="p" rel="prev">Leaving Gforth</a>, Up: <a href="Gforth-Environment.html" accesskey="u" rel="up">Gforth Environment</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

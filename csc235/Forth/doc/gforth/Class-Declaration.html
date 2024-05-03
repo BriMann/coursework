@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Class Declaration (Gforth Manual)</title>
+
+<meta name="description" content="Class Declaration (Gforth Manual)">
+<meta name="keywords" content="Class Declaration (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="OOF.html" rel="up" title="OOF">
+<link href="Class-Implementation.html" rel="next" title="Class Implementation">
+<link href="The-OOF-base-class.html" rel="prev" title="The OOF base class">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Class-Declaration"></span><div class="header">
+<p>
+Next: <a href="Class-Implementation.html" accesskey="n" rel="next">Class Implementation</a>, Previous: <a href="The-OOF-base-class.html" accesskey="p" rel="prev">The OOF base class</a>, Up: <a href="OOF.html" accesskey="u" rel="up">OOF</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Class-Declaration-1"></span><h4 class="subsubsection">5.23.4.4 Class Declaration</h4>
+<span id="index-class-declaration"></span>
+
+<ul>
+<li> Instance variables
+
+<span id="index-var--size-_002d_002d--oof"></span>
+<span id="index-var"></span>
+<span id="index-var-2"></span>
+<div class="format">
+<pre class="format"><code>var</code>       <i>size &ndash;  </i>       oof       &ldquo;var&rdquo;
+</pre></div>
+<p>Create an instance variable
+</p>
+
+
+
+</li><li> Object pointers
+
+<span id="index-ptr--_002d_002d--oof"></span>
+<span id="index-ptr-1"></span>
+<span id="index-ptr-3"></span>
+<div class="format">
+<pre class="format"><code>ptr</code>       <i>&ndash;  </i>       oof       &ldquo;ptr&rdquo;
+</pre></div>
+<p>Create an instance pointer
+</p>
+
+<span id="index-asptr--class-_002d_002d--oof"></span>
+<span id="index-asptr-1"></span>
+<span id="index-asptr-3"></span>
+<div class="format">
+<pre class="format"><code>asptr</code>       <i>class &ndash;  </i>       oof       &ldquo;asptr&rdquo;
+</pre></div>
+<p>Create an alias to an instance pointer, cast to another class.
+</p>
+
+
+
+</li><li> Instance defers
+
+<span id="index-defer--_002d_002d--oof"></span>
+<span id="index-defer"></span>
+<span id="index-defer-1"></span>
+<div class="format">
+<pre class="format"><code>defer</code>       <i>&ndash;  </i>       oof       &ldquo;defer&rdquo;
+</pre></div>
+<p>Create an instance defer
+</p>
+
+
+
+</li><li> Method selectors
+
+<span id="index-early--_002d_002d--oof"></span>
+<span id="index-early"></span>
+<span id="index-early-1"></span>
+<div class="format">
+<pre class="format"><code>early</code>       <i>&ndash;  </i>       oof       &ldquo;early&rdquo;
+</pre></div>
+<p>Create a method selector for early binding.
+</p>
+
+<span id="index-method--_002d_002d--oof"></span>
+<span id="index-method-2"></span>
+<span id="index-method-5"></span>
+<div class="format">
+<pre class="format"><code>method</code>       <i>&ndash;  </i>       oof       &ldquo;method&rdquo;
+</pre></div>
+<p>Create a method selector.
+</p>
+
+
+
+</li><li> Class-wide variables
+
+<span id="index-static--_002d_002d--oof"></span>
+<span id="index-static"></span>
+<span id="index-static-1"></span>
+<div class="format">
+<pre class="format"><code>static</code>       <i>&ndash;  </i>       oof       &ldquo;static&rdquo;
+</pre></div>
+<p>Create a class-wide cell-sized variable.
+</p>
+
+
+
+</li><li> End declaration
+
+<span id="index-how_003a--_002d_002d--oof"></span>
+<span id="index-how_003a"></span>
+<span id="index-how_003a-1"></span>
+<div class="format">
+<pre class="format"><code>how:</code>       <i>&ndash;  </i>       oof       &ldquo;how-to&rdquo;
+</pre></div>
+<p>End declaration, start implementation
+</p>
+
+<span id="index-class_003b--_002d_002d--oof"></span>
+<span id="index-class_003b"></span>
+<span id="index-class_003b-1"></span>
+<div class="format">
+<pre class="format"><code>class;</code>       <i>&ndash;  </i>       oof       &ldquo;end-class&rdquo;
+</pre></div>
+<p>End class declaration or implementation
+</p>
+
+
+
+</li></ul>
+
+
+
+
+</body>
+</html>

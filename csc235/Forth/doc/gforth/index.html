@@ -1,0 +1,1314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Top (Gforth Manual)</title>
+
+<meta name="description" content="Top (Gforth Manual)">
+<meta name="keywords" content="Top (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="#Top" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="../dir/index.html" rel="up" title="(dir)">
+<link href="Goals.html" rel="next" title="Goals">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<h1 class="settitle" align="center">Gforth Manual</h1>
+
+
+
+
+
+
+
+
+<span id="SEC_Contents"></span>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Goals-of-Gforth" href="Goals.html#Goals">1 Goals of Gforth</a></li>
+  <li><a id="toc-Gforth-Environment-1" href="Gforth-Environment.html#Gforth-Environment">2 Gforth Environment</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Invoking-Gforth-1" href="Invoking-Gforth.html#Invoking-Gforth">2.1 Invoking Gforth</a></li>
+    <li><a id="toc-Leaving-Gforth-1" href="Leaving-Gforth.html#Leaving-Gforth">2.2 Leaving Gforth</a></li>
+    <li><a id="toc-Command_002dline-editing-1" href="Command_002dline-editing.html#Command_002dline-editing">2.3 Command-line editing</a></li>
+    <li><a id="toc-Environment-variables-1" href="Environment-variables.html#Environment-variables">2.4 Environment variables</a></li>
+    <li><a id="toc-Gforth-files" href="Gforth-Files.html#Gforth-Files">2.5 Gforth files</a></li>
+    <li><a id="toc-Gforth-in-pipes-1" href="Gforth-in-pipes.html#Gforth-in-pipes">2.6 Gforth in pipes</a></li>
+    <li><a id="toc-Startup-speed-1" href="Startup-speed.html#Startup-speed">2.7 Startup speed</a></li>
+  </ul></li>
+  <li><a id="toc-Forth-Tutorial" href="Tutorial.html#Tutorial">3 Forth Tutorial</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Starting-Gforth" href="Starting-Gforth-Tutorial.html#Starting-Gforth-Tutorial">3.1 Starting Gforth</a></li>
+    <li><a id="toc-Syntax" href="Syntax-Tutorial.html#Syntax-Tutorial">3.2 Syntax</a></li>
+    <li><a id="toc-Crash-Course" href="Crash-Course-Tutorial.html#Crash-Course-Tutorial">3.3 Crash Course</a></li>
+    <li><a id="toc-Stack" href="Stack-Tutorial.html#Stack-Tutorial">3.4 Stack</a></li>
+    <li><a id="toc-Arithmetics" href="Arithmetics-Tutorial.html#Arithmetics-Tutorial">3.5 Arithmetics</a></li>
+    <li><a id="toc-Stack-Manipulation-1" href="Stack-Manipulation-Tutorial.html#Stack-Manipulation-Tutorial">3.6 Stack Manipulation</a></li>
+    <li><a id="toc-Using-files-for-Forth-code" href="Using-files-for-Forth-code-Tutorial.html#Using-files-for-Forth-code-Tutorial">3.7 Using files for Forth code</a></li>
+    <li><a id="toc-Comments-1" href="Comments-Tutorial.html#Comments-Tutorial">3.8 Comments</a></li>
+    <li><a id="toc-Colon-Definitions-1" href="Colon-Definitions-Tutorial.html#Colon-Definitions-Tutorial">3.9 Colon Definitions</a></li>
+    <li><a id="toc-Decompilation" href="Decompilation-Tutorial.html#Decompilation-Tutorial">3.10 Decompilation</a></li>
+    <li><a id="toc-Stack_002dEffect-Comments" href="Stack_002dEffect-Comments-Tutorial.html#Stack_002dEffect-Comments-Tutorial">3.11 Stack-Effect Comments</a></li>
+    <li><a id="toc-Types" href="Types-Tutorial.html#Types-Tutorial">3.12 Types</a></li>
+    <li><a id="toc-Factoring" href="Factoring-Tutorial.html#Factoring-Tutorial">3.13 Factoring</a></li>
+    <li><a id="toc-Designing-the-stack-effect" href="Designing-the-stack-effect-Tutorial.html#Designing-the-stack-effect-Tutorial">3.14 Designing the stack effect</a></li>
+    <li><a id="toc-Local-Variables" href="Local-Variables-Tutorial.html#Local-Variables-Tutorial">3.15 Local Variables</a></li>
+    <li><a id="toc-Conditional-execution" href="Conditional-execution-Tutorial.html#Conditional-execution-Tutorial">3.16 Conditional execution</a></li>
+    <li><a id="toc-Flags-and-Comparisons" href="Flags-and-Comparisons-Tutorial.html#Flags-and-Comparisons-Tutorial">3.17 Flags and Comparisons</a></li>
+    <li><a id="toc-General-Loops" href="General-Loops-Tutorial.html#General-Loops-Tutorial">3.18 General Loops</a></li>
+    <li><a id="toc-Counted-loops" href="Counted-loops-Tutorial.html#Counted-loops-Tutorial">3.19 Counted loops</a></li>
+    <li><a id="toc-Recursion" href="Recursion-Tutorial.html#Recursion-Tutorial">3.20 Recursion</a></li>
+    <li><a id="toc-Leaving-definitions-or-loops" href="Leaving-definitions-or-loops-Tutorial.html#Leaving-definitions-or-loops-Tutorial">3.21 Leaving definitions or loops</a></li>
+    <li><a id="toc-Return-Stack" href="Return-Stack-Tutorial.html#Return-Stack-Tutorial">3.22 Return Stack</a></li>
+    <li><a id="toc-Memory-1" href="Memory-Tutorial.html#Memory-Tutorial">3.23 Memory</a></li>
+    <li><a id="toc-Characters-and-Strings" href="Characters-and-Strings-Tutorial.html#Characters-and-Strings-Tutorial">3.24 Characters and Strings</a></li>
+    <li><a id="toc-Alignment" href="Alignment-Tutorial.html#Alignment-Tutorial">3.25 Alignment</a></li>
+    <li><a id="toc-Floating-Point-1" href="Floating-Point-Tutorial.html#Floating-Point-Tutorial">3.26 Floating Point</a></li>
+    <li><a id="toc-Files-1" href="Files-Tutorial.html#Files-Tutorial">3.27 Files</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Open-file-for-input" href="Files-Tutorial.html#Open-file-for-input">3.27.1 Open file for input</a></li>
+      <li><a id="toc-Create-file-for-output" href="Files-Tutorial.html#Create-file-for-output">3.27.2 Create file for output</a></li>
+      <li><a id="toc-Scan-file-for-a-particular-line" href="Files-Tutorial.html#Scan-file-for-a-particular-line">3.27.3 Scan file for a particular line</a></li>
+      <li><a id="toc-Copy-input-to-output" href="Files-Tutorial.html#Copy-input-to-output">3.27.4 Copy input to output</a></li>
+      <li><a id="toc-Close-files" href="Files-Tutorial.html#Close-files">3.27.5 Close files</a></li>
+    </ul></li>
+    <li><a id="toc-Interpretation-and-Compilation-Semantics-and-Immediacy" href="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial.html#Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial">3.28 Interpretation and Compilation Semantics and Immediacy</a></li>
+    <li><a id="toc-Execution-Tokens" href="Execution-Tokens-Tutorial.html#Execution-Tokens-Tutorial">3.29 Execution Tokens</a></li>
+    <li><a id="toc-Exceptions" href="Exceptions-Tutorial.html#Exceptions-Tutorial">3.30 Exceptions</a></li>
+    <li><a id="toc-Defining-Words-1" href="Defining-Words-Tutorial.html#Defining-Words-Tutorial">3.31 Defining Words</a></li>
+    <li><a id="toc-Arrays-and-Records" href="Arrays-and-Records-Tutorial.html#Arrays-and-Records-Tutorial">3.32 Arrays and Records</a></li>
+    <li><a id="toc-POSTPONE" href="POSTPONE-Tutorial.html#POSTPONE-Tutorial">3.33 <code>POSTPONE</code></a></li>
+    <li><a id="toc-Literal" href="Literal-Tutorial.html#Literal-Tutorial">3.34 <code>Literal</code></a></li>
+    <li><a id="toc-Advanced-macros" href="Advanced-macros-Tutorial.html#Advanced-macros-Tutorial">3.35 Advanced macros</a></li>
+    <li><a id="toc-Compilation-Tokens" href="Compilation-Tokens-Tutorial.html#Compilation-Tokens-Tutorial">3.36 Compilation Tokens</a></li>
+    <li><a id="toc-Wordlists-and-Search-Order" href="Wordlists-and-Search-Order-Tutorial.html#Wordlists-and-Search-Order-Tutorial">3.37 Wordlists and Search Order</a></li>
+  </ul></li>
+  <li><a id="toc-An-Introduction-to-ANS-Forth" href="Introduction.html#Introduction">4 An Introduction to ANS Forth</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Introducing-the-Text-Interpreter-1" href="Introducing-the-Text-Interpreter.html#Introducing-the-Text-Interpreter">4.1 Introducing the Text Interpreter</a></li>
+    <li><a id="toc-Stacks_002c-postfix-notation-and-parameter-passing" href="Stacks-and-Postfix-notation.html#Stacks-and-Postfix-notation">4.2 Stacks, postfix notation and parameter passing</a></li>
+    <li><a id="toc-Your-first-Forth-definition" href="Your-first-definition.html#Your-first-definition">4.3 Your first Forth definition</a></li>
+    <li><a id="toc-How-does-that-work_003f-1" href="How-does-that-work_003f.html#How-does-that-work_003f">4.4 How does that work?</a></li>
+    <li><a id="toc-Forth-is-written-in-Forth-1" href="Forth-is-written-in-Forth.html#Forth-is-written-in-Forth">4.5 Forth is written in Forth</a></li>
+    <li><a id="toc-Review-_002d-elements-of-a-Forth-system-1" href="Review-_002d-elements-of-a-Forth-system.html#Review-_002d-elements-of-a-Forth-system">4.6 Review - elements of a Forth system</a></li>
+    <li><a id="toc-Where-To-Go-Next" href="Where-to-go-next.html#Where-to-go-next">4.7 Where To Go Next</a></li>
+    <li><a id="toc-Exercises-1" href="Exercises.html#Exercises">4.8 Exercises</a></li>
+  </ul></li>
+  <li><a id="toc-Forth-Words" href="Words.html#Words">5 Forth Words</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Notation-1" href="Notation.html#Notation">5.1 Notation</a></li>
+    <li><a id="toc-Case-insensitivity-1" href="Case-insensitivity.html#Case-insensitivity">5.2 Case insensitivity</a></li>
+    <li><a id="toc-Comments-2" href="Comments.html#Comments">5.3 Comments</a></li>
+    <li><a id="toc-Boolean-Flags-1" href="Boolean-Flags.html#Boolean-Flags">5.4 Boolean Flags</a></li>
+    <li><a id="toc-Arithmetic-1" href="Arithmetic.html#Arithmetic">5.5 Arithmetic</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Single-precision-1" href="Single-precision.html#Single-precision">5.5.1 Single precision</a></li>
+      <li><a id="toc-Double-precision-1" href="Double-precision.html#Double-precision">5.5.2 Double precision</a></li>
+      <li><a id="toc-Bitwise-operations-1" href="Bitwise-operations.html#Bitwise-operations">5.5.3 Bitwise operations</a></li>
+      <li><a id="toc-Numeric-comparison-1" href="Numeric-comparison.html#Numeric-comparison">5.5.4 Numeric comparison</a></li>
+      <li><a id="toc-Mixed-precision-1" href="Mixed-precision.html#Mixed-precision">5.5.5 Mixed precision</a></li>
+      <li><a id="toc-Floating-Point-2" href="Floating-Point.html#Floating-Point">5.5.6 Floating Point</a></li>
+    </ul></li>
+    <li><a id="toc-Stack-Manipulation-2" href="Stack-Manipulation.html#Stack-Manipulation">5.6 Stack Manipulation</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Data-stack-1" href="Data-stack.html#Data-stack">5.6.1 Data stack</a></li>
+      <li><a id="toc-Floating-point-stack-1" href="Floating-point-stack.html#Floating-point-stack">5.6.2 Floating point stack</a></li>
+      <li><a id="toc-Return-stack-1" href="Return-stack.html#Return-stack">5.6.3 Return stack</a></li>
+      <li><a id="toc-Locals-stack-1" href="Locals-stack.html#Locals-stack">5.6.4 Locals stack</a></li>
+      <li><a id="toc-Stack-pointer-manipulation-1" href="Stack-pointer-manipulation.html#Stack-pointer-manipulation">5.6.5 Stack pointer manipulation</a></li>
+    </ul></li>
+    <li><a id="toc-Memory-2" href="Memory.html#Memory">5.7 Memory</a>
+    <ul class="no-bullet">
+      <li><a id="toc-ANS-Forth-and-Gforth-memory-models" href="Memory-model.html#Memory-model">5.7.1 ANS Forth and Gforth memory models</a></li>
+      <li><a id="toc-Dictionary-allocation-1" href="Dictionary-allocation.html#Dictionary-allocation">5.7.2 Dictionary allocation</a></li>
+      <li><a id="toc-Heap-allocation" href="Heap-Allocation.html#Heap-Allocation">5.7.3 Heap allocation</a></li>
+      <li><a id="toc-Memory-Access-1" href="Memory-Access.html#Memory-Access">5.7.4 Memory Access</a></li>
+      <li><a id="toc-Address-arithmetic-1" href="Address-arithmetic.html#Address-arithmetic">5.7.5 Address arithmetic</a></li>
+      <li><a id="toc-Memory-Blocks-1" href="Memory-Blocks.html#Memory-Blocks">5.7.6 Memory Blocks</a></li>
+    </ul></li>
+    <li><a id="toc-Control-Structures-1" href="Control-Structures.html#Control-Structures">5.8 Control Structures</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Selection-1" href="Selection.html#Selection">5.8.1 Selection</a></li>
+      <li><a id="toc-Simple-Loops-1" href="Simple-Loops.html#Simple-Loops">5.8.2 Simple Loops</a></li>
+      <li><a id="toc-Counted-Loops-1" href="Counted-Loops.html#Counted-Loops">5.8.3 Counted Loops</a></li>
+      <li><a id="toc-Arbitrary-control-structures-1" href="Arbitrary-control-structures.html#Arbitrary-control-structures">5.8.4 Arbitrary control structures</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Programming-Style" href="Arbitrary-control-structures.html#Programming-Style">5.8.4.1 Programming Style</a></li>
+      </ul></li>
+      <li><a id="toc-Calls-and-returns-1" href="Calls-and-returns.html#Calls-and-returns">5.8.5 Calls and returns</a></li>
+      <li><a id="toc-Exception-Handling-1" href="Exception-Handling.html#Exception-Handling">5.8.6 Exception Handling</a></li>
+    </ul></li>
+    <li><a id="toc-Defining-Words-2" href="Defining-Words.html#Defining-Words">5.9 Defining Words</a>
+    <ul class="no-bullet">
+      <li><a id="toc-CREATE-1" href="CREATE.html#CREATE">5.9.1 <code>CREATE</code></a></li>
+      <li><a id="toc-Variables-1" href="Variables.html#Variables">5.9.2 Variables</a></li>
+      <li><a id="toc-Constants-1" href="Constants.html#Constants">5.9.3 Constants</a></li>
+      <li><a id="toc-Values-1" href="Values.html#Values">5.9.4 Values</a></li>
+      <li><a id="toc-Colon-Definitions-2" href="Colon-Definitions.html#Colon-Definitions">5.9.5 Colon Definitions</a></li>
+      <li><a id="toc-Anonymous-Definitions-1" href="Anonymous-Definitions.html#Anonymous-Definitions">5.9.6 Anonymous Definitions</a></li>
+      <li><a id="toc-Supplying-the-name-of-a-defined-word" href="Supplying-names.html#Supplying-names">5.9.7 Supplying the name of a defined word</a></li>
+      <li><a id="toc-User_002ddefined-Defining-Words-1" href="User_002ddefined-Defining-Words.html#User_002ddefined-Defining-Words">5.9.8 User-defined Defining Words</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Applications-of-CREATE_002e_002eDOES_003e" href="CREATE_002e_002eDOES_003e-applications.html#CREATE_002e_002eDOES_003e-applications">5.9.8.1 Applications of <code>CREATE..DOES&gt;</code></a></li>
+        <li><a id="toc-The-gory-details-of-CREATE_002e_002eDOES_003e" href="CREATE_002e_002eDOES_003e-details.html#CREATE_002e_002eDOES_003e-details">5.9.8.2 The gory details of <code>CREATE..DOES&gt;</code></a></li>
+        <li><a id="toc-Advanced-does_003e-usage-example-1" href="Advanced-does_003e-usage-example.html#Advanced-does_003e-usage-example">5.9.8.3 Advanced does&gt; usage example</a></li>
+        <li><a id="toc-Const_002ddoes_003e-1" href="Const_002ddoes_003e.html#Const_002ddoes_003e">5.9.8.4 <code>Const-does&gt;</code></a></li>
+      </ul></li>
+      <li><a id="toc-Deferred-Words-1" href="Deferred-Words.html#Deferred-Words">5.9.9 Deferred Words</a></li>
+      <li><a id="toc-Aliases-1" href="Aliases.html#Aliases">5.9.10 Aliases</a></li>
+    </ul></li>
+    <li><a id="toc-Interpretation-and-Compilation-Semantics-1" href="Interpretation-and-Compilation-Semantics.html#Interpretation-and-Compilation-Semantics">5.10 Interpretation and Compilation Semantics</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Combined-Words" href="Combined-words.html#Combined-words">5.10.1 Combined Words</a></li>
+    </ul></li>
+    <li><a id="toc-Tokens-for-Words-1" href="Tokens-for-Words.html#Tokens-for-Words">5.11 Tokens for Words</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Execution-token-1" href="Execution-token.html#Execution-token">5.11.1 Execution token</a></li>
+      <li><a id="toc-Compilation-token-1" href="Compilation-token.html#Compilation-token">5.11.2 Compilation token</a></li>
+      <li><a id="toc-Name-token-1" href="Name-token.html#Name-token">5.11.3 Name token</a></li>
+    </ul></li>
+    <li><a id="toc-Compiling-words-1" href="Compiling-words.html#Compiling-words">5.12 Compiling words</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Literals-1" href="Literals.html#Literals">5.12.1 Literals</a></li>
+      <li><a id="toc-Macros-1" href="Macros.html#Macros">5.12.2 Macros</a></li>
+    </ul></li>
+    <li><a id="toc-The-Text-Interpreter-1" href="The-Text-Interpreter.html#The-Text-Interpreter">5.13 The Text Interpreter</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Input-Sources-1" href="Input-Sources.html#Input-Sources">5.13.1 Input Sources</a></li>
+      <li><a id="toc-Number-Conversion-1" href="Number-Conversion.html#Number-Conversion">5.13.2 Number Conversion</a></li>
+      <li><a id="toc-Interpret_002fCompile-states-1" href="Interpret_002fCompile-states.html#Interpret_002fCompile-states">5.13.3 Interpret/Compile states</a></li>
+      <li><a id="toc-Interpreter-Directives-1" href="Interpreter-Directives.html#Interpreter-Directives">5.13.4 Interpreter Directives</a></li>
+    </ul></li>
+    <li><a id="toc-The-Input-Stream-1" href="The-Input-Stream.html#The-Input-Stream">5.14 The Input Stream</a></li>
+    <li><a id="toc-Word-Lists-1" href="Word-Lists.html#Word-Lists">5.15 Word Lists</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Vocabularies-1" href="Vocabularies.html#Vocabularies">5.15.1 Vocabularies</a></li>
+      <li><a id="toc-Why-use-word-lists_003f-1" href="Why-use-word-lists_003f.html#Why-use-word-lists_003f">5.15.2 Why use word lists?</a></li>
+      <li><a id="toc-Word-list-example-1" href="Word-list-example.html#Word-list-example">5.15.3 Word list example</a></li>
+    </ul></li>
+    <li><a id="toc-Environmental-Queries-1" href="Environmental-Queries.html#Environmental-Queries">5.16 Environmental Queries</a></li>
+    <li><a id="toc-Files-2" href="Files.html#Files">5.17 Files</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Forth-source-files-1" href="Forth-source-files.html#Forth-source-files">5.17.1 Forth source files</a></li>
+      <li><a id="toc-General-files-1" href="General-files.html#General-files">5.17.2 General files</a></li>
+      <li><a id="toc-Redirection-1" href="Redirection.html#Redirection">5.17.3 Redirection</a></li>
+      <li><a id="toc-Search-Paths-1" href="Search-Paths.html#Search-Paths">5.17.4 Search Paths</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Source-Search-Paths-1" href="Source-Search-Paths.html#Source-Search-Paths">5.17.4.1 Source Search Paths</a></li>
+        <li><a id="toc-General-Search-Paths-1" href="General-Search-Paths.html#General-Search-Paths">5.17.4.2 General Search Paths</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-Blocks-1" href="Blocks.html#Blocks">5.18 Blocks</a></li>
+    <li><a id="toc-Other-I_002fO-1" href="Other-I_002fO.html#Other-I_002fO">5.19 Other I/O</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Simple-numeric-output-1" href="Simple-numeric-output.html#Simple-numeric-output">5.19.1 Simple numeric output</a></li>
+      <li><a id="toc-Formatted-numeric-output-1" href="Formatted-numeric-output.html#Formatted-numeric-output">5.19.2 Formatted numeric output</a></li>
+      <li><a id="toc-String-Formats-1" href="String-Formats.html#String-Formats">5.19.3 String Formats</a></li>
+      <li><a id="toc-Displaying-characters-and-strings-1" href="Displaying-characters-and-strings.html#Displaying-characters-and-strings">5.19.4 Displaying characters and strings</a></li>
+      <li><a id="toc-Terminal-output-1" href="Terminal-output.html#Terminal-output">5.19.5 Terminal output</a></li>
+      <li><a id="toc-Single_002dkey-input-1" href="Single_002dkey-input.html#Single_002dkey-input">5.19.6 Single-key input</a></li>
+      <li><a id="toc-Line-input-and-conversion-1" href="Line-input-and-conversion.html#Line-input-and-conversion">5.19.7 Line input and conversion</a></li>
+      <li><a id="toc-Pipes-1" href="Pipes.html#Pipes">5.19.8 Pipes</a></li>
+      <li><a id="toc-Xchars-and-Unicode-1" href="Xchars-and-Unicode.html#Xchars-and-Unicode">5.19.9 Xchars and Unicode</a></li>
+    </ul></li>
+    <li><a id="toc-OS-command-line-arguments-1" href="OS-command-line-arguments.html#OS-command-line-arguments">5.20 OS command line arguments</a></li>
+    <li><a id="toc-Locals-1" href="Locals.html#Locals">5.21 Locals</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Gforth-locals-1" href="Gforth-locals.html#Gforth-locals">5.21.1 Gforth locals</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Where-are-locals-visible-by-name_003f-1" href="Where-are-locals-visible-by-name_003f.html#Where-are-locals-visible-by-name_003f">5.21.1.1 Where are locals visible by name?</a></li>
+        <li><a id="toc-How-long-do-locals-live_003f-1" href="How-long-do-locals-live_003f.html#How-long-do-locals-live_003f">5.21.1.2 How long do locals live?</a></li>
+        <li><a id="toc-Locals-programming-style-1" href="Locals-programming-style.html#Locals-programming-style">5.21.1.3 Locals programming style</a></li>
+        <li><a id="toc-Locals-implementation-1" href="Locals-implementation.html#Locals-implementation">5.21.1.4 Locals implementation</a></li>
+      </ul></li>
+      <li><a id="toc-ANS-Forth-locals-1" href="ANS-Forth-locals.html#ANS-Forth-locals">5.21.2 ANS Forth locals</a></li>
+    </ul></li>
+    <li><a id="toc-Structures-1" href="Structures.html#Structures">5.22 Structures</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Why-explicit-structure-support_003f-1" href="Why-explicit-structure-support_003f.html#Why-explicit-structure-support_003f">5.22.1 Why explicit structure support?</a></li>
+      <li><a id="toc-Structure-Usage-1" href="Structure-Usage.html#Structure-Usage">5.22.2 Structure Usage</a></li>
+      <li><a id="toc-Structure-Naming-Convention-1" href="Structure-Naming-Convention.html#Structure-Naming-Convention">5.22.3 Structure Naming Convention</a></li>
+      <li><a id="toc-Structure-Implementation-1" href="Structure-Implementation.html#Structure-Implementation">5.22.4 Structure Implementation</a></li>
+      <li><a id="toc-Structure-Glossary-1" href="Structure-Glossary.html#Structure-Glossary">5.22.5 Structure Glossary</a></li>
+      <li><a id="toc-Forth200x-Structures-1" href="Forth200x-Structures.html#Forth200x-Structures">5.22.6 Forth200x Structures</a></li>
+    </ul></li>
+    <li><a id="toc-Object_002doriented-Forth-1" href="Object_002doriented-Forth.html#Object_002doriented-Forth">5.23 Object-oriented Forth</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Why-object_002doriented-programming_003f-1" href="Why-object_002doriented-programming_003f.html#Why-object_002doriented-programming_003f">5.23.1 Why object-oriented programming?</a></li>
+      <li><a id="toc-Object_002dOriented-Terminology-1" href="Object_002dOriented-Terminology.html#Object_002dOriented-Terminology">5.23.2 Object-Oriented Terminology</a></li>
+      <li><a id="toc-The-objects_002efs-model" href="Objects.html#Objects">5.23.3 The <samp>objects.fs</samp> model</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Properties-of-the-objects_002efs-model" href="Properties-of-the-Objects-model.html#Properties-of-the-Objects-model">5.23.3.1 Properties of the <samp>objects.fs</samp> model</a></li>
+        <li><a id="toc-Basic-objects_002efs-Usage" href="Basic-Objects-Usage.html#Basic-Objects-Usage">5.23.3.2 Basic <samp>objects.fs</samp> Usage</a></li>
+        <li><a id="toc-The-object_002efs-base-class" href="The-Objects-base-class.html#The-Objects-base-class">5.23.3.3 The <samp>object.fs</samp> base class</a></li>
+        <li><a id="toc-Creating-objects-1" href="Creating-objects.html#Creating-objects">5.23.3.4 Creating objects</a></li>
+        <li><a id="toc-Object_002dOriented-Programming-Style-1" href="Object_002dOriented-Programming-Style.html#Object_002dOriented-Programming-Style">5.23.3.5 Object-Oriented Programming Style</a></li>
+        <li><a id="toc-Class-Binding-1" href="Class-Binding.html#Class-Binding">5.23.3.6 Class Binding</a></li>
+        <li><a id="toc-Method-conveniences-1" href="Method-conveniences.html#Method-conveniences">5.23.3.7 Method conveniences</a></li>
+        <li><a id="toc-Classes-and-Scoping-1" href="Classes-and-Scoping.html#Classes-and-Scoping">5.23.3.8 Classes and Scoping</a></li>
+        <li><a id="toc-Dividing-classes-1" href="Dividing-classes.html#Dividing-classes">5.23.3.9 Dividing classes</a></li>
+        <li><a id="toc-Object-Interfaces-1" href="Object-Interfaces.html#Object-Interfaces">5.23.3.10 Object Interfaces</a></li>
+        <li><a id="toc-objects_002efs-Implementation" href="Objects-Implementation.html#Objects-Implementation">5.23.3.11 <samp>objects.fs</samp> Implementation</a></li>
+        <li><a id="toc-objects_002efs-Glossary" href="Objects-Glossary.html#Objects-Glossary">5.23.3.12 <samp>objects.fs</samp> Glossary</a></li>
+      </ul></li>
+      <li><a id="toc-The-oof_002efs-model" href="OOF.html#OOF">5.23.4 The <samp>oof.fs</samp> model</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Properties-of-the-oof_002efs-model" href="Properties-of-the-OOF-model.html#Properties-of-the-OOF-model">5.23.4.1 Properties of the <samp>oof.fs</samp> model</a></li>
+        <li><a id="toc-Basic-oof_002efs-Usage" href="Basic-OOF-Usage.html#Basic-OOF-Usage">5.23.4.2 Basic <samp>oof.fs</samp> Usage</a></li>
+        <li><a id="toc-The-oof_002efs-base-class" href="The-OOF-base-class.html#The-OOF-base-class">5.23.4.3 The <samp>oof.fs</samp> base class</a></li>
+        <li><a id="toc-Class-Declaration-1" href="Class-Declaration.html#Class-Declaration">5.23.4.4 Class Declaration</a></li>
+        <li><a id="toc-Class-Implementation-1" href="Class-Implementation.html#Class-Implementation">5.23.4.5 Class Implementation</a></li>
+      </ul></li>
+      <li><a id="toc-The-mini_002doof_002efs-model" href="Mini_002dOOF.html#Mini_002dOOF">5.23.5 The <samp>mini-oof.fs</samp> model</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Basic-mini_002doof_002efs-Usage" href="Basic-Mini_002dOOF-Usage.html#Basic-Mini_002dOOF-Usage">5.23.5.1 Basic <samp>mini-oof.fs</samp> Usage</a></li>
+        <li><a id="toc-Mini_002dOOF-Example-1" href="Mini_002dOOF-Example.html#Mini_002dOOF-Example">5.23.5.2 Mini-OOF Example</a></li>
+        <li><a id="toc-mini_002doof_002efs-Implementation" href="Mini_002dOOF-Implementation.html#Mini_002dOOF-Implementation">5.23.5.3 <samp>mini-oof.fs</samp> Implementation</a></li>
+      </ul></li>
+      <li><a id="toc-Comparison-with-other-object-models-1" href="Comparison-with-other-object-models.html#Comparison-with-other-object-models">5.23.6 Comparison with other object models</a></li>
+    </ul></li>
+    <li><a id="toc-Programming-Tools-1" href="Programming-Tools.html#Programming-Tools">5.24 Programming Tools</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Examining-data-and-code" href="Examining.html#Examining">5.24.1 Examining data and code</a></li>
+      <li><a id="toc-Forgetting-words-1" href="Forgetting-words.html#Forgetting-words">5.24.2 Forgetting words</a></li>
+      <li><a id="toc-Debugging-1" href="Debugging.html#Debugging">5.24.3 Debugging</a></li>
+      <li><a id="toc-Assertions-1" href="Assertions.html#Assertions">5.24.4 Assertions</a></li>
+      <li><a id="toc-Singlestep-Debugger-1" href="Singlestep-Debugger.html#Singlestep-Debugger">5.24.5 Singlestep Debugger</a></li>
+    </ul></li>
+    <li><a id="toc-C-Interface-1" href="C-Interface.html#C-Interface">5.25 C Interface</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Calling-C-functions" href="Calling-C-Functions.html#Calling-C-Functions">5.25.1 Calling C functions</a></li>
+      <li><a id="toc-Declaring-C-Functions-1" href="Declaring-C-Functions.html#Declaring-C-Functions">5.25.2 Declaring C Functions</a></li>
+      <li><a id="toc-Calling-C-function-pointers-from-Forth" href="Calling-C-function-pointers.html#Calling-C-function-pointers">5.25.3 Calling C function pointers from Forth</a></li>
+      <li><a id="toc-Defining-library-interfaces-1" href="Defining-library-interfaces.html#Defining-library-interfaces">5.25.4 Defining library interfaces</a></li>
+      <li><a id="toc-Declaring-OS_002dlevel-libraries-1" href="Declaring-OS_002dlevel-libraries.html#Declaring-OS_002dlevel-libraries">5.25.5 Declaring OS-level libraries</a></li>
+      <li><a id="toc-Callbacks-1" href="Callbacks.html#Callbacks">5.25.6 Callbacks</a></li>
+      <li><a id="toc-How-the-C-interface-works" href="C-interface-internals.html#C-interface-internals">5.25.7 How the C interface works</a></li>
+      <li><a id="toc-Low_002dLevel-C-Interface-Words-1" href="Low_002dLevel-C-Interface-Words.html#Low_002dLevel-C-Interface-Words">5.25.8 Low-Level C Interface Words</a></li>
+    </ul></li>
+    <li><a id="toc-Assembler-and-Code-Words-1" href="Assembler-and-Code-Words.html#Assembler-and-Code-Words">5.26 Assembler and Code Words</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Code-and-_003bcode-1" href="Code-and-_003bcode.html#Code-and-_003bcode">5.26.1 <code>Code</code> and <code>;code</code></a></li>
+      <li><a id="toc-Common-Assembler-1" href="Common-Assembler.html#Common-Assembler">5.26.2 Common Assembler</a></li>
+      <li><a id="toc-Common-Disassembler-1" href="Common-Disassembler.html#Common-Disassembler">5.26.3 Common Disassembler</a></li>
+      <li><a id="toc-386-Assembler-1" href="386-Assembler.html#g_t386-Assembler">5.26.4 386 Assembler</a></li>
+      <li><a id="toc-Alpha-Assembler-1" href="Alpha-Assembler.html#Alpha-Assembler">5.26.5 Alpha Assembler</a></li>
+      <li><a id="toc-MIPS-assembler-1" href="MIPS-assembler.html#MIPS-assembler">5.26.6 MIPS assembler</a></li>
+      <li><a id="toc-PowerPC-assembler-1" href="PowerPC-assembler.html#PowerPC-assembler">5.26.7 PowerPC assembler</a></li>
+      <li><a id="toc-ARM-Assembler-1" href="ARM-Assembler.html#ARM-Assembler">5.26.8 ARM Assembler</a></li>
+      <li><a id="toc-Other-assemblers-1" href="Other-assemblers.html#Other-assemblers">5.26.9 Other assemblers</a></li>
+    </ul></li>
+    <li><a id="toc-Threading-Words-1" href="Threading-Words.html#Threading-Words">5.27 Threading Words</a></li>
+    <li><a id="toc-Passing-Commands-to-the-Operating-System" href="Passing-Commands-to-the-OS.html#Passing-Commands-to-the-OS">5.28 Passing Commands to the Operating System</a></li>
+    <li><a id="toc-Keeping-track-of-Time-1" href="Keeping-track-of-Time.html#Keeping-track-of-Time">5.29 Keeping track of Time</a></li>
+    <li><a id="toc-Miscellaneous-Words-1" href="Miscellaneous-Words.html#Miscellaneous-Words">5.30 Miscellaneous Words</a></li>
+  </ul></li>
+  <li><a id="toc-Error-messages-1" href="Error-messages.html#Error-messages">6 Error messages</a></li>
+  <li><a id="toc-Tools-1" href="Tools.html#Tools">7 Tools</a>
+  <ul class="no-bullet">
+    <li><a id="toc-ans_002dreport_002efs_003a-Report-the-words-used_002c-sorted-by-wordset" href="ANS-Report.html#ANS-Report">7.1 <samp>ans-report.fs</samp>: Report the words used, sorted by wordset</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Caveats" href="ANS-Report.html#Caveats">7.1.1 Caveats</a></li>
+    </ul></li>
+    <li><a id="toc-Stack-depth-changes-during-interpretation" href="Stack-depth-changes.html#Stack-depth-changes">7.2 Stack depth changes during interpretation</a></li>
+  </ul></li>
+  <li><a id="toc-ANS-conformance-1" href="ANS-conformance.html#ANS-conformance">8 ANS conformance</a>
+  <ul class="no-bullet">
+    <li><a id="toc-The-Core-Words-1" href="The-Core-Words.html#The-Core-Words">8.1 The Core Words</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options" href="core_002didef.html#core_002didef">8.1.1 Implementation Defined Options</a></li>
+      <li><a id="toc-Ambiguous-conditions" href="core_002dambcond.html#core_002dambcond">8.1.2 Ambiguous conditions</a></li>
+      <li><a id="toc-Other-system-documentation" href="core_002dother.html#core_002dother">8.1.3 Other system documentation</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-Block-word-set-1" href="The-optional-Block-word-set.html#The-optional-Block-word-set">8.2 The optional Block word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options-1" href="block_002didef.html#block_002didef">8.2.1 Implementation Defined Options</a></li>
+      <li><a id="toc-Ambiguous-conditions-1" href="block_002dambcond.html#block_002dambcond">8.2.2 Ambiguous conditions</a></li>
+      <li><a id="toc-Other-system-documentation-1" href="block_002dother.html#block_002dother">8.2.3 Other system documentation</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-Double-Number-word-set-1" href="The-optional-Double-Number-word-set.html#The-optional-Double-Number-word-set">8.3 The optional Double Number word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Ambiguous-conditions-2" href="double_002dambcond.html#double_002dambcond">8.3.1 Ambiguous conditions</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-Exception-word-set-1" href="The-optional-Exception-word-set.html#The-optional-Exception-word-set">8.4 The optional Exception word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options-2" href="exception_002didef.html#exception_002didef">8.4.1 Implementation Defined Options</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-Facility-word-set-1" href="The-optional-Facility-word-set.html#The-optional-Facility-word-set">8.5 The optional Facility word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options-3" href="facility_002didef.html#facility_002didef">8.5.1 Implementation Defined Options</a></li>
+      <li><a id="toc-Ambiguous-conditions-3" href="facility_002dambcond.html#facility_002dambcond">8.5.2 Ambiguous conditions</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-File_002dAccess-word-set-1" href="The-optional-File_002dAccess-word-set.html#The-optional-File_002dAccess-word-set">8.6 The optional File-Access word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options-4" href="file_002didef.html#file_002didef">8.6.1 Implementation Defined Options</a></li>
+      <li><a id="toc-Ambiguous-conditions-4" href="file_002dambcond.html#file_002dambcond">8.6.2 Ambiguous conditions</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-Floating_002dPoint-word-set-1" href="The-optional-Floating_002dPoint-word-set.html#The-optional-Floating_002dPoint-word-set">8.7 The optional Floating-Point word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options-5" href="floating_002didef.html#floating_002didef">8.7.1 Implementation Defined Options</a></li>
+      <li><a id="toc-Ambiguous-conditions-5" href="floating_002dambcond.html#floating_002dambcond">8.7.2 Ambiguous conditions</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-Locals-word-set-1" href="The-optional-Locals-word-set.html#The-optional-Locals-word-set">8.8 The optional Locals word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options-6" href="locals_002didef.html#locals_002didef">8.8.1 Implementation Defined Options</a></li>
+      <li><a id="toc-Ambiguous-conditions-6" href="locals_002dambcond.html#locals_002dambcond">8.8.2 Ambiguous conditions</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-Memory_002dAllocation-word-set-1" href="The-optional-Memory_002dAllocation-word-set.html#The-optional-Memory_002dAllocation-word-set">8.9 The optional Memory-Allocation word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options-7" href="memory_002didef.html#memory_002didef">8.9.1 Implementation Defined Options</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-Programming_002dTools-word-set-1" href="The-optional-Programming_002dTools-word-set.html#The-optional-Programming_002dTools-word-set">8.10 The optional Programming-Tools word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options-8" href="programming_002didef.html#programming_002didef">8.10.1 Implementation Defined Options</a></li>
+      <li><a id="toc-Ambiguous-conditions-7" href="programming_002dambcond.html#programming_002dambcond">8.10.2 Ambiguous conditions</a></li>
+    </ul></li>
+    <li><a id="toc-The-optional-Search_002dOrder-word-set-1" href="The-optional-Search_002dOrder-word-set.html#The-optional-Search_002dOrder-word-set">8.11 The optional Search-Order word set</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Implementation-Defined-Options-9" href="search_002didef.html#search_002didef">8.11.1 Implementation Defined Options</a></li>
+      <li><a id="toc-Ambiguous-conditions-8" href="search_002dambcond.html#search_002dambcond">8.11.2 Ambiguous conditions</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Should-I-use-Gforth-extensions_003f" href="Standard-vs-Extensions.html#Standard-vs-Extensions">9 Should I use Gforth extensions?</a></li>
+  <li><a id="toc-Model-1" href="Model.html#Model">10 Model</a></li>
+  <li><a id="toc-Integrating-Gforth-into-C-programs" href="Integrating-Gforth.html#Integrating-Gforth">11 Integrating Gforth into C programs</a></li>
+  <li><a id="toc-Emacs-and-Gforth-1" href="Emacs-and-Gforth.html#Emacs-and-Gforth">12 Emacs and Gforth</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Installing-gforth_002eel-1" href="Installing-gforth_002eel.html#Installing-gforth_002eel">12.1 Installing gforth.el</a></li>
+    <li><a id="toc-Emacs-Tags-1" href="Emacs-Tags.html#Emacs-Tags">12.2 Emacs Tags</a></li>
+    <li><a id="toc-Hilighting-1" href="Hilighting.html#Hilighting">12.3 Hilighting</a></li>
+    <li><a id="toc-Auto_002dIndentation-1" href="Auto_002dIndentation.html#Auto_002dIndentation">12.4 Auto-Indentation</a></li>
+    <li><a id="toc-Blocks-Files-1" href="Blocks-Files.html#Blocks-Files">12.5 Blocks Files</a></li>
+  </ul></li>
+  <li><a id="toc-Image-Files-1" href="Image-Files.html#Image-Files">13 Image Files</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Image-Licensing-Issues-1" href="Image-Licensing-Issues.html#Image-Licensing-Issues">13.1 Image Licensing Issues</a></li>
+    <li><a id="toc-Image-File-Background-1" href="Image-File-Background.html#Image-File-Background">13.2 Image File Background</a></li>
+    <li><a id="toc-Non_002dRelocatable-Image-Files-1" href="Non_002dRelocatable-Image-Files.html#Non_002dRelocatable-Image-Files">13.3 Non-Relocatable Image Files</a></li>
+    <li><a id="toc-Data_002dRelocatable-Image-Files-1" href="Data_002dRelocatable-Image-Files.html#Data_002dRelocatable-Image-Files">13.4 Data-Relocatable Image Files</a></li>
+    <li><a id="toc-Fully-Relocatable-Image-Files-1" href="Fully-Relocatable-Image-Files.html#Fully-Relocatable-Image-Files">13.5 Fully Relocatable Image Files</a>
+    <ul class="no-bullet">
+      <li><a id="toc-gforthmi-1" href="gforthmi.html#gforthmi">13.5.1 <samp>gforthmi</samp></a></li>
+      <li><a id="toc-cross_002efs-1" href="cross_002efs.html#cross_002efs">13.5.2 <samp>cross.fs</samp></a></li>
+    </ul></li>
+    <li><a id="toc-Stack-and-Dictionary-Sizes-1" href="Stack-and-Dictionary-Sizes.html#Stack-and-Dictionary-Sizes">13.6 Stack and Dictionary Sizes</a></li>
+    <li><a id="toc-Running-Image-Files-1" href="Running-Image-Files.html#Running-Image-Files">13.7 Running Image Files</a></li>
+    <li><a id="toc-Modifying-the-Startup-Sequence-1" href="Modifying-the-Startup-Sequence.html#Modifying-the-Startup-Sequence">13.8 Modifying the Startup Sequence</a></li>
+  </ul></li>
+  <li><a id="toc-Engine-1" href="Engine.html#Engine">14 Engine</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Portability-1" href="Portability.html#Portability">14.1 Portability</a></li>
+    <li><a id="toc-Threading-1" href="Threading.html#Threading">14.2 Threading</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Scheduling-1" href="Scheduling.html#Scheduling">14.2.1 Scheduling</a></li>
+      <li><a id="toc-Direct-or-Indirect-Threaded_003f-1" href="Direct-or-Indirect-Threaded_003f.html#Direct-or-Indirect-Threaded_003f">14.2.2 Direct or Indirect Threaded?</a></li>
+      <li><a id="toc-Dynamic-Superinstructions-1" href="Dynamic-Superinstructions.html#Dynamic-Superinstructions">14.2.3 Dynamic Superinstructions</a></li>
+      <li><a id="toc-DOES_003e-1" href="DOES_003e.html#DOES_003e">14.2.4 DOES&gt;</a></li>
+    </ul></li>
+    <li><a id="toc-Primitives-1" href="Primitives.html#Primitives">14.3 Primitives</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Automatic-Generation-1" href="Automatic-Generation.html#Automatic-Generation">14.3.1 Automatic Generation</a></li>
+      <li><a id="toc-TOS-Optimization-1" href="TOS-Optimization.html#TOS-Optimization">14.3.2 TOS Optimization</a></li>
+      <li><a id="toc-Produced-code-1" href="Produced-code.html#Produced-code">14.3.3 Produced code</a></li>
+    </ul></li>
+    <li><a id="toc-Performance-1" href="Performance.html#Performance">14.4 Performance</a></li>
+  </ul></li>
+  <li><a id="toc-Cross-Compiler-1" href="Cross-Compiler.html#Cross-Compiler">15 Cross Compiler</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Using-the-Cross-Compiler-1" href="Using-the-Cross-Compiler.html#Using-the-Cross-Compiler">15.1 Using the Cross Compiler</a></li>
+    <li><a id="toc-How-the-Cross-Compiler-Works-1" href="How-the-Cross-Compiler-Works.html#How-the-Cross-Compiler-Works">15.2 How the Cross Compiler Works</a></li>
+  </ul></li>
+  <li><a id="toc-Bugs-1" href="Bugs.html#Bugs">Appendix A Bugs</a></li>
+  <li><a id="toc-Authors-and-Ancestors-of-Gforth" href="Origin.html#Origin">Appendix B Authors and Ancestors of Gforth</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Authors-and-Contributors" href="Origin.html#Authors-and-Contributors">B.1 Authors and Contributors</a></li>
+    <li><a id="toc-Pedigree" href="Origin.html#Pedigree">B.2 Pedigree</a></li>
+  </ul></li>
+  <li><a id="toc-Other-Forth_002drelated-information" href="Forth_002drelated-information.html#Forth_002drelated-information">Appendix C Other Forth-related information</a></li>
+  <li><a id="toc-Licenses-1" href="Licenses.html#Licenses">Appendix D Licenses</a>
+  <ul class="no-bullet">
+    <li><a id="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">D.1 GNU Free Documentation License</a>
+    <ul class="no-bullet">
+      <li><a id="toc-ADDENDUM_003a-How-to-use-this-License-for-your-documents" href="GNU-Free-Documentation-License.html#ADDENDUM_003a-How-to-use-this-License-for-your-documents">D.1.1 ADDENDUM: How to use this License for your documents</a></li>
+    </ul></li>
+    <li><a id="toc-GNU-GENERAL-PUBLIC-LICENSE" href="Copying.html#Copying">D.2 GNU GENERAL PUBLIC LICENSE</a></li>
+  </ul></li>
+  <li><a id="toc-Word-Index-1" href="Word-Index.html#Word-Index" rel="index">Word Index</a></li>
+  <li><a id="toc-Concept-and-Word-Index" href="Concept-Index.html#Concept-Index" rel="index">Concept and Word Index</a></li>
+</ul>
+</div>
+
+
+<span id="Top"></span><div class="header">
+<p>
+Next: <a href="Goals.html" accesskey="n" rel="next">Goals</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Gforth"></span><h1 class="top">Gforth</h1>
+
+<p>This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+</p>
+<p>Copyright &copy; 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+</p>
+<blockquote>
+<p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being &ldquo;A GNU Manual,&rdquo;
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled &ldquo;GNU Free Documentation
+License.&rdquo;
+</p>
+<p>(a) The FSF&rsquo;s Back-Cover Text is: &ldquo;You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development.&rdquo;
+</p></blockquote>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Goals.html" accesskey="1">Goals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">About the Gforth Project
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Gforth-Environment.html" accesskey="2">Gforth Environment</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Starting (and exiting) Gforth
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Tutorial.html" accesskey="3">Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Hands-on Forth Tutorial
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Introduction.html" accesskey="4">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">An introduction to ANS Forth
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Words.html" accesskey="5">Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Forth words available in Gforth
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Error-messages.html" accesskey="6">Error messages</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to interpret them
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Tools.html" accesskey="7">Tools</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Programming tools
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="ANS-conformance.html" accesskey="8">ANS conformance</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation-defined options etc.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Standard-vs-Extensions.html" accesskey="9">Standard vs Extensions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Should I use extensions?
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Model.html">Model</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The abstract machine of Gforth
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Integrating-Gforth.html">Integrating Gforth</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Forth as scripting language for applications
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Emacs-and-Gforth.html">Emacs and Gforth</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Gforth Mode
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Image-Files.html">Image Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><code>.fi</code> files contain compiled code
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Engine.html">Engine</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The inner interpreter and the primitives
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Cross-Compiler.html">Cross Compiler</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Cross Compiler
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Bugs.html">Bugs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to report them
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Origin.html">Origin</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Authors and ancestors of Gforth
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Forth_002drelated-information.html">Forth-related information</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Books and places to look on the WWW
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Licenses.html">Licenses</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Word-Index.html" rel="index">Word Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">An item for each Forth word
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Concept-Index.html" rel="index">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A menu covering many topics
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment"> &mdash; The Detailed Node Listing &mdash;
+
+Gforth Environment
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Invoking-Gforth.html">Invoking Gforth</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Getting in
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Leaving-Gforth.html">Leaving Gforth</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Getting out
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Command_002dline-editing.html">Command-line editing</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Environment-variables.html">Environment variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">that affect how Gforth starts up
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Gforth-Files.html">Gforth Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What gets installed and where
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Gforth-in-pipes.html">Gforth in pipes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Startup-speed.html">Startup speed</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">When 35ms is not fast enough ...
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Forth Tutorial
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Starting-Gforth-Tutorial.html">Starting Gforth Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Syntax-Tutorial.html">Syntax Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Crash-Course-Tutorial.html">Crash Course Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack-Tutorial.html">Stack Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Arithmetics-Tutorial.html">Arithmetics Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack-Manipulation-Tutorial.html">Stack Manipulation Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Using-files-for-Forth-code-Tutorial.html">Using files for Forth code Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Comments-Tutorial.html">Comments Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Colon-Definitions-Tutorial.html">Colon Definitions Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Decompilation-Tutorial.html">Decompilation Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack_002dEffect-Comments-Tutorial.html">Stack-Effect Comments Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Types-Tutorial.html">Types Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Factoring-Tutorial.html">Factoring Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Designing-the-stack-effect-Tutorial.html">Designing the stack effect Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Local-Variables-Tutorial.html">Local Variables Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Conditional-execution-Tutorial.html">Conditional execution Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Flags-and-Comparisons-Tutorial.html">Flags and Comparisons Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="General-Loops-Tutorial.html">General Loops Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Counted-loops-Tutorial.html">Counted loops Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Recursion-Tutorial.html">Recursion Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Leaving-definitions-or-loops-Tutorial.html">Leaving definitions or loops Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Return-Stack-Tutorial.html">Return Stack Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Memory-Tutorial.html">Memory Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Characters-and-Strings-Tutorial.html">Characters and Strings Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Alignment-Tutorial.html">Alignment Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Floating-Point-Tutorial.html">Floating Point Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Files-Tutorial.html">Files Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial.html">Interpretation and Compilation Semantics and Immediacy Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Execution-Tokens-Tutorial.html">Execution Tokens Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Exceptions-Tutorial.html">Exceptions Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Defining-Words-Tutorial.html">Defining Words Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Arrays-and-Records-Tutorial.html">Arrays and Records Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="POSTPONE-Tutorial.html">POSTPONE Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Literal-Tutorial.html">Literal Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Advanced-macros-Tutorial.html">Advanced macros Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Compilation-Tokens-Tutorial.html">Compilation Tokens Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Wordlists-and-Search-Order-Tutorial.html">Wordlists and Search Order Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+An Introduction to ANS Forth
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Introducing-the-Text-Interpreter.html">Introducing the Text Interpreter</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stacks-and-Postfix-notation.html">Stacks and Postfix notation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Your-first-definition.html">Your first definition</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="How-does-that-work_003f.html">How does that work?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Forth-is-written-in-Forth.html">Forth is written in Forth</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Review-_002d-elements-of-a-Forth-system.html">Review - elements of a Forth system</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Where-to-go-next.html">Where to go next</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Exercises.html">Exercises</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Forth Words
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Notation.html">Notation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Case-insensitivity.html">Case insensitivity</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Comments.html">Comments</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Boolean-Flags.html">Boolean Flags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Arithmetic.html">Arithmetic</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack-Manipulation.html">Stack Manipulation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Memory.html">Memory</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Control-Structures.html">Control Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Defining-Words.html">Defining Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Interpretation-and-Compilation-Semantics.html">Interpretation and Compilation Semantics</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Tokens-for-Words.html">Tokens for Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Compiling-words.html">Compiling words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-Text-Interpreter.html">The Text Interpreter</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-Input-Stream.html">The Input Stream</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Word-Lists.html">Word Lists</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Environmental-Queries.html">Environmental Queries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Files.html">Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Blocks.html">Blocks</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Other-I_002fO.html">Other I/O</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OS-command-line-arguments.html">OS command line arguments</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Locals.html">Locals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Structures.html">Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Object_002doriented-Forth.html">Object-oriented Forth</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Programming-Tools.html">Programming Tools</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="C-Interface.html">C Interface</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Assembler-and-Code-Words.html">Assembler and Code Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Threading-Words.html">Threading Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Passing-Commands-to-the-OS.html">Passing Commands to the OS</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Keeping-track-of-Time.html">Keeping track of Time</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Miscellaneous-Words.html">Miscellaneous Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Arithmetic
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Single-precision.html">Single precision</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Double-precision.html">Double precision</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Double-cell integer arithmetic
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Bitwise-operations.html">Bitwise operations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Numeric-comparison.html">Numeric comparison</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Mixed-precision.html">Mixed precision</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Operations with single and double-cell integers
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Floating-Point.html">Floating Point</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Stack Manipulation
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Data-stack.html">Data stack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Floating-point-stack.html">Floating point stack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Return-stack.html">Return stack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Locals-stack.html">Locals stack</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack-pointer-manipulation.html">Stack pointer manipulation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Memory
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Memory-model.html">Memory model</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Dictionary-allocation.html">Dictionary allocation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Heap-Allocation.html">Heap Allocation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Memory-Access.html">Memory Access</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Address-arithmetic.html">Address arithmetic</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Memory-Blocks.html">Memory Blocks</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Control Structures
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Selection.html">Selection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">IF ... ELSE ... ENDIF
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Simple-Loops.html">Simple Loops</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">BEGIN ...
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Counted-Loops.html">Counted Loops</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">DO
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Arbitrary-control-structures.html">Arbitrary control structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Calls-and-returns.html">Calls and returns</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Exception-Handling.html">Exception Handling</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Defining Words
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="CREATE.html">CREATE</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Variables.html">Variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Variables and user variables
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Constants.html">Constants</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Values.html">Values</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Initialised variables
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Colon-Definitions.html">Colon Definitions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Anonymous-Definitions.html">Anonymous Definitions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Definitions without names
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Supplying-names.html">Supplying names</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Passing definition names as strings
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="User_002ddefined-Defining-Words.html">User-defined Defining Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Deferred-Words.html">Deferred Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Allow forward references
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Aliases.html">Aliases</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+User-defined Defining Words
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="CREATE_002e_002eDOES_003e-applications.html">CREATE..DOES&gt; applications</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="CREATE_002e_002eDOES_003e-details.html">CREATE..DOES&gt; details</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Advanced-does_003e-usage-example.html">Advanced does&gt; usage example</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Const_002ddoes_003e.html">Const-does&gt;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Interpretation and Compilation Semantics
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Combined-words.html">Combined words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Tokens for Words
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Execution-token.html">Execution token</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">represents execution/interpretation semantics
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Compilation-token.html">Compilation token</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">represents compilation semantics
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Name-token.html">Name token</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">represents named words
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Compiling words
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Literals.html">Literals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Compiling data values
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Macros.html">Macros</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Compiling words
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The Text Interpreter
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Input-Sources.html">Input Sources</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Number-Conversion.html">Number Conversion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Interpret_002fCompile-states.html">Interpret/Compile states</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Interpreter-Directives.html">Interpreter Directives</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Word Lists
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Vocabularies.html">Vocabularies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Why-use-word-lists_003f.html">Why use word lists?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Word-list-example.html">Word list example</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Files
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Forth-source-files.html">Forth source files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="General-files.html">General files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Redirection.html">Redirection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Search-Paths.html">Search Paths</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Search Paths
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Source-Search-Paths.html">Source Search Paths</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="General-Search-Paths.html">General Search Paths</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Other I/O
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Simple-numeric-output.html">Simple numeric output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Predefined formats
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Formatted-numeric-output.html">Formatted numeric output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Formatted (pictured) output
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="String-Formats.html">String Formats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How Forth stores strings in memory
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Displaying-characters-and-strings.html">Displaying characters and strings</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other stuff
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Terminal-output.html">Terminal output</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Cursor positioning etc.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Single_002dkey-input.html">Single-key input</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Line-input-and-conversion.html">Line input and conversion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Pipes.html">Pipes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to create your own pipes
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Xchars-and-Unicode.html">Xchars and Unicode</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Non-ASCII characters
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Locals
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Gforth-locals.html">Gforth locals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="ANS-Forth-locals.html">ANS Forth locals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Gforth locals
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Where-are-locals-visible-by-name_003f.html">Where are locals visible by name?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="How-long-do-locals-live_003f.html">How long do locals live?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Locals-programming-style.html">Locals programming style</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Locals-implementation.html">Locals implementation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Structures
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Why-explicit-structure-support_003f.html">Why explicit structure support?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Structure-Usage.html">Structure Usage</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Structure-Naming-Convention.html">Structure Naming Convention</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Structure-Implementation.html">Structure Implementation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Structure-Glossary.html">Structure Glossary</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Forth200x-Structures.html">Forth200x Structures</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Object-oriented Forth
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Why-object_002doriented-programming_003f.html">Why object-oriented programming?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Object_002dOriented-Terminology.html">Object-Oriented Terminology</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Objects.html">Objects</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="OOF.html">OOF</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Mini_002dOOF.html">Mini-OOF</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Comparison-with-other-object-models.html">Comparison with other object models</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The <samp>objects.fs</samp> model
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Properties-of-the-Objects-model.html">Properties of the Objects model</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Basic-Objects-Usage.html">Basic Objects Usage</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-Objects-base-class.html">The Objects base class</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Creating-objects.html">Creating objects</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Object_002dOriented-Programming-Style.html">Object-Oriented Programming Style</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Class-Binding.html">Class Binding</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Method-conveniences.html">Method conveniences</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Classes-and-Scoping.html">Classes and Scoping</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Dividing-classes.html">Dividing classes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Object-Interfaces.html">Object Interfaces</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Objects-Implementation.html">Objects Implementation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Objects-Glossary.html">Objects Glossary</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The <samp>oof.fs</samp> model
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Properties-of-the-OOF-model.html">Properties of the OOF model</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Basic-OOF-Usage.html">Basic OOF Usage</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-OOF-base-class.html">The OOF base class</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Class-Declaration.html">Class Declaration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Class-Implementation.html">Class Implementation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The <samp>mini-oof.fs</samp> model
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Basic-Mini_002dOOF-Usage.html">Basic Mini-OOF Usage</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Mini_002dOOF-Example.html">Mini-OOF Example</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Mini_002dOOF-Implementation.html">Mini-OOF Implementation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Programming Tools
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Examining.html">Examining</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Data and Code.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Forgetting-words.html">Forgetting words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Usually before reloading.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Debugging.html">Debugging</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Simple and quick.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Assertions.html">Assertions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Making your programs self-checking.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Singlestep-Debugger.html">Singlestep Debugger</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Executing your program word by word.
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+C Interface
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Calling-C-Functions.html">Calling C Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Declaring-C-Functions.html">Declaring C Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Calling-C-function-pointers.html">Calling C function pointers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Defining-library-interfaces.html">Defining library interfaces</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Declaring-OS_002dlevel-libraries.html">Declaring OS-level libraries</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Callbacks.html">Callbacks</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="C-interface-internals.html">C interface internals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Low_002dLevel-C-Interface-Words.html">Low-Level C Interface Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Assembler and Code Words
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Code-and-_003bcode.html">Code and ;code</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Common-Assembler.html">Common Assembler</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Assembler Syntax
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Common-Disassembler.html">Common Disassembler</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="386-Assembler.html">386 Assembler</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Deviations and special cases
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Alpha-Assembler.html">Alpha Assembler</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Deviations and special cases
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="MIPS-assembler.html">MIPS assembler</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Deviations and special cases
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="PowerPC-assembler.html">PowerPC assembler</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Deviations and special cases
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="ARM-Assembler.html">ARM Assembler</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Deviations and special cases
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Other-assemblers.html">Other assemblers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to write them
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Tools
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="ANS-Report.html">ANS Report</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Report the words used, sorted by wordset.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack-depth-changes.html">Stack depth changes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Where does this stack item come from?
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+ANS conformance
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="The-Core-Words.html">The Core Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-Block-word-set.html">The optional Block word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-Double-Number-word-set.html">The optional Double Number word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-Exception-word-set.html">The optional Exception word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-Facility-word-set.html">The optional Facility word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-File_002dAccess-word-set.html">The optional File-Access word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-Floating_002dPoint-word-set.html">The optional Floating-Point word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-Locals-word-set.html">The optional Locals word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-Memory_002dAllocation-word-set.html">The optional Memory-Allocation word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-Programming_002dTools-word-set.html">The optional Programming-Tools word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="The-optional-Search_002dOrder-word-set.html">The optional Search-Order word set</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The Core Words
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="core_002didef.html">core-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options                   
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="core_002dambcond.html">core-ambcond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ambiguous Conditions                
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="core_002dother.html">core-other</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other System Documentation                  
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional Block word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="block_002didef.html">block-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="block_002dambcond.html">block-ambcond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ambiguous Conditions               
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="block_002dother.html">block-other</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other System Documentation                 
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional Double Number word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="double_002dambcond.html">double-ambcond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ambiguous Conditions              
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional Exception word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="exception_002didef.html">exception-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options              
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional Facility word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="facility_002didef.html">facility-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options               
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="facility_002dambcond.html">facility-ambcond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ambiguous Conditions            
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional File-Access word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="file_002didef.html">file-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="file_002dambcond.html">file-ambcond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ambiguous Conditions                
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional Floating-Point word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="floating_002didef.html">floating-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="floating_002dambcond.html">floating-ambcond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ambiguous Conditions            
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional Locals word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="locals_002didef.html">locals-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options                 
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="locals_002dambcond.html">locals-ambcond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ambiguous Conditions              
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional Memory-Allocation word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="memory_002didef.html">memory-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options                 
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional Programming-Tools word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="programming_002didef.html">programming-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options            
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="programming_002dambcond.html">programming-ambcond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ambiguous Conditions         
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+The optional Search-Order word set
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="search_002didef.html">search-idef</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Implementation Defined Options                 
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="search_002dambcond.html">search-ambcond</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Ambiguous Conditions              
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Emacs and Gforth
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Installing-gforth_002eel.html">Installing gforth.el</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Making Emacs aware of Forth.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Emacs-Tags.html">Emacs Tags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Viewing the source of a word in Emacs.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Hilighting.html">Hilighting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Making Forth code look prettier.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Auto_002dIndentation.html">Auto-Indentation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Customizing auto-indentation.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Blocks-Files.html">Blocks Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Reading and writing blocks files.
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Image Files
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Image-Licensing-Issues.html">Image Licensing Issues</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Distribution terms for images.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Image-File-Background.html">Image File Background</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Why have image files?
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Non_002dRelocatable-Image-Files.html">Non-Relocatable Image Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">don&rsquo;t always work.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Data_002dRelocatable-Image-Files.html">Data-Relocatable Image Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">are better.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Fully-Relocatable-Image-Files.html">Fully Relocatable Image Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">better yet.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack-and-Dictionary-Sizes.html">Stack and Dictionary Sizes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Setting the default sizes for an image.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Running-Image-Files.html">Running Image Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><code>gforth -i <i>file</i></code> or <i>file</i>.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Modifying-the-Startup-Sequence.html">Modifying the Startup Sequence</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">and turnkey applications.
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Fully Relocatable Image Files
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="gforthmi.html">gforthmi</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The normal way
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="cross_002efs.html">cross.fs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The hard way
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Engine
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Portability.html">Portability</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Threading.html">Threading</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Primitives.html">Primitives</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Performance.html">Performance</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Threading
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Scheduling.html">Scheduling</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Direct-or-Indirect-Threaded_003f.html">Direct or Indirect Threaded?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Dynamic-Superinstructions.html">Dynamic Superinstructions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="DOES_003e.html">DOES&gt;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Primitives
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Automatic-Generation.html">Automatic Generation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="TOS-Optimization.html">TOS Optimization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Produced-code.html">Produced code</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Cross Compiler
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="Using-the-Cross-Compiler.html">Using the Cross Compiler</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="How-the-Cross-Compiler-Works.html">How the Cross Compiler Works</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Licenses
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="GNU-Free-Documentation-License.html">GNU Free Documentation License</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">License for copying this manual.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Copying.html">Copying</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">GPL (for copying this software).
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr></table>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Goals.html" accesskey="n" rel="next">Goals</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+\entry{stack}{10}{\code {stack}}
+\entry{type-prefix}{10}{\code {type-prefix}}
+\entry{single}{10}{\code {single}}
+\entry{double}{10}{\code {double}}
+\entry{stack-prefix}{10}{\code {stack-prefix}}
+\entry{store-optimization}{10}{\code {store-optimization}}
+\entry{SET_IP}{12}{\code {SET_IP}}
+\entry{SUPER_END}{12}{\code {SUPER_END}}
+\entry{INST_TAIL;}{12}{\code {INST_TAIL;}}
+\entry{SUPER_CONTINUE}{12}{\code {SUPER_CONTINUE}}
+\entry{LABEL}{18}{\code {LABEL}}
+\entry{LABEL2}{18}{\code {LABEL2}}
+\entry{NAME}{18}{\code {NAME}}
+\entry{DEF_CA}{18}{\code {DEF_CA}}
+\entry{NEXT_P0}{19}{\code {NEXT_P0}}
+\entry{NEXT_P1}{19}{\code {NEXT_P1}}
+\entry{NEXT_P2}{19}{\code {NEXT_P2}}
+\entry{INC_IP}{19}{\code {INC_IP}}
+\entry{SET_IP}{19}{\code {SET_IP}}
+\entry{vm_A2B}{19}{\code {vm_\var {A}2\var {B}}}
+\entry{vm_twoA2B}{19}{\code {vm_two\var {A}2\var {B}}}
+\entry{vm_B2twoA}{19}{\code {vm_\var {B}2two\var {A}}}
+\entry{IMM_ARG}{20}{\code {IMM_ARG}}
+\entry{IPTOS}{20}{\code {IPTOS}}
+\entry{IF_stackpointerTOS}{20}{\code {IF_\var {stackpointer}TOS}}
+\entry{SUPER_END}{20}{\code {SUPER_END}}
+\entry{SUPER_CONTINUE}{20}{\code {SUPER_CONTINUE}}
+\entry{MAYBE_UNUSED}{20}{\code {MAYBE_UNUSED}}
+\entry{VM_DEBUG}{20}{\code {VM_DEBUG}}
+\entry{vm_debug}{20}{\code {vm_debug}}
+\entry{vm_out}{20}{\code {vm_out}}
+\entry{printarg_type}{20}{\code {printarg_\var {type}}}
+\entry{INST_ADDR}{21}{\code {INST_ADDR}}
+\entry{gen_inst}{21}{\code {gen_\var {inst}}}
+\entry{Inst}{22}{\code {Inst}}
+\entry{gen_inst}{22}{\code {gen_inst}}
+\entry{genarg_type_prefix}{22}{\code {genarg_\var {type_prefix}}}
+\entry{BB_BOUNDARY}{22}{\code {BB_BOUNDARY}}
+\entry{init_peeptable}{22}{\code {init_peeptable}}
+\entry{VM_IS_INST}{23}{\code {VM_IS_INST}}

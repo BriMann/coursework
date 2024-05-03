@@ -1,0 +1,50 @@
+Python 3.8.10 (default, Nov 26 2021, 20:14:08) 
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> python 3[K[K3 main
+  File "<stdin>", line 1
+    python3 main
+            ^
+SyntaxError: invalid syntax
+>>> Python 3.8.10 (default, Nov 26 2021, 20:14:08) 
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> Python 3.8.10 (default, Nov 26 2021, 20:14:08) 
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> [K>>> insettion[K[K[K[K[Krtionser[K[K[K_sort.py
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'insertion_sort' is not defined
+>>> python3 ./insertion_sort.pu[K[K[K[K.[K[Krt.py
+  File "<stdin>", line 1
+    python3 ./insertion_sort.py
+             ^
+SyntaxError: invalid syntax
+>>> python3./insertion_sort.py
+  File "<stdin>", line 1
+    python3./insertion_sort.py
+            ^
+SyntaxError: invalid syntax
+>>> python3 insertion_sort.py
+  File "<stdin>", line 1
+    python3 insertion_sort.py
+            ^
+SyntaxError: invalid syntax
+>>> Python 3.8.10 (default, Nov 26 2021, 20:14:08) 
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> pythopPython 3.8.10 (default, Nov 26 2021, 20:14:08) 
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> pythop[Kn3 ./insertin[Kon_sort.o[Kpy
+  File "<stdin>", line 1
+    python3 ./insertion_sort.py
+             ^
+SyntaxError: invalid syntax
+>>> [K>>> cd csc340
+  File "<stdin>", line 1
+    cd csc340
+       ^
+SyntaxError: invalid syntax
+>>> 

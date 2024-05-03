@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Gforth locals (Gforth Manual)</title>
+
+<meta name="description" content="Gforth locals (Gforth Manual)">
+<meta name="keywords" content="Gforth locals (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Locals.html" rel="up" title="Locals">
+<link href="Where-are-locals-visible-by-name_003f.html" rel="next" title="Where are locals visible by name?">
+<link href="Locals.html" rel="prev" title="Locals">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Gforth-locals"></span><div class="header">
+<p>
+Next: <a href="ANS-Forth-locals.html" accesskey="n" rel="next">ANS Forth locals</a>, Previous: <a href="Locals.html" accesskey="p" rel="prev">Locals</a>, Up: <a href="Locals.html" accesskey="u" rel="up">Locals</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Gforth-locals-1"></span><h4 class="subsection">5.21.1 Gforth locals</h4>
+<span id="index-Gforth-locals"></span>
+<span id="index-locals_002c-Gforth-style"></span>
+
+<p>Locals can be defined with
+</p>
+<div class="example">
+<pre class="example">{ local1 local2 ... -- comment }
+</pre></div>
+<p>or
+</p><div class="example">
+<pre class="example">{ local1 local2 ... }
+</pre></div>
+
+<p>E.g.,
+</p><div class="example">
+<pre class="example">: max { n1 n2 -- n3 }
+ n1 n2 &gt; if
+   n1
+ else
+   n2
+ endif ;
+</pre></div>
+
+<p>The similarity of locals definitions with stack comments is intended. A
+locals definition often replaces the stack comment of a word. The order
+of the locals corresponds to the order in a stack comment and everything
+after the <code>--</code> is really a comment.
+</p>
+<p>This similarity has one disadvantage: It is too easy to confuse locals
+declarations with stack comments, causing bugs and making them hard to
+find. However, this problem can be avoided by appropriate coding
+conventions: Do not use both notations in the same program. If you do,
+they should be distinguished using additional means, e.g. by position.
+</p>
+<span id="index-types-of-locals"></span>
+<span id="index-locals-types"></span>
+<p>The name of the local may be preceded by a type specifier, e.g.,
+<code>F:</code> for a floating point value:
+</p>
+<div class="example">
+<pre class="example">: CX* { F: Ar F: Ai F: Br F: Bi -- Cr Ci }
+\ complex multiplication
+ Ar Br f* Ai Bi f* f-
+ Ar Bi f* Ai Br f* f+ ;
+</pre></div>
+
+<span id="index-flavours-of-locals"></span>
+<span id="index-locals-flavours"></span>
+<span id="index-value_002dflavoured-locals"></span>
+<span id="index-variable_002dflavoured-locals"></span>
+<p>Gforth currently supports cells (<code>W:</code>, <code>W^</code>), doubles
+(<code>D:</code>, <code>D^</code>), floats (<code>F:</code>, <code>F^</code>) and characters
+(<code>C:</code>, <code>C^</code>) in two flavours: a value-flavoured local (defined
+with <code>W:</code>, <code>D:</code> etc.) produces its value and can be changed
+with <code>TO</code>. A variable-flavoured local (defined with <code>W^</code> etc.)
+produces its address (which becomes invalid when the variable&rsquo;s scope is
+left). E.g., the standard word <code>emit</code> can be defined in terms of
+<code>type</code> like this:
+</p>
+<div class="example">
+<pre class="example">: emit { C^ char* -- }
+    char* 1 type ;
+</pre></div>
+
+<span id="index-default-type-of-locals"></span>
+<span id="index-locals_002c-default-type"></span>
+<p>A local without type specifier is a <code>W:</code> local. Both flavours of
+locals are initialized with values from the data or FP stack.
+</p>
+<p>Currently there is no way to define locals with user-defined data
+structures, but we are working on it.
+</p>
+<p>Gforth allows defining locals everywhere in a colon definition. This
+poses the following questions:
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Where-are-locals-visible-by-name_003f.html" accesskey="1">Where are locals visible by name?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="How-long-do-locals-live_003f.html" accesskey="2">How long do locals live?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Locals-programming-style.html" accesskey="3">Locals programming style</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Locals-implementation.html" accesskey="4">Locals implementation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="ANS-Forth-locals.html" accesskey="n" rel="next">ANS Forth locals</a>, Previous: <a href="Locals.html" accesskey="p" rel="prev">Locals</a>, Up: <a href="Locals.html" accesskey="u" rel="up">Locals</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Bitwise operations (Gforth Manual)</title>
+
+<meta name="description" content="Bitwise operations (Gforth Manual)">
+<meta name="keywords" content="Bitwise operations (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Arithmetic.html" rel="up" title="Arithmetic">
+<link href="Numeric-comparison.html" rel="next" title="Numeric comparison">
+<link href="Double-precision.html" rel="prev" title="Double precision">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Bitwise-operations"></span><div class="header">
+<p>
+Next: <a href="Numeric-comparison.html" accesskey="n" rel="next">Numeric comparison</a>, Previous: <a href="Double-precision.html" accesskey="p" rel="prev">Double precision</a>, Up: <a href="Arithmetic.html" accesskey="u" rel="up">Arithmetic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Bitwise-operations-1"></span><h4 class="subsection">5.5.3 Bitwise operations</h4>
+<span id="index-bitwise-operation-words"></span>
+
+
+<span id="index-and--w1-w2-_002d_002d-w--core"></span>
+<span id="index-and"></span>
+<span id="index-and-1"></span>
+<div class="format">
+<pre class="format"><code>and</code>       <i>w1 w2 &ndash; w </i>       core       &ldquo;and&rdquo;
+</pre></div>
+
+<span id="index-or--w1-w2-_002d_002d-w--core"></span>
+<span id="index-or"></span>
+<span id="index-or-1"></span>
+<div class="format">
+<pre class="format"><code>or</code>       <i>w1 w2 &ndash; w </i>       core       &ldquo;or&rdquo;
+</pre></div>
+
+<span id="index-xor--w1-w2-_002d_002d-w--core"></span>
+<span id="index-xor"></span>
+<span id="index-xor-1"></span>
+<div class="format">
+<pre class="format"><code>xor</code>       <i>w1 w2 &ndash; w </i>       core       &ldquo;x-or&rdquo;
+</pre></div>
+
+<span id="index-invert--w1-_002d_002d-w2--core"></span>
+<span id="index-invert"></span>
+<span id="index-invert-1"></span>
+<div class="format">
+<pre class="format"><code>invert</code>       <i>w1 &ndash; w2 </i>       core       &ldquo;invert&rdquo;
+</pre></div>
+
+<span id="index-lshift--u1-n-_002d_002d-u2--core"></span>
+<span id="index-lshift"></span>
+<span id="index-lshift-1"></span>
+<div class="format">
+<pre class="format"><code>lshift</code>       <i>u1 n &ndash; u2 </i>       core       &ldquo;l-shift&rdquo;
+</pre></div>
+
+<span id="index-rshift--u1-n-_002d_002d-u2--core"></span>
+<span id="index-rshift"></span>
+<span id="index-rshift-1"></span>
+<div class="format">
+<pre class="format"><code>rshift</code>       <i>u1 n &ndash; u2 </i>       core       &ldquo;r-shift&rdquo;
+</pre></div>
+<p>Logical shift right by <i>n</i> bits.
+</p>
+<span id="index-2_002a--n1-_002d_002d-n2--core"></span>
+<span id="index-2_002a"></span>
+<span id="index-2_002a-1"></span>
+<div class="format">
+<pre class="format"><code>2*</code>       <i>n1 &ndash; n2 </i>       core       &ldquo;two-star&rdquo;
+</pre></div>
+<p>Shift left by 1; also works on unsigned numbers
+</p>
+<span id="index-d2_002a--d1-_002d_002d-d2--double"></span>
+<span id="index-d2_002a"></span>
+<span id="index-d2_002a-1"></span>
+<div class="format">
+<pre class="format"><code>d2*</code>       <i>d1 &ndash; d2 </i>       double       &ldquo;d-two-star&rdquo;
+</pre></div>
+<p>Shift left by 1; also works on unsigned numbers
+</p>
+<span id="index-2_002f--n1-_002d_002d-n2--core"></span>
+<span id="index-2_002f"></span>
+<span id="index-2_002f-1"></span>
+<div class="format">
+<pre class="format"><code>2/</code>       <i>n1 &ndash; n2 </i>       core       &ldquo;two-slash&rdquo;
+</pre></div>
+<p>Arithmetic shift right by 1.  For signed numbers this is a floored
+division by 2 (note that <code>/</code> not necessarily floors).
+</p>
+<span id="index-d2_002f--d1-_002d_002d-d2--double"></span>
+<span id="index-d2_002f"></span>
+<span id="index-d2_002f-1"></span>
+<div class="format">
+<pre class="format"><code>d2/</code>       <i>d1 &ndash; d2 </i>       double       &ldquo;d-two-slash&rdquo;
+</pre></div>
+<p>Arithmetic shift right by 1.  For signed numbers this is a floored
+division by 2.
+</p>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ c++ rodcut2.cpp 
+]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ./a.out 
+
+Using the naive recursive method:
+
+ 0:  0 function_call_counter = 1
+ 1:  1 function_call_counter = 2
+ 2:  5 function_call_counter = 4
+ 3:  8 function_call_counter = 8
+ 4: 10 function_call_counter = 16
+ 5: 13 function_call_counter = 32
+ 6: 17 function_call_counter = 64
+ 7: 18 function_call_counter = 128
+ 8: 22 function_call_counter = 256
+ 9: 25 function_call_counter = 512
+10: 30 function_call_counter = 1024
+
+Using recursion with memoization:
+
+ 0:  0 function_call_counter = 1
+ 1:  1 function_call_counter = 2
+ 2:  5 function_call_counter = 4
+ 3:  8 function_call_counter = 7
+ 4: 10 function_call_counter = 11
+ 5: 13 function_call_counter = 16
+ 6: 17 function_call_counter = 22
+ 7: 18 function_call_counter = 29
+ 8: 22 function_call_counter = 37
+ 9: 25 function_call_counter = 46
+10: 30 function_call_counter = 56
+
+Using the bottom up method:
+
+Length  0: maximum revenue is  0 using piece sizes:
+Length  1: maximum revenue is  1 using piece sizes: 1
+Length  2: maximum revenue is  5 using piece sizes: 2
+Length  3: maximum revenue is  8 using piece sizes: 3
+Length  4: maximum revenue is 10 using piece sizes: 2 2
+Length  5: maximum revenue is 13 using piece sizes: 2 3
+Length  6: maximum revenue is 17 using piece sizes: 6
+Length  7: maximum revenue is 18 using piece sizes: 1 6
+Length  8: maximum revenue is 22 using piece sizes: 2 6
+Length  9: maximum revenue is 25 using piece sizes: 3 6
+Length 10: maximum revenue is 30 using piece sizes: 10
+]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ./a.out [8@c++ rodcut2.cpp[C
+]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ c++ rodcut2.cpp [8P./a.out[C
+
+Using the naive recursive method:
+
+ 0:  0 function_call_counter = 1
+ 1:  1 function_call_counter = 2
+ 2:  5 function_call_counter = 4
+ 3:  8 function_call_counter = 8
+ 4: 10 function_call_counter = 16
+ 5: 13 function_call_counter = 32
+ 6: 17 function_call_counter = 64
+ 7: 18 function_call_counter = 128
+ 8: 22 function_call_counter = 256
+ 9: 25 function_call_counter = 512
+10: 30 function_call_counter = 1024
+
+Using recursion with memoization:
+
+ 0:  0 function_call_counter = 1
+ 1:  1 function_call_counter = 2
+ 2:  5 function_call_counter = 4
+ 3:  8 function_call_counter = 7
+ 4: 10 function_call_counter = 11
+ 5: 13 function_call_counter = 16
+ 6: 17 function_call_counter = 22
+ 7: 18 function_call_counter = 29
+ 8: 22 function_call_counter = 37
+ 9: 25 function_call_counter = 46
+10: 30 function_call_counter = 56
+
+Using the bottom up method:
+
+Length  0: maximum revenue is  0 using piece sizes:
+Length  1: maximum revenue is  1 using piece sizes: 1
+Length  2: maximum revenue is  5 using piece sizes: 2
+Length  3: maximum revenue is  8 using piece sizes: 3
+Length  4: maximum revenue is 10 using piece sizes: 2 2
+Length  5: maximum revenue is 13 using piece sizes: 2 3
+Length  6: maximum revenue is 17 using piece sizes: 6
+Length  7: maximum revenue is 18 using piece sizes: 1 6
+Length  8: maximum revenue is 22 using piece sizes: 2 6
+Length  9: maximum revenue is 25 using piece sizes: 3 6
+Length 10: maximum revenue is 30 using piece sizes: 10
+]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ./a.out [8@c++ rodcut2.cpp[C
+]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ c++ rodcut2.cpp [8P./a.out[C
+
+Using the naive recursive method:
+
+ 0:  0 function_call_counter = 1
+ 1:  1 function_call_counter = 2
+ 2:  5 function_call_counter = 4
+ 3:  8 function_call_counter = 8
+ 4: 10 function_call_counter = 16
+ 5: 13 function_call_counter = 32
+ 6: 17 function_call_counter = 64
+ 7: 18 function_call_counter = 128
+ 8: 22 function_call_counter = 256
+ 9: 25 function_call_counter = 512
+10: 30 function_call_counter = 1024
+
+Using recursion with memoization:
+
+ 0:  0 function_call_counter = 1
+ 1:  1 function_call_counter = 2
+ 2:  5 function_call_counter = 4
+ 3:  8 function_call_counter = 7
+ 4: 10 function_call_counter = 11
+ 5: 13 function_call_counter = 16
+ 6: 17 function_call_counter = 22
+ 7: 18 function_call_counter = 29
+ 8: 22 function_call_counter = 37
+ 9: 25 function_call_counter = 46
+10: 30 function_call_counter = 56
+
+Using the bottom up method:
+
+Length  0: maximum revenue is  0 using piece sizes:
+Length  1: maximum revenue is  1 using piece sizes: 1
+Length  2: maximum revenue is  5 using piece sizes: 2
+Length  3: maximum revenue is  8 using piece sizes: 3
+Length  4: maximum revenue is 10 using piece sizes: 2 2
+Length  5: maximum revenue is 13 using piece sizes: 2 3
+Length  6: maximum revenue is 17 using piece sizes: 6
+Length  7: maximum revenue is 18 using piece sizes: 1 6
+Length  8: maximum revenue is 22 using piece sizes: 2 6
+Length  9: maximum revenue is 25 using piece sizes: 3 6
+Length 10: maximum revenue is 30 using piece sizes: 10
+breadcrumbs:
+0: 0
+1: 1
+2: 2
+3: 3
+4: 2
+5: 2
+6: 6
+7: 1
+8: 2
+9: 3
+10: 10
+]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[000m$ [K[A]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[000m$ [K[A]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ [K]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/CSC-340-SP20/Workshops/15.1-Rod_cutting[01;34m~/CSC-340-SP20/Workshops/15.1-Rod_cutting[00m$ ]0;~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[01;34m~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[00m$ c++ rodcut2.cpp 
+]0;~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[01;34m~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[00m$ ./a.out 
+
+Using the naive recursive method:
+
+ 0:  0 function_call_counter = 1
+ 1:  1 function_call_counter = 2
+ 2:  5 function_call_counter = 4
+ 3:  8 function_call_counter = 8
+ 4: 10 function_call_counter = 16
+ 5: 13 function_call_counter = 32
+ 6: 17 function_call_counter = 64
+ 7: 18 function_call_counter = 128
+ 8: 22 function_call_counter = 256
+ 9: 25 function_call_counter = 512
+10: 30 function_call_counter = 1024
+
+Using recursion with memoization:
+
+ 0:  0 function_call_counter = 1
+ 1:  1 function_call_counter = 2
+ 2:  5 function_call_counter = 4
+ 3:  8 function_call_counter = 7
+ 4: 10 function_call_counter = 11
+ 5: 13 function_call_counter = 16
+ 6: 17 function_call_counter = 22
+ 7: 18 function_call_counter = 29
+ 8: 22 function_call_counter = 37
+ 9: 25 function_call_counter = 46
+10: 30 function_call_counter = 56
+
+Using the bottom up method:
+
+Length  0: maximum revenue is  0 using piece sizes:
+Length  1: maximum revenue is  1 using piece sizes: 1
+Length  2: maximum revenue is  5 using piece sizes: 2
+Length  3: maximum revenue is  8 using piece sizes: 3
+Length  4: maximum revenue is 10 using piece sizes: 2 2
+Length  5: maximum revenue is 13 using piece sizes: 2 3
+Length  6: maximum revenue is 17 using piece sizes: 6
+Length  7: maximum revenue is 18 using piece sizes: 1 6
+Length  8: maximum revenue is 22 using piece sizes: 2 6
+Length  9: maximum revenue is 25 using piece sizes: 3 6
+Length 10: maximum revenue is 30 using piece sizes: 10
+]0;~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[01;34m~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[00m$ ]0;~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[01;34m~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[00m$ ]0;~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[01;34m~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[00m$ ]0;~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[01;34m~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[00m$ [K]0;~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[01;34m~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[00m$ ]0;~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[01;34m~/csc340/Workshops/WS15: 15.1-Dynamic_Programming_Rod_cutting[00m$ 

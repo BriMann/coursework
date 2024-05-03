@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>How does that work? (Gforth Manual)</title>
+
+<meta name="description" content="How does that work? (Gforth Manual)">
+<meta name="keywords" content="How does that work? (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Introduction.html" rel="up" title="Introduction">
+<link href="Forth-is-written-in-Forth.html" rel="next" title="Forth is written in Forth">
+<link href="Your-first-definition.html" rel="prev" title="Your first definition">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="How-does-that-work_003f"></span><div class="header">
+<p>
+Next: <a href="Forth-is-written-in-Forth.html" accesskey="n" rel="next">Forth is written in Forth</a>, Previous: <a href="Your-first-definition.html" accesskey="p" rel="prev">Your first definition</a>, Up: <a href="Introduction.html" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="How-does-that-work_003f-1"></span><h3 class="section">4.4 How does that work?</h3>
+<span id="index-parsing-words"></span>
+
+
+
+
+
+
+
+
+<p>Now we&rsquo;re going to take another look at the definition of <code>add-two</code>
+from the previous section. From our knowledge of the way that the text
+interpreter works, we would have expected this result when we tried to
+define <code>add-two</code>:
+</p>
+<div class="example">
+<pre class="example"><kbd>: add-two 2 + . ;<span class="key">RET</span></kbd>
+*the terminal*:4: Undefined word
+: &gt;&gt;&gt;add-two&lt;&lt;&lt; 2 + . ;
+</pre></div>
+
+<p>The reason that this didn&rsquo;t happen is bound up in the way that <code>:</code>
+works. The word <code>:</code> does two special things. The first special
+thing that it does prevents the text interpreter from ever seeing the
+characters <code>add-two</code>. The text interpreter uses a variable called
+<span id="index-modifying-_003eIN"></span>
+<code>&gt;IN</code> (pronounced &ldquo;to-in&rdquo;) to keep track of where it is in the
+input line. When it encounters the word <code>:</code> it behaves in exactly
+the same way as it does for any other word; it looks it up in the name
+dictionary, finds its xt and executes it. When <code>:</code> executes, it
+looks at the input buffer, finds the word <code>add-two</code> and advances the
+value of <code>&gt;IN</code> to point past it. It then does some other stuff
+associated with creating the new definition (including creating an entry
+for <code>add-two</code> in the name dictionary). When the execution of <code>:</code>
+completes, control returns to the text interpreter, which is oblivious
+to the fact that it has been tricked into ignoring part of the input
+line.
+</p>
+<span id="index-parsing-words-1"></span>
+<p>Words like <code>:</code> &ndash; words that advance the value of <code>&gt;IN</code> and so
+prevent the text interpreter from acting on the whole of the input line
+&ndash; are called <em>parsing words</em>.
+</p>
+<span id="index-state-_002d-effect-on-the-text-interpreter"></span>
+<span id="index-text-interpreter-_002d-effect-of-state"></span>
+<p>The second special thing that <code>:</code> does is change the value of a
+variable called <code>state</code>, which affects the way that the text
+interpreter behaves. When Gforth starts up, <code>state</code> has the value
+0, and the text interpreter is said to be <em>interpreting</em>. During a
+colon definition (started with <code>:</code>), <code>state</code> is set to -1 and
+the text interpreter is said to be <em>compiling</em>.
+</p>
+<p>In this example, the text interpreter is compiling when it processes the
+string &ldquo;<code>2 + . ;</code>&rdquo;. It still breaks the string down into
+character sequences in the same way. However, instead of pushing the
+number <code>2</code> onto the stack, it lays down (<em>compiles</em>) some magic
+into the definition of <code>add-two</code> that will make the number <code>2</code> get
+pushed onto the stack when <code>add-two</code> is <em>executed</em>. Similarly,
+the behaviours of <code>+</code> and <code>.</code> are also compiled into the
+definition.
+</p>
+<p>One category of words don&rsquo;t get compiled. These so-called <em>immediate
+words</em> get executed (performed <i>now</i>) regardless of whether the text
+interpreter is interpreting or compiling. The word <code>;</code> is an
+immediate word. Rather than being compiled into the definition, it
+executes. Its effect is to terminate the current definition, which
+includes changing the value of <code>state</code> back to 0.
+</p>
+<p>When you execute <code>add-two</code>, it has a <em>run-time effect</em> that is
+exactly the same as if you had typed <code>2 + . <span class="key">RET</span></code> outside of a
+definition.
+</p>
+<p>In Forth, every word or number can be described in terms of two
+properties:
+</p>
+<ul>
+<li> <span id="index-interpretation-semantics"></span>
+Its <em>interpretation semantics</em> describe how it will behave when the
+text interpreter encounters it in <em>interpret</em> state. The
+interpretation semantics of a word are represented by an <em>execution
+token</em>.
+</li><li> <span id="index-compilation-semantics"></span>
+Its <em>compilation semantics</em> describe how it will behave when the
+text interpreter encounters it in <em>compile</em> state. The compilation
+semantics of a word are represented in an implementation-dependent way;
+Gforth uses a <em>compilation token</em>.
+</li></ul>
+
+<p>Numbers are always treated in a fixed way:
+</p>
+<ul>
+<li> When the number is <em>interpreted</em>, its behaviour is to push the
+number onto the stack.
+</li><li> When the number is <em>compiled</em>, a piece of code is appended to the
+current definition that pushes the number when it runs. (In other words,
+the compilation semantics of a number are to postpone its interpretation
+semantics until the run-time of the definition that it is being compiled
+into.)
+</li></ul>
+
+<p>Words don&rsquo;t behave in such a regular way, but most have <i>default
+semantics</i> which means that they behave like this:
+</p>
+<ul>
+<li> The <em>interpretation semantics</em> of the word are to do something useful.
+</li><li> The <em>compilation semantics</em> of the word are to append its
+<em>interpretation semantics</em> to the current definition (so that its
+run-time behaviour is to do something useful).
+</li></ul>
+
+<span id="index-immediate-words"></span>
+<p>The actual behaviour of any particular word can be controlled by using
+the words <code>immediate</code> and <code>compile-only</code> when the word is
+defined. These words set flags in the name dictionary entry of the most
+recently defined word, and these flags are retrieved by the text
+interpreter when it finds the word in the name dictionary.
+</p>
+<p>A word that is marked as <em>immediate</em> has compilation semantics that
+are identical to its interpretation semantics. In other words, it
+behaves like this:
+</p>
+<ul>
+<li> The <em>interpretation semantics</em> of the word are to do something useful.
+</li><li> The <em>compilation semantics</em> of the word are to do something useful
+(and actually the same thing); i.e., it is executed during compilation.
+</li></ul>
+
+<p>Marking a word as <em>compile-only</em> prohibits the text interpreter from
+performing the interpretation semantics of the word directly; an attempt
+to do so will generate an error. It is never necessary to use
+<code>compile-only</code> (and it is not even part of ANS Forth, though it is
+provided by many implementations) but it is good etiquette to apply it
+to a word that will not behave correctly (and might have unexpected
+side-effects) in interpret state. For example, it is only legal to use
+the conditional word <code>IF</code> within a definition. If you forget this
+and try to use it elsewhere, the fact that (in Gforth) it is marked as
+<code>compile-only</code> allows the text interpreter to generate a helpful
+error message rather than subjecting you to the consequences of your
+folly.
+</p>
+<p>This example shows the difference between an immediate and a
+non-immediate word:
+</p>
+<div class="example">
+<pre class="example">: show-state state @ . ;
+: show-state-now show-state ; immediate
+: word1 show-state ;
+: word2 show-state-now ;
+</pre></div>
+
+<p>The word <code>immediate</code> after the definition of <code>show-state-now</code>
+makes that word an immediate word. These definitions introduce a new
+word: <code>@</code> (pronounced &ldquo;fetch&rdquo;). This word fetches the value of a
+variable, and leaves it on the stack. Therefore, the behaviour of
+<code>show-state</code> is to print a number that represents the current value
+of <code>state</code>.
+</p>
+<p>When you execute <code>word1</code>, it prints the number 0, indicating that
+the system is interpreting. When the text interpreter compiled the
+definition of <code>word1</code>, it encountered <code>show-state</code> whose
+compilation semantics are to append its interpretation semantics to the
+current definition. When you execute <code>word1</code>, it performs the
+interpretation semantics of <code>show-state</code>.  At the time that <code>word1</code>
+(and therefore <code>show-state</code>) are executed, the system is
+interpreting.
+</p>
+<p>When you pressed <tt class="key">RET</tt> after entering the definition of <code>word2</code>,
+you should have seen the number -1 printed, followed by &ldquo;<code>
+ok</code>&rdquo;. When the text interpreter compiled the definition of
+<code>word2</code>, it encountered <code>show-state-now</code>, an immediate word,
+whose compilation semantics are therefore to perform its interpretation
+semantics. It is executed straight away (even before the text
+interpreter has moved on to process another group of characters; the
+<code>;</code> in this example). The effect of executing it are to display the
+value of <code>state</code> <i>at the time that the definition of</i>
+<code>word2</code> <i>is being defined</i>. Printing -1 demonstrates that the
+system is compiling at this time. If you execute <code>word2</code> it does
+nothing at all.
+</p>
+<span id="index-_002e_0022_002c-how-it-works"></span>
+<p>Before leaving the subject of immediate words, consider the behaviour of
+<code>.&quot;</code> in the definition of <code>greet</code>, in the previous
+section. This word is both a parsing word and an immediate word. Notice
+that there is a space between <code>.&quot;</code> and the start of the text
+<code>Hello and welcome</code>, but that there is no space between the last
+letter of <code>welcome</code> and the <code>&quot;</code> character. The reason for this
+is that <code>.&quot;</code> is a Forth word; it must have a space after it so that
+the text interpreter can identify it. The <code>&quot;</code> is not a Forth word;
+it is a <em>delimiter</em>. The examples earlier show that, when the string
+is displayed, there is neither a space before the <code>H</code> nor after the
+<code>e</code>. Since <code>.&quot;</code> is an immediate word, it executes at the time
+that <code>greet</code> is defined. When it executes, its behaviour is to
+search forward in the input line looking for the delimiter. When it
+finds the delimiter, it updates <code>&gt;IN</code> to point past the
+delimiter. It also compiles some magic code into the definition of
+<code>greet</code>; the xt of a run-time routine that prints a text string. It
+compiles the string <code>Hello and welcome</code> into memory so that it is
+available to be printed later. When the text interpreter gains control,
+the next word it finds in the input stream is <code>;</code> and so it
+terminates the definition of <code>greet</code>.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Forth-is-written-in-Forth.html" accesskey="n" rel="next">Forth is written in Forth</a>, Previous: <a href="Your-first-definition.html" accesskey="p" rel="prev">Your first definition</a>, Up: <a href="Introduction.html" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

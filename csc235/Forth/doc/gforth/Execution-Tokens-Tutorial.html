@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Execution Tokens Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Execution Tokens Tutorial (Gforth Manual)">
+<meta name="keywords" content="Execution Tokens Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="Exceptions-Tutorial.html" rel="next" title="Exceptions Tutorial">
+<link href="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial.html" rel="prev" title="Interpretation and Compilation Semantics and Immediacy Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Execution-Tokens-Tutorial"></span><div class="header">
+<p>
+Next: <a href="Exceptions-Tutorial.html" accesskey="n" rel="next">Exceptions Tutorial</a>, Previous: <a href="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial.html" accesskey="p" rel="prev">Interpretation and Compilation Semantics and Immediacy Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Execution-Tokens"></span><h3 class="section">3.29 Execution Tokens</h3>
+<span id="index-execution-tokens-tutorial"></span>
+<span id="index-XT-tutorial"></span>
+
+<p><code>' word</code> gives you the execution token (XT) of a word.  The XT is a
+cell representing the interpretation semantics of a word.  You can
+execute this semantics with <code>execute</code>:
+</p>
+<div class="example">
+<pre class="example">' + .s
+1 2 rot execute .
+</pre></div>
+
+<p>The XT is similar to a function pointer in C.  However, parameter
+passing through the stack makes it a little more flexible:
+</p>
+<div class="example">
+<pre class="example">: map-array ( ... addr u xt -- ... )
+\ executes xt ( ... x -- ... ) for every element of the array starting
+\ at addr and containing u elements
+  { xt }
+  cells over + swap ?do
+    i @ xt execute
+  1 cells +loop ;
+
+create a 3 , 4 , 2 , -1 , 4 ,
+a 5 ' . map-array .s
+0 a 5 ' + map-array .
+s&quot; max-n&quot; environment? drop .s
+a 5 ' min map-array .
+</pre></div>
+
+<p>You can use map-array with the XTs of words that consume one element
+more than they produce.  In theory you can also use it with other XTs,
+but the stack effect then depends on the size of the array, which is
+hard to understand.
+</p>
+<p>Since XTs are cell-sized, you can store them in memory and manipulate
+them on the stack like other cells.  You can also compile the XT into a
+word with <code>compile,</code>:
+</p>
+<div class="example">
+<pre class="example">: foo1 ( n1 n2 -- n )
+   [ ' + compile, ] ;
+see foo
+</pre></div>
+
+<p>This is non-standard, because <code>compile,</code> has no compilation
+semantics in the standard, but it works in good Forth systems.  For the
+broken ones, use
+</p>
+<div class="example">
+<pre class="example">: [compile,] compile, ; immediate
+
+: foo1 ( n1 n2 -- n )
+   [ ' + ] [compile,] ;
+see foo
+</pre></div>
+
+<p><code>'</code> is a word with default compilation semantics; it parses the
+next word when its interpretation semantics are executed, not during
+compilation:
+</p>
+<div class="example">
+<pre class="example">: foo ( -- xt )
+  ' ;
+see foo
+: bar ( ... &quot;word&quot; -- ... )
+  ' execute ;
+see bar
+1 2 bar + .
+</pre></div>
+
+<p>You often want to parse a word during compilation and compile its XT so
+it will be pushed on the stack at run-time.  <code>[']</code> does this:
+</p>
+<div class="example">
+<pre class="example">: xt-+ ( -- xt )
+  ['] + ;
+see xt-+
+1 2 xt-+ execute .
+</pre></div>
+
+<p>Many programmers tend to see <code>'</code> and the word it parses as one
+unit, and expect it to behave like <code>[']</code> when compiled, and are
+confused by the actual behaviour.  If you are, just remember that the
+Forth system just takes <code>'</code> as one unit and has no idea that it is
+a parsing word (attempts to convenience programmers in this issue have
+usually resulted in even worse pitfalls, see
+<a href="http://www.complang.tuwien.ac.at/papers/ertl98.ps.gz"><code>State</code>-smartness&mdash;Why it is evil and How to Exorcise it</a>).
+</p>
+<p>Note that the state of the interpreter does not come into play when
+creating and executing XTs.  I.e., even when you execute <code>'</code> in
+compile state, it still gives you the interpretation semantics.  And
+whatever that state is, <code>execute</code> performs the semantics
+represented by the XT (i.e., for XTs produced with <code>'</code> the
+interpretation semantics).
+</p>
+<p>Reference: <a href="Tokens-for-Words.html">Tokens for Words</a>.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Exceptions-Tutorial.html" accesskey="n" rel="next">Exceptions Tutorial</a>, Previous: <a href="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial.html" accesskey="p" rel="prev">Interpretation and Compilation Semantics and Immediacy Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Declaring OS-level libraries (Gforth Manual)</title>
+
+<meta name="description" content="Declaring OS-level libraries (Gforth Manual)">
+<meta name="keywords" content="Declaring OS-level libraries (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="C-Interface.html" rel="up" title="C Interface">
+<link href="Callbacks.html" rel="next" title="Callbacks">
+<link href="Defining-library-interfaces.html" rel="prev" title="Defining library interfaces">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Declaring-OS_002dlevel-libraries"></span><div class="header">
+<p>
+Next: <a href="Callbacks.html" accesskey="n" rel="next">Callbacks</a>, Previous: <a href="Defining-library-interfaces.html" accesskey="p" rel="prev">Defining library interfaces</a>, Up: <a href="C-Interface.html" accesskey="u" rel="up">C Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Declaring-OS_002dlevel-libraries-1"></span><h4 class="subsection">5.25.5 Declaring OS-level libraries</h4>
+<span id="index-Shared-libraries-in-C-interface"></span>
+<span id="index-Dynamically-linked-libraries-in-C-interface"></span>
+<span id="index-Libraries-in-C-interface"></span>
+
+<p>For calling some C functions, you need to link with a specific
+OS-level library that contains that function.  E.g., the <code>sin</code>
+function requires linking a special library by using the command line
+switch <code>-lm</code>.  In our C iterface you do the equivalent thing by
+calling <code>add-lib</code> as follows:
+</p>
+<div class="example">
+<pre class="example">clear-libs
+s&quot; m&quot; add-lib
+\c #include &lt;math.h&gt;
+c-function sin sin r -- r
+</pre></div>
+
+<p>First, you clear any libraries that may have been declared earlier
+(you don&rsquo;t need them for <code>sin</code>); then you add the <code>m</code>
+library (actually <code>libm.so</code> or somesuch) to the currently
+declared libraries; you can add as many as you need.  Finally you
+declare the function as shown above.  Typically you will use the same
+set of library declarations for many function declarations; you need
+to write only one set for that, right at the beginning.
+</p>
+<p>Note that you must not call <code>clear-libs</code> inside
+<code>c-library...end-c-library</code>; however, <code>c-library</code> performs
+the function of <code>clear-libs</code>, so <code>clear-libs</code> is not
+necessary, and you usually want to put <code>add-lib</code> calls inside
+<code>c-library...end-c-library</code>.
+</p>
+<span id="index-clear_002dlibs--_002d_002d--gforth"></span>
+<span id="index-clear_002dlibs"></span>
+<span id="index-clear_002dlibs-1"></span>
+<div class="format">
+<pre class="format"><code>clear-libs</code>       <i>&ndash;  </i>       gforth       &ldquo;clear-libs&rdquo;
+</pre></div>
+<p>Clear the list of libs
+</p>
+
+<span id="index-add_002dlib--c_002daddr-u-_002d_002d--gforth"></span>
+<span id="index-add_002dlib"></span>
+<span id="index-add_002dlib-1"></span>
+<div class="format">
+<pre class="format"><code>add-lib</code>       <i>c-addr u &ndash;  </i>       gforth       &ldquo;add-lib&rdquo;
+</pre></div>
+<p>Add library lib<i>string</i> to the list of libraries, where
+<i>string</i> is represented by <i>c-addr u</i>.
+</p>
+
+
+
+
+
+
+</body>
+</html>

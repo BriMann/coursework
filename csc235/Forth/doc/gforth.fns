@@ -1,0 +1,843 @@
+\initial {!}
+\entry{\code {! \var { w a-addr -- } core}}{62}
+\initial {#}
+\entry{\code {# \var { ud1 -- ud2 } core}}{120}
+\entry{\code {#! \var { -- } gforth}}{210}
+\entry{\code {#> \var { xd -- addr u } core}}{120}
+\entry{\code {#>> \var { -- } gforth}}{120}
+\entry{\code {#s \var { ud -- 0 0 } core}}{120}
+\entry{\code {#tib \var { -- addr } core-ext-obsolescent}}{99}
+\initial {$}
+\entry{\code {$? \var { -- n } gforth}}{180}
+\initial {%}
+\entry{\code {%align \var { align size -- } gforth}}{141}
+\entry{\code {%alignment \var { align size -- align } gforth}}{141}
+\entry{\code {%alloc \var { align size -- addr } gforth}}{141}
+\entry{\code {%allocate \var { align size -- addr ior } gforth}}{141}
+\entry{\code {%allot \var { align size -- addr } gforth}}{141}
+\entry{\code {%size \var { align size -- size } gforth}}{142}
+\initial {'}
+\entry{\code {' \var { "name" -- xt } core}}{92, 157}
+\entry{\code {'cold \var { -- } gforth}}{210}
+\initial {(}
+\entry{\code {( \var { compilation 'ccc<close-paren>' -- ; run-time -- } core,file}}{51}
+\entry{\code {(local) \var { addr u -- } local}}{138}
+\initial {)}
+\entry{\code {) \var { -- } gforth}}{165}
+\initial {*}
+\entry{\code {* \var { n1 n2 -- n } core}}{53}
+\entry{\code {*/ \var { n1 n2 n3 -- n4 } core}}{55}
+\entry{\code {*/mod \var { n1 n2 n3 -- n4 n5 } core}}{55}
+\initial {+}
+\entry{\code {+ \var { n1 n2 -- n } core}}{52}
+\entry{\code {+! \var { n a-addr -- } core}}{62}
+\entry{\code {+DO \var { compilation -- do-sys ; run-time n1 n2 -- | loop-sys } gforth}}{71}
+\entry{\code {+field \var { n1 n2 "name" -- n3 } X:structures}}{142}
+\entry{\code {+load \var { i*x n -- j*x } gforth}}{117}
+\entry{\code {+LOOP \var { compilation do-sys -- ; run-time loop-sys1 n -- | loop-sys2 } core}}{71}
+\entry{\code {+thru \var { i*x n1 n2 -- j*x } gforth}}{117}
+\entry{\code {+x/string \var { xc-addr1 u1 -- xc-addr2 u2 } xchar}}{129}
+\initial {,}
+\entry{\code {, \var { w -- } core}}{61}
+\initial {-}
+\entry{\code {- \var { n1 n2 -- n } core}}{53}
+\entry{\code {--> \var { -- } gforth}}{117}
+\entry{\code {-DO \var { compilation -- do-sys ; run-time n1 n2 -- | loop-sys } gforth}}{71}
+\entry{\code {-LOOP \var { compilation do-sys -- ; run-time loop-sys1 u -- | loop-sys2 } gforth}}{71}
+\entry{\code {-rot \var { w1 w2 w3 -- w3 w1 w2 } gforth}}{58}
+\entry{\code {-trailing \var { c_addr u1 -- c_addr u2 } string}}{66}
+\entry{\code {-trailing-garbage \var { xc-addr u1 -- addr u2 } xchar-ext}}{129}
+\initial {.}
+\entry{\code {. \var { n -- } core}}{118}
+\entry{\code {." \var { compilation 'ccc"' -- ; run-time -- } core}}{122}
+\entry{\code {.( \var { compilation&interpretation "ccc<paren>" -- } core-ext}}{123}
+\entry{\code {.\backslashchar {}" \var { compilation 'ccc"' -- ; run-time -- } gforth}}{123}
+\entry{\code {.debugline \var { nfile nline -- } gforth}}{164}
+\entry{\code {.id \var { nt -- } F83}}{94}
+\entry{\code {.name \var { nt -- } gforth-obsolete}}{93}
+\entry{\code {.path \var { path-addr -- } gforth}}{114}
+\entry{\code {.r \var { n1 n2 -- } core-ext}}{118}
+\entry{\code {.s \var { -- } tools}}{162}
+\initial {/}
+\entry{\code {/ \var { n1 n2 -- n } core}}{53}
+\entry{\code {/does-handler \var { -- n } gforth}}{179}
+\entry{\code {/l \var { -- u } gforth}}{65}
+\entry{\code {/mod \var { n1 n2 -- n3 n4 } core}}{53}
+\entry{\code {/string \var { c-addr1 u1 n -- c-addr2 u2 } string}}{66}
+\entry{\code {/w \var { -- u } gforth}}{65}
+\initial {:}
+\entry{\code {: \var { "name" -- colon-sys } core}}{79, 156}
+\entry{\code {:: \var { "name" -- } oof}}{156, 158}
+\entry{\code {:m \var { "name" -- xt; run-time: object -- } objects}}{153}
+\entry{\code {:noname \var { -- xt colon-sys } core-ext}}{79}
+\initial {;}
+\entry{\code {; \var { compilation colon-sys -- ; run-time nest-sys } core}}{79}
+\entry{\code {;code \var { compilation. colon-sys1 -- colon-sys2 } tools-ext}}{171}
+\entry{\code {;m \var { colon-sys --; run-time: -- } objects}}{153}
+\entry{\code {;s \var { R:w -- } gforth}}{73}
+\initial {<}
+\entry{\code {< \var { n1 n2 -- f } core}}{54}
+\entry{\code {<# \var { -- } core}}{120}
+\entry{\code {<<# \var { -- } gforth}}{120}
+\entry{\code {<= \var { n1 n2 -- f } gforth}}{54}
+\entry{\code {<> \var { n1 n2 -- f } core-ext}}{54}
+\entry{\code {<bind> \var { class selector-xt -- xt } objects}}{151}
+\entry{\code {<compilation \var { compilation. orig colon-sys -- } gforth}}{91}
+\entry{\code {<interpretation \var { compilation. orig colon-sys -- } gforth}}{91}
+\entry{\code {<to-inst> \var { w xt -- } objects}}{154}
+\initial {=}
+\entry{\code {= \var { n1 n2 -- f } core}}{54}
+\initial {>}
+\entry{\code {> \var { n1 n2 -- f } core}}{54}
+\entry{\code {>= \var { n1 n2 -- f } gforth}}{54}
+\entry{\code {>body \var { xt -- a_addr } core}}{84}
+\entry{\code {>code-address \var { xt -- c_addr } gforth}}{179}
+\entry{\code {>definer \var { xt -- definer } gforth}}{180}
+\entry{\code {>does-code \var { xt -- a_addr } gforth}}{179}
+\entry{\code {>float \var { c-addr u -- f:... flag } float}}{127}
+\entry{\code {>in \var { -- addr } core}}{99}
+\entry{\code {>l \var { w -- } gforth}}{136}
+\entry{\code {>name \var { xt -- nt|0 } gforth}}{93}
+\entry{\code {>number \var { ud1 c-addr1 u1 -- ud2 c-addr2 u2 } core}}{127}
+\entry{\code {>order \var { wid -- } gforth}}{106}
+\entry{\code {>r \var { w -- R:w } core}}{59}
+\initial {?}
+\entry{\code {? \var { a-addr -- } tools}}{162}
+\entry{\code {?DO \var { compilation -- do-sys ; run-time w1 w2 -- | loop-sys } core-ext}}{71}
+\entry{\code {?dup \var { w -- S:... w } core}}{58}
+\entry{\code {?DUP-0=-IF \var { compilation -- orig ; run-time n -- n| } gforth}}{71}
+\entry{\code {?DUP-IF \var { compilation -- orig ; run-time n -- n| } gforth}}{71}
+\entry{\code {?LEAVE \var { compilation -- ; run-time f | f loop-sys -- } gforth}}{71}
+\initial {[}
+\entry{\code {[ \var { -- } core}}{94}
+\entry{\code {['] \var { compilation. "name" -- ; run-time. -- xt } core}}{92}
+\entry{\code {[+LOOP] \var { n -- } gforth}}{103}
+\entry{\code {[?DO] \var { n-limit n-index -- } gforth}}{103}
+\entry{\code {[] \var { n "name" -- } oof}}{156}
+\entry{\code {[AGAIN] \var { -- } gforth}}{103}
+\entry{\code {[BEGIN] \var { -- } gforth}}{103}
+\entry{\code {[bind] \var { compile-time: "class" "selector" -- ; run-time: ... object -- ... } objects}}{152}
+\entry{\code {[Char] \var { compilation '<spaces>ccc' -- ; run-time -- c } core}}{123}
+\entry{\code {[COMP'] \var { compilation "name" -- ; run-time -- w xt } gforth}}{93}
+\entry{\code {[compile] \var { compilation "name" -- ; run-time ? -- ? } core-ext}}{95}
+\entry{\code {[current] \var { compile-time: "selector" -- ; run-time: ... object -- ... } objects}}{152}
+\entry{\code {[DO] \var { n-limit n-index -- } gforth}}{103}
+\entry{\code {[ELSE] \var { -- } tools-ext}}{103}
+\entry{\code {[ENDIF] \var { -- } gforth}}{103}
+\entry{\code {[FOR] \var { n -- } gforth}}{103}
+\entry{\code {[IF] \var { flag -- } tools-ext}}{103}
+\entry{\code {[IFDEF] \var { "<spaces>name" -- } gforth}}{103}
+\entry{\code {[IFUNDEF] \var { "<spaces>name" -- } gforth}}{103}
+\entry{\code {[LOOP] \var { -- } gforth}}{103}
+\entry{\code {[NEXT] \var { n -- } gforth}}{103}
+\entry{\code {[parent] \var { compile-time: "selector" -- ; run-time: ... object -- ... } objects}}{154}
+\entry{\code {[REPEAT] \var { -- } gforth}}{103}
+\entry{\code {[THEN] \var { -- } tools-ext}}{103}
+\entry{\code {[to-inst] \var { compile-time: "name" -- ; run-time: w -- } objects}}{154}
+\entry{\code {[UNTIL] \var { flag -- } gforth}}{103}
+\entry{\code {[WHILE] \var { flag -- } gforth}}{103}
+\initial {]}
+\entry{\code {] \var { -- } core}}{94}
+\entry{\code {]L \var { compilation: n -- ; run-time: -- n } gforth}}{94}
+\initial {{\indexatchar}}
+\entry{\code {\@ \var { a-addr -- w } core}}{62}
+\entry{\code {\@local# \var { #noffset -- w } gforth}}{135}
+\initial {{\indexbackslash}}
+\entry{\code {\backslashchar {} \var { compilation 'ccc<newline>' -- ; run-time -- } core-ext,block-ext}}{52}
+\entry{\code {\backslashchar {}c \var { "rest-of-line" -- } gforth}}{168}
+\entry{\code {\backslashchar {}G \var { compilation 'ccc<newline>' -- ; run-time -- } gforth}}{52}
+\initial {~}
+\entry{\code {~~ \var { -- } gforth}}{164}
+\initial {0}
+\entry{\code {0< \var { n -- f } core}}{54}
+\entry{\code {0<= \var { n -- f } gforth}}{54}
+\entry{\code {0<> \var { n -- f } core-ext}}{54}
+\entry{\code {0= \var { n -- f } core}}{54}
+\entry{\code {0> \var { n -- f } core-ext}}{54}
+\entry{\code {0>= \var { n -- f } gforth}}{54}
+\initial {1}
+\entry{\code {1+ \var { n1 -- n2 } core}}{52}
+\entry{\code {1- \var { n1 -- n2 } core}}{53}
+\entry{\code {1/f \var { r1 -- r2 } gforth}}{56}
+\initial {2}
+\entry{\code {2! \var { w1 w2 a-addr -- } core}}{63}
+\entry{\code {2* \var { n1 -- n2 } core}}{54}
+\entry{\code {2, \var { w1 w2 -- } gforth}}{61}
+\entry{\code {2/ \var { n1 -- n2 } core}}{54}
+\entry{\code {2>r \var { d -- R:d } core-ext}}{59}
+\entry{\code {2\@ \var { a-addr -- w1 w2 } core}}{63}
+\entry{\code {2Constant \var { w1 w2 "name" -- } double}}{78}
+\entry{\code {2drop \var { w1 w2 -- } core}}{58}
+\entry{\code {2dup \var { w1 w2 -- w1 w2 w1 w2 } core}}{58}
+\entry{\code {2field: \var { u1 "name" -- u2 } gforth}}{143}
+\entry{\code {2Literal \var { compilation w1 w2 -- ; run-time -- w1 w2 } double}}{95}
+\entry{\code {2nip \var { w1 w2 w3 w4 -- w3 w4 } gforth}}{58}
+\entry{\code {2over \var { w1 w2 w3 w4 -- w1 w2 w3 w4 w1 w2 } core}}{58}
+\entry{\code {2r> \var { R:d -- d } core-ext}}{59}
+\entry{\code {2r\@ \var { R:d -- R:d d } core-ext}}{59}
+\entry{\code {2rdrop \var { R:d -- } gforth}}{59}
+\entry{\code {2rot \var { w1 w2 w3 w4 w5 w6 -- w3 w4 w5 w6 w1 w2 } double-ext}}{58}
+\entry{\code {2swap \var { w1 w2 w3 w4 -- w3 w4 w1 w2 } core}}{58}
+\entry{\code {2tuck \var { w1 w2 w3 w4 -- w3 w4 w1 w2 w3 w4 } gforth}}{58}
+\entry{\code {2Variable \var { "name" -- } double}}{77}
+\initial {A}
+\entry{\code {abort \var { ?? -- ?? } core,exception-ext}}{76}
+\entry{\code {ABORT" \var { compilation 'ccc"' -- ; run-time f -- } core,exception-ext}}{76}
+\entry{\code {abs \var { n -- u } core}}{53}
+\entry{\code {accept \var { c-addr +n1 -- +n2 } core}}{127}
+\entry{\code {action-of \var { interpretation "name" -- xt; compilation "name" -- ; run-time -- xt } gforth}}{88}
+\entry{\code {add-lib \var { c-addr u -- } gforth}}{170}
+\entry{\code {ADDRESS-UNIT-BITS \var { -- n } environment}}{65}
+\entry{\code {AGAIN \var { compilation dest -- ; run-time -- } core-ext}}{70}
+\entry{\code {AHEAD \var { compilation -- orig ; run-time -- } tools-ext}}{70}
+\entry{\code {Alias \var { xt "name" -- } gforth}}{89}
+\entry{\code {align \var { -- } core}}{61}
+\entry{\code {aligned \var { c-addr -- a-addr } core}}{64}
+\entry{\code {allocate \var { u -- a-addr wior } memory}}{62}
+\entry{\code {allot \var { n -- } core}}{61}
+\entry{\code {also \var { -- } search-ext}}{106}
+\entry{\code {also-path \var { c-addr len path-addr -- } gforth}}{114}
+\entry{\code {and \var { w1 w2 -- w } core}}{53}
+\entry{\code {arg \var { u -- addr count } gforth}}{130}
+\entry{\code {argc \var { -- addr } gforth}}{130}
+\entry{\code {argv \var { -- addr } gforth}}{130}
+\entry{\code {asptr \var { o "name" -- } oof}}{156, 157}
+\entry{\code {assembler \var { -- } tools-ext}}{171}
+\entry{\code {assert( \var { -- } gforth}}{165}
+\entry{\code {assert-level \var { -- a-addr } gforth}}{165}
+\entry{\code {assert0( \var { -- } gforth}}{164}
+\entry{\code {assert1( \var { -- } gforth}}{164}
+\entry{\code {assert2( \var { -- } gforth}}{164}
+\entry{\code {assert3( \var { -- } gforth}}{164}
+\entry{\code {ASSUME-LIVE \var { orig -- orig } gforth}}{133}
+\entry{\code {at-xy \var { u1 u2 -- } facility}}{124}
+\initial {B}
+\entry{\code {base \var { -- a-addr } core}}{101}
+\entry{\code {base-execute \var { i*x xt u -- j*x } gforth}}{101}
+\entry{\code {begin-structure \var { "name" -- struct-sys 0 } X:structures}}{142}
+\entry{\code {BEGIN \var { compilation -- dest ; run-time -- } core}}{70}
+\entry{\code {bin \var { fam1 -- fam2 } file}}{111}
+\entry{\code {bind \var { ... "class" "selector" -- ... } objects}}{151, 156}
+\entry{\code {bind' \var { "class" "selector" -- xt } objects}}{152}
+\entry{\code {bl \var { -- c-char } core}}{122}
+\entry{\code {blank \var { c-addr u -- } string}}{66}
+\entry{\code {blk \var { -- addr } block}}{100}
+\entry{\code {block \var { u -- a-addr } block}}{117}
+\entry{\code {block-included \var { a-addr u -- } gforth}}{118}
+\entry{\code {block-offset \var { -- addr } gforth}}{116}
+\entry{\code {block-position \var { u -- } block}}{116}
+\entry{\code {bootmessage \var { -- } gforth}}{210}
+\entry{\code {bound \var { class addr "name" -- } oof}}{156}
+\entry{\code {bounds \var { addr u -- addr+u addr } gforth}}{66}
+\entry{\code {break" \var { 'ccc"' -- } gforth}}{166}
+\entry{\code {break: \var { -- } gforth}}{166}
+\entry{\code {broken-pipe-error \var { -- n } gforth}}{128}
+\entry{\code {buffer \var { u -- a-addr } block}}{117}
+\entry{\code {bye \var { -- } tools-ext}}{6}
+\initial {C}
+\entry{\code {c! \var { c c-addr -- } core}}{62}
+\entry{\code {c, \var { c -- } core}}{61}
+\entry{\code {c-function \var { "forth-name" "c-name" "\lbracechar {}type\rbracechar {}" "--" "type" -- } gforth}}{168}
+\entry{\code {c-library \var { "name" -- } gforth}}{169}
+\entry{\code {c-library-name \var { c-addr u -- } gforth}}{169}
+\entry{\code {c\@ \var { c-addr -- c } core}}{62}
+\entry{\code {C" \var { compilation "ccc<quote>" -- ; run-time -- c-addr } core-ext}}{123}
+\entry{\code {call-c \var { ... w -- ... } gforth}}{170}
+\entry{\code {case \var { compilation -- case-sys ; run-time -- } core-ext}}{71}
+\entry{\code {catch \var { ... xt -- ... n } exception}}{74}
+\entry{\code {cell \var { -- u } gforth}}{64}
+\entry{\code {cell% \var { -- align size } gforth}}{142}
+\entry{\code {cell+ \var { a-addr1 -- a-addr2 } core}}{64}
+\entry{\code {cells \var { n1 -- n2 } core}}{64}
+\entry{\code {cfalign \var { -- } gforth}}{62}
+\entry{\code {cfaligned \var { addr1 -- addr2 } gforth}}{65}
+\entry{\code {cfield: \var { u1 "name" -- u2 } X:structures}}{142}
+\entry{\code {char \var { '<spaces>ccc' -- c } core}}{123}
+\entry{\code {char% \var { -- align size } gforth}}{142}
+\entry{\code {char+ \var { c-addr1 -- c-addr2 } core}}{64}
+\entry{\code {chars \var { n1 -- n2 } core}}{64}
+\entry{\code {class \var { parent-class -- align offset } objects}}{152, 156, 158}
+\entry{\code {class->map \var { class -- map } objects}}{152}
+\entry{\code {class-inst-size \var { class -- addr } objects}}{152}
+\entry{\code {class-override! \var { xt sel-xt class-map -- } objects}}{152}
+\entry{\code {class-previous \var { class -- } objects}}{152}
+\entry{\code {class; \var { -- } oof}}{157}
+\entry{\code {class>order \var { class -- } objects}}{152}
+\entry{\code {class? \var { o -- flag } oof}}{156}
+\entry{\code {clear-libs \var { -- } gforth}}{170}
+\entry{\code {clear-path \var { path-addr -- } gforth}}{114}
+\entry{\code {clearstack \var { ... -- } gforth}}{162}
+\entry{\code {clearstacks \var { ... -- } gforth}}{162}
+\entry{\code {close-file \var { wfileid -- wior } file}}{112}
+\entry{\code {close-pipe \var { wfileid -- wretval wior } gforth}}{128}
+\entry{\code {cmove \var { c-from c-to u -- } string}}{65}
+\entry{\code {cmove> \var { c-from c-to u -- } string}}{66}
+\entry{\code {code \var { "name" -- colon-sys } tools-ext}}{171}
+\entry{\code {code-address! \var { c_addr xt -- } gforth}}{179}
+\entry{\code {common-list \var { list1 list2 -- list3 } gforth-internal}}{137}
+\entry{\code {COMP' \var { "name" -- w xt } gforth}}{93}
+\entry{\code {compare \var { c-addr1 u1 c-addr2 u2 -- n } string}}{66}
+\entry{\code {compilation> \var { compilation. -- orig colon-sys } gforth}}{91}
+\entry{\code {compile, \var { xt -- } core-ext}}{96}
+\entry{\code {compile-lp+! \var { n -- } gforth}}{136}
+\entry{\code {compile-only \var { -- } gforth}}{89}
+\entry{\code {const-does> \var { run-time: w*uw r*ur uw ur "name" -- } gforth}}{86}
+\entry{\code {Constant \var { w "name" -- } core}}{78}
+\entry{\code {construct \var { ... object -- } objects}}{152}
+\entry{\code {context \var { -- addr } gforth}}{107}
+\entry{\code {convert \var { ud1 c-addr1 -- ud2 c-addr2 } core-ext-obsolescent}}{127}
+\entry{\code {count \var { c-addr1 -- c-addr2 u } core}}{122}
+\entry{\code {cputime \var { -- duser dsystem } gforth}}{180}
+\entry{\code {cr \var { -- } core}}{123}
+\entry{\code {Create \var { "name" -- } core}}{76}
+\entry{\code {create-file \var { c-addr u wfam -- wfileid wior } file}}{112}
+\entry{\code {create-interpret/compile \var { "name" -- } gforth}}{91}
+\entry{\code {CS-PICK \var { ... u -- ... destu } tools-ext}}{70}
+\entry{\code {CS-ROLL \var { destu/origu .. dest0/orig0 u -- .. dest0/orig0 destu/origu } tools-ext}}{70}
+\entry{\code {current \var { -- addr } gforth}}{107}
+\entry{\code {current' \var { "selector" -- xt } objects}}{152}
+\entry{\code {current-interface \var { -- addr } objects}}{152}
+\initial {D}
+\entry{\code {d+ \var { d1 d2 -- d } double}}{53}
+\entry{\code {d- \var { d1 d2 -- d } double}}{53}
+\entry{\code {d. \var { d -- } double}}{118}
+\entry{\code {d.r \var { d n -- } double}}{118}
+\entry{\code {d< \var { d1 d2 -- f } double}}{54}
+\entry{\code {d<= \var { d1 d2 -- f } gforth}}{54}
+\entry{\code {d<> \var { d1 d2 -- f } gforth}}{54}
+\entry{\code {d= \var { d1 d2 -- f } double}}{54}
+\entry{\code {d> \var { d1 d2 -- f } gforth}}{55}
+\entry{\code {d>= \var { d1 d2 -- f } gforth}}{55}
+\entry{\code {d>f \var { d -- r } float}}{56}
+\entry{\code {d>s \var { d -- n } double}}{53}
+\entry{\code {d0< \var { d -- f } double}}{55}
+\entry{\code {d0<= \var { d -- f } gforth}}{55}
+\entry{\code {d0<> \var { d -- f } gforth}}{55}
+\entry{\code {d0= \var { d -- f } double}}{55}
+\entry{\code {d0> \var { d -- f } gforth}}{55}
+\entry{\code {d0>= \var { d -- f } gforth}}{55}
+\entry{\code {d2* \var { d1 -- d2 } double}}{54}
+\entry{\code {d2/ \var { d1 -- d2 } double}}{54}
+\entry{\code {dabs \var { d -- ud } double}}{53}
+\entry{\code {dbg \var { "name" -- } gforth}}{166}
+\entry{\code {dec. \var { n -- } gforth}}{118}
+\entry{\code {decimal \var { -- } core}}{101}
+\entry{\code {defer \var { -- } oof}}{157}
+\entry{\code {Defer \var { "name" -- } gforth}}{88}
+\entry{\code {defer! \var { xt xt-deferred -- } gforth}}{88}
+\entry{\code {defer\@ \var { xt-deferred -- xt } gforth}}{88}
+\entry{\code {defers \var { compilation "name" -- ; run-time ... -- ... } gforth}}{88}
+\entry{\code {definer! \var { definer xt -- } gforth}}{180}
+\entry{\code {defines \var { xt class "name" -- } mini-oof}}{158}
+\entry{\code {definitions \var { -- } search}}{105, 156}
+\entry{\code {delete-file \var { c-addr u -- wior } file}}{112}
+\entry{\code {depth \var { -- +n } core}}{162}
+\entry{\code {df! \var { r df-addr -- } float-ext}}{63}
+\entry{\code {df\@ \var { df-addr -- r } float-ext}}{63}
+\entry{\code {dfalign \var { -- } float-ext}}{62}
+\entry{\code {dfaligned \var { c-addr -- df-addr } float-ext}}{65}
+\entry{\code {dffield: \var { u1 "name" -- u2 } X:structures}}{143}
+\entry{\code {dfloat% \var { -- align size } gforth}}{142}
+\entry{\code {dfloat+ \var { df-addr1 -- df-addr2 } float-ext}}{65}
+\entry{\code {dfloats \var { n1 -- n2 } float-ext}}{65}
+\entry{\code {dict-new \var { ... class -- object } objects}}{152}
+\entry{\code {discode \var { addr u -- } gforth}}{173}
+\entry{\code {dispose \var { -- } oof}}{156}
+\entry{\code {dmax \var { d1 d2 -- d } double}}{53}
+\entry{\code {dmin \var { d1 d2 -- d } double}}{53}
+\entry{\code {dnegate \var { d1 -- d2 } double}}{53}
+\entry{\code {docol: \var { -- addr } gforth}}{179}
+\entry{\code {docon: \var { -- addr } gforth}}{179}
+\entry{\code {dodefer: \var { -- addr } gforth}}{179}
+\entry{\code {does-code! \var { a_addr xt -- } gforth}}{179}
+\entry{\code {does-handler! \var { a_addr -- } gforth}}{179}
+\entry{\code {dofield: \var { -- addr } gforth}}{179}
+\entry{\code {DO \var { compilation -- do-sys ; run-time w1 w2 -- loop-sys } core}}{71}
+\entry{\code {DOES> \var { compilation colon-sys1 -- colon-sys2 ; run-time nest-sys -- } core}}{84}
+\entry{\code {DONE \var { compilation orig -- ; run-time -- } gforth}}{71}
+\entry{\code {double% \var { -- align size } gforth}}{142}
+\entry{\code {douser: \var { -- addr } gforth}}{179}
+\entry{\code {dovar: \var { -- addr } gforth}}{179}
+\entry{\code {dpl \var { -- a-addr } gforth}}{101}
+\entry{\code {drop \var { w -- } core}}{58}
+\entry{\code {du< \var { ud1 ud2 -- f } double-ext}}{55}
+\entry{\code {du<= \var { ud1 ud2 -- f } gforth}}{55}
+\entry{\code {du> \var { ud1 ud2 -- f } gforth}}{55}
+\entry{\code {du>= \var { ud1 ud2 -- f } gforth}}{55}
+\entry{\code {dump \var { addr u -- } tools}}{162}
+\entry{\code {dup \var { w -- w w } core}}{58}
+\initial {E}
+\entry{\code {early \var { -- } oof}}{157}
+\entry{\code {edit-line \var { c-addr n1 n2 -- n3 } gforth}}{127}
+\entry{\code {ekey \var { -- u } facility-ext}}{125}
+\entry{\code {ekey>char \var { u -- u false | c true } facility-ext}}{125}
+\entry{\code {ekey>fkey \var { u1 -- u2 f } X:ekeys}}{125}
+\entry{\code {ekey? \var { -- flag } facility-ext}}{125}
+\entry{\code {ELSE \var { compilation orig1 -- orig2 ; run-time -- } core}}{71}
+\entry{\code {emit \var { c -- } core}}{122}
+\entry{\code {emit-file \var { c wfileid -- wior } gforth}}{112}
+\entry{\code {empty-buffer \var { buffer -- } gforth}}{117}
+\entry{\code {empty-buffers \var { -- } block-ext}}{117}
+\entry{\code {end-c-library \var { -- } gforth}}{169}
+\entry{\code {end-class \var { align offset "name" -- } objects}}{152, 158}
+\entry{\code {end-class-noname \var { align offset -- class } objects}}{152}
+\entry{\code {end-code \var { colon-sys -- } gforth}}{171}
+\entry{\code {end-interface \var { "name" -- } objects}}{152}
+\entry{\code {end-interface-noname \var { -- interface } objects}}{153}
+\entry{\code {end-methods \var { -- } objects}}{153}
+\entry{\code {end-struct \var { align size "name" -- } gforth}}{142}
+\entry{\code {end-structure \var { struct-sys +n -- } X:structures}}{142}
+\entry{\code {endcase \var { compilation case-sys -- ; run-time x -- } core-ext}}{71}
+\entry{\code {ENDIF \var { compilation orig -- ; run-time -- } gforth}}{71}
+\entry{\code {endof \var { compilation case-sys1 of-sys -- case-sys2 ; run-time -- } core-ext}}{71}
+\entry{\code {endscope \var { compilation scope -- ; run-time -- } gforth}}{132}
+\entry{\code {endtry \var { compilation -- ; run-time R:sys1 -- } gforth}}{74}
+\entry{\code {endtry-iferror \var { compilation orig1 -- orig2 ; run-time R:sys1 -- } gforth}}{76}
+\entry{\code {endwith \var { -- } oof}}{157}
+\entry{\code {environment-wordlist \var { -- wid } gforth}}{109}
+\entry{\code {environment? \var { c-addr u -- false / ... true } core}}{109}
+\entry{\code {erase \var { addr u -- } core-ext}}{65}
+\entry{\code {evaluate \var { ... addr u -- ... } core,block}}{100}
+\entry{\code {exception \var { addr u -- n } gforth}}{73}
+\entry{\code {execute \var { xt -- } core}}{92}
+\entry{\code {execute-parsing \var { ... addr u xt -- ... } gforth}}{104}
+\entry{\code {execute-parsing-file \var { i*x fileid xt -- j*x } gforth}}{105}
+\entry{\code {exitm \var { -- } objects}}{153}
+\entry{\code {EXIT \var { compilation -- ; run-time nest-sys -- } core}}{73}
+\entry{\code {expect \var { c-addr +n -- } core-ext-obsolescent}}{127}
+\initial {F}
+\entry{\code {f! \var { r f-addr -- } float}}{63}
+\entry{\code {f* \var { r1 r2 -- r3 } float}}{56}
+\entry{\code {f** \var { r1 r2 -- r3 } float-ext}}{56}
+\entry{\code {f+ \var { r1 r2 -- r3 } float}}{56}
+\entry{\code {f, \var { f -- } gforth}}{61}
+\entry{\code {f- \var { r1 r2 -- r3 } float}}{56}
+\entry{\code {f. \var { r -- } float-ext}}{119}
+\entry{\code {f.rdp \var { rf +nr +nd +np -- } gforth}}{119}
+\entry{\code {f.s \var { -- } gforth}}{162}
+\entry{\code {f/ \var { r1 r2 -- r3 } float}}{56}
+\entry{\code {f< \var { r1 r2 -- f } float}}{57}
+\entry{\code {f<= \var { r1 r2 -- f } gforth}}{57}
+\entry{\code {f<> \var { r1 r2 -- f } gforth}}{57}
+\entry{\code {f= \var { r1 r2 -- f } gforth}}{57}
+\entry{\code {f> \var { r1 r2 -- f } gforth}}{58}
+\entry{\code {f>= \var { r1 r2 -- f } gforth}}{58}
+\entry{\code {f>buf-rdp \var { rf c-addr +nr +nd +np -- } gforth}}{120}
+\entry{\code {f>d \var { r -- d } float}}{56}
+\entry{\code {f>l \var { r -- } gforth}}{136}
+\entry{\code {f>str-rdp \var { rf +nr +nd +np -- c-addr nr } gforth}}{120}
+\entry{\code {f\@ \var { f-addr -- r } float}}{63}
+\entry{\code {f\@local# \var { #noffset -- r } gforth}}{135}
+\entry{\code {f~ \var { r1 r2 r3 -- flag } float-ext}}{57}
+\entry{\code {f~abs \var { r1 r2 r3 -- flag } gforth}}{57}
+\entry{\code {f~rel \var { r1 r2 r3 -- flag } gforth}}{57}
+\entry{\code {f0< \var { r -- f } float}}{58}
+\entry{\code {f0<= \var { r -- f } gforth}}{58}
+\entry{\code {f0<> \var { r -- f } gforth}}{58}
+\entry{\code {f0= \var { r -- f } float}}{58}
+\entry{\code {f0> \var { r -- f } gforth}}{58}
+\entry{\code {f0>= \var { r -- f } gforth}}{58}
+\entry{\code {f2* \var { r1 -- r2 } gforth}}{56}
+\entry{\code {f2/ \var { r1 -- r2 } gforth}}{56}
+\entry{\code {fabs \var { r1 -- r2 } float-ext}}{56}
+\entry{\code {facos \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {facosh \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {falign \var { -- } float}}{61}
+\entry{\code {faligned \var { c-addr -- f-addr } float}}{64}
+\entry{\code {falog \var { r1 -- r2 } float-ext}}{56}
+\entry{\code {false \var { -- f } core-ext}}{52}
+\entry{\code {fasin \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {fasinh \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {fatan \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {fatan2 \var { r1 r2 -- r3 } float-ext}}{57}
+\entry{\code {fatanh \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {fconstant \var { r "name" -- } float}}{78}
+\entry{\code {fcos \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {fcosh \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {fdepth \var { -- +n } float}}{162}
+\entry{\code {fdrop \var { r -- } float}}{59}
+\entry{\code {fdup \var { r -- r r } float}}{59}
+\entry{\code {fe. \var { r -- } float-ext}}{119}
+\entry{\code {fexp \var { r1 -- r2 } float-ext}}{56}
+\entry{\code {fexpm1 \var { r1 -- r2 } float-ext}}{56}
+\entry{\code {ffield: \var { u1 "name" -- u2 } X:structures}}{143}
+\entry{\code {field \var { align1 offset1 align size "name" -- align2 offset2 } gforth}}{142}
+\entry{\code {field: \var { u1 "name" -- u2 } X:structures}}{143}
+\entry{\code {file-position \var { wfileid -- ud wior } file}}{112}
+\entry{\code {file-size \var { wfileid -- ud wior } file}}{112}
+\entry{\code {file-status \var { c-addr u -- wfam wior } file-ext}}{112}
+\entry{\code {fill \var { c-addr u c -- } core}}{66}
+\entry{\code {find \var { c-addr -- xt +-1 | c-addr 0 } core,search}}{106}
+\entry{\code {find-name \var { c-addr u -- nt | 0 } gforth}}{93}
+\entry{\code {FLiteral \var { compilation r -- ; run-time -- r } float}}{95}
+\entry{\code {fln \var { r1 -- r2 } float-ext}}{56}
+\entry{\code {flnp1 \var { r1 -- r2 } float-ext}}{56}
+\entry{\code {float \var { -- u } gforth}}{64}
+\entry{\code {float% \var { -- align size } gforth}}{142}
+\entry{\code {float+ \var { f-addr1 -- f-addr2 } float}}{64}
+\entry{\code {floating-stack \var { -- n } environment}}{59}
+\entry{\code {floats \var { n1 -- n2 } float}}{64}
+\entry{\code {flog \var { r1 -- r2 } float-ext}}{56}
+\entry{\code {floor \var { r1 -- r2 } float}}{56}
+\entry{\code {FLOORED \var { -- f } environment}}{53}
+\entry{\code {flush \var { -- } block}}{117}
+\entry{\code {flush-file \var { wfileid -- wior } file-ext}}{112}
+\entry{\code {flush-icache \var { c-addr u -- } gforth}}{171}
+\entry{\code {fm/mod \var { d1 n1 -- n2 n3 } core}}{55}
+\entry{\code {fmax \var { r1 r2 -- r3 } float}}{56}
+\entry{\code {fmin \var { r1 r2 -- r3 } float}}{56}
+\entry{\code {fnegate \var { r1 -- r2 } float}}{56}
+\entry{\code {fnip \var { r1 r2 -- r2 } gforth}}{59}
+\entry{\code {form \var { -- urows ucols } gforth}}{124}
+\entry{\code {Forth \var { -- } search-ext}}{106}
+\entry{\code {forth-wordlist \var { -- wid } search}}{105}
+\entry{\code {FOR \var { compilation -- do-sys ; run-time u -- loop-sys } gforth}}{71}
+\entry{\code {fover \var { r1 r2 -- r1 r2 r1 } float}}{59}
+\entry{\code {fp! \var { f-addr -- f:... } gforth}}{60}
+\entry{\code {fp\@ \var { f:... -- f-addr } gforth}}{60}
+\entry{\code {fp0 \var { -- a-addr } gforth}}{60}
+\entry{\code {fpath \var { -- path-addr } gforth}}{113}
+\entry{\code {fpick \var { f:... u -- f:... r } gforth}}{59}
+\entry{\code {free \var { a-addr -- wior } memory}}{62}
+\entry{\code {frot \var { r1 r2 r3 -- r2 r3 r1 } float}}{59}
+\entry{\code {fround \var { r1 -- r2 } float}}{56}
+\entry{\code {fs. \var { r -- } float-ext}}{119}
+\entry{\code {fsin \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {fsincos \var { r1 -- r2 r3 } float-ext}}{57}
+\entry{\code {fsinh \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {fsqrt \var { r1 -- r2 } float-ext}}{56}
+\entry{\code {fswap \var { r1 r2 -- r2 r1 } float}}{59}
+\entry{\code {ftan \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {ftanh \var { r1 -- r2 } float-ext}}{57}
+\entry{\code {ftuck \var { r1 r2 -- r2 r1 r2 } gforth}}{59}
+\entry{\code {fvariable \var { "name" -- } float}}{77}
+\initial {G}
+\entry{\code {get-block-fid \var { -- wfileid } gforth}}{116}
+\entry{\code {get-current \var { -- wid } search}}{105}
+\entry{\code {get-order \var { -- widn .. wid1 n } search}}{105}
+\entry{\code {getenv \var { c-addr1 u1 -- c-addr2 u2 } gforth}}{180}
+\entry{\code {gforth \var { -- c-addr u } gforth-environment}}{109}
+\initial {H}
+\entry{\code {heap-new \var { ... class -- object } objects}}{153}
+\entry{\code {here \var { -- addr } core}}{61}
+\entry{\code {hex \var { -- } core-ext}}{101}
+\entry{\code {hex. \var { u -- } gforth}}{118}
+\entry{\code {hold \var { char -- } core}}{120}
+\entry{\code {how: \var { -- } oof}}{157}
+\initial {I}
+\entry{\code {i \var { R:n -- R:n n } core}}{68}
+\entry{\code {id. \var { nt -- } gforth}}{93}
+\entry{\code {iferror \var { compilation orig1 -- orig2 ; run-time -- } gforth}}{74}
+\entry{\code {IF \var { compilation -- orig ; run-time f -- } core}}{70}
+\entry{\code {immediate \var { -- } core}}{89}
+\entry{\code {implementation \var { interface -- } objects}}{153}
+\entry{\code {include \var { ... "file" -- ... } gforth}}{111}
+\entry{\code {include-file \var { i*x wfileid -- j*x } file}}{111}
+\entry{\code {included \var { i*x c-addr u -- j*x } file}}{111}
+\entry{\code {included? \var { c-addr u -- f } gforth}}{111}
+\entry{\code {infile-execute \var { ... xt file-id -- ... } gforth}}{113}
+\entry{\code {init \var { ... -- } oof}}{156}
+\entry{\code {init-asm \var { -- } gforth}}{171}
+\entry{\code {init-object \var { ... class object -- } objects}}{153}
+\entry{\code {inst-value \var { align1 offset1 "name" -- align2 offset2 } objects}}{153}
+\entry{\code {inst-var \var { align1 offset1 align size "name" -- align2 offset2 } objects}}{153}
+\entry{\code {interface \var { -- } objects}}{153}
+\entry{\code {interpret/compile: \var { interp-xt comp-xt "name" -- } gforth}}{90}
+\entry{\code {interpretation> \var { compilation. -- orig colon-sys } gforth}}{91}
+\entry{\code {invert \var { w1 -- w2 } core}}{53}
+\entry{\code {is \var { xt "name" -- } oof}}{156}
+\entry{\code {IS \var { compilation/interpretation "name-deferred" -- ; run-time xt -- } gforth}}{88}
+\initial {J}
+\entry{\code {j \var { R:w R:w1 R:w2 -- w R:w R:w1 R:w2 } core}}{69}
+\initial {K}
+\entry{\code {k \var { R:w R:w1 R:w2 R:w3 R:w4 -- w R:w R:w1 R:w2 R:w3 R:w4 } gforth}}{69}
+\entry{\code {k-alt-mask \var { -- u } X:ekeys}}{126}
+\entry{\code {k-ctrl-mask \var { -- u } X:ekeys}}{126}
+\entry{\code {k-delete \var { -- u } X:ekeys}}{126}
+\entry{\code {k-down \var { -- u } X:ekeys}}{126}
+\entry{\code {k-end \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f1 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f10 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f11 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f12 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f2 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f3 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f4 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f5 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f6 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f7 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f8 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-f9 \var { -- u } X:ekeys}}{126}
+\entry{\code {k-home \var { -- u } X:ekeys}}{126}
+\entry{\code {k-insert \var { -- u } X:ekeys}}{126}
+\entry{\code {k-left \var { -- u } X:ekeys}}{126}
+\entry{\code {k-next \var { -- u } X:ekeys}}{126}
+\entry{\code {k-prior \var { -- u } X:ekeys}}{126}
+\entry{\code {k-right \var { -- u } X:ekeys}}{126}
+\entry{\code {k-shift-mask \var { -- u } X:ekeys}}{126}
+\entry{\code {k-up \var { -- u } X:ekeys}}{126}
+\entry{\code {key \var { -- char } core}}{125}
+\entry{\code {key-file \var { wfileid -- c } gforth}}{112}
+\entry{\code {key? \var { -- flag } facility}}{125}
+\entry{\code {key?-file \var { wfileid -- f } gforth}}{112}
+\initial {L}
+\entry{\code {l! \var { w c-addr -- } gforth}}{63}
+\entry{\code {laddr# \var { #noffset -- c-addr } gforth}}{135}
+\entry{\code {latest \var { -- nt } gforth}}{93}
+\entry{\code {latestxt \var { -- xt } gforth}}{80}
+\entry{\code {LEAVE \var { compilation -- ; run-time loop-sys -- } core}}{71}
+\entry{\code {lib-error \var { -- c-addr u } gforth}}{170}
+\entry{\code {lib-sym \var { c-addr1 u1 u2 -- u3 } gforth}}{170}
+\entry{\code {link \var { "name" -- class addr } oof}}{156}
+\entry{\code {list \var { u -- } block-ext}}{116}
+\entry{\code {list-size \var { list -- u } gforth-internal}}{137}
+\entry{\code {Literal \var { compilation n -- ; run-time -- n } core}}{94}
+\entry{\code {load \var { i*x n -- j*x } block}}{117}
+\entry{\code {LOOP \var { compilation do-sys -- ; run-time loop-sys1 -- | loop-sys2 } core}}{71}
+\entry{\code {lp! \var { c-addr -- } gforth}}{60, 136}
+\entry{\code {lp+!# \var { #noffset -- } gforth}}{135}
+\entry{\code {lp\@ \var { -- addr } gforth}}{60}
+\entry{\code {lp0 \var { -- a-addr } gforth}}{60}
+\entry{\code {lshift \var { u1 n -- u2 } core}}{53}
+\initial {M}
+\entry{\code {m* \var { n1 n2 -- d } core}}{55}
+\entry{\code {m*/ \var { d1 n2 u3 -- dquot } double}}{55}
+\entry{\code {m+ \var { d1 n -- d2 } double}}{55}
+\entry{\code {m: \var { -- xt colon-sys; run-time: object -- } objects}}{153}
+\entry{\code {marker \var { "<spaces> name" -- } core-ext}}{163}
+\entry{\code {max \var { n1 n2 -- n } core}}{53}
+\entry{\code {maxalign \var { -- } gforth}}{62}
+\entry{\code {maxaligned \var { addr1 -- addr2 } gforth}}{65}
+\entry{\code {maxdepth-.s \var { -- addr } gforth}}{162}
+\entry{\code {method \var { xt "name" -- } objects}}{153, 157, 158}
+\entry{\code {methods \var { class -- } objects}}{153}
+\entry{\code {min \var { n1 n2 -- n } core}}{53}
+\entry{\code {mod \var { n1 n2 -- n } core}}{53}
+\entry{\code {move \var { c-from c-to ucount -- } core}}{65}
+\entry{\code {ms \var { u -- } facility-ext}}{180}
+\initial {N}
+\entry{\code {naligned \var { addr1 n -- addr2 } gforth}}{142}
+\entry{\code {name \var { -- c-addr u } gforth-obsolete}}{104}
+\entry{\code {name>comp \var { nt -- w xt } gforth}}{93}
+\entry{\code {name>int \var { nt -- xt } gforth}}{93}
+\entry{\code {name>string \var { nt -- addr count } gforth}}{93}
+\entry{\code {name?int \var { nt -- xt } gforth}}{93}
+\entry{\code {needs \var { ... "name" -- ... } gforth}}{111}
+\entry{\code {negate \var { n1 -- n2 } core}}{53}
+\entry{\code {new \var { -- o } oof}}{156, 158}
+\entry{\code {new[] \var { n -- o } oof}}{156}
+\entry{\code {next-arg \var { -- addr u } gforth}}{130}
+\entry{\code {nextname \var { c-addr u -- } gforth}}{80}
+\entry{\code {NEXT \var { compilation do-sys -- ; run-time loop-sys1 -- | loop-sys2 } gforth}}{71}
+\entry{\code {nip \var { w1 w2 -- w2 } core-ext}}{58}
+\entry{\code {noname \var { -- } gforth}}{79}
+\entry{\code {nothrow \var { -- } gforth}}{74}
+\initial {O}
+\entry{\code {object \var { -- class } objects}}{153, 158}
+\entry{\code {of \var { compilation -- of-sys ; run-time x1 x2 -- |x1 } core-ext}}{71}
+\entry{\code {off \var { a-addr -- } gforth}}{52}
+\entry{\code {on \var { a-addr -- } gforth}}{52}
+\entry{\code {Only \var { -- } search-ext}}{106}
+\entry{\code {open-blocks \var { c-addr u -- } gforth}}{116}
+\entry{\code {open-file \var { c-addr u wfam -- wfileid wior } file}}{112}
+\entry{\code {open-lib \var { c-addr1 u1 -- u2 } gforth}}{170}
+\entry{\code {open-path-file \var { addr1 u1 path-addr -- wfileid addr2 u2 0 | ior } gforth}}{114}
+\entry{\code {open-pipe \var { c-addr u wfam -- wfileid wior } gforth}}{128}
+\entry{\code {or \var { w1 w2 -- w } core}}{53}
+\entry{\code {order \var { -- } search-ext}}{106}
+\entry{\code {os-class \var { -- c-addr u } gforth-environment}}{109}
+\entry{\code {outfile-execute \var { ... xt file-id -- ... } gforth}}{113}
+\entry{\code {over \var { w1 w2 -- w1 w2 w1 } core}}{58}
+\entry{\code {overrides \var { xt "selector" -- } objects}}{153}
+\initial {P}
+\entry{\code {pad \var { -- c-addr } core-ext}}{66}
+\entry{\code {page \var { -- } facility}}{125}
+\entry{\code {parse \var { char "ccc<char>" -- c-addr u } core-ext}}{104}
+\entry{\code {parse-name \var { "name" -- c-addr u } gforth}}{104}
+\entry{\code {parse-word \var { -- c-addr u } gforth-obsolete}}{104}
+\entry{\code {path+ \var { path-addr "dir" -- } gforth}}{114}
+\entry{\code {path-allot \var { umax -- } gforth}}{114}
+\entry{\code {path= \var { path-addr "dir1|dir2|dir3" } gforth}}{114}
+\entry{\code {perform \var { a-addr -- } gforth}}{92}
+\entry{\code {pi \var { -- r } gforth}}{57}
+\entry{\code {pick \var { S:... u -- S:... w } core-ext}}{58}
+\entry{\code {postpone \var { "name" -- } core}}{95, 157}
+\entry{\code {postpone, \var { w xt -- } gforth}}{93}
+\entry{\code {precision \var { -- u } float-ext}}{57}
+\entry{\code {previous \var { -- } search-ext}}{106}
+\entry{\code {print \var { object -- } objects}}{154}
+\entry{\code {printdebugdata \var { -- } gforth}}{164}
+\entry{\code {protected \var { -- } objects}}{154}
+\entry{\code {ptr \var { "name" -- } oof}}{156, 157}
+\entry{\code {public \var { -- } objects}}{154}
+\initial {Q}
+\entry{\code {query \var { -- } core-ext-obsolescent}}{100}
+\entry{\code {quit \var { ?? -- ?? } core}}{181}
+\initial {R}
+\entry{\code {r/o \var { -- fam } file}}{111}
+\entry{\code {r/w \var { -- fam } file}}{111}
+\entry{\code {r> \var { R:w -- w } core}}{59}
+\entry{\code {r\@ \var { -- w ; R: w -- w } core}}{59}
+\entry{\code {rdrop \var { R:w -- } gforth}}{59}
+\entry{\code {read-file \var { c-addr u1 wfileid -- u2 wior } file}}{112}
+\entry{\code {read-line \var { c_addr u1 wfileid -- u2 flag wior } file}}{112}
+\entry{\code {recurse \var { compilation -- ; run-time ?? -- ?? } core}}{72}
+\entry{\code {recursive \var { compilation -- ; run-time -- } gforth}}{72}
+\entry{\code {refill \var { -- flag } core-ext,block-ext,file-ext}}{104}
+\entry{\code {rename-file \var { c-addr1 u1 c-addr2 u2 -- wior } file-ext}}{112}
+\entry{\code {REPEAT \var { compilation orig dest -- ; run-time -- } core}}{71}
+\entry{\code {reposition-file \var { ud wfileid -- wior } file}}{112}
+\entry{\code {represent \var { r c-addr u -- n f1 f2 } float}}{120}
+\entry{\code {require \var { ... "file" -- ... } gforth}}{111}
+\entry{\code {required \var { i*x addr u -- i*x } gforth}}{111}
+\entry{\code {resize \var { a-addr1 u -- a-addr2 wior } memory}}{62}
+\entry{\code {resize-file \var { ud wfileid -- wior } file}}{112}
+\entry{\code {restore \var { compilation orig1 -- ; run-time -- } gforth}}{75}
+\entry{\code {restore-input \var { x1 .. xn n -- flag } core-ext}}{100}
+\entry{\code {restrict \var { -- } gforth}}{89}
+\entry{\code {roll \var { x0 x1 .. xn n -- x1 .. xn x0 } core-ext}}{58}
+\entry{\code {Root \var { -- } gforth}}{107}
+\entry{\code {rot \var { w1 w2 w3 -- w2 w3 w1 } core}}{58}
+\entry{\code {rp! \var { a-addr -- } gforth}}{60}
+\entry{\code {rp\@ \var { -- a-addr } gforth}}{60}
+\entry{\code {rp0 \var { -- a-addr } gforth}}{60}
+\entry{\code {rshift \var { u1 n -- u2 } core}}{53}
+\initial {S}
+\entry{\code {s>d \var { n -- d } core}}{53}
+\entry{\code {s>number? \var { addr u -- d f } gforth}}{127}
+\entry{\code {s>unumber? \var { c-addr u -- ud flag } gforth}}{127}
+\entry{\code {s\backslashchar {}" \var { compilation 'ccc"' -- ; run-time -- c-addr u } gforth}}{123}
+\entry{\code {S" \var { compilation 'ccc"' -- ; run-time -- c-addr u } core,file}}{123}
+\entry{\code {save-buffer \var { buffer -- } gforth}}{117}
+\entry{\code {save-buffers \var { -- } block}}{117}
+\entry{\code {save-input \var { -- x1 .. xn n } core-ext}}{100}
+\entry{\code {savesystem \var { "name" -- } gforth}}{207}
+\entry{\code {scope \var { compilation -- scope ; run-time -- } gforth}}{132}
+\entry{\code {scr \var { -- a-addr } block-ext}}{117}
+\entry{\code {seal \var { -- } gforth}}{107}
+\entry{\code {search \var { c-addr1 u1 c-addr2 u2 -- c-addr3 u3 flag } string}}{66}
+\entry{\code {search-wordlist \var { c-addr count wid -- 0 | xt +-1 } search}}{106}
+\entry{\code {see \var { "<spaces>name" -- } tools}}{162}
+\entry{\code {see-code \var { "name" -- } gforth}}{163}
+\entry{\code {see-code-range \var { addr1 addr2 -- } gforth}}{163}
+\entry{\code {selector \var { "name" -- } objects}}{154}
+\entry{\code {self \var { -- o } oof}}{156}
+\entry{\code {set-current \var { wid -- } search}}{105}
+\entry{\code {set-order \var { widn .. wid1 n -- } search}}{105}
+\entry{\code {set-precision \var { u -- } float-ext}}{57}
+\entry{\code {sf! \var { r sf-addr -- } float-ext}}{63}
+\entry{\code {sf\@ \var { sf-addr -- r } float-ext}}{63}
+\entry{\code {sfalign \var { -- } float-ext}}{61}
+\entry{\code {sfaligned \var { c-addr -- sf-addr } float-ext}}{65}
+\entry{\code {sffield: \var { u1 "name" -- u2 } X:structures}}{143}
+\entry{\code {sfloat% \var { -- align size } gforth}}{142}
+\entry{\code {sfloat+ \var { sf-addr1 -- sf-addr2 } float-ext}}{65}
+\entry{\code {sfloats \var { n1 -- n2 } float-ext}}{65}
+\entry{\code {sh \var { "..." -- } gforth}}{180}
+\entry{\code {shift-args \var { -- } gforth}}{130}
+\entry{\code {sign \var { n -- } core}}{120}
+\entry{\code {simple-see \var { "name" -- } gforth}}{163}
+\entry{\code {simple-see-range \var { addr1 addr2 -- } gforth}}{163}
+\entry{\code {sl\@ \var { c-addr -- n } gforth}}{63}
+\entry{\code {SLiteral \var { Compilation c-addr1 u ; run-time -- c-addr2 u } string}}{95}
+\entry{\code {slurp-fid \var { fid -- addr u } gforth}}{112}
+\entry{\code {slurp-file \var { c-addr1 u1 -- c-addr2 u2 } gforth}}{112}
+\entry{\code {sm/rem \var { d1 n1 -- n2 n3 } core}}{55}
+\entry{\code {source \var { -- addr u } core}}{99}
+\entry{\code {source-id \var { -- 0 | -1 | fileid } core-ext,file}}{100}
+\entry{\code {sourcefilename \var { -- c-addr u } gforth}}{111}
+\entry{\code {sourceline# \var { -- u } gforth}}{111}
+\entry{\code {sp! \var { a-addr -- S:... } gforth}}{60}
+\entry{\code {sp\@ \var { S:... -- a-addr } gforth}}{60}
+\entry{\code {sp0 \var { -- a-addr } gforth}}{60}
+\entry{\code {space \var { -- } core}}{122}
+\entry{\code {spaces \var { u -- } core}}{122}
+\entry{\code {span \var { -- c-addr } core-ext-obsolescent}}{128}
+\entry{\code {static \var { -- } oof}}{157}
+\entry{\code {stderr \var { -- wfileid } gforth}}{112}
+\entry{\code {stdin \var { -- wfileid } gforth}}{112}
+\entry{\code {stdout \var { -- wfileid } gforth}}{112}
+\entry{\code {str< \var { c-addr1 u1 c-addr2 u2 -- f } gforth}}{66}
+\entry{\code {str= \var { c-addr1 u1 c-addr2 u2 -- f } gforth}}{66}
+\entry{\code {string-prefix? \var { c-addr1 u1 c-addr2 u2 -- f } gforth}}{66}
+\entry{\code {struct \var { -- align size } gforth}}{142}
+\entry{\code {sub-list? \var { list1 list2 -- f } gforth-internal}}{137}
+\entry{\code {super \var { "name" -- } oof}}{156}
+\entry{\code {sw\@ \var { c-addr -- n } gforth}}{63}
+\entry{\code {swap \var { w1 w2 -- w2 w1 } core}}{58}
+\entry{\code {system \var { c-addr u -- } gforth}}{180}
+\initial {T}
+\entry{\code {table \var { -- wid } gforth}}{106}
+\entry{\code {THEN \var { compilation orig -- ; run-time -- } core}}{70}
+\entry{\code {this \var { -- object } objects}}{154}
+\entry{\code {threading-method \var { -- n } gforth}}{178}
+\entry{\code {throw \var { y1 .. ym nerror -- y1 .. ym / z1 .. zn error } exception}}{73}
+\entry{\code {thru \var { i*x n1 n2 -- j*x } block-ext}}{117}
+\entry{\code {tib \var { -- addr } core-ext-obsolescent}}{99}
+\entry{\code {time&date \var { -- nsec nmin nhour nday nmonth nyear } facility-ext}}{180}
+\entry{\code {to-this \var { object -- } objects}}{154}
+\entry{\code {toupper \var { c1 -- c2 } gforth}}{122}
+\entry{\code {TO \var { c|w|d|r "name" -- } core-ext,local}}{79}
+\entry{\code {true \var { -- f } core-ext}}{52}
+\entry{\code {try \var { compilation -- orig ; run-time -- R:sys1 } gforth}}{74}
+\entry{\code {tuck \var { w1 w2 -- w2 w1 w2 } core-ext}}{58}
+\entry{\code {type \var { c-addr u -- } core}}{123}
+\entry{\code {typewhite \var { addr n -- } gforth}}{123}
+\initial {U}
+\entry{\code {u. \var { u -- } core}}{118}
+\entry{\code {u.r \var { u n -- } core-ext}}{118}
+\entry{\code {u< \var { u1 u2 -- f } core}}{54}
+\entry{\code {u<= \var { u1 u2 -- f } gforth}}{54}
+\entry{\code {u> \var { u1 u2 -- f } core-ext}}{54}
+\entry{\code {u>= \var { u1 u2 -- f } gforth}}{54}
+\entry{\code {U+DO \var { compilation -- do-sys ; run-time u1 u2 -- | loop-sys } gforth}}{71}
+\entry{\code {U-DO \var { compilation -- do-sys ; run-time u1 u2 -- | loop-sys } gforth}}{71}
+\entry{\code {ud. \var { ud -- } gforth}}{118}
+\entry{\code {ud.r \var { ud n -- } gforth}}{118}
+\entry{\code {ul\@ \var { c-addr -- u } gforth}}{63}
+\entry{\code {um* \var { u1 u2 -- ud } core}}{55}
+\entry{\code {um/mod \var { ud u1 -- u2 u3 } core}}{55}
+\entry{\code {under+ \var { n1 n2 n3 -- n n2 } gforth}}{52}
+\entry{\code {unloop \var { R:w1 R:w2 -- } core}}{71}
+\entry{\code {UNREACHABLE \var { -- } gforth}}{132}
+\entry{\code {UNTIL \var { compilation dest -- ; run-time f -- } core}}{70}
+\entry{\code {unused \var { -- u } core-ext}}{61}
+\entry{\code {update \var { -- } block}}{117}
+\entry{\code {updated? \var { n -- f } gforth}}{117}
+\entry{\code {use \var { "file" -- } gforth}}{116}
+\entry{\code {User \var { "name" -- } gforth}}{78}
+\entry{\code {utime \var { -- dtime } gforth}}{180}
+\entry{\code {uw\@ \var { c-addr -- u } gforth}}{63}
+\initial {V}
+\entry{\code {Value \var { w "name" -- } core-ext}}{79}
+\entry{\code {var \var { size -- } oof}}{157, 158}
+\entry{\code {Variable \var { "name" -- } core}}{77}
+\entry{\code {vlist \var { -- } gforth}}{107}
+\entry{\code {Vocabulary \var { "name" -- } gforth}}{107}
+\entry{\code {vocs \var { -- } gforth}}{107}
+\initial {W}
+\entry{\code {w! \var { w c-addr -- } gforth}}{63}
+\entry{\code {w/o \var { -- fam } file}}{111}
+\entry{\code {WHILE \var { compilation dest -- orig dest ; run-time f -- } core}}{71}
+\entry{\code {with \var { o -- } oof}}{157}
+\entry{\code {within \var { u1 u2 u3 -- f } core-ext}}{54}
+\entry{\code {word \var { char "<chars>ccc<char>-- c-addr } core}}{104}
+\entry{\code {wordlist \var { -- wid } search}}{106}
+\entry{\code {words \var { -- } tools}}{106}
+\entry{\code {write-file \var { c-addr u1 wfileid -- wior } file}}{112}
+\entry{\code {write-line \var { c-addr u fileid -- ior } file}}{112}
+\initial {X}
+\entry{\code {x-size \var { xc-addr u1 -- u2 } xchar}}{128}
+\entry{\code {x-width \var { xc-addr u -- n } xchar-ext}}{129}
+\entry{\code {x\backslashchar {}string- \var { xc-addr1 u1 -- xc-addr1 u2 } xchar}}{129}
+\entry{\code {xc!+? \var { xc xc-addr1 u1 -- xc-addr2 u2 f } xchar-ext}}{129}
+\entry{\code {xc-size \var { xc -- u } xchar-ext}}{128}
+\entry{\code {xc\@+ \var { xc-addr1 -- xc-addr2 xc } xchar-ext}}{128}
+\entry{\code {xchar+ \var { xc-addr1 -- xc-addr2 } xchar-ext}}{129}
+\entry{\code {xchar- \var { xc-addr1 -- xc-addr2 } xchar-ext}}{129}
+\entry{\code {xchar-encoding \var { -- addr u } xchar-ext}}{129}
+\entry{\code {xemit \var { xc -- } xchar-ext}}{129}
+\entry{\code {xkey \var { -- xc } xchar-ext}}{129}
+\entry{\code {xor \var { w1 w2 -- w } core}}{53}
+\entry{\code {xt-new \var { ... class xt -- object } objects}}{154}
+\entry{\code {xt-see \var { xt -- } gforth}}{162}

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Boolean Flags (Gforth Manual)</title>
+
+<meta name="description" content="Boolean Flags (Gforth Manual)">
+<meta name="keywords" content="Boolean Flags (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Words.html" rel="up" title="Words">
+<link href="Arithmetic.html" rel="next" title="Arithmetic">
+<link href="Comments.html" rel="prev" title="Comments">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Boolean-Flags"></span><div class="header">
+<p>
+Next: <a href="Arithmetic.html" accesskey="n" rel="next">Arithmetic</a>, Previous: <a href="Comments.html" accesskey="p" rel="prev">Comments</a>, Up: <a href="Words.html" accesskey="u" rel="up">Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Boolean-Flags-1"></span><h3 class="section">5.4 Boolean Flags</h3>
+<span id="index-Boolean-flags"></span>
+
+<p>A Boolean flag is cell-sized. A cell with all bits clear represents the
+flag <code>false</code> and a flag with all bits set represents the flag
+<code>true</code>. Words that check a flag (for example, <code>IF</code>) will treat
+a cell that has <i>any</i> bit set as <code>true</code>.
+</p>
+<span id="index-true--_002d_002d-f--core_002dext"></span>
+<span id="index-true"></span>
+<span id="index-true-1"></span>
+<div class="format">
+<pre class="format"><code>true</code>       <i>&ndash; f  </i>       core-ext       &ldquo;true&rdquo;
+</pre></div>
+<p><code>Constant</code> &ndash; <i>f</i> is a cell with all bits set.
+</p>
+
+<span id="index-false--_002d_002d-f--core_002dext"></span>
+<span id="index-false"></span>
+<span id="index-false-1"></span>
+<div class="format">
+<pre class="format"><code>false</code>       <i>&ndash; f  </i>       core-ext       &ldquo;false&rdquo;
+</pre></div>
+<p><code>Constant</code> &ndash; <i>f</i> is a cell with all bits clear.
+</p>
+
+<span id="index-on--a_002daddr-_002d_002d--gforth"></span>
+<span id="index-on"></span>
+<span id="index-on-1"></span>
+<div class="format">
+<pre class="format"><code>on</code>       <i>a-addr &ndash;  </i>       gforth       &ldquo;on&rdquo;
+</pre></div>
+<p>Set the (value of the) variable  at <i>a-addr</i> to <code>true</code>.
+</p>
+
+<span id="index-off--a_002daddr-_002d_002d--gforth"></span>
+<span id="index-off"></span>
+<span id="index-off-1"></span>
+<div class="format">
+<pre class="format"><code>off</code>       <i>a-addr &ndash;  </i>       gforth       &ldquo;off&rdquo;
+</pre></div>
+<p>Set the (value of the) variable at <i>a-addr</i> to <code>false</code>.
+</p>
+
+
+
+
+
+
+</body>
+</html>

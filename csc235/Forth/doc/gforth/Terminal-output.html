@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Terminal output (Gforth Manual)</title>
+
+<meta name="description" content="Terminal output (Gforth Manual)">
+<meta name="keywords" content="Terminal output (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Other-I_002fO.html" rel="up" title="Other I/O">
+<link href="Single_002dkey-input.html" rel="next" title="Single-key input">
+<link href="Displaying-characters-and-strings.html" rel="prev" title="Displaying characters and strings">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Terminal-output"></span><div class="header">
+<p>
+Next: <a href="Single_002dkey-input.html" accesskey="n" rel="next">Single-key input</a>, Previous: <a href="Displaying-characters-and-strings.html" accesskey="p" rel="prev">Displaying characters and strings</a>, Up: <a href="Other-I_002fO.html" accesskey="u" rel="up">Other I/O</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Terminal-output-1"></span><h4 class="subsection">5.19.5 Terminal output</h4>
+<span id="index-output-to-terminal"></span>
+<span id="index-terminal-output"></span>
+
+<p>If you are outputting to a terminal, you may want to control the
+positioning of the cursor:
+<span id="index-cursor-positioning"></span>
+</p>
+<span id="index-at_002dxy--u1-u2-_002d_002d--facility"></span>
+<span id="index-at_002dxy"></span>
+<span id="index-at_002dxy-1"></span>
+<div class="format">
+<pre class="format"><code>at-xy</code>       <i>u1 u2 &ndash;  </i>       facility       &ldquo;at-x-y&rdquo;
+</pre></div>
+<p>Position the cursor so that subsequent text output will take
+place at column <var>u1</var>, row <var>u2</var> of the display. (column 0,
+row 0 is the top left-hand corner of the display).
+</p>
+
+
+<p>In order to know where to position the cursor, it is often helpful to
+know the size of the screen:
+<span id="index-terminal-size"></span>
+</p>
+<span id="index-form--_002d_002d-urows-ucols--gforth"></span>
+<span id="index-form"></span>
+<span id="index-form-1"></span>
+<div class="format">
+<pre class="format"><code>form</code>       <i>&ndash; urows ucols </i>       gforth       &ldquo;form&rdquo;
+</pre></div>
+<p>The number of lines and columns in the terminal. These numbers may
+change with the window size.  Note that it depends on the OS whether
+this reflects the actual size and changes with the window size
+(currently only on Unix-like OSs).  On other OSs you just get a
+default, and can tell Gforth the terminal size by setting the
+environment variables <code>COLUMNS</code> and <code>LINES</code> before starting
+Gforth.
+</p>
+
+<p>And sometimes you want to use:
+<span id="index-clear-screen"></span>
+</p>
+<span id="index-page--_002d_002d--facility"></span>
+<span id="index-page"></span>
+<span id="index-page-1"></span>
+<div class="format">
+<pre class="format"><code>page</code>       <i>&ndash;  </i>       facility       &ldquo;page&rdquo;
+</pre></div>
+<p>Clear the display and set the cursor to the top left-hand
+corner.
+</p>
+
+
+<p>Note that on non-terminals you should use <code>12 emit</code>, not
+<code>page</code>, to get a form feed.
+</p>
+
+
+
+
+</body>
+</html>

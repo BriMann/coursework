@@ -1,0 +1,20 @@
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m
+$ python ok 0--[K[K[K--local -q 07
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+
+There are still locked tests! Use the -u option to unlock them
+---------------------------------------------------------------------
+Test summary
+    Locked: 2
+    0 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m
+$ 

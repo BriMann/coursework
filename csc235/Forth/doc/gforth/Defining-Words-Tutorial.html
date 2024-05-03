@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Defining Words Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Defining Words Tutorial (Gforth Manual)">
+<meta name="keywords" content="Defining Words Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="Arrays-and-Records-Tutorial.html" rel="next" title="Arrays and Records Tutorial">
+<link href="Exceptions-Tutorial.html" rel="prev" title="Exceptions Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Defining-Words-Tutorial"></span><div class="header">
+<p>
+Next: <a href="Arrays-and-Records-Tutorial.html" accesskey="n" rel="next">Arrays and Records Tutorial</a>, Previous: <a href="Exceptions-Tutorial.html" accesskey="p" rel="prev">Exceptions Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Defining-Words-1"></span><h3 class="section">3.31 Defining Words</h3>
+<span id="index-defining-words-tutorial"></span>
+<span id="index-does_003e-tutorial"></span>
+<span id="index-create_002e_002e_002edoes_003e-tutorial"></span>
+
+
+<p><code>:</code>, <code>create</code>, and <code>variable</code> are definition words: They
+define other words.  <code>Constant</code> is another definition word:
+</p>
+<div class="example">
+<pre class="example">5 constant foo
+foo .
+</pre></div>
+
+<p>You can also use the prefixes <code>2</code> (double-cell) and <code>f</code>
+(floating point) with <code>variable</code> and <code>constant</code>.
+</p>
+<p>You can also define your own defining words.  E.g.:
+</p>
+<div class="example">
+<pre class="example">: variable ( &quot;name&quot; -- )
+  create 0 , ;
+</pre></div>
+
+<p>You can also define defining words that create words that do something
+other than just producing their address:
+</p>
+<div class="example">
+<pre class="example">: constant ( n &quot;name&quot; -- )
+  create ,
+does&gt; ( -- n )
+  ( addr ) @ ;
+
+5 constant foo
+foo .
+</pre></div>
+
+<p>The definition of <code>constant</code> above ends at the <code>does&gt;</code>; i.e.,
+<code>does&gt;</code> replaces <code>;</code>, but it also does something else: It
+changes the last defined word such that it pushes the address of the
+body of the word and then performs the code after the <code>does&gt;</code>
+whenever it is called.
+</p>
+<p>In the example above, <code>constant</code> uses <code>,</code> to store 5 into the
+body of <code>foo</code>.  When <code>foo</code> executes, it pushes the address of
+the body onto the stack, then (in the code after the <code>does&gt;</code>)
+fetches the 5 from there.
+</p>
+<p>The stack comment near the <code>does&gt;</code> reflects the stack effect of the
+defined word, not the stack effect of the code after the <code>does&gt;</code>
+(the difference is that the code expects the address of the body that
+the stack comment does not show).
+</p>
+<p>You can use these definition words to do factoring in cases that involve
+(other) definition words.  E.g., a field offset is always added to an
+address.  Instead of defining
+</p>
+<div class="example">
+<pre class="example">2 cells constant offset-field1
+</pre></div>
+
+<p>and using this like
+</p>
+<div class="example">
+<pre class="example">( addr ) offset-field1 +
+</pre></div>
+
+<p>you can define a definition word
+</p>
+<div class="example">
+<pre class="example">: simple-field ( n &quot;name&quot; -- )
+  create ,
+does&gt; ( n1 -- n1+n )
+  ( addr ) @ + ;
+</pre></div>
+
+<p>Definition and use of field offsets now look like this:
+</p>
+<div class="example">
+<pre class="example">2 cells simple-field field1
+create mystruct 4 cells allot
+mystruct .s field1 .s drop
+</pre></div>
+
+<p>If you want to do something with the word without performing the code
+after the <code>does&gt;</code>, you can access the body of a <code>create</code>d word
+with <code>&gt;body ( xt -- addr )</code>:
+</p>
+<div class="example">
+<pre class="example">: value ( n &quot;name&quot; -- )
+  create ,
+does&gt; ( -- n1 )
+  @ ;
+: to ( n &quot;name&quot; -- )
+  ' &gt;body ! ;
+
+5 value foo
+foo .
+7 to foo
+foo .
+</pre></div>
+
+<blockquote>
+<p><b>Assignment:</b> Define <code>defer ( &quot;name&quot; -- )</code>, which creates a word that stores an
+XT (at the start the XT of <code>abort</code>), and upon execution
+<code>execute</code>s the XT.  Define <code>is ( xt &quot;name&quot; -- )</code> that stores
+<code>xt</code> into <code>name</code>, a word defined with <code>defer</code>.  Indirect
+recursion is one application of <code>defer</code>.
+</p></blockquote>
+
+<p>Reference: <a href="User_002ddefined-Defining-Words.html">User-defined Defining Words</a>.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Arrays-and-Records-Tutorial.html" accesskey="n" rel="next">Arrays and Records Tutorial</a>, Previous: <a href="Exceptions-Tutorial.html" accesskey="p" rel="prev">Exceptions Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

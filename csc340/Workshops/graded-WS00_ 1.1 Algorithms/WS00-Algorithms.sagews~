@@ -1,0 +1,208 @@
+︠75c92a73-aea8-477c-a569-e0e87f366404i︠
+%md
+
+# WS00: Ch1-Algorithms
+
+### Dr. Danielson
+
+Start by thinking about designing and analyzing algorithms:
+
+ - how we specify algorithms
+ - some design strategies
+ - fundamental ideas in algorithm analysis
+
+## Chapter 1: The Role of Algorithms in Computing
+
+### Section 1.1 Algorithms
+
+Text informal Definition: An **algorithm** is any well-deﬁned computational procedure that takes some value, or set of values, as _input_ and produces some value, or set of values, as _output_.
+
+$$ \text{input} \longrightarrow \boxed{Algorithm} \longrightarrow \text{output} $$
+
+Other possible Definitions: An **algorithm** is a
+
+ - step-by-step procedure for performing some task in a finite amount of time. (No infinite loops)
+ - sequence of instructions telling a computer what to do.
+
+Consider an alogorithm a _tool_ for solving a well-specified computational problem:
+
+ - The statement of the problem speciﬁes in general terms the desired input/output relationship.
+ - The algorithm describes a speciﬁc computational procedure for achieving that input/output relationship.
+
+
+**Example: Sorting Problem**
+
+ - **Input:** A sequence of $n$ numbers $A = (a_1,a_2,\dots, a_n)$
+ - **Output:** A permutation/reordering $(a_1', a_2',\cdots, a_n')$ of the input set $A$ with $a_1'\leq a_2'\leq \cdots \leq a_n'$
+
+For example: given $A = (a_1,a_2,\dots, a_6) = (31, 41, 59, 26, 41, 58) \longrightarrow \boxed{Algorithm} \longrightarrow (26, 31, 41, 41, 58, 59) = (a_1', a_2',\cdots, a_6'). $
+
+The sequence $A$ is called an <u>instance</u> of the sorting problem.
+
+ - In general, an instance of a problem consists of the input needed to compute a solution to the problem.
+
+Definition: An algorithm is said to be **correct** if, for every input instance, it stops with the correct output.
+
+ - We say that a correct algorithm **solves** the given computational problem.
+
+Note: An incorrect algorithm
+
+ - might not halt at all on some input instances, or
+ - might halt with an incorrect answer.
+
+ <u>But</u> an incorrect algorithm can be useful (algorithms for finding large prime numbers with a controllable error rate).
+
+An algorithm can be speciﬁed
+ - in English
+ - as a computer program
+ - as a hardware design
+
+The only requirement is that the speciﬁcation must provide a precise description of the computational procedure to be followed.
+
+**What kinds of problems are solved by algorithms?**
+
+
+0. Sorting
+1. The Human Genome Project
+2. The Internet
+3. Electronic commerce
+4. Manufacturing and other commercial enterprises
+5. Maps: Determine the shortest path between two points
+6. Sequences: a longest common subsequence
+7. Topological Sorting
+8. Convex hull of $n$ points in the plane
+
+
+︡36b2a2ba-d50e-40da-968f-d126e1d2fbe3︡{"done":true,"md":"\n# WS00: Ch1-Algorithms\n\n### Dr. Danielson\n\nStart by thinking about designing and analyzing algorithms:\n\n - how we specify algorithms\n - some design strategies\n - fundamental ideas in algorithm analysis\n\n## Chapter 1: The Role of Algorithms in Computing\n\n### Section 1.1 Algorithms\n\nText informal Definition: An **algorithm** is any well-deﬁned computational procedure that takes some value, or set of values, as _input_ and produces some value, or set of values, as _output_.\n\n$$ \\text{input} \\longrightarrow \\boxed{Algorithm} \\longrightarrow \\text{output} $$\n\nOther possible Definitions: An **algorithm** is a\n\n - step-by-step procedure for performing some task in a finite amount of time. (No infinite loops)\n - sequence of instructions telling a computer what to do.\n\nConsider an alogorithm a _tool_ for solving a well-specified computational problem:\n\n - The statement of the problem speciﬁes in general terms the desired input/output relationship.\n - The algorithm describes a speciﬁc computational procedure for achieving that input/output relationship.\n\n\n**Example: Sorting Problem**\n\n - **Input:** A sequence of $n$ numbers $A = (a_1,a_2,\\dots, a_n)$\n - **Output:** A permutation/reordering $(a_1', a_2',\\cdots, a_n')$ of the input set $A$ with $a_1'\\leq a_2'\\leq \\cdots \\leq a_n'$\n\nFor example: given $A = (a_1,a_2,\\dots, a_6) = (31, 41, 59, 26, 41, 58) \\longrightarrow \\boxed{Algorithm} \\longrightarrow (26, 31, 41, 41, 58, 59) = (a_1', a_2',\\cdots, a_6'). $\n\nThe sequence $A$ is called an <u>instance</u> of the sorting problem.\n\n - In general, an instance of a problem consists of the input needed to compute a solution to the problem.\n\nDefinition: An algorithm is said to be **correct** if, for every input instance, it stops with the correct output.\n\n - We say that a correct algorithm **solves** the given computational problem.\n\nNote: An incorrect algorithm\n\n - might not halt at all on some input instances, or\n - might halt with an incorrect answer.\n\n <u>But</u> an incorrect algorithm can be useful (algorithms for finding large prime numbers with a controllable error rate).\n\nAn algorithm can be speciﬁed\n - in English\n - as a computer program\n - as a hardware design\n\nThe only requirement is that the speciﬁcation must provide a precise description of the computational procedure to be followed.\n\n**What kinds of problems are solved by algorithms?**\n\n\n0. Sorting\n1. The Human Genome Project\n2. The Internet\n3. Electronic commerce\n4. Manufacturing and other commercial enterprises\n5. Maps: Determine the shortest path between two points\n6. Sequences: a longest common subsequence\n7. Topological Sorting\n8. Convex hull of $n$ points in the plane"}
+︠2d3e1623-c0fa-4738-afda-ae6feab798f8︠
+
+%md
+
+**At the boards in groups:** Divide up the above positive numbered topics, discuss, and summarize these problems.  Write summaries below to share with the class.
+
+**Problem:** 4.Problem Roi, Konchok
+
+**Summary:** Through linear programming, buisnisses look through each step of manuafacturing, analyzing how expensive each element and step in the process will be before, during, and after manufacturing to determine which variables can be adjusted to maximize effeciency and minimize cost.
+
+
+︡eb1c7bac-825a-44ba-9c98-9da19270e27d︡{"done":true,"md":"\n**At the boards in groups:** Divide up the above positive numbered topics, discuss, and summarize these problems.  Write summaries below to share with the class.\n\n**Problem:** #.Problem\n\n**Summary:**"}
+︠6329aef7-361c-4aba-a75a-bd86135f25eci︠
+%md
+
+Note: Some of the details of these examples are beyond the scope of this course, we do study underlying techniques that apply to these problems.
+
+
+CLRs suggest two characteristics that are common to interesting algorithmic problems:
+
+1. They have many candidate solutions, many of which aren't correct. Finding a correct solution, or one that is "best," can present quite a challenge.
+2. They have practical applications.
+
+**Data Structures**
+
+will also be considered along with algorithms.
+
+Definition: A **data structure** is a way to store and organize data in order to facilitate access and modiﬁcations.
+︡0c44e64b-263e-4645-a3f4-152abda90950︡{"done":true,"md":"\nNote: Some of the details of these examples are beyond the scope of this course, we do study underlying techniques that apply to these problems.\n\n\nCLRs suggest two characteristics that are common to interesting algorithmic problems:\n\n1. They have many candidate solutions, many of which aren't correct. Finding a correct solution, or one that is \"best,\" can present quite a challenge.\n2. They have practical applications. \n\n**Data Structures** \n\nwill also be considered along with algorithms.\n\nDefinition: A **data structure** is a way to store and organize data in order to facilitate access and modiﬁcations."}
+︠62e7d738-44fc-4443-8a1e-53e5b11671c0︠
+%md
+
+**At the boards in groups:**  Select a data structure you've encountered and discuss it's strengths and limitations.  Write summaries below to share with the class.
+
+**Data Structure:**heap
+
+**Strengths and limitations:**left branch has all elements less than itself, right branch has all elements greater than itself
+
+
+︡319be480-1bd0-419c-8e12-d44e5fac0f74︡{"done":true,"md":"\n**At the boards in groups:**  Select a data structure you've encountered and discuss it's strengths and limitations.  Write summaries below to share with the class.\n\n**Data Structure:** \n\n**Strengths and limitations:**"}
+︠b869bc35-d0c5-47db-92d3-8c7a42bc3a7di︠
+%md
+
+### Section 1.2 Algorithms as a technology
+
+
+ - Computing time is a bounded resource.
+ - Space in memory is a bounded resource.
+
+ You should use these resources wisely-- develop algorithms that are efﬁcient in terms of time and/or space.
+
+ #### Efficiency
+
+Different algorithms constructed to solve the same problem can differ in their efﬁciency.
+
+For example, next time we will consider the **insertion sort** algorithm:
+ - time used $\approx  c_1n^2$ to sort $n$ items, where $c_1$ is a constant that does not depend on $n$
+ - note the time is proportional to $n^2$
+
+We will later consider the  **merge sort** algorithm:
+ - time used $\approx  c_2 n \cdot \log_2 n = c_2 n \lg n$ to sort $n$ items, where typically $c_1 < c_2$
+ - note the time is proportional to $n \lg n$
+
+When $n$ is small, insertion sort runs faster.
+When $n$ is large, merge sort runs faster.
+
+Let's consider an example.
+
+ - Suppose Computer A is fast and has a machine language (series of bit patterns--binary form-- that are directly executed by a computer) insertion sort requiring $2n^2$ instructions to sort $n$ numbers.
+   - Speed: 10 billion instructions per second: $10,000,000,000 = 10^{10}$ inst / sec
+ - While Computer B is average speed and has a high-level (e.g. C++ or Python) merge sort requiring $50n\lg n$ instructions to sort $n$ numbers.
+   - Speed: 10 million instructions per second: $10,000,000 = 10^{7}$ inst / sec
+
+Sort 10 million numbers: $n = 10^7$
+︡30eea776-3dd9-4c3b-bdb2-ba738985ab1a︡{"done":true,"md":"\n### Section 1.2 Algorithms as a technology\n\n\n - Computing time is a bounded resource.\n - Space in memory is a bounded resource. \n \n You should use these resources wisely-- develop algorithms that are efﬁcient in terms of time and/or space.\n \n #### Efficiency\n \nDifferent algorithms constructed to solve the same problem can differ in their efﬁciency. \n\nFor example, next time we will consider the **insertion sort** algorithm:\n - time used $\\approx  c_1n^2$ to sort $n$ items, where $c_1$ is a constant that does not depend on $n$\n - note the time is proportional to $n^2$\n \nWe will later consider the  **merge sort** algorithm:\n - time used $\\approx  c_2 n \\cdot \\log_2 n = c_2 n \\lg n$ to sort $n$ items, where typically $c_1 < c_2$ \n - note the time is proportional to $n \\lg n$\n \nWhen $n$ is small, insertion sort runs faster.\nWhen $n$ is large, merge sort runs faster.\n\nLet's consider an example.  \n\n - Suppose Computer A is fast and has a machine language (series of bit patterns--binary form-- that are directly executed by a computer) insertion sort requiring $2n^2$ instructions to sort $n$ numbers. \n   - Speed: 10 billion instructions per second: $10,000,000,000 = 10^{10}$ inst / sec\n - While Computer B is average speed and has a high-level (e.g. C++ or Python) merge sort requiring $50n\\lg n$ instructions to sort $n$ numbers.\n   - Speed: 10 million instructions per second: $10,000,000 = 10^{7}$ inst / sec\n   \nSort 10 million numbers: $n = 10^7$"}
+︠23441e01-09af-4b38-8bf4-6eac98706547s︠
+#this is a sage cell using python
+n = 10^7 #numbers to sort
+Asec = 2*n^2 / 10^10
+print("Asec = ", Asec) # Computer A requires 2n^2 ints * sec/10^10 inst seconds
+Amin = Asec/60
+print("Amin = ", Amin.n()) #.n() gives the numerical approx, 1 min / 60 sec
+Ahrs = Amin/60
+print("Ahrs = ", Ahrs.n()) # 1 hr / 60 min
+print()
+print("Computer A using insertion sort takes about", Ahrs.n(), "hours to sort", n, "numbers.\n")
+print("Checking math formulas: log(e) = ", log(e).n(), ", so log is ln natural log")
+print("math.log(2,2) =", math.log(2,2), " = log base 2 of 2")
+print("math.log(4,2) =", math.log(4,2), ", 2^2 = 4, so log_2 of 4 = 2")
+50*n*log(n,2) / 10^7
+print("Bsec = ", Bsec.n()) # Computer B requires 50n lg(n) ints * sec/10^7 inst seconds
+Bmin = Bsec/60
+print("Bmin = ",  Bmin.n()) #1 min / 60 sec
+Bhrs = Bmin/60
+print("Bhrs = ",  Bhrs.n()) # 1 hr / 60 min
+print()
+print("Computer B using merge sort takes about", Bhrs.n(), "hour to sort", n, "numbers.")
+print("Computer B using merge sort takes about", Bmin.n(), "minutes to sort", n, "numbers.\n")
+︡8eaf8f6a-f44a-4b46-8c18-faaf304f0bce︡{"stdout":"Asec =  20000\n"}︡{"stdout":"Amin =  333.333333333333\n"}︡{"stdout":"Ahrs =  5.55555555555556\n"}︡{"stdout":"\n"}︡{"stdout":"Computer A using insertion sort takes about 5.55555555555556 hours to sort 10000000 numbers.\n\n"}︡{"stdout":"Checking math formulas: log(e) =  1.00000000000000 , so log is ln natural log\n"}︡{"stdout":"math.log(2,2) = 1.0  = log base 2 of 2\n"}︡{"stdout":"math.log(4,2) = 2.0 , 2^2 = 4, so log_2 of 4 = 2\n"}︡{"stdout":"350*log(10)/log(2)\n"}︡{"stdout":"Bsec =  1162.67483321058\n"}︡{"stdout":"Bmin =  19.3779138868429\n"}︡{"stdout":"Bhrs =  0.322965231447382\n"}︡{"stdout":"\n"}︡{"stdout":"Computer B using merge sort takes about 0.322965231447382 hour to sort 10000000 numbers.\n"}︡{"stdout":"Computer B using merge sort takes about 19.3779138868429 minutes to sort 10000000 numbers.\n\n"}︡{"done":true}
+︠0a9e95f0-26d2-4b54-95c2-f18ff3359ff6︠
+%md
+<!-- This is a markdown cell -->
+In general, as the problem size increases, so does the relative advantage of merge sort over insertion sort.
+
+The example above shows that we should consider algorithms, like computer hardware, as a _technology_.
+ - Total system performance depends on choosing efﬁcient algorithms as much as on choosing fast hardware.
+ - Just as rapid advances are being made in other computer technologies, they are being made **in algorithms** as well.
+
+Even an application that does not require algorithmic content at the application level relies heavily upon algorithms.
+ - The hardware design used algorithms.
+ - The design of any GUI (graphical user interface) relies on algorithms.
+ - Routing in networks relies heavily on algorithms.
+ - Processing high-level computer lanuage with a compiler, interpreter, or assembler, all use algorithms.
+
+Algorithms are at the core of most technologies used in contemporary computers.
+︡c0f9efd6-afdd-4ce0-b297-4bf91a4499eb︡{"done":true,"md":"<!-- This is a markdown cell -->\nIn general, as the problem size increases, so does the relative advantage of merge sort over insertion sort.\n\nThe example above shows that we should consider algorithms, like computer hardware, as a _technology_.\n - Total system performance depends on choosing efﬁcient algorithms as much as on choosing fast hardware.\n - Just as rapid advances are being made in other computer technologies, they are being made **in algorithms** as well.\n\nEven an application that does not require algorithmic content at the application level relies heavily upon algorithms.\n - The hardware design used algorithms.\n - The design of any GUI (graphical user interface) relies on algorithms.\n - Routing in networks relies heavily on algorithms.\n - Processing high-level computer lanuage with a compiler, interpreter, or assembler, all use algorithms.\n\nAlgorithms are at the core of most technologies used in contemporary computers."}
+︠f09f1307-23dd-46a8-9c77-8cd58f33d7a3︠
+%md
+
+**At the boards in groups:** Give an example of an application that requires algorithmic content at the application level, and discuss the function of the algorithms involved.
+︡c18e8c44-50f6-4a32-830f-adfcaddba951︡{"done":true,"md":"\n**At the boards in groups:** Give an example of an application that requires algorithmic content at the application level, and discuss the function of the algorithms involved."}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Mixed precision (Gforth Manual)</title>
+
+<meta name="description" content="Mixed precision (Gforth Manual)">
+<meta name="keywords" content="Mixed precision (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Arithmetic.html" rel="up" title="Arithmetic">
+<link href="Floating-Point.html" rel="next" title="Floating Point">
+<link href="Numeric-comparison.html" rel="prev" title="Numeric comparison">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Mixed-precision"></span><div class="header">
+<p>
+Next: <a href="Floating-Point.html" accesskey="n" rel="next">Floating Point</a>, Previous: <a href="Numeric-comparison.html" accesskey="p" rel="prev">Numeric comparison</a>, Up: <a href="Arithmetic.html" accesskey="u" rel="up">Arithmetic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Mixed-precision-1"></span><h4 class="subsection">5.5.5 Mixed precision</h4>
+<span id="index-mixed-precision-arithmetic-words"></span>
+
+
+<span id="index-m_002b--d1-n-_002d_002d-d2--double"></span>
+<span id="index-m_002b"></span>
+<span id="index-m_002b-1"></span>
+<div class="format">
+<pre class="format"><code>m+</code>       <i>d1 n &ndash; d2 </i>       double       &ldquo;m-plus&rdquo;
+</pre></div>
+
+<span id="index-_002a_002f--n1-n2-n3-_002d_002d-n4--core"></span>
+<span id="index-_002a_002f"></span>
+<span id="index-_002a_002f-1"></span>
+<div class="format">
+<pre class="format"><code>*/</code>       <i>n1 n2 n3 &ndash; n4 </i>       core       &ldquo;star-slash&rdquo;
+</pre></div>
+<p>n4=(n1*n2)/n3, with the intermediate result being double.
+</p>
+<span id="index-_002a_002fmod--n1-n2-n3-_002d_002d-n4-n5--core"></span>
+<span id="index-_002a_002fmod"></span>
+<span id="index-_002a_002fmod-1"></span>
+<div class="format">
+<pre class="format"><code>*/mod</code>       <i>n1 n2 n3 &ndash; n4 n5 </i>       core       &ldquo;star-slash-mod&rdquo;
+</pre></div>
+<p>n1*n2=n3*n5+n4, with the intermediate result (n1*n2) being double.
+</p>
+<span id="index-m_002a--n1-n2-_002d_002d-d--core"></span>
+<span id="index-m_002a"></span>
+<span id="index-m_002a-1"></span>
+<div class="format">
+<pre class="format"><code>m*</code>       <i>n1 n2 &ndash; d </i>       core       &ldquo;m-star&rdquo;
+</pre></div>
+
+<span id="index-um_002a--u1-u2-_002d_002d-ud--core"></span>
+<span id="index-um_002a"></span>
+<span id="index-um_002a-1"></span>
+<div class="format">
+<pre class="format"><code>um*</code>       <i>u1 u2 &ndash; ud </i>       core       &ldquo;u-m-star&rdquo;
+</pre></div>
+
+<span id="index-m_002a_002f--d1-n2-u3-_002d_002d-dquot--double"></span>
+<span id="index-m_002a_002f"></span>
+<span id="index-m_002a_002f-1"></span>
+<div class="format">
+<pre class="format"><code>m*/</code>       <i>d1 n2 u3 &ndash; dquot  </i>       double       &ldquo;m-star-slash&rdquo;
+</pre></div>
+<p>dquot=(d1*n2)/u3, with the intermediate result being triple-precision.
+In ANS Forth u3 can only be a positive signed number.
+</p>
+
+<span id="index-um_002fmod--ud-u1-_002d_002d-u2-u3--core"></span>
+<span id="index-um_002fmod"></span>
+<span id="index-um_002fmod-1"></span>
+<div class="format">
+<pre class="format"><code>um/mod</code>       <i>ud u1 &ndash; u2 u3 </i>       core       &ldquo;u-m-slash-mod&rdquo;
+</pre></div>
+<p>ud=u3*u1+u2, u1&gt;u2&gt;=0
+</p>
+<span id="index-fm_002fmod--d1-n1-_002d_002d-n2-n3--core"></span>
+<span id="index-fm_002fmod"></span>
+<span id="index-fm_002fmod-1"></span>
+<div class="format">
+<pre class="format"><code>fm/mod</code>       <i>d1 n1 &ndash; n2 n3 </i>       core       &ldquo;f-m-slash-mod&rdquo;
+</pre></div>
+<p>Floored division: <i>d1</i> = <i>n3</i>*<i>n1</i>+<i>n2</i>, <i>n1</i>&gt;<i>n2</i>&gt;=0 or 0&gt;=<i>n2</i>&gt;<i>n1</i>.
+</p>
+<span id="index-sm_002frem--d1-n1-_002d_002d-n2-n3--core"></span>
+<span id="index-sm_002frem"></span>
+<span id="index-sm_002frem-1"></span>
+<div class="format">
+<pre class="format"><code>sm/rem</code>       <i>d1 n1 &ndash; n2 n3 </i>       core       &ldquo;s-m-slash-rem&rdquo;
+</pre></div>
+<p>Symmetric division: <i>d1</i> = <i>n3</i>*<i>n1</i>+<i>n2</i>, sign(<i>n2</i>)=sign(<i>d1</i>) or 0.
+</p>
+
+
+
+
+
+</body>
+</html>

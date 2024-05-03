@@ -1,0 +1,46 @@
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ python -i energized-language.py 
+>>> sp = SchemeParesre[K[K[K[Kser()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: __init__() missing 1 required positional argument: 'tokens'
+>>> sp = SchemeParser(("LPAREN", "NUMBER", "STRING", "S[KBOOLEAN", SYMBOL""SYMBOL"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@"[1@R[1@P[1@A[1@R[1@E[1@N[C[1@","NUMBER", "STRING", "BOOLEAN", "SYMBOL" [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C "NUMBER", "STRING", "BOOLEAN", "SYMBOL"[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C))
+>>> sp
+<__main__.SchemeParser object at 0x7f144317ea60>
+>>> sp = SchemeParse [Kr(("LPAREN", "63" [K, "137", "RPAREN"))
+>>> sp.parse()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "energized-language.py", line 8, in parse
+    return self.parse_expression()
+  File "energized-language.py", line 11, in parse_expression
+    if self.current_token.type == "LPAREN":
+AttributeError: 'str' object has no attribute 'type'
+>>> 
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ python -i energized-language.py 
+>>> sp = SchemeParser(token_list)
+>>> sp.parse()
+[-163.0, 37.0]
+>>> sp = [K[K[K[K[K[K>>> [K>>> [K>>> 
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ python
+Python 3.8.10 (default, Nov 14 2022, 12:59:47) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> while [K[K[K[K[K[Kimport math
+>>> ser([K[K[K[Kdef ser(t[Kx):
+...     index = 1
+...     result = x
+...     while ([Kmath.as[Kbs(result - math.arctan(x)) < [K[K> 0.01:
+...             index += 2
+...             result += x ** index / index[C[C[C[1@([1@-[1@1[1@)[1@*[1@*[1@([1@i[1@n[1@d[1@e[C[1@x[1@ [1@%[1@ [1@2[1@)[C[1@ [1@-[C[1@ [1@1[C[C[C[1P[1@4[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1Pindex += 2[K
+... 
+KeyboardInterrupt
+>>> def esr(x[K[K[K[K[K
+KeyboardInterrupt
+>>> 
+>>> 
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ [K$ 

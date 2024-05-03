@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Environmental Queries (Gforth Manual)</title>
+
+<meta name="description" content="Environmental Queries (Gforth Manual)">
+<meta name="keywords" content="Environmental Queries (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Words.html" rel="up" title="Words">
+<link href="Files.html" rel="next" title="Files">
+<link href="Word-list-example.html" rel="prev" title="Word list example">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Environmental-Queries"></span><div class="header">
+<p>
+Next: <a href="Files.html" accesskey="n" rel="next">Files</a>, Previous: <a href="Word-Lists.html" accesskey="p" rel="prev">Word Lists</a>, Up: <a href="Words.html" accesskey="u" rel="up">Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Environmental-Queries-1"></span><h3 class="section">5.16 Environmental Queries</h3>
+<span id="index-environmental-queries"></span>
+
+<p>ANS Forth introduced the idea of &ldquo;environmental queries&rdquo; as a way
+for a program running on a system to determine certain characteristics of the system.
+The Standard specifies a number of strings that might be recognised by a system.
+</p>
+<p>The Standard requires that the header space used for environmental queries
+be distinct from the header space used for definitions.
+</p>
+<p>Typically, environmental queries are supported by creating a set of
+definitions in a word list that is <i>only</i> used during environmental
+queries; that is what Gforth does. There is no Standard way of adding
+definitions to the set of recognised environmental queries, but any
+implementation that supports the loading of optional word sets must have
+some mechanism for doing this (after loading the word set, the
+associated environmental query string must return <code>true</code>). In
+Gforth, the word list used to honour environmental queries can be
+manipulated just like any other word list.
+</p>
+
+<span id="index-environment_003f--c_002daddr-u-_002d_002d-false-_002f-_002e_002e_002e-true--core"></span>
+<span id="index-environment_003f"></span>
+<span id="index-environment_003f-1"></span>
+<div class="format">
+<pre class="format"><code>environment?</code>       <i>c-addr u &ndash; false / ... true  </i>       core       &ldquo;environment-query&rdquo;
+</pre></div>
+<p><i>c-addr, u</i> specify a counted string. If the string is not
+recognised, return a <code>false</code> flag. Otherwise return a
+<code>true</code> flag and some (string-specific) information about
+the queried string.
+</p>
+
+<span id="index-environment_002dwordlist--_002d_002d-wid--gforth"></span>
+<span id="index-environment_002dwordlist"></span>
+<span id="index-environment_002dwordlist-1"></span>
+<div class="format">
+<pre class="format"><code>environment-wordlist</code>       <i>&ndash; wid  </i>       gforth       &ldquo;environment-wordlist&rdquo;
+</pre></div>
+<p><i>wid</i> identifies the word list that is searched by environmental
+queries.
+</p>
+
+
+<span id="index-gforth--_002d_002d-c_002daddr-u--gforth_002denvironment"></span>
+<span id="index-gforth"></span>
+<span id="index-gforth-1"></span>
+<div class="format">
+<pre class="format"><code>gforth</code>       <i>&ndash; c-addr u  </i>       gforth-environment       &ldquo;gforth&rdquo;
+</pre></div>
+<p>Counted string representing a version string for this version of
+Gforth (for versions&gt;0.3.0).  The version strings of the various
+versions are guaranteed to be ordered lexicographically.
+</p>
+
+<span id="index-os_002dclass--_002d_002d-c_002daddr-u--gforth_002denvironment"></span>
+<span id="index-os_002dclass"></span>
+<span id="index-os_002dclass-1"></span>
+<div class="format">
+<pre class="format"><code>os-class</code>       <i>&ndash; c-addr u  </i>       gforth-environment       &ldquo;os-class&rdquo;
+</pre></div>
+<p>Counted string representing a description of the host operating system.
+</p>
+
+
+
+<p>Note that, whilst the documentation for (e.g.) <code>gforth</code> shows it
+returning two items on the stack, querying it using <code>environment?</code>
+will return an additional item; the <code>true</code> flag that shows that the
+string was recognised.
+</p>
+
+<p>Here are some examples of using environmental queries:
+</p>
+<div class="example">
+<pre class="example">s&quot; address-unit-bits&quot; environment? 0=
+[IF]
+     cr .( environmental attribute address-units-bits unknown... ) cr
+[ELSE]
+     drop \ ensure balanced stack effect
+[THEN]
+
+\ this might occur in the prelude of a standard program that uses THROW
+s&quot; exception&quot; environment? [IF]
+   0= [IF]
+      : throw abort&quot; exception thrown&quot; ;
+   [THEN]
+[ELSE] \ we don't know, so make sure
+   : throw abort&quot; exception thrown&quot; ;
+[THEN]
+
+s&quot; gforth&quot; environment? [IF] .( Gforth version ) TYPE
+                        [ELSE] .( Not Gforth..) [THEN]
+
+\ a program using v*
+s&quot; gforth&quot; environment? [IF]
+  s&quot; 0.5.0&quot; compare 0&lt; [IF] \ v* is a primitive since 0.5.0
+   : v* ( f_addr1 nstride1 f_addr2 nstride2 ucount -- r )
+     &gt;r swap 2swap swap 0e r&gt; 0 ?DO
+       dup f@ over + 2swap dup f@ f* f+ over + 2swap
+     LOOP
+     2drop 2drop ; 
+  [THEN]
+[ELSE] \ 
+  : v* ( f_addr1 nstride1 f_addr2 nstride2 ucount -- r )
+  ...
+[THEN]
+</pre></div>
+
+<p>Here is an example of adding a definition to the environment word list:
+</p>
+<div class="example">
+<pre class="example">get-current environment-wordlist set-current
+true constant block
+true constant block-ext
+set-current
+</pre></div>
+
+<p>You can see what definitions are in the environment word list like this:
+</p>
+<div class="example">
+<pre class="example">environment-wordlist &gt;order words previous
+</pre></div>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Files.html" accesskey="n" rel="next">Files</a>, Previous: <a href="Word-Lists.html" accesskey="p" rel="prev">Word Lists</a>, Up: <a href="Words.html" accesskey="u" rel="up">Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

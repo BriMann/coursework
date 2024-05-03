@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Arithmetic (Gforth Manual)</title>
+
+<meta name="description" content="Arithmetic (Gforth Manual)">
+<meta name="keywords" content="Arithmetic (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Words.html" rel="up" title="Words">
+<link href="Single-precision.html" rel="next" title="Single precision">
+<link href="Boolean-Flags.html" rel="prev" title="Boolean Flags">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Arithmetic"></span><div class="header">
+<p>
+Next: <a href="Stack-Manipulation.html" accesskey="n" rel="next">Stack Manipulation</a>, Previous: <a href="Boolean-Flags.html" accesskey="p" rel="prev">Boolean Flags</a>, Up: <a href="Words.html" accesskey="u" rel="up">Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Arithmetic-1"></span><h3 class="section">5.5 Arithmetic</h3>
+<span id="index-arithmetic-words"></span>
+
+<span id="index-division-with-potentially-negative-operands"></span>
+<p>Forth arithmetic is not checked, i.e., you will not hear about integer
+overflow on addition or multiplication, you may hear about division by
+zero if you are lucky. The operator is written after the operands, but
+the operands are still in the original order. I.e., the infix <code>2-1</code>
+corresponds to <code>2 1 -</code>. Forth offers a variety of division
+operators. If you perform division with potentially negative operands,
+you do not want to use <code>/</code> or <code>/mod</code> with its undefined
+behaviour, but rather <code>fm/mod</code> or <code>sm/mod</code> (probably the
+former, see <a href="Mixed-precision.html">Mixed precision</a>).
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Single-precision.html" accesskey="1">Single precision</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Double-precision.html" accesskey="2">Double precision</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Double-cell integer arithmetic
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Bitwise-operations.html" accesskey="3">Bitwise operations</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Numeric-comparison.html" accesskey="4">Numeric comparison</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Mixed-precision.html" accesskey="5">Mixed precision</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Operations with single and double-cell integers
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Floating-Point.html" accesskey="6">Floating Point</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+
+
+</body>
+</html>

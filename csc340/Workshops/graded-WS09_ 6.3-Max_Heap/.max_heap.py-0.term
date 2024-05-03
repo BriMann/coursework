@@ -1,0 +1,434 @@
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+  File "max_heap.py", line 1
+    PARENT(i):
+             ^
+SyntaxError: invalid syntax
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+  File "max_heap.py", line 5
+    return (2i-2)
+             ^
+SyntaxError: invalid syntax
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+  File "max_heap.py", line 10
+    def MAX-HEAPIFY(A, i, n):
+           ^
+SyntaxError: invalid syntax
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+max_heap.py:5: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  return (2(i)-2)
+max_heap.py:8: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  return (2(i) - 1)
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 37, in main
+    MAX_HEAPIFY(A, len(A)/2, len(A))
+  File "max_heap.py", line 11, in MAX_HEAPIFY
+    l = LEFT(i)
+  File "max_heap.py", line 5, in LEFT
+    return (2(i)-2)
+TypeError: 'int' object is not callable
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+max_heap.py:6: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  left = (2(i)-2)
+max_heap.py:10: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  right = (2(i) - 1)
+Traceback (most recent call last):
+  File "max_heap.py", line 46, in <module>
+    main()
+  File "max_heap.py", line 40, in main
+    MAX_HEAPIFY(A, len(A)/2, len(A))
+  File "max_heap.py", line 14, in MAX_HEAPIFY
+    l = LEFT(i)
+  File "max_heap.py", line 6, in LEFT
+    left = (2(i)-2)
+TypeError: 'int' object is not callable
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+max_heap.py:6: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  left = (2(i)-2)
+max_heap.py:10: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  right = (2(i) - 1)
+Traceback (most recent call last):
+  File "max_heap.py", line 46, in <module>
+    main()
+  File "max_heap.py", line 40, in main
+    MAX_HEAPIFY(A, len(A)/2, len(A))
+  File "max_heap.py", line 14, in MAX_HEAPIFY
+    l = LEFT(i)
+  File "max_heap.py", line 6, in LEFT
+    left = (2(i)-2)
+TypeError: 'int' object is not callable
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+max_heap.py:14: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  l = 2(i) - 2
+max_heap.py:15: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  r = 2(i) - 1
+Traceback (most recent call last):
+  File "max_heap.py", line 46, in <module>
+    main()
+  File "max_heap.py", line 40, in main
+    MAX_HEAPIFY(A, len(A)/2, len(A))
+  File "max_heap.py", line 14, in MAX_HEAPIFY
+    l = 2(i) - 2
+TypeError: 'int' object is not callable
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ ]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+max_heap.py:5: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  return (2(i) - 2)
+max_heap.py:8: SyntaxWarning: 'int' object is not callable; perhaps you missed a comma?
+  return (2(i) - 1)
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 37, in main
+    MAX_HEAPIFY(A, len(A)//2, len(A))
+  File "max_heap.py", line 11, in MAX_HEAPIFY
+    l = LEFT(i)
+  File "max_heap.py", line 5, in LEFT
+    return (2(i) - 2)
+TypeError: 'int' object is not callable
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 38, in main
+    print_heap(A)
+  File "max_heap.py", line 30, in print_heap
+    if v[i] >= 0:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 38, in main
+    print_heap(A)
+  File "max_heap.py", line 30, in print_heap
+    if v[i - 1] >= 0:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 38, in main
+    print_heap(A)
+  File "max_heap.py", line 30, in print_heap
+    if v[i + 1] >= 0:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 38, in main
+    print_heap(A)
+  File "max_heap.py", line 31, in print_heap
+    heap.append(v[i])
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 4, 10, 14, 8, 9, 3, 2, 8, 1]
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 40, in main
+    BUILD_MAX_HEAP(B, len(B))
+  File "max_heap.py", line 25, in BUILD_MAX_HEAP
+    MAX_HEAPIFY(A,i,n)
+  File "max_heap.py", line 21, in MAX_HEAPIFY
+    MAX_HEAPIFY(A, largest, n)
+  File "max_heap.py", line 21, in MAX_HEAPIFY
+    MAX_HEAPIFY(A, largest, n)
+  File "max_heap.py", line 21, in MAX_HEAPIFY
+    MAX_HEAPIFY(A, largest, n)
+  File "max_heap.py", line 13, in MAX_HEAPIFY
+    if l<=n and A[l] > A[i]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 4, 10, 14, 8, 9, 3, 2, 8, 1]
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 40, in main
+    BUILD_MAX_HEAP(B, len(B))
+  File "max_heap.py", line 25, in BUILD_MAX_HEAP
+    MAX_HEAPIFY(A,i,n)
+  File "max_heap.py", line 21, in MAX_HEAPIFY
+    MAX_HEAPIFY(A, largest, n)
+  File "max_heap.py", line 21, in MAX_HEAPIFY
+    MAX_HEAPIFY(A, largest, n)
+  File "max_heap.py", line 21, in MAX_HEAPIFY
+    MAX_HEAPIFY(A, largest, n)
+  File "max_heap.py", line 13, in MAX_HEAPIFY
+    if l<=n and A[l] > A[i]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ [K]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 4, 10, 14, 8, 9, 3, 2, 8, 1]
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 40, in main
+    BUILD_MAX_HEAP(B, len(B))
+  File "max_heap.py", line 25, in BUILD_MAX_HEAP
+    MAX_HEAPIFY(A,i,n)
+  File "max_heap.py", line 17, in MAX_HEAPIFY
+    if r<=n and A[r]>A[largest]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 4, 10, 14, 8, 9, 3, 2, 8, 1]
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 40, in main
+    BUILD_MAX_HEAP(B, len(B))
+  File "max_heap.py", line 25, in BUILD_MAX_HEAP
+    MAX_HEAPIFY(A,i,n)
+  File "max_heap.py", line 17, in MAX_HEAPIFY
+    if r<=n and A[r]>A[largest - 1]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 4, 10, 14, 8, 9, 3, 2, 8, 1]
+Traceback (most recent call last):
+  File "max_heap.py", line 43, in <module>
+    main()
+  File "max_heap.py", line 40, in main
+    BUILD_MAX_HEAP(B, len(B))
+  File "max_heap.py", line 25, in BUILD_MAX_HEAP
+    MAX_HEAPIFY(A,i,n)
+  File "max_heap.py", line 17, in MAX_HEAPIFY
+    if r<=n and A[r] > A[largest]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+5
+9
+[16, 4, 10, 14, 8, 9, 3, 2, 8, 1]
+5
+Traceback (most recent call last):
+  File "max_heap.py", line 44, in <module>
+    main()
+  File "max_heap.py", line 41, in main
+    BUILD_MAX_HEAP(B, len(B))
+  File "max_heap.py", line 26, in BUILD_MAX_HEAP
+    MAX_HEAPIFY(A,i,n)
+  File "max_heap.py", line 18, in MAX_HEAPIFY
+    if r<=n and A[r] > A[largest]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+5
+Traceback (most recent call last):
+  File "max_heap.py", line 44, in <module>
+    main()
+  File "max_heap.py", line 38, in main
+    MAX_HEAPIFY(A, len(A)//2, len(A))
+  File "max_heap.py", line 18, in MAX_HEAPIFY
+    if r<=n and A[r] > A[largest]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+5
+9
+[16, 4, 10, 14, 8, 9, 3, 2, 8, 1]
+5
+Traceback (most recent call last):
+  File "max_heap.py", line 44, in <module>
+    main()
+  File "max_heap.py", line 41, in main
+    BUILD_MAX_HEAP(B, len(B))
+  File "max_heap.py", line 26, in BUILD_MAX_HEAP
+    MAX_HEAPIFY(A,i,n)
+  File "max_heap.py", line 18, in MAX_HEAPIFY
+    if r<=n and A[r] > A[largest]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+2
+4
+[16, 14, 10, 14, 7, 9, 3, 2, 8, 1]
+5
+4
+8
+3
+5
+2
+3
+1
+2
+0
+-1
+-3
+-6
+Traceback (most recent call last):
+  File "max_heap.py", line 44, in <module>
+    main()
+  File "max_heap.py", line 41, in main
+    BUILD_MAX_HEAP(B, len(B)-1)
+  File "max_heap.py", line 26, in BUILD_MAX_HEAP
+    MAX_HEAPIFY(A,i,n)
+  File "max_heap.py", line 22, in MAX_HEAPIFY
+    MAX_HEAPIFY(A, largest, n)
+  File "max_heap.py", line 22, in MAX_HEAPIFY
+    MAX_HEAPIFY(A, largest, n)
+  File "max_heap.py", line 22, in MAX_HEAPIFY
+    MAX_HEAPIFY(A, largest, n)
+  File "max_heap.py", line 14, in MAX_HEAPIFY
+    if l<=n and A[l] > A[i]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+2
+4
+[16, 14, 10, 14, 7, 9, 3, 2, 8, 1]
+5
+4
+8
+3
+7
+2
+5
+1
+2
+0
+1
+[16, 16, 16, 10, 14, 16, 9, 10, 14, 8, 7]
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+2
+4
+9
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+5
+4
+8
+3
+7
+2
+5
+10
+1
+2
+4
+9
+0
+1
+2
+4
+9
+[16, 14, 8, 10, 4, 7, 9, 3, 2, 1]
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+2
+4
+9
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+4
+8
+3
+7
+2
+5
+10
+1
+2
+4
+9
+0
+1
+2
+4
+9
+[16, 14, 8, 10, 4, 7, 9, 3, 2, 1]
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+2
+4
+9
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+5
+4
+8
+3
+7
+2
+5
+10
+1
+2
+4
+9
+0
+1
+2
+4
+9
+[16, 14, 8, 10, 4, 7, 9, 3, 2, 1]
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ 
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+5
+4
+3
+2
+1
+0
+[16, 14, 8, 10, 4, 7, 9, 3, 2, 1]
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+Traceback (most recent call last):
+  File "max_heap.py", line 46, in <module>
+    main()
+  File "max_heap.py", line 43, in main
+    BUILD_MAX_HEAP(B, len(B)-1)
+  File "max_heap.py", line 26, in BUILD_MAX_HEAP
+    for i in reversed(range((n//2 + 1, 0))):
+TypeError: 'tuple' object cannot be interpreted as an integer
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+Traceback (most recent call last):
+  File "max_heap.py", line 46, in <module>
+    main()
+  File "max_heap.py", line 43, in main
+    BUILD_MAX_HEAP(B, len(B)-1)
+  File "max_heap.py", line 26, in BUILD_MAX_HEAP
+    for i in reversed(range(((n//2 + 1), 0))):
+TypeError: 'tuple' object cannot be interpreted as an integer
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+Traceback (most recent call last):
+  File "max_heap.py", line 46, in <module>
+    main()
+  File "max_heap.py", line 43, in main
+    BUILD_MAX_HEAP(B, len(B)-1)
+  File "max_heap.py", line 26, in BUILD_MAX_HEAP
+    for i in reversed(range((0, (n//2 + 1)))):
+TypeError: 'tuple' object cannot be interpreted as an integer
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+[4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+[4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ python3 max_heap.py
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+6
+5
+4
+3
+2
+1
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ ]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ [K]0;~/csc340/Workshops/WS09: 6.3-Max_Heap[01;34m~/csc340/Workshops/WS09: 6.3-Max_Heap[00m$ ]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ python3  max_heap.py 
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ pythin3  max_heap.py 
+bash: pythin3: command not found
+]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ pythin3 max_heap.py [A]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ [C[C[C[Con3 [C[C[C[C[C[C[C[C[C[C[C[C
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+Run build_max_heap on vector: C = [-1000, 5, 3, 17, 10, 84, 19, 6, 22, 9]
+Heap C = [5, 3, 17, 10, 84, 19, 6, 22, 9]
+Traceback (most recent call last):
+  File "max_heap.py", line 58, in <module>
+    main()
+  File "max_heap.py", line 52, in main
+    build_max_heap(C, len(C)-1)
+NameError: name 'build_max_heap' is not defined
+]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ [K]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ p
+ython3 max_heap.py 
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+[16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+Run build_max_heap on vector: C = [-1000, 5, 3, 17, 10, 84, 19, 6, 22, 9]
+Heap C = [5, 3, 17, 10, 84, 19, 6, 22, 9]
+
+After build_max_heap on vector: C = [-1000, 84, 22, 19, 10, 3, 17, 6, 5, 9]
+Max Heap C = [84, 22, 19, 10, 3, 17, 6, 5, 9]
+]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS09: 6.3-Max_Heap/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ 

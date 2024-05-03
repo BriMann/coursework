@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Invoking Gforth (Gforth Manual)</title>
+
+<meta name="description" content="Invoking Gforth (Gforth Manual)">
+<meta name="keywords" content="Invoking Gforth (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Gforth-Environment.html" rel="up" title="Gforth Environment">
+<link href="Leaving-Gforth.html" rel="next" title="Leaving Gforth">
+<link href="Gforth-Environment.html" rel="prev" title="Gforth Environment">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Invoking-Gforth"></span><div class="header">
+<p>
+Next: <a href="Leaving-Gforth.html" accesskey="n" rel="next">Leaving Gforth</a>, Previous: <a href="Gforth-Environment.html" accesskey="p" rel="prev">Gforth Environment</a>, Up: <a href="Gforth-Environment.html" accesskey="u" rel="up">Gforth Environment</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Invoking-Gforth-1"></span><h3 class="section">2.1 Invoking Gforth</h3>
+<span id="index-invoking-Gforth"></span>
+<span id="index-running-Gforth"></span>
+<span id="index-command_002dline-options"></span>
+<span id="index-options-on-the-command-line"></span>
+<span id="index-flags-on-the-command-line"></span>
+
+<p>Gforth is made up of two parts; an executable &ldquo;engine&rdquo; (named
+<code>gforth</code> or <code>gforth-fast</code>) and an image file. To start it, you
+will usually just say <code>gforth</code> &ndash; this automatically loads the
+default image file <samp>gforth.fi</samp>. In many other cases the default
+Gforth image will be invoked like this:
+</p><div class="example">
+<pre class="example">gforth [file | -e forth-code] ...
+</pre></div>
+<p>This interprets the contents of the files and the Forth code in the order they
+are given.
+</p>
+<p>In addition to the <code>gforth</code> engine, there is also an engine
+called <code>gforth-fast</code>, which is faster, but gives less
+informative error messages (see <a href="Error-messages.html">Error messages</a>) and may catch some
+errors (in particular, stack underflows and integer division errors)
+later or not at all.  You should use it for debugged,
+performance-critical programs.
+</p>
+<p>Moreover, there is an engine called <code>gforth-itc</code>, which is
+useful in some backwards-compatibility situations (see <a href="Direct-or-Indirect-Threaded_003f.html">Direct or Indirect Threaded?</a>).
+</p>
+<p>In general, the command line looks like this:
+</p>
+<div class="example">
+<pre class="example">gforth[-fast] [engine options] [image options]
+</pre></div>
+
+<p>The engine options must come before the rest of the command
+line. They are:
+</p>
+<dl compact="compact">
+<dd><span id="index-_002di_002c-command_002dline-option"></span>
+<span id="index-_002d_002dimage_002dfile_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--image-file <i>file</i></code></dt>
+<dt><code>-i <i>file</i></code></dt>
+<dd><p>Loads the Forth image <i>file</i> instead of the default
+<samp>gforth.fi</samp> (see <a href="Image-Files.html">Image Files</a>).
+</p>
+<span id="index-_002d_002dappl_002dimage_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--appl-image <i>file</i></code></dt>
+<dd><p>Loads the image <i>file</i> and leaves all further command-line arguments
+to the image (instead of processing them as engine options).  This is
+useful for building executable application images on Unix, built with
+<code>gforthmi --application ...</code>.
+</p>
+<span id="index-_002d_002dpath_002c-command_002dline-option"></span>
+<span id="index-_002dp_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--path <i>path</i></code></dt>
+<dt><code>-p <i>path</i></code></dt>
+<dd><p>Uses <i>path</i> for searching the image file and Forth source code files
+instead of the default in the environment variable <code>GFORTHPATH</code> or
+the path specified at installation time (e.g.,
+<samp>/usr/local/share/gforth/0.2.0:.</samp>). A path is given as a list of
+directories, separated by &lsquo;<samp>:</samp>&rsquo; (on Unix) or &lsquo;<samp>;</samp>&rsquo; (on other OSs).
+</p>
+<span id="index-_002d_002ddictionary_002dsize_002c-command_002dline-option"></span>
+<span id="index-_002dm_002c-command_002dline-option"></span>
+<span id="index-size-parameters-for-command_002dline-options"></span>
+<span id="index-size-of-the-dictionary-and-the-stacks"></span>
+</dd>
+<dt><code>--dictionary-size <i>size</i></code></dt>
+<dt><code>-m <i>size</i></code></dt>
+<dd><p>Allocate <i>size</i> space for the Forth dictionary space instead of
+using the default specified in the image (typically 256K). The
+<i>size</i> specification for this and subsequent options consists of
+an integer and a unit (e.g.,
+<code>4M</code>). The unit can be one of <code>b</code> (bytes), <code>e</code> (element
+size, in this case Cells), <code>k</code> (kilobytes), <code>M</code> (Megabytes),
+<code>G</code> (Gigabytes), and <code>T</code> (Terabytes). If no unit is specified,
+<code>e</code> is used.
+</p>
+<span id="index-_002d_002ddata_002dstack_002dsize_002c-command_002dline-option"></span>
+<span id="index-_002dd_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--data-stack-size <i>size</i></code></dt>
+<dt><code>-d <i>size</i></code></dt>
+<dd><p>Allocate <i>size</i> space for the data stack instead of using the
+default specified in the image (typically 16K).
+</p>
+<span id="index-_002d_002dreturn_002dstack_002dsize_002c-command_002dline-option"></span>
+<span id="index-_002dr_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--return-stack-size <i>size</i></code></dt>
+<dt><code>-r <i>size</i></code></dt>
+<dd><p>Allocate <i>size</i> space for the return stack instead of using the
+default specified in the image (typically 15K).
+</p>
+<span id="index-_002d_002dfp_002dstack_002dsize_002c-command_002dline-option"></span>
+<span id="index-_002df_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--fp-stack-size <i>size</i></code></dt>
+<dt><code>-f <i>size</i></code></dt>
+<dd><p>Allocate <i>size</i> space for the floating point stack instead of
+using the default specified in the image (typically 15.5K). In this case
+the unit specifier <code>e</code> refers to floating point numbers.
+</p>
+<span id="index-_002d_002dlocals_002dstack_002dsize_002c-command_002dline-option"></span>
+<span id="index-_002dl_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--locals-stack-size <i>size</i></code></dt>
+<dt><code>-l <i>size</i></code></dt>
+<dd><p>Allocate <i>size</i> space for the locals stack instead of using the
+default specified in the image (typically 14.5K).
+</p>
+<span id="index-_002d_002dvm_002dcommit_002c-command_002dline-option"></span>
+<span id="index-overcommit-memory-for-dictionary-and-stacks"></span>
+<span id="index-memory-overcommit-for-dictionary-and-stacks"></span>
+</dd>
+<dt><code>--vm-commit</code></dt>
+<dd><p>Normally, Gforth tries to start up even if there is not enough virtual
+memory for the dictionary and the stacks (using <code>MAP_NORESERVE</code>
+on OSs that support it); so you can ask for a really big dictionary
+and/or stacks, and as long as you don&rsquo;t use more virtual memory than
+is available, everything will be fine (but if you use more, processes
+get killed).  With this option you just use the default allocation
+policy of the OS; for OSs that don&rsquo;t overcommit (e.g., Solaris), this
+means that you cannot and should not ask for as big dictionary and
+stacks, but once Gforth successfully starts up, out-of-memory won&rsquo;t
+kill it.
+</p>
+<span id="index-_002dh_002c-command_002dline-option"></span>
+<span id="index-_002d_002dhelp_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--help</code></dt>
+<dt><code>-h</code></dt>
+<dd><p>Print a message about the command-line options
+</p>
+<span id="index-_002dv_002c-command_002dline-option"></span>
+<span id="index-_002d_002dversion_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--version</code></dt>
+<dt><code>-v</code></dt>
+<dd><p>Print version and exit
+</p>
+<span id="index-_002d_002ddebug_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--debug</code></dt>
+<dd><p>Print some information useful for debugging on startup.
+</p>
+<span id="index-_002d_002doffset_002dimage_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--offset-image</code></dt>
+<dd><p>Start the dictionary at a slightly different position than would be used
+otherwise (useful for creating data-relocatable images,
+see <a href="Data_002dRelocatable-Image-Files.html">Data-Relocatable Image Files</a>).
+</p>
+<span id="index-_002d_002dno_002doffset_002dim_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--no-offset-im</code></dt>
+<dd><p>Start the dictionary at the normal position.
+</p>
+<span id="index-_002d_002dclear_002ddictionary_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--clear-dictionary</code></dt>
+<dd><p>Initialize all bytes in the dictionary to 0 before loading the image
+(see <a href="Data_002dRelocatable-Image-Files.html">Data-Relocatable Image Files</a>).
+</p>
+<span id="index-_002d_002ddie_002don_002dsignal_002c-command_002dline_002doption"></span>
+</dd>
+<dt><code>--die-on-signal</code></dt>
+<dd><p>Normally Gforth handles most signals (e.g., the user interrupt SIGINT,
+or the segmentation violation SIGSEGV) by translating it into a Forth
+<code>THROW</code>. With this option, Gforth exits if it receives such a
+signal. This option is useful when the engine and/or the image might be
+severely broken (such that it causes another signal before recovering
+from the first); this option avoids endless loops in such cases.
+</p>
+<span id="index-_002d_002dno_002ddynamic_002c-command_002dline-option"></span>
+<span id="index-_002d_002ddynamic_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--no-dynamic</code></dt>
+<dt><code>--dynamic</code></dt>
+<dd><p>Disable or enable dynamic superinstructions with replication
+(see <a href="Dynamic-Superinstructions.html">Dynamic Superinstructions</a>).
+</p>
+<span id="index-_002d_002dno_002dsuper_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--no-super</code></dt>
+<dd><p>Disable dynamic superinstructions, use just dynamic replication; this is
+useful if you want to patch threaded code (see <a href="Dynamic-Superinstructions.html">Dynamic Superinstructions</a>).
+</p>
+<span id="index-_002d_002dss_002dnumber_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--ss-number=<var>N</var></code></dt>
+<dd><p>Use only the first <var>N</var> static superinstructions compiled into the
+engine (default: use them all; note that only <code>gforth-fast</code> has
+any).  This option is useful for measuring the performance impact of
+static superinstructions.
+</p>
+<span id="index-_002d_002dss_002dmin_002d_002e_002e_002e_002c-command_002dline-options"></span>
+</dd>
+<dt><code>--ss-min-codesize</code></dt>
+<dt><code>--ss-min-ls</code></dt>
+<dt><code>--ss-min-lsu</code></dt>
+<dt><code>--ss-min-nexts</code></dt>
+<dd><p>Use specified metric for determining the cost of a primitive or static
+superinstruction for static superinstruction selection.  <code>Codesize</code>
+is the native code size of the primive or static superinstruction,
+<code>ls</code> is the number of loads and stores, <code>lsu</code> is the number of
+loads, stores, and updates, and <code>nexts</code> is the number of dispatches
+(not taking dynamic superinstructions into account), i.e. every
+primitive or static superinstruction has cost 1. Default:
+<code>codesize</code> if you use dynamic code generation, otherwise
+<code>nexts</code>.
+</p>
+<span id="index-_002d_002dss_002dgreedy_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--ss-greedy</code></dt>
+<dd><p>This option is useful for measuring the performance impact of static
+superinstructions.  By default, an optimal shortest-path algorithm is
+used for selecting static superinstructions.  With <samp>--ss-greedy</samp>
+this algorithm is modified to assume that anything after the static
+superinstruction currently under consideration is not combined into
+static superinstructions.  With <samp>--ss-min-nexts</samp> this produces
+the same result as a greedy algorithm that always selects the longest
+superinstruction available at the moment.  E.g., if there are
+superinstructions AB and BCD, then for the sequence A B C D the optimal
+algorithm will select A BCD and the greedy algorithm will select AB C D.
+</p>
+<span id="index-_002d_002dprint_002dmetrics_002c-command_002dline-option"></span>
+</dd>
+<dt><code>--print-metrics</code></dt>
+<dd><p>Prints some metrics used during static superinstruction selection:
+<code>code size</code> is the actual size of the dynamically generated code.
+<code>Metric codesize</code> is the sum of the codesize metrics as seen by
+static superinstruction selection; there is a difference from <code>code
+size</code>, because not all primitives and static superinstructions are
+compiled into dynamically generated code, and because of markers.  The
+other metrics correspond to the <samp>ss-min-...</samp> options.  This
+option is useful for evaluating the effects of the <samp>--ss-...</samp>
+options.
+</p>
+</dd>
+</dl>
+
+<span id="index-loading-files-at-startup"></span>
+<span id="index-executing-code-on-startup"></span>
+<span id="index-batch-processing-with-Gforth"></span>
+<p>As explained above, the image-specific command-line arguments for the
+default image <samp>gforth.fi</samp> consist of a sequence of filenames and
+<code>-e <var>forth-code</var></code> options that are interpreted in the sequence
+in which they are given. The <code>-e <var>forth-code</var></code> or
+<code>--evaluate <var>forth-code</var></code> option evaluates the Forth code. This
+option takes only one argument; if you want to evaluate more Forth
+words, you have to quote them or use <code>-e</code> several times. To exit
+after processing the command line (instead of entering interactive mode)
+append <code>-e bye</code> to the command line.  You can also process the
+command-line arguments with a Forth program (see <a href="OS-command-line-arguments.html">OS command line arguments</a>).
+</p>
+<span id="index-versions_002c-invoking-other-versions-of-Gforth"></span>
+<p>If you have several versions of Gforth installed, <code>gforth</code> will
+invoke the version that was installed last. <code>gforth-<i>version</i></code>
+invokes a specific version. If your environment contains the variable
+<code>GFORTHPATH</code>, you may want to override it by using the
+<code>--path</code> option.
+</p>
+<p>Not yet implemented:
+On startup the system first executes the system initialization file
+(unless the option <code>--no-init-file</code> is given; note that the system
+resulting from using this option may not be ANS Forth conformant). Then
+the user initialization file <samp>.gforth.fs</samp> is executed, unless the
+option <code>--no-rc</code> is given; this file is searched for in <samp>.</samp>,
+then in <samp>~</samp>, then in the normal path (see above).
+</p>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Leaving-Gforth.html" accesskey="n" rel="next">Leaving Gforth</a>, Previous: <a href="Gforth-Environment.html" accesskey="p" rel="prev">Gforth Environment</a>, Up: <a href="Gforth-Environment.html" accesskey="u" rel="up">Gforth Environment</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

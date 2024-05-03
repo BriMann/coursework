@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Notation (Gforth Manual)</title>
+
+<meta name="description" content="Notation (Gforth Manual)">
+<meta name="keywords" content="Notation (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Words.html" rel="up" title="Words">
+<link href="Case-insensitivity.html" rel="next" title="Case insensitivity">
+<link href="Words.html" rel="prev" title="Words">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Notation"></span><div class="header">
+<p>
+Next: <a href="Case-insensitivity.html" accesskey="n" rel="next">Case insensitivity</a>, Previous: <a href="Words.html" accesskey="p" rel="prev">Words</a>, Up: <a href="Words.html" accesskey="u" rel="up">Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Notation-1"></span><h3 class="section">5.1 Notation</h3>
+<span id="index-notation-of-glossary-entries"></span>
+<span id="index-format-of-glossary-entries"></span>
+<span id="index-glossary-notation-format"></span>
+<span id="index-word-glossary-entry-format"></span>
+
+<p>The Forth words are described in this section in the glossary notation
+that has become a de-facto standard for Forth texts:
+</p>
+<div class="format">
+<pre class="format"><i>word</i>     <i>Stack effect</i>   <i>wordset</i>   <i>pronunciation</i>
+</pre></div>
+<p><i>Description</i>
+</p>
+<dl compact="compact">
+<dt><var>word</var></dt>
+<dd><p>The name of the word.
+</p>
+</dd>
+<dt><var>Stack effect</var></dt>
+<dd><span id="index-stack-effect"></span>
+<p>The stack effect is written in the notation <code><i>before</i> --
+<i>after</i></code>, where <i>before</i> and <i>after</i> describe the top of
+stack entries before and after the execution of the word. The rest of
+the stack is not touched by the word. The top of stack is rightmost,
+i.e., a stack sequence is written as it is typed in. Note that Gforth
+uses a separate floating point stack, but a unified stack
+notation. Also, return stack effects are not shown in <i>stack
+effect</i>, but in <i>Description</i>. The name of a stack item describes
+the type and/or the function of the item. See below for a discussion of
+the types.
+</p>
+<p>All words have two stack effects: A compile-time stack effect and a
+run-time stack effect. The compile-time stack-effect of most words is
+<i> &ndash; </i>. If the compile-time stack-effect of a word deviates from
+this standard behaviour, or the word does other unusual things at
+compile time, both stack effects are shown; otherwise only the run-time
+stack effect is shown.
+</p>
+<span id="index-pronounciation-of-words"></span>
+</dd>
+<dt><var>pronunciation</var></dt>
+<dd><p>How the word is pronounced.
+</p>
+<span id="index-wordset"></span>
+<span id="index-environment-wordset"></span>
+</dd>
+<dt><var>wordset</var></dt>
+<dd><p>The ANS Forth standard is divided into several word sets. A standard
+system need not support all of them. Therefore, in theory, the fewer
+word sets your program uses the more portable it will be. However, we
+suspect that most ANS Forth systems on personal machines will feature
+all word sets. Words that are not defined in ANS Forth have
+<code>gforth</code> or <code>gforth-internal</code> as word set. <code>gforth</code>
+describes words that will work in future releases of Gforth;
+<code>gforth-internal</code> words are more volatile. Environmental query
+strings are also displayed like words; you can recognize them by the
+<code>environment</code> in the word set field.
+</p>
+</dd>
+<dt><var>Description</var></dt>
+<dd><p>A description of the behaviour of the word.
+</p></dd>
+</dl>
+
+<span id="index-types-of-stack-items"></span>
+<span id="index-stack-item-types"></span>
+<p>The type of a stack item is specified by the character(s) the name
+starts with:
+</p>
+<dl compact="compact">
+<dt><code>f</code></dt>
+<dd><span id="index-f_002c-stack-item-type"></span>
+<p>Boolean flags, i.e. <code>false</code> or <code>true</code>.
+</p></dd>
+<dt><code>c</code></dt>
+<dd><span id="index-c_002c-stack-item-type"></span>
+<p>Char
+</p></dd>
+<dt><code>w</code></dt>
+<dd><span id="index-w_002c-stack-item-type"></span>
+<p>Cell, can contain an integer or an address
+</p></dd>
+<dt><code>n</code></dt>
+<dd><span id="index-n_002c-stack-item-type"></span>
+<p>signed integer
+</p></dd>
+<dt><code>u</code></dt>
+<dd><span id="index-u_002c-stack-item-type"></span>
+<p>unsigned integer
+</p></dd>
+<dt><code>d</code></dt>
+<dd><span id="index-d_002c-stack-item-type"></span>
+<p>double sized signed integer
+</p></dd>
+<dt><code>ud</code></dt>
+<dd><span id="index-ud_002c-stack-item-type"></span>
+<p>double sized unsigned integer
+</p></dd>
+<dt><code>r</code></dt>
+<dd><span id="index-r_002c-stack-item-type"></span>
+<p>Float (on the FP stack)
+</p></dd>
+<dt><code>a-</code></dt>
+<dd><span id="index-a_005f_002c-stack-item-type"></span>
+<p>Cell-aligned address
+</p></dd>
+<dt><code>c-</code></dt>
+<dd><span id="index-c_005f_002c-stack-item-type"></span>
+<p>Char-aligned address (note that a Char may have two bytes in Windows NT)
+</p></dd>
+<dt><code>f-</code></dt>
+<dd><span id="index-f_005f_002c-stack-item-type"></span>
+<p>Float-aligned address
+</p></dd>
+<dt><code>df-</code></dt>
+<dd><span id="index-df_005f_002c-stack-item-type"></span>
+<p>Address aligned for IEEE double precision float
+</p></dd>
+<dt><code>sf-</code></dt>
+<dd><span id="index-sf_005f_002c-stack-item-type"></span>
+<p>Address aligned for IEEE single precision float
+</p></dd>
+<dt><code>xt</code></dt>
+<dd><span id="index-xt_002c-stack-item-type"></span>
+<p>Execution token, same size as Cell
+</p></dd>
+<dt><code>wid</code></dt>
+<dd><span id="index-wid_002c-stack-item-type"></span>
+<p>Word list ID, same size as Cell
+</p></dd>
+<dt><code>ior, wior</code></dt>
+<dd><span id="index-ior-type-description"></span>
+<span id="index-wior-type-description"></span>
+<p>I/O result code, cell-sized.  In Gforth, you can <code>throw</code> iors.
+</p></dd>
+<dt><code>f83name</code></dt>
+<dd><span id="index-f83name_002c-stack-item-type"></span>
+<p>Pointer to a name structure
+</p></dd>
+<dt><code>&quot;</code></dt>
+<dd><span id="index-_0022_002c-stack-item-type"></span>
+<p>string in the input stream (not on the stack). The terminating character
+is a blank by default. If it is not a blank, it is shown in <code>&lt;&gt;</code>
+quotes.
+</p></dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Case-insensitivity.html" accesskey="n" rel="next">Case insensitivity</a>, Previous: <a href="Words.html" accesskey="p" rel="prev">Words</a>, Up: <a href="Words.html" accesskey="u" rel="up">Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

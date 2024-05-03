@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Crash Course Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Crash Course Tutorial (Gforth Manual)">
+<meta name="keywords" content="Crash Course Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="Stack-Tutorial.html" rel="next" title="Stack Tutorial">
+<link href="Syntax-Tutorial.html" rel="prev" title="Syntax Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Crash-Course-Tutorial"></span><div class="header">
+<p>
+Next: <a href="Stack-Tutorial.html" accesskey="n" rel="next">Stack Tutorial</a>, Previous: <a href="Syntax-Tutorial.html" accesskey="p" rel="prev">Syntax Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Crash-Course"></span><h3 class="section">3.3 Crash Course</h3>
+
+<p>Type
+</p>
+<div class="example">
+<pre class="example">0 0 !
+here execute
+' catch &gt;body 20 erase abort
+' (quit) &gt;body 20 erase
+</pre></div>
+
+<p>The last two examples are guaranteed to destroy parts of Gforth (and
+most other systems), so you better leave Gforth afterwards (if it has
+not finished by itself).  On some systems you may have to kill gforth
+from outside (e.g., in Unix with <code>kill</code>).
+</p>
+<p>Now that you know how to produce crashes (and that there&rsquo;s not much to
+them), let&rsquo;s learn how to produce meaningful programs.
+</p>
+
+
+
+
+</body>
+</html>

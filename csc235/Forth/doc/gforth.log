@@ -1,0 +1,504 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=etex 2020.5.29)  20 FEB 2023 05:37
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**\nonstopmode \input ./gforth.texi \input ./gforth.texi \input ./gforth.texi
+(./gforth.texi (/usr/share/texmf/tex/texinfo/texinfo.tex
+Loading texinfo [version 2019-09-20.22]:
+\outerhsize=\dimen16
+\outervsize=\dimen17
+\topandbottommargin=\dimen18
+\bindingoffset=\dimen19
+\normaloffset=\dimen20
+\txipagewidth=\dimen21
+\txipageheight=\dimen22
+\defaultoutput=\toks13
+\headlinebox=\box16
+\footlinebox=\box17
+\savedtopmark=\toks14
+\margin=\insert252
+\EMsimple=\toks15
+\groupbox=\box18
+\groupinvalidhelp=\toks16
+\mil=\dimen23
+\exdentamount=\skip18
+\inmarginspacing=\skip19
+\centerpenalty=\count27
+ pdf,
+\tempnum=\count28
+\lnkcount=\count29
+\filename=\toks17
+\filenamelength=\count30
+\pgn=\count31
+\toksA=\toks18
+\toksB=\toks19
+\toksC=\toks20
+\toksD=\toks21
+\boxA=\box19
+\boxB=\box20
+\countA=\count32
+\nopdfimagehelp=\toks22
+ fonts,
+\textleading=\dimen24
+\sffam=\fam8
+ markup,
+\fontdepth=\count33
+ glyphs,
+\errorbox=\box21
+
+page headings,
+\titlepagetopglue=\skip20
+\titlepagebottomglue=\skip21
+\evenheadline=\toks23
+\oddheadline=\toks24
+\evenfootline=\toks25
+\oddfootline=\toks26
+ tables,
+\tableindent=\dimen25
+\itemindent=\dimen26
+\itemmargin=\dimen27
+\itemmax=\dimen28
+\itemno=\count34
+\multitableparskip=\skip22
+\multitableparindent=\skip23
+\multitablecolspace=\dimen29
+\multitablelinespace=\skip24
+\colcount=\count35
+\everytab=\toks27
+ conditionals,
+\doignorecount=\count36
+ indexing,
+\dummybox=\box22
+\whatsitskip=\skip25
+\whatsitpenalty=\count37
+\entryrightmargin=\dimen30
+\thinshrinkable=\skip26
+\partialpage=\box23
+\doublecolumnhsize=\dimen31
+\balancedcolumns=\box24
+ sectioning,
+\unnumberedno=\count38
+\chapno=\count39
+\secno=\count40
+\subsecno=\count41
+\subsubsecno=\count42
+\appendixno=\count43
+\absseclevel=\count44
+\secbase=\count45
+\chapheadingskip=\skip27
+\secheadingskip=\skip28
+\subsecheadingskip=\skip29
+ toc,
+\tocfile=\write0
+\contentsrightmargin=\skip30
+\savepageno=\count46
+\lastnegativepageno=\count47
+\tocindent=\dimen32
+ environments,
+\lispnarrowing=\skip31
+\envskipamount=\skip32
+\lskip=\skip33
+\rskip=\skip34
+\circthick=\dimen33
+\cartouter=\dimen34
+\cartinner=\dimen35
+\normbskip=\skip35
+\normpskip=\skip36
+\normlskip=\skip37
+\nonfillparindent=\dimen36
+\tabw=\dimen37
+\verbbox=\box25
+
+defuns,
+\defbodyindent=\skip38
+\defargsindent=\skip39
+\deflastargmargin=\skip40
+\defunpenalty=\count48
+\parencount=\count49
+\brackcount=\count50
+ macros,
+\paramno=\count51
+\macname=\toks28
+ cross references,
+\auxfile=\write1
+\savesfregister=\count52
+\toprefbox=\box26
+\printedrefnamebox=\box27
+\infofilenamebox=\box28
+\printedmanualbox=\box29
+ insertions,
+\footnoteno=\count53
+\SAVEfootins=\box30
+\SAVEmargin=\box31
+
+(/usr/share/texlive/texmf-dist/tex/generic/epsf/epsf.tex
+This is `epsf.tex' v2.7.4 <14 February 2011>
+\epsffilein=\read1
+\epsfframemargin=\dimen38
+\epsfframethickness=\dimen39
+\epsfrsize=\dimen40
+\epsftmp=\dimen41
+\epsftsize=\dimen42
+\epsfxsize=\dimen43
+\epsfysize=\dimen44
+\pspoints=\dimen45
+)
+\noepsfhelp=\toks29
+ localization,
+\nolanghelp=\toks30
+\countUTFx=\count54
+\countUTFy=\count55
+\countUTFz=\count56
+ formatting,
+\defaultparindent=\dimen46
+ and turning on texinfo input format.)
+texinfo.tex: doing @include of version.texi
+
+
+(/home/user/gforth-0.7.3/doc/version.texi) [1] [2]
+(/home/user/gforth-0.7.3/doc/gforth.toc [-1] [-2] [-3] [-4] [-5] [-6]) [-7]
+(Preface)
+\openout0 = `gforth.toc'.
+
+@cpindfile=@write2
+\openout2 = `gforth.cp'.
+
+
+Writing index file gforth.cp
+Chapter 1 [1] (/home/user/gforth-0.7.3/doc/gforth.aux)
+\openout1 = `gforth.aux'.
+
+ Chapter 2 [2] [3]
+[4] [5]
+@fnindfile=@write3
+\openout3 = `gforth.fn'.
+
+
+Writing index file gforth.fn
+@kyindfile=@write4
+\openout4 = `gforth.ky'.
+
+Writing index file gforth.ky
+[6] [7] [8] Chapter 3 [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
+[20] [21]
+Overfull \hbox (14.94176pt too wide) in paragraph at lines 2178--2178
+ []@texttt 1 0 / . \ "Floating-point unidentified fault" in Gforth on some plat
+forms[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt 1
+.@penalty 10000
+.@glue 5.74869
+.etc.
+
+[22] [23] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 2536--2545
+@textsl (@texttt http://docs.sun.com/source/806-3568/ncg_goldberg.html[]@textsl
+ ), ACM Com-put-ing
+
+@hbox(8.2125+2.73749)x433.62, glue set 7.47821
+.@textsl (
+.@texttt h
+.@texttt t
+.@texttt t
+.@texttt p
+.etc.
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 2595--2603
+ @textsl (@texttt http://home.pipeline.com/~hbaker1/sigplannotices/sigcol05.ps.
+gz[]@textsl ), 
+
+@hbox(8.2125+2.73749)x433.62
+.@glue(@leftskip) 28.90755
+.@textsl (
+.@texttt h
+.@texttt t
+.@texttt t
+.etc.
+
+[27] [28] [29] [30] [31] [32] [33] [34] [35]
+Overfull \hbox (14.94176pt too wide) in paragraph at lines 3274--3274
+ []@texttt : compile-vmul-step ( compilation: n --; run-time: n1 addr1 -- n2 ad
+dr2 )[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt :
+.@penalty 10000
+.@glue 5.74869
+.etc.
+
+[36] [37] Chapter 4 [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48]
+Chapter 5 [49] [50] [51] [52] [53] [54]
+Underfull \hbox (badness 10000) in paragraph at lines 5288--5297
+@textsl (@texttt http://docs.sun.com/source/806-3568/ncg_goldberg.html[]@textsl
+ ), ACM Com-put-ing
+
+@hbox(8.2125+2.73749)x433.62, glue set 7.47821
+.@textsl (
+.@texttt h
+.@texttt t
+.@texttt t
+.@texttt p
+.etc.
+
+[55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69]
+[70] [71] [72] [73] [74] [75] [76]
+Overfull \hbox (20.69044pt too wide) in paragraph at lines 8146--8146
+ []@texttt CREATE new-word2 1 cells allot  \ reserve 1 cell - initial value und
+efined[] |
+
+@hbox(7.60416+0.91246)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt C
+.@texttt R
+.@texttt E
+.etc.
+
+
+Overfull \hbox (14.94176pt too wide) in paragraph at lines 8147--8147
+ []@texttt CREATE new-word3 4 ,            \ reserve 1 cell and initialise it (
+to 4)[] |
+
+@hbox(7.60416+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt C
+.@texttt R
+.@texttt E
+.etc.
+
+[77] [78] [79] [80] [81] [82] [83] [84]
+Overfull \hbox (49.43388pt too wide) in paragraph at lines 8973--8973
+ []    @texttt 2@ swap here name string, ( u table-xt disasm-xt c-addr ) \ reme
+mber string[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+[85] [86] [87]
+Overfull \hbox (47.63586pt too wide) in paragraph at lines 9204--9204
+[]@texttt action-of[]       @textit in-ter-pre-ta-tion @texttt "@textit name@te
+xttt " @textit -- xt; com-pi-la-tion @texttt "@textit name@texttt " @textit -- 
+; run-time -- xt         @textrm gforth       ``action-|
+
+@hbox(7.60416+2.12917)x433.62, glue set - 1.0
+.@hbox(0.0+0.0)x0.0
+.@texttt a
+.@texttt c
+.@texttt t
+.@texttt i
+.etc.
+
+[88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101]
+[102] [103] [104] [105] [106] [107]
+Overfull \hbox (20.69044pt too wide) in paragraph at lines 11522--11522
+ []@texttt ( wid ) set-current \ restore original (i.e., public) compilation wo
+rdlist[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt (
+.@penalty 10000
+.@glue 5.74869
+.etc.
+
+[108] [109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119]
+[120] [121] [122] [123] [124] [125] [126] [127] [128] [129] [130] [131]
+[132] [133] [134] [135] [136] [137] [138] [139] [140] [141] [142] [143]
+Underfull \hbox (badness 10000) in paragraph at lines 15545--15551
+[]@textrm This sec-tion de-scribes the @texttt objects.fs[] @textrm pack-age. T
+his ma-te-rial also has
+
+@hbox(7.60416+2.43333)x433.62, glue set 4.69699
+.@hbox(0.0+0.0)x15.0
+.@kern -15.0
+.@textrm T
+.@textrm h
+.@textrm i
+.etc.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15545--15551
+@textrm been pub-lished in M. An-ton Ertl, @textsl Yet An-other Forth Ob-jects 
+Pack-age
+
+@hbox(7.60416+2.12917)x433.62, glue set 5.24228
+.@textrm b
+.@kern0.30417
+.@textrm e
+.@textrm e
+.@textrm n
+.etc.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15545--15551
+@textsl (@texttt http://www.complang.tuwien.ac.at/forth/objects/objects.html[]@
+textsl )@textrm , Forth
+
+@hbox(8.2125+2.73749)x433.62, glue set 23.1884
+.@textsl (
+.@texttt h
+.@texttt t
+.@texttt t
+.@texttt p
+.etc.
+
+[144] [145] [146] [147] [148] [149] [150]
+Overfull \hbox (20.69044pt too wide) in paragraph at lines 16169--16169
+ []@texttt 2dup selector-interface @ ( object selector-body object interface-of
+fset )[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt 2
+.@texttt d
+.@texttt u
+.etc.
+
+[151] [152] [153] [154] [155] [156] [157] [158] [159] [160] [161] [162]
+[163] [164] [165] [166] [167] [168] [169] [170] [171] [172] [173]
+Overfull \hbox (14.94176pt too wide) in paragraph at lines 18804--18804
+ []@texttt 20 ax *4 i#)    20[eax*4]      20(,%eax,4)     (index*scale)+displac
+ement[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt 2
+.@texttt 0
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (43.6852pt too wide) in paragraph at lines 18807--18807
+ []@texttt 12 sp ax *2 di) 12[esp][eax*2] 12(%esp,%eax,2) base+(index*scale)+di
+splacement[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt 1
+.@texttt 2
+.@penalty 10000
+.etc.
+
+[174] [175] [176] [177] [178] [179] [180] Chapter 6 [181] Chapter 7 [182]
+[183]
+Overfull \hbox (26.43913pt too wide) in paragraph at lines 19599--19599
+ []@texttt gforth depth-changes.fs -e "' all-lines is depth-changes-filter" my-
+file.fs[] |
+
+@hbox(6.69167+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt g
+.@texttt f
+.@texttt o
+.etc.
+
+
+Overfull \hbox (32.18782pt too wide) in paragraph at lines 19614--19614
+ []@texttt gforth depth-changes.fs -e "' most-lines is depth-changes-filter" my
+-file.fs[] |
+
+@hbox(6.69167+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt g
+.@texttt f
+.@texttt o
+.etc.
+
+Chapter 8 [184] [185] [186] [187] [188] [189] [190] [191] [192] [193] [194]
+[195] [196] [197] [198] Chapter 9 [199] Chapter 10 [200] Chapter 11 [201]
+Chapter 12 [202] [203] [204] Chapter 13 [205] [206] [207] [208] [209]
+Overfull \hbox (32.18782pt too wide) in paragraph at lines 21766--21766
+ []    @texttt Defers 'cold \ do other initialization stuff (e.g., rehashing wo
+rdlists)[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+Chapter 14 [210] [211] [212] [213] [214] [215]
+Overfull \hbox (78.17732pt too wide) in paragraph at lines 22254--22254
+ []@texttt DEF_CA                          /* definition of variable ca (indire
+ct threading) */[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt D
+.@texttt E
+.@texttt F
+.etc.
+
+[216] [217] [218]
+Overfull \hbox (114.61086pt too wide) in paragraph at lines 22456--22466
+[]@textrm In @textsl Trans-lat-ing Forth to Ef-fi-cient C (@texttt http://www.c
+omplang.tuwien.ac.at/papers/ertl&maierhofer95.ps.gz[]@textsl )|
+
+@hbox(8.2125+2.73749)x433.62, glue set - 1.0
+.@hbox(0.0+0.0)x15.0
+.@textrm I
+.@textrm n
+.@glue 3.65 plus 1.825 minus 1.21666
+.@textsl T
+.etc.
+
+Chapter 15 [219] [220]
+Overfull \hbox (20.69044pt too wide) in paragraph at lines 22594--22594
+ []                                @texttt \ special conditionals supporting gf
+orths'[] |
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+[221] Appendix A [222] Appendix B [223] Appendix C [224] Appendix D [225]
+texinfo.tex: doing @include of fdl.texi
+
+
+(/home/user/gforth-0.7.3/doc/fdl.texi [226] [227] [228] [229] [230] [231])
+texinfo.tex: doing @include of gpl.texi
+
+
+(/home/user/gforth-0.7.3/doc/gpl.texi [232] [233] [234] [235] [236] [237]
+[238] [239] [240] [241] [242]) (Word Index) [243]
+(/home/user/gforth-0.7.3/doc/gforth.fns [244] [245] [246] [247] [248] [249]
+[250] [251] [252]) (Concept and Word Index) [253]
+(/home/user/gforth-0.7.3/doc/gforth.cps [254] [255] [256] [257] [258] [259]
+[260] [261] [262] [263] [264] [265] [266] [267] [268] [269] [270] [271])
+[272] ) 
+Here is how much of TeX's memory you used:
+ 4000 strings out of 495040
+ 52354 string characters out of 6159735
+ 117646 words of memory out of 5000000
+ 5546 multiletter control sequences out of 15000+600000
+ 34203 words of font info for 119 fonts, out of 8000000 for 9000
+ 1178 hyphenation exceptions out of 8191
+ 16i,6n,16p,371b,649s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on gforth.dvi (281 pages, 1608052 bytes).

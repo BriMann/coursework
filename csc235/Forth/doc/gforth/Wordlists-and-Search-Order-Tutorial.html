@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Wordlists and Search Order Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Wordlists and Search Order Tutorial (Gforth Manual)">
+<meta name="keywords" content="Wordlists and Search Order Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="Introduction.html" rel="next" title="Introduction">
+<link href="Compilation-Tokens-Tutorial.html" rel="prev" title="Compilation Tokens Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Wordlists-and-Search-Order-Tutorial"></span><div class="header">
+<p>
+Previous: <a href="Compilation-Tokens-Tutorial.html" accesskey="p" rel="prev">Compilation Tokens Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Wordlists-and-Search-Order"></span><h3 class="section">3.37 Wordlists and Search Order</h3>
+<span id="index-wordlists-tutorial"></span>
+<span id="index-search-order_002c-tutorial"></span>
+
+<p>The dictionary is not just a memory area that allows you to allocate
+memory with <code>allot</code>, it also contains the Forth words, arranged in
+several wordlists.  When searching for a word in a wordlist,
+conceptually you start searching at the youngest and proceed towards
+older words (in reality most systems nowadays use hash-tables); i.e., if
+you define a word with the same name as an older word, the new word
+shadows the older word.
+</p>
+<p>Which wordlists are searched in which order is determined by the search
+order.  You can display the search order with <code>order</code>.  It displays
+first the search order, starting with the wordlist searched first, then
+it displays the wordlist that will contain newly defined words.
+</p>
+<p>You can create a new, empty wordlist with <code>wordlist ( -- wid )</code>:
+</p>
+<div class="example">
+<pre class="example">wordlist constant mywords
+</pre></div>
+
+<p><code>Set-current ( wid -- )</code> sets the wordlist that will contain newly
+defined words (the <em>current</em> wordlist):
+</p>
+<div class="example">
+<pre class="example">mywords set-current
+order
+</pre></div>
+
+<p>Gforth does not display a name for the wordlist in <code>mywords</code>
+because this wordlist was created anonymously with <code>wordlist</code>.
+</p>
+<p>You can get the current wordlist with <code>get-current ( -- wid)</code>.  If
+you want to put something into a specific wordlist without overall
+effect on the current wordlist, this typically looks like this:
+</p>
+<div class="example">
+<pre class="example">get-current mywords set-current ( wid )
+create someword
+( wid ) set-current
+</pre></div>
+
+<p>You can write the search order with <code>set-order ( wid1 .. widn n --
+)</code> and read it with <code>get-order ( -- wid1 .. widn n )</code>.  The first
+searched wordlist is topmost.
+</p>
+<div class="example">
+<pre class="example">get-order mywords swap 1+ set-order
+order
+</pre></div>
+
+<p>Yes, the order of wordlists in the output of <code>order</code> is reversed
+from stack comments and the output of <code>.s</code> and thus unintuitive.
+</p>
+<blockquote>
+<p><b>Assignment:</b> Define <code>&gt;order ( wid -- )</code> with adds <code>wid</code> as first searched
+wordlist to the search order.  Define <code>previous ( -- )</code>, which
+removes the first searched wordlist from the search order.  Experiment
+with boundary conditions (you will see some crashes or situations that
+are hard or impossible to leave).
+</p></blockquote>
+
+<p>The search order is a powerful foundation for providing features similar
+to Modula-2 modules and C++ namespaces.  However, trying to modularize
+programs in this way has disadvantages for debugging and reuse/factoring
+that overcome the advantages in my experience (I don&rsquo;t do huge projects,
+though).  These disadvantages are not so clear in other
+languages/programming environments, because these languages are not so
+strong in debugging and reuse.
+</p>
+
+<p>Reference: <a href="Word-Lists.html">Word Lists</a>.
+</p>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Compilation-Tokens-Tutorial.html" accesskey="p" rel="prev">Compilation Tokens Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

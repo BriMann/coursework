@@ -1,0 +1,90 @@
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ .//C[K[KCal[C[C[K./CalcParser.py
+bash: ./CalcParser.py: Permission denied
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ sudo chmod[K[C[C[Kpython CalcParser.py 
+> 2 + 3
+5.0
+> (2 + 3) * 5
+25.0
+> 0
+0.0
+> 
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ python CalcParser.py 
+> (2    2 + 3 * 45 
+Traceback (most recent call last):
+  File "CalcParser.py", line 252, in <module>
+    print(parser.parse(input('> ')))
+  File "CalcParser.py", line 22, in parse
+    rv = self.start()
+  File "CalcParser.py", line 169, in start
+    return self.expression()
+  File "CalcParser.py", line 173, in expression
+    rv = self.match('term')
+  File "CalcParser.py", line 125, in match
+    rv = getattr(self, rule)()
+  File "CalcParser.py", line 193, in term
+    rv *= termtail
+TypeError: unsupported operand type(s) for *=: 'float' and 'NoneType'
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ python CalcParser.py 
+> 2 + 3 * 4
+Traceback (most recent call last):
+  File "CalcParser.py", line 251, in <module>
+    print(parser.parse(input('> ')))
+  File "CalcParser.py", line 22, in parse
+    rv = self.start()
+  File "CalcParser.py", line 169, in start
+    return self.expression()
+  File "CalcParser.py", line 173, in expression
+    rv = self.match('term')
+  File "CalcParser.py", line 125, in match
+    rv = getattr(self, rule)()
+  File "CalcParser.py", line 194, in term
+    rv *= termtail
+TypeError: unsupported operand type(s) for *=: 'float' and 'NoneType'
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ python CalcParser.py [C[C[Kpython CalcParser.py 
+> 2+3  *4
+14.0
+> (2+3)*4
+20.0
+> 2+( 3*6+ +4*2
+28.0
+> 3*6+2+4*2
+28.0
+> ^C
+> 
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ python CalcParser.py 
+> 2+3*4
+Traceback (most recent call last):
+  File "CalcParser.py", line 257, in <module>
+    print(parser.parse(input('> ')))
+  File "CalcParser.py", line 22, in parse
+    rv = self.start()
+  File "CalcParser.py", line 170, in start
+    return self.expression()
+  File "CalcParser.py", line 176, in expression
+    exptail = self.expressiontail()
+  File "CalcParser.py", line 191, in expressiontail
+    return rv
+UnboundLocalError: local variable 'rv' referenced before assignment
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ python CalcParser.py 
+> 2+3*4
+14.0
+> 2+3*4-5*6+7-8
+-17.0
+> 
+]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ python CalcParser.py 
+> 2+3*4
+14.0
+> 2+3-5  *4-5*6=7+   +7-8
+-17.0
+> * 3 4
+Error: Expected [0-9] but got * at position 0
+> ]0;~/csc235/RecursiveDescentPython[01;34m~/csc235/RecursiveDescentPython[00m
+$ [K$ [K$ 

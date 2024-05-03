@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Floating point stack (Gforth Manual)</title>
+
+<meta name="description" content="Floating point stack (Gforth Manual)">
+<meta name="keywords" content="Floating point stack (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Stack-Manipulation.html" rel="up" title="Stack Manipulation">
+<link href="Return-stack.html" rel="next" title="Return stack">
+<link href="Data-stack.html" rel="prev" title="Data stack">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Floating-point-stack"></span><div class="header">
+<p>
+Next: <a href="Return-stack.html" accesskey="n" rel="next">Return stack</a>, Previous: <a href="Data-stack.html" accesskey="p" rel="prev">Data stack</a>, Up: <a href="Stack-Manipulation.html" accesskey="u" rel="up">Stack Manipulation</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Floating-point-stack-1"></span><h4 class="subsection">5.6.2 Floating point stack</h4>
+<span id="index-floating_002dpoint-stack-manipulation-words"></span>
+<span id="index-stack-manipulation-words_002c-floating_002dpoint-stack"></span>
+
+<p>Whilst every sane Forth has a separate floating-point stack, it is not
+strictly required; an ANS Forth system could theoretically keep
+floating-point numbers on the data stack. As an additional difficulty,
+you don&rsquo;t know how many cells a floating-point number takes. It is
+reportedly possible to write words in a way that they work also for a
+unified stack model, but we do not recommend trying it. Instead, just
+say that your program has an environmental dependency on a separate
+floating-point stack.
+</p>
+<span id="index-floating_002dstack--_002d_002d-n--environment"></span>
+<span id="index-floating_002dstack"></span>
+<span id="index-floating_002dstack-1"></span>
+<div class="format">
+<pre class="format"><code>floating-stack</code>       <i>&ndash; n  </i>       environment       &ldquo;floating-stack&rdquo;
+</pre></div>
+<p><var>n</var> is non-zero, showing that Gforth maintains a separate
+floating-point stack of depth <var>n</var>.
+</p>
+
+
+<span id="index-fdrop--r-_002d_002d--float"></span>
+<span id="index-fdrop"></span>
+<span id="index-fdrop-1"></span>
+<div class="format">
+<pre class="format"><code>fdrop</code>       <i>r &ndash; </i>       float       &ldquo;f-drop&rdquo;
+</pre></div>
+
+<span id="index-fnip--r1-r2-_002d_002d-r2--gforth"></span>
+<span id="index-fnip"></span>
+<span id="index-fnip-1"></span>
+<div class="format">
+<pre class="format"><code>fnip</code>       <i>r1 r2 &ndash; r2 </i>       gforth       &ldquo;f-nip&rdquo;
+</pre></div>
+
+<span id="index-fdup--r-_002d_002d-r-r--float"></span>
+<span id="index-fdup"></span>
+<span id="index-fdup-1"></span>
+<div class="format">
+<pre class="format"><code>fdup</code>       <i>r &ndash; r r </i>       float       &ldquo;f-dupe&rdquo;
+</pre></div>
+
+<span id="index-fover--r1-r2-_002d_002d-r1-r2-r1--float"></span>
+<span id="index-fover"></span>
+<span id="index-fover-1"></span>
+<div class="format">
+<pre class="format"><code>fover</code>       <i>r1 r2 &ndash; r1 r2 r1 </i>       float       &ldquo;f-over&rdquo;
+</pre></div>
+
+<span id="index-ftuck--r1-r2-_002d_002d-r2-r1-r2--gforth"></span>
+<span id="index-ftuck"></span>
+<span id="index-ftuck-1"></span>
+<div class="format">
+<pre class="format"><code>ftuck</code>       <i>r1 r2 &ndash; r2 r1 r2 </i>       gforth       &ldquo;f-tuck&rdquo;
+</pre></div>
+
+<span id="index-fswap--r1-r2-_002d_002d-r2-r1--float"></span>
+<span id="index-fswap"></span>
+<span id="index-fswap-1"></span>
+<div class="format">
+<pre class="format"><code>fswap</code>       <i>r1 r2 &ndash; r2 r1 </i>       float       &ldquo;f-swap&rdquo;
+</pre></div>
+
+<span id="index-fpick--f_003a_002e_002e_002e-u-_002d_002d-f_003a_002e_002e_002e-r--gforth"></span>
+<span id="index-fpick"></span>
+<span id="index-fpick-1"></span>
+<div class="format">
+<pre class="format"><code>fpick</code>       <i>f:... u &ndash; f:... r </i>       gforth       &ldquo;fpick&rdquo;
+</pre></div>
+<p>Actually the stack effect is <code> r0 ... ru u -- r0 ... ru r0 </code>.
+</p>
+<span id="index-frot--r1-r2-r3-_002d_002d-r2-r3-r1--float"></span>
+<span id="index-frot"></span>
+<span id="index-frot-1"></span>
+<div class="format">
+<pre class="format"><code>frot</code>       <i>r1 r2 r3 &ndash; r2 r3 r1 </i>       float       &ldquo;f-rote&rdquo;
+</pre></div>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Return-stack.html" accesskey="n" rel="next">Return stack</a>, Previous: <a href="Data-stack.html" accesskey="p" rel="prev">Data stack</a>, Up: <a href="Stack-Manipulation.html" accesskey="u" rel="up">Stack Manipulation</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Counted Loops (Gforth Manual)</title>
+
+<meta name="description" content="Counted Loops (Gforth Manual)">
+<meta name="keywords" content="Counted Loops (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Control-Structures.html" rel="up" title="Control Structures">
+<link href="Arbitrary-control-structures.html" rel="next" title="Arbitrary control structures">
+<link href="Simple-Loops.html" rel="prev" title="Simple Loops">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Counted-Loops"></span><div class="header">
+<p>
+Next: <a href="Arbitrary-control-structures.html" accesskey="n" rel="next">Arbitrary control structures</a>, Previous: <a href="Simple-Loops.html" accesskey="p" rel="prev">Simple Loops</a>, Up: <a href="Control-Structures.html" accesskey="u" rel="up">Control Structures</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Counted-Loops-1"></span><h4 class="subsection">5.8.3 Counted Loops</h4>
+<span id="index-counted-loops"></span>
+<span id="index-loops_002c-counted"></span>
+<span id="index-DO-loops"></span>
+
+<p>The basic counted loop is:
+</p><div class="example">
+<pre class="example"><i>limit</i> <i>start</i>
+?DO
+  <i>body</i>
+LOOP
+</pre></div>
+
+<p>This performs one iteration for every integer, starting from <i>start</i>
+and up to, but excluding <i>limit</i>. The counter, or <i>index</i>, can be
+accessed with <code>i</code>. For example, the loop:
+</p><div class="example">
+<pre class="example">10 0 ?DO
+  i .
+LOOP
+</pre></div>
+<p>prints <code>0 1 2 3 4 5 6 7 8 9</code>
+</p>
+<p>The index of the innermost loop can be accessed with <code>i</code>, the index
+of the next loop with <code>j</code>, and the index of the third loop with
+<code>k</code>.
+</p>
+
+<span id="index-i--R_003an-_002d_002d-R_003an-n--core"></span>
+<span id="index-i"></span>
+<span id="index-i-1"></span>
+<div class="format">
+<pre class="format"><code>i</code>       <i>R:n &ndash; R:n n </i>       core       &ldquo;i&rdquo;
+</pre></div>
+
+<span id="index-j--R_003aw-R_003aw1-R_003aw2-_002d_002d-w-R_003aw-R_003aw1-R_003aw2--core"></span>
+<span id="index-j"></span>
+<span id="index-j-1"></span>
+<div class="format">
+<pre class="format"><code>j</code>       <i>R:w R:w1 R:w2 &ndash; w R:w R:w1 R:w2 </i>       core       &ldquo;j&rdquo;
+</pre></div>
+
+<span id="index-k--R_003aw-R_003aw1-R_003aw2-R_003aw3-R_003aw4-_002d_002d-w-R_003aw-R_003aw1-R_003aw2-R_003aw3-R_003aw4--gforth"></span>
+<span id="index-k"></span>
+<span id="index-k-1"></span>
+<div class="format">
+<pre class="format"><code>k</code>       <i>R:w R:w1 R:w2 R:w3 R:w4 &ndash; w R:w R:w1 R:w2 R:w3 R:w4 </i>       gforth       &ldquo;k&rdquo;
+</pre></div>
+
+
+
+<p>The loop control data are kept on the return stack, so there are some
+restrictions on mixing return stack accesses and counted loop words. In
+particuler, if you put values on the return stack outside the loop, you
+cannot read them inside the loop<a id="DOCF13" href="#FOOT13"><sup>13</sup></a>. If you put values on the return stack within a loop, you
+have to remove them before the end of the loop and before accessing the
+index of the loop.
+</p>
+<p>There are several variations on the counted loop:
+</p>
+<ul>
+<li> <code>LEAVE</code> leaves the innermost counted loop immediately; execution
+continues after the associated <code>LOOP</code> or <code>NEXT</code>. For example:
+
+<div class="example">
+<pre class="example">10 0 ?DO  i DUP . 3 = IF LEAVE THEN LOOP
+</pre></div>
+<p>prints <code>0 1 2 3</code>
+</p>
+
+</li><li> <code>UNLOOP</code> prepares for an abnormal loop exit, e.g., via
+<code>EXIT</code>. <code>UNLOOP</code> removes the loop control parameters from the
+return stack so <code>EXIT</code> can get to its return address. For example:
+
+<div class="example">
+<pre class="example">: demo 10 0 ?DO i DUP . 3 = IF UNLOOP EXIT THEN LOOP .&quot; Done&quot; ;
+</pre></div>
+<p>prints <code>0 1 2 3</code>
+</p>
+
+</li><li> If <i>start</i> is greater than <i>limit</i>, a <code>?DO</code> loop is entered
+(and <code>LOOP</code> iterates until they become equal by wrap-around
+arithmetic). This behaviour is usually not what you want. Therefore,
+Gforth offers <code>+DO</code> and <code>U+DO</code> (as replacements for
+<code>?DO</code>), which do not enter the loop if <i>start</i> is greater than
+<i>limit</i>; <code>+DO</code> is for signed loop parameters, <code>U+DO</code> for
+unsigned loop parameters.
+
+</li><li> <code>?DO</code> can be replaced by <code>DO</code>. <code>DO</code> always enters
+the loop, independent of the loop parameters. Do not use <code>DO</code>, even
+if you know that the loop is entered in any case. Such knowledge tends
+to become invalid during maintenance of a program, and then the
+<code>DO</code> will make trouble.
+
+</li><li> <code>LOOP</code> can be replaced with <code><i>n</i> +LOOP</code>; this updates the
+index by <i>n</i> instead of by 1. The loop is terminated when the border
+between <i>limit-1</i> and <i>limit</i> is crossed. E.g.:
+
+<div class="example">
+<pre class="example">4 0 +DO  i .  2 +LOOP
+</pre></div>
+<p>prints <code>0 2</code>
+</p>
+<div class="example">
+<pre class="example">4 1 +DO  i .  2 +LOOP
+</pre></div>
+<p>prints <code>1 3</code>
+</p>
+</li><li> <span id="index-negative-increment-for-counted-loops"></span>
+<span id="index-counted-loops-with-negative-increment"></span>
+The behaviour of <code><i>n</i> +LOOP</code> is peculiar when <i>n</i> is negative:
+
+<div class="example">
+<pre class="example">-1 0 ?DO  i .  -1 +LOOP
+</pre></div>
+<p>prints <code>0 -1</code>
+</p>
+<div class="example">
+<pre class="example">0 0 ?DO  i .  -1 +LOOP
+</pre></div>
+<p>prints nothing.
+</p>
+<p>Therefore we recommend avoiding <code><i>n</i> +LOOP</code> with negative
+<i>n</i>. One alternative is <code><i>u</i> -LOOP</code>, which reduces the
+index by <i>u</i> each iteration. The loop is terminated when the border
+between <i>limit+1</i> and <i>limit</i> is crossed. Gforth also provides
+<code>-DO</code> and <code>U-DO</code> for down-counting loops. E.g.:
+</p>
+<div class="example">
+<pre class="example">-2 0 -DO  i .  1 -LOOP
+</pre></div>
+<p>prints <code>0 -1</code>
+</p>
+<div class="example">
+<pre class="example">-1 0 -DO  i .  1 -LOOP
+</pre></div>
+<p>prints <code>0</code>
+</p>
+<div class="example">
+<pre class="example">0 0 -DO  i .  1 -LOOP
+</pre></div>
+<p>prints nothing.
+</p>
+</li></ul>
+
+<p>Unfortunately, <code>+DO</code>, <code>U+DO</code>, <code>-DO</code>, <code>U-DO</code> and
+<code>-LOOP</code> are not defined in ANS Forth. However, an implementation
+for these words that uses only standard words is provided in
+<samp>compat/loops.fs</samp>.
+</p>
+
+<span id="index-FOR-loops"></span>
+<p>Another counted loop is:
+</p><div class="example">
+<pre class="example"><i>n</i>
+FOR
+  <i>body</i>
+NEXT
+</pre></div>
+<p>This is the preferred loop of native code compiler writers who are too
+lazy to optimize <code>?DO</code> loops properly. This loop structure is not
+defined in ANS Forth. In Gforth, this loop iterates <i>n+1</i> times;
+<code>i</code> produces values starting with <i>n</i> and ending with 0. Other
+Forth systems may behave differently, even if they support <code>FOR</code>
+loops. To avoid problems, don&rsquo;t use <code>FOR</code> loops.
+</p>
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT13" href="#DOCF13">(13)</a></h3>
+<p>well, not in a way that is
+portable.</p>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Arbitrary-control-structures.html" accesskey="n" rel="next">Arbitrary control structures</a>, Previous: <a href="Simple-Loops.html" accesskey="p" rel="prev">Simple Loops</a>, Up: <a href="Control-Structures.html" accesskey="u" rel="up">Control Structures</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

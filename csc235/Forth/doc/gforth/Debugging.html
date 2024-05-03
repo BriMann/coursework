@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Debugging (Gforth Manual)</title>
+
+<meta name="description" content="Debugging (Gforth Manual)">
+<meta name="keywords" content="Debugging (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Programming-Tools.html" rel="up" title="Programming Tools">
+<link href="Assertions.html" rel="next" title="Assertions">
+<link href="Forgetting-words.html" rel="prev" title="Forgetting words">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Debugging"></span><div class="header">
+<p>
+Next: <a href="Assertions.html" accesskey="n" rel="next">Assertions</a>, Previous: <a href="Forgetting-words.html" accesskey="p" rel="prev">Forgetting words</a>, Up: <a href="Programming-Tools.html" accesskey="u" rel="up">Programming Tools</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Debugging-1"></span><h4 class="subsection">5.24.3 Debugging</h4>
+<span id="index-debugging"></span>
+
+<p>Languages with a slow edit/compile/link/test development loop tend to
+require sophisticated tracing/stepping debuggers to facilate debugging.
+</p>
+<p>A much better (faster) way in fast-compiling languages is to add
+printing code at well-selected places, let the program run, look at
+the output, see where things went wrong, add more printing code, etc.,
+until the bug is found.
+</p>
+<p>The simple debugging aids provided in <samp>debugs.fs</samp>
+are meant to support this style of debugging.
+</p>
+<p>The word <code>~~</code> prints debugging information (by default the source
+location and the stack contents). It is easy to insert. If you use Emacs
+it is also easy to remove (<kbd>C-x ~</kbd> in the Emacs Forth mode to
+query-replace them with nothing). The deferred words
+<code>printdebugdata</code> and <code>.debugline</code> control the output of
+<code>~~</code>. The default source location output format works well with
+Emacs&rsquo; compilation mode, so you can step through the program at the
+source level using <kbd>C-x `</kbd> (the advantage over a stepping debugger
+is that you can step in any direction and you know where the crash has
+happened or where the strange data has occurred).
+</p>
+<span id="index-_007e_007e--_002d_002d--gforth"></span>
+<span id="index-_007e_007e"></span>
+<span id="index-_007e_007e-1"></span>
+<div class="format">
+<pre class="format"><code>~~</code>       <i>&ndash;  </i>       gforth       &ldquo;tilde-tilde&rdquo;
+</pre></div>
+<p>Prints the source code location of the <code>~~</code> and the stack
+contents with <code>.debugline</code>.
+</p>
+
+<span id="index-printdebugdata--_002d_002d--gforth"></span>
+<span id="index-printdebugdata"></span>
+<span id="index-printdebugdata-1"></span>
+<div class="format">
+<pre class="format"><code>printdebugdata</code>       <i>&ndash;  </i>       gforth       &ldquo;print-debug-data&rdquo;
+</pre></div>
+
+<span id="index-_002edebugline--nfile-nline-_002d_002d--gforth"></span>
+<span id="index-_002edebugline"></span>
+<span id="index-_002edebugline-1"></span>
+<div class="format">
+<pre class="format"><code>.debugline</code>       <i>nfile nline &ndash;  </i>       gforth       &ldquo;print-debug-line&rdquo;
+</pre></div>
+<p>Print the source code location indicated by <var>nfile nline</var>, and
+additional debugging information; the default <code>.debugline</code>
+prints the additional information with <code>printdebugdata</code>.
+</p>
+
+
+<span id="index-filenames-in-_007e_007e-output"></span>
+<p><code>~~</code> (and assertions) will usually print the wrong file name if a
+marker is executed in the same file after their occurance.  They will
+print &lsquo;<samp>*somewhere*</samp>&rsquo; as file name if a marker is executed in the
+same file before their occurance.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Assertions.html" accesskey="n" rel="next">Assertions</a>, Previous: <a href="Forgetting-words.html" accesskey="p" rel="prev">Forgetting words</a>, Up: <a href="Programming-Tools.html" accesskey="u" rel="up">Programming Tools</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

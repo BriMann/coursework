@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>MIPS assembler (Gforth Manual)</title>
+
+<meta name="description" content="MIPS assembler (Gforth Manual)">
+<meta name="keywords" content="MIPS assembler (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Assembler-and-Code-Words.html" rel="up" title="Assembler and Code Words">
+<link href="PowerPC-assembler.html" rel="next" title="PowerPC assembler">
+<link href="Alpha-Assembler.html" rel="prev" title="Alpha Assembler">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="MIPS-assembler"></span><div class="header">
+<p>
+Next: <a href="PowerPC-assembler.html" accesskey="n" rel="next">PowerPC assembler</a>, Previous: <a href="Alpha-Assembler.html" accesskey="p" rel="prev">Alpha Assembler</a>, Up: <a href="Assembler-and-Code-Words.html" accesskey="u" rel="up">Assembler and Code Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="MIPS-assembler-1"></span><h4 class="subsection">5.26.6 MIPS assembler</h4>
+
+<p>The MIPS assembler was originally written by Christian Pirker.
+</p>
+<p>Currently the assembler and disassembler only cover the MIPS-I
+architecture (R3000), and don&rsquo;t support FP instructions.
+</p>
+<p>The register names <code>$a0</code>&ndash;<code>$a3</code> are not available to avoid
+shadowing hex numbers.
+</p>
+<p>Because there is no way to distinguish registers from immediate values,
+you have to explicitly use the immediate forms of instructions, i.e.,
+<code>addiu,</code>, not just <code>addu,</code> (<code>as</code> does this
+implicitly).
+</p>
+<p>If the architecture manual specifies several formats for the instruction
+(e.g., for <code>jalr,</code>), you usually have to use the one with more
+arguments (i.e., two for <code>jalr,</code>).  When in doubt, see
+<code>arch/mips/testasm.fs</code> for an example of correct use.
+</p>
+<p>Branches and jumps in the MIPS architecture have a delay slot.  You have
+to fill it yourself (the simplest way is to use <code>nop,</code>), the
+assembler does not do it for you (unlike <code>as</code>).  Even
+<code>if,</code>, <code>ahead,</code>, <code>until,</code>, <code>again,</code>, <code>while,</code>,
+<code>else,</code> and <code>repeat,</code> need a delay slot.  Since <code>begin,</code>
+and <code>then,</code> just specify branch targets, they are not affected.
+</p>
+<p>Note that you must not put branches, jumps, or <code>li,</code> into the delay
+slot: <code>li,</code> may expand to several instructions, and control flow
+instructions may not be put into the branch delay slot in any case.
+</p>
+<p>For branches the argument specifying the target is a relative address;
+You have to add the address of the delay slot to get the absolute
+address.
+</p>
+<p>The MIPS architecture also has load delay slots and restrictions on
+using <code>mfhi,</code> and <code>mflo,</code>; you have to order the instructions
+yourself to satisfy these restrictions, the assembler does not do it for
+you.
+</p>
+<p>You can specify the conditions for <code>if,</code> etc. by taking a
+conditional branch and leaving away the <code>b</code> at the start and the
+<code>,</code> at the end.  E.g.,
+</p>
+<div class="example">
+<pre class="example">4 5 eq if,
+  ... \ do something if $4 equals $5
+then,
+</pre></div>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="PowerPC-assembler.html" accesskey="n" rel="next">PowerPC assembler</a>, Previous: <a href="Alpha-Assembler.html" accesskey="p" rel="prev">Alpha Assembler</a>, Up: <a href="Assembler-and-Code-Words.html" accesskey="u" rel="up">Assembler and Code Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

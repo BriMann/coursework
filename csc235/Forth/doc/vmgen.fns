@@ -1,0 +1,47 @@
+\initial {B}
+\entry{\code {BB_BOUNDARY}}{22}
+\initial {D}
+\entry{\code {DEF_CA}}{18}
+\entry{\code {double}}{10}
+\initial {G}
+\entry{\code {gen_\var {inst}}}{21, 22}
+\entry{\code {genarg_\var {type_prefix}}}{22}
+\initial {I}
+\entry{\code {IF_\var {stackpointer}TOS}}{20}
+\entry{\code {IMM_ARG}}{20}
+\entry{\code {INC_IP}}{19}
+\entry{\code {init_peeptable}}{22}
+\entry{\code {Inst}}{22}
+\entry{\code {INST_ADDR}}{21}
+\entry{\code {INST_TAIL;}}{12}
+\entry{\code {IPTOS}}{20}
+\initial {L}
+\entry{\code {LABEL}}{18}
+\entry{\code {LABEL2}}{18}
+\initial {M}
+\entry{\code {MAYBE_UNUSED}}{20}
+\initial {N}
+\entry{\code {NAME}}{18}
+\entry{\code {NEXT_P0}}{19}
+\entry{\code {NEXT_P1}}{19}
+\entry{\code {NEXT_P2}}{19}
+\initial {P}
+\entry{\code {printarg_\var {type}}}{20}
+\initial {S}
+\entry{\code {SET_IP}}{12, 19}
+\entry{\code {single}}{10}
+\entry{\code {stack}}{10}
+\entry{\code {stack-prefix}}{10}
+\entry{\code {store-optimization}}{10}
+\entry{\code {SUPER_CONTINUE}}{12, 20}
+\entry{\code {SUPER_END}}{12, 20}
+\initial {T}
+\entry{\code {type-prefix}}{10}
+\initial {V}
+\entry{\code {vm_\var {A}2\var {B}}}{19}
+\entry{\code {vm_\var {B}2two\var {A}}}{19}
+\entry{\code {vm_debug}}{20}
+\entry{\code {vm_out}}{20}
+\entry{\code {vm_two\var {A}2\var {B}}}{19}
+\entry{\code {VM_DEBUG}}{20}
+\entry{\code {VM_IS_INST}}{23}

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Startup speed (Gforth Manual)</title>
+
+<meta name="description" content="Startup speed (Gforth Manual)">
+<meta name="keywords" content="Startup speed (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Gforth-Environment.html" rel="up" title="Gforth Environment">
+<link href="Tutorial.html" rel="next" title="Tutorial">
+<link href="Gforth-in-pipes.html" rel="prev" title="Gforth in pipes">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Startup-speed"></span><div class="header">
+<p>
+Previous: <a href="Gforth-in-pipes.html" accesskey="p" rel="prev">Gforth in pipes</a>, Up: <a href="Gforth-Environment.html" accesskey="u" rel="up">Gforth Environment</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Startup-speed-1"></span><h3 class="section">2.7 Startup speed</h3>
+<span id="index-Startup-speed"></span>
+<span id="index-speed_002c-startup"></span>
+
+<p>If Gforth is used for CGI scripts or in shell scripts, its startup
+speed may become a problem.  On a 300MHz 21064a under Linux-2.2.13 with
+glibc-2.0.7, <code>gforth -e bye</code> takes about 24.6ms user and 11.3ms
+system time.
+</p>
+<p>If startup speed is a problem, you may consider the following ways to
+improve it; or you may consider ways to reduce the number of startups
+(for example, by using Fast-CGI).
+</p>
+<p>An easy step that influences Gforth startup speed is the use of the
+<samp>--no-dynamic</samp> option; this decreases image loading speed, but
+increases compile-time and run-time.
+</p>
+<p>Another step to improve startup speed is to statically link Gforth, by
+building it with <code>XLDFLAGS=-static</code>.  This requires more memory for
+the code and will therefore slow down the first invocation, but
+subsequent invocations avoid the dynamic linking overhead.  Another
+disadvantage is that Gforth won&rsquo;t profit from library upgrades.  As a
+result, <code>gforth-static -e bye</code> takes about 17.1ms user and
+8.2ms system time.
+</p>
+<p>The next step to improve startup speed is to use a non-relocatable image
+(see <a href="Non_002dRelocatable-Image-Files.html">Non-Relocatable Image Files</a>).  You can create this image with
+<code>gforth -e &quot;savesystem gforthnr.fi bye&quot;</code> and later use it with
+<code>gforth -i gforthnr.fi ...</code>.  This avoids the relocation overhead
+and a part of the copy-on-write overhead.  The disadvantage is that the
+non-relocatable image does not work if the OS gives Gforth a different
+address for the dictionary, for whatever reason; so you better provide a
+fallback on a relocatable image.  <code>gforth-static -i gforthnr.fi -e
+bye</code> takes about 15.3ms user and 7.5ms system time.
+</p>
+<p>The final step is to disable dictionary hashing in Gforth.  Gforth
+builds the hash table on startup, which takes much of the startup
+overhead. You can do this by commenting out the <code>include hash.fs</code>
+in <samp>startup.fs</samp> and everything that requires <samp>hash.fs</samp> (at the
+moment <samp>table.fs</samp> and <samp>ekey.fs</samp>) and then doing <code>make</code>.
+The disadvantages are that functionality like <code>table</code> and
+<code>ekey</code> is missing and that text interpretation (e.g., compiling)
+now takes much longer. So, you should only use this method if there is
+no significant text interpretation to perform (the script should be
+compiled into the image, amongst other things).  <code>gforth-static -i
+gforthnrnh.fi -e bye</code> takes about 2.1ms user and 6.1ms system time.
+</p>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Gforth-in-pipes.html" accesskey="p" rel="prev">Gforth in pipes</a>, Up: <a href="Gforth-Environment.html" accesskey="u" rel="up">Gforth Environment</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

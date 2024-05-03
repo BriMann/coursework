@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>programming-idef (Gforth Manual)</title>
+
+<meta name="description" content="programming-idef (Gforth Manual)">
+<meta name="keywords" content="programming-idef (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="The-optional-Programming_002dTools-word-set.html" rel="up" title="The optional Programming-Tools word set">
+<link href="programming_002dambcond.html" rel="next" title="programming-ambcond">
+<link href="The-optional-Programming_002dTools-word-set.html" rel="prev" title="The optional Programming-Tools word set">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="programming_002didef"></span><div class="header">
+<p>
+Next: <a href="programming_002dambcond.html" accesskey="n" rel="next">programming-ambcond</a>, Previous: <a href="The-optional-Programming_002dTools-word-set.html" accesskey="p" rel="prev">The optional Programming-Tools word set</a>, Up: <a href="The-optional-Programming_002dTools-word-set.html" accesskey="u" rel="up">The optional Programming-Tools word set</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Implementation-Defined-Options-8"></span><h4 class="subsection">8.10.1 Implementation Defined Options</h4>
+<span id="index-implementation_002ddefined-options_002c-programming_002dtools-words"></span>
+<span id="index-programming_002dtools-words_002c-implementation_002ddefined-options"></span>
+
+<dl compact="compact">
+<dt><i>ending sequence for input following <code>;CODE</code> and <code>CODE</code>:</i></dt>
+<dd><span id="index-_003bCODE-ending-sequence"></span>
+<span id="index-CODE-ending-sequence"></span>
+<p><code>END-CODE</code>
+</p>
+</dd>
+<dt><i>manner of processing input following <code>;CODE</code> and <code>CODE</code>:</i></dt>
+<dd><span id="index-_003bCODE_002c-processing-input"></span>
+<span id="index-CODE_002c-processing-input"></span>
+<p>The <code>ASSEMBLER</code> vocabulary is pushed on the search order stack, and
+the input is processed by the text interpreter, (starting) in interpret
+state.
+</p>
+</dd>
+<dt><i>search order capability for <code>EDITOR</code> and <code>ASSEMBLER</code>:</i></dt>
+<dd><span id="index-ASSEMBLER_002c-search-order-capability"></span>
+<p>The ANS Forth search order word set.
+</p>
+</dd>
+<dt><i>source and format of display by <code>SEE</code>:</i></dt>
+<dd><span id="index-SEE_002c-source-and-format-of-output"></span>
+<p>The source for <code>see</code> is the executable code used by the inner
+interpreter.  The current <code>see</code> tries to output Forth source code
+(and on some platforms, assembly code for primitives) as well as
+possible.
+</p>
+</dd>
+</dl>
+
+
+
+
+</body>
+</html>

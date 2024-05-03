@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Counted loops Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Counted loops Tutorial (Gforth Manual)">
+<meta name="keywords" content="Counted loops Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="Recursion-Tutorial.html" rel="next" title="Recursion Tutorial">
+<link href="General-Loops-Tutorial.html" rel="prev" title="General Loops Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Counted-loops-Tutorial"></span><div class="header">
+<p>
+Next: <a href="Recursion-Tutorial.html" accesskey="n" rel="next">Recursion Tutorial</a>, Previous: <a href="General-Loops-Tutorial.html" accesskey="p" rel="prev">General Loops Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Counted-loops"></span><h3 class="section">3.19 Counted loops</h3>
+<span id="index-loops_002c-counted_002c-tutorial"></span>
+
+<div class="example">
+<pre class="example">: ^ ( n1 u -- n )
+\ n = the uth power of n1
+  1 swap 0 u+do
+    over *
+  loop
+  nip ;
+3 2 ^ .
+4 3 ^ .
+</pre></div>
+
+<p><code>U+do</code> (from <samp>compat/loops.fs</samp>, if your Forth system doesn&rsquo;t
+have it) takes two numbers of the stack <code>( u3 u4 -- )</code>, and then
+performs the code between <code>u+do</code> and <code>loop</code> for <code>u3-u4</code>
+times (or not at all, if <code>u3-u4&lt;0</code>).
+</p>
+<p>You can see the stack effect design rules at work in the stack effect of
+the loop start words: Since the start value of the loop is more
+frequently constant than the end value, the start value is passed on
+the top-of-stack.
+</p>
+<p>You can access the counter of a counted loop with <code>i</code>:
+</p>
+<div class="example">
+<pre class="example">: fac ( u -- u! )
+  1 swap 1+ 1 u+do
+    i *
+  loop ;
+5 fac .
+7 fac .
+</pre></div>
+
+<p>There is also <code>+do</code>, which expects signed numbers (important for
+deciding whether to enter the loop).
+</p>
+<blockquote>
+<p><b>Assignment:</b> Write a definition for computing the nth Fibonacci number.
+</p></blockquote>
+
+<p>You can also use increments other than 1:
+</p>
+<div class="example">
+<pre class="example">: up2 ( n1 n2 -- )
+  +do
+    i .
+  2 +loop ;
+10 0 up2
+
+: down2 ( n1 n2 -- )
+  -do
+    i .
+  2 -loop ;
+0 10 down2
+</pre></div>
+
+<p>Reference: <a href="Counted-Loops.html">Counted Loops</a>.
+</p>
+
+
+
+
+</body>
+</html>

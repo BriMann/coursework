@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Double precision (Gforth Manual)</title>
+
+<meta name="description" content="Double precision (Gforth Manual)">
+<meta name="keywords" content="Double precision (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Arithmetic.html" rel="up" title="Arithmetic">
+<link href="Bitwise-operations.html" rel="next" title="Bitwise operations">
+<link href="Single-precision.html" rel="prev" title="Single precision">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Double-precision"></span><div class="header">
+<p>
+Next: <a href="Bitwise-operations.html" accesskey="n" rel="next">Bitwise operations</a>, Previous: <a href="Single-precision.html" accesskey="p" rel="prev">Single precision</a>, Up: <a href="Arithmetic.html" accesskey="u" rel="up">Arithmetic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Double-precision-1"></span><h4 class="subsection">5.5.2 Double precision</h4>
+<span id="index-double-precision-arithmetic-words"></span>
+
+<p>For the rules used by the text interpreter for
+recognising double-precision integers, see <a href="Number-Conversion.html">Number Conversion</a>.
+</p>
+<p>A double precision number is represented by a cell pair, with the most
+significant cell at the TOS. It is trivial to convert an unsigned single
+to a double: simply push a <code>0</code> onto the TOS. Since numbers are
+represented by Gforth using 2&rsquo;s complement arithmetic, converting a
+signed single to a (signed) double requires sign-extension across the
+most significant cell. This can be achieved using <code>s&gt;d</code>. The moral
+of the story is that you cannot convert a number without knowing whether
+it represents an unsigned or a signed number.
+</p>
+<p>These words are all defined for signed operands, but some of them also
+work for unsigned numbers: <code>d+</code>, <code>d-</code>.
+</p>
+<span id="index-s_003ed--n-_002d_002d-d--core"></span>
+<span id="index-s_003ed"></span>
+<span id="index-s_003ed-1"></span>
+<div class="format">
+<pre class="format"><code>s&gt;d</code>       <i>n &ndash; d  </i>       core       &ldquo;s-to-d&rdquo;
+</pre></div>
+
+<span id="index-d_003es--d-_002d_002d-n--double"></span>
+<span id="index-d_003es"></span>
+<span id="index-d_003es-1"></span>
+<div class="format">
+<pre class="format"><code>d&gt;s</code>       <i>d &ndash; n  </i>       double       &ldquo;d-to-s&rdquo;
+</pre></div>
+
+<span id="index-d_002b--d1-d2-_002d_002d-d--double"></span>
+<span id="index-d_002b"></span>
+<span id="index-d_002b-1"></span>
+<div class="format">
+<pre class="format"><code>d+</code>       <i>d1 d2 &ndash; d </i>       double       &ldquo;d-plus&rdquo;
+</pre></div>
+
+<span id="index-d_002d--d1-d2-_002d_002d-d--double"></span>
+<span id="index-d_002d"></span>
+<span id="index-d_002d-1"></span>
+<div class="format">
+<pre class="format"><code>d-</code>       <i>d1 d2 &ndash; d </i>       double       &ldquo;d-minus&rdquo;
+</pre></div>
+
+<span id="index-dnegate--d1-_002d_002d-d2--double"></span>
+<span id="index-dnegate"></span>
+<span id="index-dnegate-1"></span>
+<div class="format">
+<pre class="format"><code>dnegate</code>       <i>d1 &ndash; d2 </i>       double       &ldquo;d-negate&rdquo;
+</pre></div>
+
+<span id="index-dabs--d-_002d_002d-ud--double"></span>
+<span id="index-dabs"></span>
+<span id="index-dabs-1"></span>
+<div class="format">
+<pre class="format"><code>dabs</code>       <i>d &ndash; ud  </i>       double       &ldquo;d-abs&rdquo;
+</pre></div>
+
+<span id="index-dmin--d1-d2-_002d_002d-d--double"></span>
+<span id="index-dmin"></span>
+<span id="index-dmin-1"></span>
+<div class="format">
+<pre class="format"><code>dmin</code>       <i>d1 d2 &ndash; d  </i>       double       &ldquo;d-min&rdquo;
+</pre></div>
+
+<span id="index-dmax--d1-d2-_002d_002d-d--double"></span>
+<span id="index-dmax"></span>
+<span id="index-dmax-1"></span>
+<div class="format">
+<pre class="format"><code>dmax</code>       <i>d1 d2 &ndash; d  </i>       double       &ldquo;d-max&rdquo;
+</pre></div>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Bitwise-operations.html" accesskey="n" rel="next">Bitwise operations</a>, Previous: <a href="Single-precision.html" accesskey="p" rel="prev">Single precision</a>, Up: <a href="Arithmetic.html" accesskey="u" rel="up">Arithmetic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

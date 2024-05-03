@@ -1,0 +1,37 @@
+<h2 id="scheme-interpreter-part-i">Scheme Interpreter, Part I</h2>
+<h3 id="overview">Overview</h3>
+<p>This assignment is borrowed from:</p>
+<p><a href="https://inst.eecs.berkeley.edu/~cs61a/sp20/proj/scheme/">https://inst.eecs.berkeley.edu/~cs61a/sp20/proj/scheme/</a></p>
+<p>So, when you are reading these directions, <strong>disregard</strong> all information regarding grading and due dates. Those are for some other class at some other school. Our due dates and grading info are all right here. Many of the other resources linked there will require you to login, which you can&rsquo;t. So, I think it&rsquo;s perhaps best to just stick to the directions linked above.</p>
+<p>The directions are EXTENSIVE. I advise you to have them open while you work, check frequently, and read ahead&mdash;particularly right before you are about to do a problem. Your PS 04 part 1 Cocalc folder already contains the assignment files, <strong>so you should skip the &ldquo;download startup files&rdquo; step.</strong></p>
+<p><strong>If you wreck your files, get with me about it right away.</strong></p>
+<p>I imagine it will be easy to get answers to the problems without devising them yourself. As always you are specifically instructed not to do so. The point of the assignment is to <strong>think of</strong> the answers, not to find them in someone else&rsquo;s forums post or the hallucinations of ChatGPT.</p>
+<p>This is a <em>very</em> well scaffolded project. The directions should be very helpful, but only if you <strong>read them.</strong> Read the directions very carefully, and make sure to read a bit beyond the exercise you are about to do. There is sometimes a quiz to do (in the unit tester, described at the link above and provided in this folder) before starting, to check your understanding. You won&rsquo;t be able to run the provided unit tests without completing the quiz.</p>
+<h3 id="tips">Tips</h3>
+<p><strong>START EARLY, WORK INCREMENTALLY, AND ASK FOR HELP WHEN YOU NEED IT.</strong></p>
+<p>For the first few problems, don&rsquo;t reject simple ideas. There isn&rsquo;t necessarily a lot to do. Much of the work is setting up your understanding of the context, which just looks like thinking and flipping between different code windows and the directions as your understanding grows. After a while you&rsquo;ll be ready to try some code. If it passes the unit tests (<code>python ok ...</code>) you win! Enjoy the victory, <strong>reflect about why what you did worked,</strong> and then, move on.</p>
+<p>When you use <code>python3 ok</code> to run unit tests to check your code (the directions explain how), you will need to use the <code>--local</code> option every time. If you get prompted for a username, you forgot <code>--local</code>! Ctrl+C to force quit and try again.</p>
+<h3 id="assignment">Assignment</h3>
+<p>Complete:</p>
+<ul>
+    <li>Part 0: Testing the interpreter</li>
+    <li>Part I: The Reader
+        <ul>
+            <li>Problem 1: <code>scheme_read</code> and <code>read_tail</code></li>
+        </ul>
+    </li>
+    <li>Part II: The Evaluator (Core Functionality)
+        <ul>
+            <li>Problem 2: <code>define</code> and <code>lookup</code></li>
+            <li>Problem 3: <code>apply</code></li>
+            <li>Problem 4: <code>scheme_eval</code></li>
+            <li>Problem 5: the <code>define</code> special form</li>
+            <li>Problem 6: <code>quote</code></li>
+        </ul>
+    </li>
+</ul>
+<p>Each problem is worth 5 points, for a total of 30 on the assignment. In the next two problem sets we&rsquo;ll explore more of the interpreter. I don&rsquo;t know how much yet, but I won&rsquo;t require anything beyond Problem 17 in any event.</p>
+<p>The last problem involves the concept of &ldquo;quotation&rdquo;, which is somewhat mysterious at first. It is a philosophical innovation that was borrowed into Lisp in the early 70s. It is a firming-up of what we mean when we give grammatical rules in mathematical notation, as we&rsquo;ve been doing this semester, but with particular regard to the behavior of <em>variables</em>. In programming it allows us to &ldquo;quote&rdquo; a piece of code temporarily, to prevent it from being evaluated too quickly. Well, it turns out that is exactly how we use variables in normal spoken language. A variable is a signifier whose value I don't need to know yet. Doesn&rsquo;t sound like much, but it&rsquo;s an iceberg. (The idiom means that there is much more beneath the surface than what is readily visible.)</p>
+<h3 id="more-on-quotation">More on quotation</h3>
+<p>The idea won&rsquo;t make sense until after you&rsquo;ve done about 3 of the above problems. We&rsquo;ll introduce it in class Friday, April 7. All LISP-like languages (Lisp, Scheme, Racket), some other functional languages (Haskell), and even R support quotation and the even more mysterious &ldquo;quasiquotation&rdquo;. Its use is central to advanced metaprogramming in R (which I find painful to use without some form of metaprogramming). Metaprogramming generally means writing code whose output is more code. It&rsquo;s how we do self-modifying programs in the modern era. The <code>tidyverse</code> in R is a very popular community-contributed package system that provides a second interface to the language's core internals with a truly different syntax and even philosophy from base R. This syntax and philosophy are closer to my experience than base R is. The tidyverse made R usable for me and thousands of others. It is all based on quasiquotation.</p>
+<p>For those who are curious right now, you can try the <a href="https://en.wikipedia.org/wiki/Quasi-quotation">Wikipedia article</a>. Primary sources here are not particularly approachable (Quine's <em>Mathematical Logic</em> in particular).</p>

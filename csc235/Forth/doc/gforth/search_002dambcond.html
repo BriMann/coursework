@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>search-ambcond (Gforth Manual)</title>
+
+<meta name="description" content="search-ambcond (Gforth Manual)">
+<meta name="keywords" content="search-ambcond (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="The-optional-Search_002dOrder-word-set.html" rel="up" title="The optional Search-Order word set">
+<link href="Standard-vs-Extensions.html" rel="next" title="Standard vs Extensions">
+<link href="search_002didef.html" rel="prev" title="search-idef">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="search_002dambcond"></span><div class="header">
+<p>
+Previous: <a href="search_002didef.html" accesskey="p" rel="prev">search-idef</a>, Up: <a href="The-optional-Search_002dOrder-word-set.html" accesskey="u" rel="up">The optional Search-Order word set</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Ambiguous-conditions-8"></span><h4 class="subsection">8.11.2 Ambiguous conditions</h4>
+<span id="index-search_002dorder-words_002c-ambiguous-conditions"></span>
+<span id="index-ambiguous-conditions_002c-search_002dorder-words"></span>
+
+<dl compact="compact">
+<dt><i>changing the compilation word list (during compilation):</i></dt>
+<dd><span id="index-changing-the-compilation-word-list-_0028during-compilation_0029"></span>
+<span id="index-compilation-word-list_002c-change-before-definition-ends"></span>
+<p>The word is entered into the word list that was the compilation word list
+at the start of the definition. Any changes to the name field (e.g.,
+<code>immediate</code>) or the code field (e.g., when executing <code>DOES&gt;</code>)
+are applied to the latest defined word (as reported by <code>latest</code> or
+<code>latestxt</code>), if possible, irrespective of the compilation word list.
+</p>
+</dd>
+<dt><i>search order empty (<code>previous</code>):</i></dt>
+<dd><span id="index-previous_002c-search-order-empty"></span>
+<span id="index-vocstack-empty_002c-previous"></span>
+<p><code>abort&quot; Vocstack empty&quot;</code>.
+</p>
+</dd>
+<dt><i>too many word lists in search order (<code>also</code>):</i></dt>
+<dd><span id="index-also_002c-too-many-word-lists-in-search-order"></span>
+<span id="index-vocstack-full_002c-also"></span>
+<p><code>abort&quot; Vocstack full&quot;</code>.
+</p>
+</dd>
+</dl>
+
+
+
+
+</body>
+</html>

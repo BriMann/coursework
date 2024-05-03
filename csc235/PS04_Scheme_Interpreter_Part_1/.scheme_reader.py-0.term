@@ -1,0 +1,854 @@
+]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 7, in <module>
+    from scheme_builtins import *
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_builtins.py", line 9, in <module>
+    from scheme_reader import Pair, nil, repl_str
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 167
+    except EOFError:
+    ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 7, in <module>
+    from scheme_builtins import *
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_builtins.py", line 9, in <module>
+    from scheme_reader import Pair, nil, repl_str
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 167
+    except EOFError:
+    ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 scheme.[y[K[Kpy
+scm> 1
+1
+scm> 42
+42
+scm> true
+#t
+scm> 
+]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 scheme.py ok --local[9Pmake allclean[K all./postfix[1Pmake all./postfix[1Pmake all./postfix[1Pmake all[K clean[2Pallpython ok --local3 scheme.py[Kpytn[Khon ok --locao[Kl[1@~
+bash: pytho~n: command not found
+]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ pytho~n ok --local[C[C[1P[1P[1@n[1@3
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(scheme_read(src), read_tail(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 161, in read_tail
+    return src.pop_first(src.current())
+TypeError: pop_first() takes 1 positional argument but 2 were given
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: pop_first() takes 1 positional argument but 2 were given
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ history
+    1  ./gforth
+    2  flex scan.l
+    3  1111
+    4  lll
+    5  ls
+    6  gcc -o scanner lex.yy.c
+    7  ./scanner
+    8  make clean
+    9  make
+   10  ./prefix
+   11  ./postfix
+   12  make clean
+   13  make
+   14  make clean
+   15  make
+   16  ./infix
+   17  make infix
+   18  make
+   19  make postfix
+   20  make
+   21  ./infix
+   22  ./postfix
+   23  make
+   24  ./prefix
+   25  make
+   26  ./prefix
+   27  make
+   28  ./postfix
+   29  make all
+   30  ./postfix
+   31  make all
+   32  make
+   33  make clean
+   34  make all
+   35  python ok --local
+   36  python3 scheme.py
+   37  pytho~n ok --local
+   38  python3 ok --local
+   39  history
+]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ historypython3 ok --local~n[C[C[C[C[C[C[C[C[C[C[Cn3[C[C[C[C[C[C[C[C[C[C[C[C[1P
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(scheme_read(src), read_tail(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 161, in read_tail
+    return src.pop_first(src.current())
+TypeError: pop_first() takes 1 positional argument but 2 were given
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: pop_first() takes 1 positional argument but 2 were given
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+) str
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(scheme_read(src), read_tail(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 44, in __init__
+    raise SchemeError("cdr can only be a pair, nil, or a promise but was {}".format(rest))
+scheme_builtins.SchemeError: cdr can only be a pair, nil, or a promise but was )
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: cdr can only be a pair, nil, or a promise but was )
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+2 int
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.current, scheme_read(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 44, in __init__
+    raise SchemeError("cdr can only be a pair, nil, or a promise but was {}".format(rest))
+scheme_builtins.SchemeError: cdr can only be a pair, nil, or a promise but was 2
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: cdr can only be a pair, nil, or a promise but was 2
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  ...
+  File "<string>", line 1, in <module>
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.current, read_tail(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.current, read_tail(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.current, read_tail(src))
+  [Previous line repeated 989 more times]
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 157, in read_tail
+    if src.current() is None:
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/buffer.py", line 77, in current
+    while not self.more_on_line:
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/buffer.py", line 89, in more_on_line
+    return self.index < len(self.current_line)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     RecursionError: maximum recursion depth exceeded while calling a Python object
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  ...
+  File "<string>", line 1, in <module>
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.current(), read_tail(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.current(), read_tail(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.current(), read_tail(src))
+  [Previous line repeated 989 more times]
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 157, in read_tail
+    if src.current() is None:
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/buffer.py", line 77, in current
+    while not self.more_on_line:
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/buffer.py", line 89, in more_on_line
+    return self.index < len(self.current_line)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     RecursionError: maximum recursion depth exceeded while calling a Python object
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.current(), scheme(read))
+NameError: name 'scheme' is not defined
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'scheme' is not defined
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.current(), scheme_read())
+TypeError: scheme_read() missing 1 required positional argument: 'src'
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: scheme_read() missing 1 required positional argument: 'src'
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.pop_first(), scheme_read(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 147, in scheme_read
+    raise SyntaxError('unexpected token: {0}'.format(val))
+SyntaxError: unexpected token: )
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SyntaxError: unexpected token: )
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.pop_first(), scheme_read(src.current()))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 129, in scheme_read
+    if src.current() is None:
+AttributeError: 'str' object has no attribute 'current'
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'str' object has no attribute 'current'
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 7, in <module>
+    from scheme_builtins import *
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_builtins.py", line 9, in <module>
+    from scheme_reader import Pair, nil, repl_str
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 167
+    except EOFError:
+    ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 165, in read_tail
+    return Pair(src.pop_first(), scheme_read())
+TypeError: scheme_read() missing 1 required positional argument: 'src'
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: scheme_read() missing 1 required positional argument: 'src'
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+) str
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 166, in read_tail
+    return Pair(a, read_tail(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 44, in __init__
+    raise SchemeError("cdr can only be a pair, nil, or a promise but was {}".format(rest))
+scheme_builtins.SchemeError: cdr can only be a pair, nil, or a promise but was )
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: cdr can only be a pair, nil, or a promise but was )
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Pair(2, nil)
+>>> read_tail(Buffer(tokenize_lines(['(2)'])))
+Pair('(', Pair(2, nil))
+
+# Error: expected
+#     SyntaxError
+# but got
+#     Pair('(', Pair(2, nil))
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 167, in read_tail
+    return Pair(scheme_read(a), read_tail(src))
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 129, in scheme_read
+    if src.current() is None:
+AttributeError: 'int' object has no attribute 'current'
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'int' object has no attribute 'current'
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> scheme_read(Buffer(tokenize_lines(['nil'])))
+nil
+>>> scheme_read(Buffer(tokenize_lines(['1'])))
+1
+>>> scheme_read(Buffer(tokenize_lines(['true'])))
+True
+>>> read_tail(Buffer(tokenize_lines(['2)'])))
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 166, in read_tail
+    return Pair(scheme_read(a), read_tail(src))
+NameError: name 'a' is not defined
+
+# Error: expected
+#     Pair(2, nil)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'a' is not defined
+
+Run only this test case with "python3 ok -q 01 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+
+There are still locked tests! Use the -u option to unlock them
+---------------------------------------------------------------------
+Test summary
+    Locked: 7
+    1 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --localu --local[3P-local[1P --local6 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+# Error: malformed list: ('quote', Pair(('quote', Pair('hello', nil)), nil))
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: malformed list: ('quote', Pair(('quote', Pair('hello', nil)), nil))
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    8 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ 

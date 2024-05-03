@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Execution token (Gforth Manual)</title>
+
+<meta name="description" content="Execution token (Gforth Manual)">
+<meta name="keywords" content="Execution token (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tokens-for-Words.html" rel="up" title="Tokens for Words">
+<link href="Compilation-token.html" rel="next" title="Compilation token">
+<link href="Tokens-for-Words.html" rel="prev" title="Tokens for Words">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Execution-token"></span><div class="header">
+<p>
+Next: <a href="Compilation-token.html" accesskey="n" rel="next">Compilation token</a>, Previous: <a href="Tokens-for-Words.html" accesskey="p" rel="prev">Tokens for Words</a>, Up: <a href="Tokens-for-Words.html" accesskey="u" rel="up">Tokens for Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Execution-token-1"></span><h4 class="subsection">5.11.1 Execution token</h4>
+
+<span id="index-xt-1"></span>
+<span id="index-execution-token-1"></span>
+<p>An <em>execution token</em> (<i>XT</i>) represents some behaviour of a word.
+You can use <code>execute</code> to invoke this behaviour.
+</p>
+<span id="index-tick-_0028_0027_0029"></span>
+<p>You can use <code>'</code> to get an execution token that represents the
+interpretation semantics of a named word:
+</p>
+<div class="example">
+<pre class="example">5 ' .   ( n xt ) 
+execute ( )      \ execute the xt (i.e., &quot;.&quot;)
+</pre></div>
+
+<span id="index-_0027--_0022name_0022-_002d_002d-xt--core"></span>
+<span id="index-_0027"></span>
+<span id="index-_0027-2"></span>
+<div class="format">
+<pre class="format"><code>'</code>       <i>&quot;name&quot; &ndash; xt  </i>       core       &ldquo;tick&rdquo;
+</pre></div>
+<p><i>xt</i> represents <i>name</i>&rsquo;s interpretation
+semantics. Perform <code>-14 throw</code> if the word has no
+interpretation semantics.
+</p>
+
+
+<p><code>'</code> parses at run-time; there is also a word <code>[']</code> that parses
+when it is compiled, and compiles the resulting XT:
+</p>
+<div class="example">
+<pre class="example">: foo ['] . execute ;
+5 foo
+: bar ' execute ; \ by contrast,
+5 bar .           \ ' parses &quot;.&quot; when bar executes
+</pre></div>
+
+<span id="index-_005b_0027_005d--compilation_002e-_0022name_0022-_002d_002d-_003b-run_002dtime_002e-_002d_002d-xt--core"></span>
+<span id="index-_005b_0027_005d"></span>
+<span id="index-_005b_0027_005d-1"></span>
+<div class="format">
+<pre class="format"><code>[']</code>       <i>compilation. &quot;name&quot; &ndash; ; run-time. &ndash; xt  </i>       core       &ldquo;bracket-tick&rdquo;
+</pre></div>
+<p><i>xt</i> represents <i>name</i>&rsquo;s interpretation
+semantics. Perform <code>-14 throw</code> if the word has no
+interpretation semantics.
+</p>
+
+
+<p>If you want the execution token of <i>word</i>, write <code>['] <i>word</i></code>
+in compiled code and <code>' <i>word</i></code> in interpreted code.  Gforth&rsquo;s
+<code>'</code> and <code>[']</code> behave somewhat unusually by complaining about
+compile-only words (because these words have no interpretation
+semantics).  You might get what you want by using <code>COMP' <i>word</i>
+DROP</code> or <code>[COMP'] <i>word</i> DROP</code> (for details see <a href="Compilation-token.html">Compilation token</a>).
+</p>
+<p>Another way to get an XT is <code>:noname</code> or <code>latestxt</code>
+(see <a href="Anonymous-Definitions.html">Anonymous Definitions</a>).  For anonymous words this gives an xt
+for the only behaviour the word has (the execution semantics).  For
+named words, <code>latestxt</code> produces an XT for the same behaviour it
+would produce if the word was defined anonymously.
+</p>
+<div class="example">
+<pre class="example">:noname .&quot; hello&quot; ;
+execute
+</pre></div>
+
+<p>An XT occupies one cell and can be manipulated like any other cell.
+</p>
+<span id="index-code-field-address"></span>
+<span id="index-CFA"></span>
+<p>In ANS Forth the XT is just an abstract data type (i.e., defined by the
+operations that produce or consume it).  For old hands: In Gforth, the
+XT is implemented as a code field address (CFA).
+</p>
+<span id="index-execute--xt-_002d_002d--core"></span>
+<span id="index-execute"></span>
+<span id="index-execute-1"></span>
+<div class="format">
+<pre class="format"><code>execute</code>       <i>xt &ndash; </i>       core       &ldquo;execute&rdquo;
+</pre></div>
+<p>Perform the semantics represented by the execution token, <i>xt</i>.
+</p>
+<span id="index-perform--a_002daddr-_002d_002d--gforth"></span>
+<span id="index-perform"></span>
+<span id="index-perform-1"></span>
+<div class="format">
+<pre class="format"><code>perform</code>       <i>a-addr &ndash; </i>       gforth       &ldquo;perform&rdquo;
+</pre></div>
+<p><code>@ execute</code>.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Compilation-token.html" accesskey="n" rel="next">Compilation token</a>, Previous: <a href="Tokens-for-Words.html" accesskey="p" rel="prev">Tokens for Words</a>, Up: <a href="Tokens-for-Words.html" accesskey="u" rel="up">Tokens for Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

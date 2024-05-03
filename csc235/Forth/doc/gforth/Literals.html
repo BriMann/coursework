@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Literals (Gforth Manual)</title>
+
+<meta name="description" content="Literals (Gforth Manual)">
+<meta name="keywords" content="Literals (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Compiling-words.html" rel="up" title="Compiling words">
+<link href="Macros.html" rel="next" title="Macros">
+<link href="Compiling-words.html" rel="prev" title="Compiling words">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Literals"></span><div class="header">
+<p>
+Next: <a href="Macros.html" accesskey="n" rel="next">Macros</a>, Previous: <a href="Compiling-words.html" accesskey="p" rel="prev">Compiling words</a>, Up: <a href="Compiling-words.html" accesskey="u" rel="up">Compiling words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Literals-1"></span><h4 class="subsection">5.12.1 Literals</h4>
+<span id="index-Literals"></span>
+
+<p>The simplest and most frequent example is to compute a literal during
+compilation.  E.g., the following definition prints an array of strings,
+one string per line:
+</p>
+<div class="example">
+<pre class="example">: .strings ( addr u -- ) \ gforth
+    2* cells bounds U+DO
+	cr i 2@ type
+    2 cells +LOOP ;  
+</pre></div>
+
+<p>With a simple-minded compiler like Gforth&rsquo;s, this computes <code>2
+cells</code> on every loop iteration.  You can compute this value once and for
+all at compile time and compile it into the definition like this:
+</p>
+<div class="example">
+<pre class="example">: .strings ( addr u -- ) \ gforth
+    2* cells bounds U+DO
+	cr i 2@ type
+    [ 2 cells ] literal +LOOP ;  
+</pre></div>
+
+<p><code>[</code> switches the text interpreter to interpret state (you will get
+an <code>ok</code> prompt if you type this example interactively and insert a
+newline between <code>[</code> and <code>]</code>), so it performs the
+interpretation semantics of <code>2 cells</code>; this computes a number.
+<code>]</code> switches the text interpreter back into compile state.  It then
+performs <code>Literal</code>&rsquo;s compilation semantics, which are to compile
+this number into the current word.  You can decompile the word with
+<code>see .strings</code> to see the effect on the compiled code.
+</p>
+<p>You can also optimize the <code>2* cells</code> into <code>[ 2 cells ] literal
+*</code> in this way.
+</p>
+<span id="index-_005b--_002d_002d--core"></span>
+<span id="index-_005b"></span>
+<span id="index-_005b-1"></span>
+<div class="format">
+<pre class="format"><code>[</code>       <i>&ndash;  </i>       core       &ldquo;left-bracket&rdquo;
+</pre></div>
+<p>Enter interpretation state. Immediate word.
+</p>
+
+<span id="index-_005d--_002d_002d--core"></span>
+<span id="index-_005d"></span>
+<span id="index-_005d-1"></span>
+<div class="format">
+<pre class="format"><code>]</code>       <i>&ndash;  </i>       core       &ldquo;right-bracket&rdquo;
+</pre></div>
+<p>Enter compilation state.
+</p>
+
+<span id="index-Literal--compilation-n-_002d_002d-_003b-run_002dtime-_002d_002d-n--core"></span>
+<span id="index-Literal"></span>
+<span id="index-Literal-1"></span>
+<div class="format">
+<pre class="format"><code>Literal</code>       <i>compilation n &ndash; ; run-time &ndash; n  </i>       core       &ldquo;Literal&rdquo;
+</pre></div>
+<p>Compilation semantics: compile the run-time semantics.<br>
+Run-time Semantics: push <i>n</i>.<br>
+Interpretation semantics: undefined.
+</p>
+
+<span id="index-_005dL--compilation_003a-n-_002d_002d-_003b-run_002dtime_003a-_002d_002d-n--gforth"></span>
+<span id="index-_005dL"></span>
+<span id="index-_005dL-1"></span>
+<div class="format">
+<pre class="format"><code>]L</code>       <i>compilation: n &ndash; ; run-time: &ndash; n  </i>       gforth       &ldquo;]L&rdquo;
+</pre></div>
+<p>equivalent to <code>] literal</code>
+</p>
+
+
+<p>There are also words for compiling other data types than single cells as
+literals:
+</p>
+<span id="index-2Literal--compilation-w1-w2-_002d_002d-_003b-run_002dtime-_002d_002d-w1-w2--double"></span>
+<span id="index-2Literal"></span>
+<span id="index-2Literal-1"></span>
+<div class="format">
+<pre class="format"><code>2Literal</code>       <i>compilation w1 w2 &ndash; ; run-time  &ndash; w1 w2  </i>       double       &ldquo;two-literal&rdquo;
+</pre></div>
+<p>Compile appropriate code such that, at run-time, <i>w1 w2</i> are
+placed on the stack. Interpretation semantics are undefined.
+</p>
+
+<span id="index-FLiteral--compilation-r-_002d_002d-_003b-run_002dtime-_002d_002d-r--float"></span>
+<span id="index-FLiteral"></span>
+<span id="index-FLiteral-1"></span>
+<div class="format">
+<pre class="format"><code>FLiteral</code>       <i>compilation r &ndash; ; run-time &ndash; r  </i>       float       &ldquo;f-literal&rdquo;
+</pre></div>
+<p>Compile appropriate code such that, at run-time, <i>r</i> is placed
+on the (floating-point) stack. Interpretation semantics are undefined.
+</p>
+
+<span id="index-SLiteral--Compilation-c_002daddr1-u-_003b-run_002dtime-_002d_002d-c_002daddr2-u--string"></span>
+<span id="index-SLiteral"></span>
+<span id="index-SLiteral-1"></span>
+<div class="format">
+<pre class="format"><code>SLiteral</code>       <i>Compilation c-addr1 u ; run-time &ndash; c-addr2 u  </i>       string       &ldquo;SLiteral&rdquo;
+</pre></div>
+<p>Compilation: compile the string specified by <i>c-addr1</i>,
+<i>u</i> into the current definition. Run-time: return
+<i>c-addr2 u</i> describing the address and length of the
+string.
+</p>
+
+
+<span id="index-colon_002dsys_002c-passing-data-across-_003a"></span>
+<span id="index-_003a_002c-passing-data-across"></span>
+<p>You might be tempted to pass data from outside a colon definition to the
+inside on the data stack.  This does not work, because <code>:</code> puhes a
+colon-sys, making stuff below unaccessible.  E.g., this does not work:
+</p>
+<div class="example">
+<pre class="example">5 : foo literal ; \ error: &quot;unstructured&quot;
+</pre></div>
+
+<p>Instead, you have to pass the value in some other way, e.g., through a
+variable:
+</p>
+<div class="example">
+<pre class="example">variable temp
+5 temp !
+: foo [ temp @ ] literal ;
+</pre></div>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Macros.html" accesskey="n" rel="next">Macros</a>, Previous: <a href="Compiling-words.html" accesskey="p" rel="prev">Compiling words</a>, Up: <a href="Compiling-words.html" accesskey="u" rel="up">Compiling words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

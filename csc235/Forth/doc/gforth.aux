@@ -1,0 +1,879 @@
+@xrdef{Goals-title}{Goals of Gforth}
+@xrdef{Goals-snt}{Chapter@tie 1}
+@xrdef{Goals-pg}{2}
+@xrdef{Gforth Environment-title}{Gforth Environment}
+@xrdef{Gforth Environment-snt}{Chapter@tie 2}
+@xrdef{Invoking Gforth-title}{Invoking Gforth}
+@xrdef{Invoking Gforth-snt}{Section@tie 2.1}
+@xrdef{Gforth Environment-pg}{3}
+@xrdef{Invoking Gforth-pg}{3}
+@xrdef{Leaving Gforth-title}{Leaving Gforth}
+@xrdef{Leaving Gforth-snt}{Section@tie 2.2}
+@xrdef{Command-line editing-title}{Command-line editing}
+@xrdef{Command-line editing-snt}{Section@tie 2.3}
+@xrdef{Leaving Gforth-pg}{6}
+@xrdef{Command-line editing-pg}{6}
+@xrdef{Environment variables-title}{Environment variables}
+@xrdef{Environment variables-snt}{Section@tie 2.4}
+@xrdef{Gforth Files-title}{Gforth files}
+@xrdef{Gforth Files-snt}{Section@tie 2.5}
+@xrdef{Environment variables-pg}{7}
+@xrdef{Gforth Files-pg}{7}
+@xrdef{Gforth in pipes-title}{Gforth in pipes}
+@xrdef{Gforth in pipes-snt}{Section@tie 2.6}
+@xrdef{Startup speed-title}{Startup speed}
+@xrdef{Startup speed-snt}{Section@tie 2.7}
+@xrdef{Gforth in pipes-pg}{8}
+@xrdef{Startup speed-pg}{8}
+@xrdef{Tutorial-title}{Forth Tutorial}
+@xrdef{Tutorial-snt}{Chapter@tie 3}
+@xrdef{Starting Gforth Tutorial-title}{Starting Gforth}
+@xrdef{Starting Gforth Tutorial-snt}{Section@tie 3.1}
+@xrdef{Syntax Tutorial-title}{Syntax}
+@xrdef{Syntax Tutorial-snt}{Section@tie 3.2}
+@xrdef{Crash Course Tutorial-title}{Crash Course}
+@xrdef{Crash Course Tutorial-snt}{Section@tie 3.3}
+@xrdef{Tutorial-pg}{10}
+@xrdef{Starting Gforth Tutorial-pg}{10}
+@xrdef{Syntax Tutorial-pg}{10}
+@xrdef{Stack Tutorial-title}{Stack}
+@xrdef{Stack Tutorial-snt}{Section@tie 3.4}
+@xrdef{Arithmetics Tutorial-title}{Arithmetics}
+@xrdef{Arithmetics Tutorial-snt}{Section@tie 3.5}
+@xrdef{Crash Course Tutorial-pg}{11}
+@xrdef{Stack Tutorial-pg}{11}
+@xrdef{Arithmetics Tutorial-pg}{11}
+@xrdef{Stack Manipulation Tutorial-title}{Stack Manipulation}
+@xrdef{Stack Manipulation Tutorial-snt}{Section@tie 3.6}
+@xrdef{Using files for Forth code Tutorial-title}{Using files for Forth code}
+@xrdef{Using files for Forth code Tutorial-snt}{Section@tie 3.7}
+@xrdef{Stack Manipulation Tutorial-pg}{12}
+@xrdef{Comments Tutorial-title}{Comments}
+@xrdef{Comments Tutorial-snt}{Section@tie 3.8}
+@xrdef{Colon Definitions Tutorial-title}{Colon Definitions}
+@xrdef{Colon Definitions Tutorial-snt}{Section@tie 3.9}
+@xrdef{Using files for Forth code Tutorial-pg}{13}
+@xrdef{Comments Tutorial-pg}{13}
+@xrdef{Decompilation Tutorial-title}{Decompilation}
+@xrdef{Decompilation Tutorial-snt}{Section@tie 3.10}
+@xrdef{Stack-Effect Comments Tutorial-title}{Stack-Effect Comments}
+@xrdef{Stack-Effect Comments Tutorial-snt}{Section@tie 3.11}
+@xrdef{Colon Definitions Tutorial-pg}{14}
+@xrdef{Decompilation Tutorial-pg}{14}
+@xrdef{Stack-Effect Comments Tutorial-pg}{14}
+@xrdef{Types Tutorial-title}{Types}
+@xrdef{Types Tutorial-snt}{Section@tie 3.12}
+@xrdef{Factoring Tutorial-title}{Factoring}
+@xrdef{Factoring Tutorial-snt}{Section@tie 3.13}
+@xrdef{Designing the stack effect Tutorial-title}{Designing the stack effect}
+@xrdef{Designing the stack effect Tutorial-snt}{Section@tie 3.14}
+@xrdef{Types Tutorial-pg}{16}
+@xrdef{Factoring Tutorial-pg}{16}
+@xrdef{Local Variables Tutorial-title}{Local Variables}
+@xrdef{Local Variables Tutorial-snt}{Section@tie 3.15}
+@xrdef{Designing the stack effect Tutorial-pg}{17}
+@xrdef{Local Variables Tutorial-pg}{17}
+@xrdef{Conditional execution Tutorial-title}{Conditional execution}
+@xrdef{Conditional execution Tutorial-snt}{Section@tie 3.16}
+@xrdef{Flags and Comparisons Tutorial-title}{Flags and Comparisons}
+@xrdef{Flags and Comparisons Tutorial-snt}{Section@tie 3.17}
+@xrdef{Conditional execution Tutorial-pg}{18}
+@xrdef{Flags and Comparisons Tutorial-pg}{19}
+@xrdef{General Loops Tutorial-title}{General Loops}
+@xrdef{General Loops Tutorial-snt}{Section@tie 3.18}
+@xrdef{General Loops Tutorial-pg}{20}
+@xrdef{Counted loops Tutorial-title}{Counted loops}
+@xrdef{Counted loops Tutorial-snt}{Section@tie 3.19}
+@xrdef{Recursion Tutorial-title}{Recursion}
+@xrdef{Recursion Tutorial-snt}{Section@tie 3.20}
+@xrdef{Counted loops Tutorial-pg}{21}
+@xrdef{Leaving definitions or loops Tutorial-title}{Leaving definitions or loops}
+@xrdef{Leaving definitions or loops Tutorial-snt}{Section@tie 3.21}
+@xrdef{Recursion Tutorial-pg}{22}
+@xrdef{Leaving definitions or loops Tutorial-pg}{22}
+@xrdef{Return Stack Tutorial-title}{Return Stack}
+@xrdef{Return Stack Tutorial-snt}{Section@tie 3.22}
+@xrdef{Return Stack Tutorial-pg}{23}
+@xrdef{Memory Tutorial-title}{Memory}
+@xrdef{Memory Tutorial-snt}{Section@tie 3.23}
+@xrdef{Memory Tutorial-pg}{24}
+@xrdef{Characters and Strings Tutorial-title}{Characters and Strings}
+@xrdef{Characters and Strings Tutorial-snt}{Section@tie 3.24}
+@xrdef{Alignment Tutorial-title}{Alignment}
+@xrdef{Alignment Tutorial-snt}{Section@tie 3.25}
+@xrdef{Characters and Strings Tutorial-pg}{25}
+@xrdef{Floating Point Tutorial-title}{Floating Point}
+@xrdef{Floating Point Tutorial-snt}{Section@tie 3.26}
+@xrdef{Alignment Tutorial-pg}{26}
+@xrdef{Floating Point Tutorial-pg}{26}
+@xrdef{Files Tutorial-title}{Files}
+@xrdef{Files Tutorial-snt}{Section@tie 3.27}
+@xrdef{Files Tutorial-pg}{27}
+@xrdef{Interpretation and Compilation Semantics and Immediacy Tutorial-title}{Interpretation and Compilation Semantics and Immediacy}
+@xrdef{Interpretation and Compilation Semantics and Immediacy Tutorial-snt}{Section@tie 3.28}
+@xrdef{Interpretation and Compilation Semantics and Immediacy Tutorial-pg}{29}
+@xrdef{Execution Tokens Tutorial-title}{Execution Tokens}
+@xrdef{Execution Tokens Tutorial-snt}{Section@tie 3.29}
+@xrdef{Execution Tokens Tutorial-pg}{30}
+@xrdef{Exceptions Tutorial-title}{Exceptions}
+@xrdef{Exceptions Tutorial-snt}{Section@tie 3.30}
+@xrdef{Exceptions Tutorial-pg}{31}
+@xrdef{Defining Words Tutorial-title}{Defining Words}
+@xrdef{Defining Words Tutorial-snt}{Section@tie 3.31}
+@xrdef{Defining Words Tutorial-pg}{32}
+@xrdef{Arrays and Records Tutorial-title}{Arrays and Records}
+@xrdef{Arrays and Records Tutorial-snt}{Section@tie 3.32}
+@xrdef{POSTPONE Tutorial-title}{@code {POSTPONE}}
+@xrdef{POSTPONE Tutorial-snt}{Section@tie 3.33}
+@xrdef{Arrays and Records Tutorial-pg}{34}
+@xrdef{POSTPONE Tutorial-pg}{34}
+@xrdef{Literal Tutorial-title}{@code {Literal}}
+@xrdef{Literal Tutorial-snt}{Section@tie 3.34}
+@xrdef{Advanced macros Tutorial-title}{Advanced macros}
+@xrdef{Advanced macros Tutorial-snt}{Section@tie 3.35}
+@xrdef{Literal Tutorial-pg}{35}
+@xrdef{Advanced macros Tutorial-pg}{35}
+@xrdef{Compilation Tokens Tutorial-title}{Compilation Tokens}
+@xrdef{Compilation Tokens Tutorial-snt}{Section@tie 3.36}
+@xrdef{Compilation Tokens Tutorial-pg}{36}
+@xrdef{Wordlists and Search Order Tutorial-title}{Wordlists and Search Order}
+@xrdef{Wordlists and Search Order Tutorial-snt}{Section@tie 3.37}
+@xrdef{Wordlists and Search Order Tutorial-pg}{37}
+@xrdef{Introduction-title}{An Introduction to ANS Forth}
+@xrdef{Introduction-snt}{Chapter@tie 4}
+@xrdef{Introducing the Text Interpreter-title}{Introducing the Text Interpreter}
+@xrdef{Introducing the Text Interpreter-snt}{Section@tie 4.1}
+@xrdef{Introduction-pg}{39}
+@xrdef{Introducing the Text Interpreter-pg}{39}
+@xrdef{Stacks and Postfix notation-title}{Stacks, postfix notation and parameter passing}
+@xrdef{Stacks and Postfix notation-snt}{Section@tie 4.2}
+@xrdef{Stacks and Postfix notation-pg}{41}
+@xrdef{Your first definition-title}{Your first Forth definition}
+@xrdef{Your first definition-snt}{Section@tie 4.3}
+@xrdef{Your first definition-pg}{44}
+@xrdef{How does that work?-title}{How does that work?}
+@xrdef{How does that work?-snt}{Section@tie 4.4}
+@xrdef{How does that work?-pg}{45}
+@xrdef{Forth is written in Forth-title}{Forth is written in Forth}
+@xrdef{Forth is written in Forth-snt}{Section@tie 4.5}
+@xrdef{Forth is written in Forth-pg}{47}
+@xrdef{Review - elements of a Forth system-title}{Review - elements of a Forth system}
+@xrdef{Review - elements of a Forth system-snt}{Section@tie 4.6}
+@xrdef{Where to go next-title}{Where To Go Next}
+@xrdef{Where to go next-snt}{Section@tie 4.7}
+@xrdef{Review - elements of a Forth system-pg}{48}
+@xrdef{Where to go next-pg}{48}
+@xrdef{Exercises-title}{Exercises}
+@xrdef{Exercises-snt}{Section@tie 4.8}
+@xrdef{Exercises-pg}{49}
+@xrdef{Words-title}{Forth Words}
+@xrdef{Words-snt}{Chapter@tie 5}
+@xrdef{Notation-title}{Notation}
+@xrdef{Notation-snt}{Section@tie 5.1}
+@xrdef{Words-pg}{50}
+@xrdef{Notation-pg}{50}
+@xrdef{Case insensitivity-title}{Case insensitivity}
+@xrdef{Case insensitivity-snt}{Section@tie 5.2}
+@xrdef{Comments-title}{Comments}
+@xrdef{Comments-snt}{Section@tie 5.3}
+@xrdef{Case insensitivity-pg}{51}
+@xrdef{Comments-pg}{51}
+@xrdef{Boolean Flags-title}{Boolean Flags}
+@xrdef{Boolean Flags-snt}{Section@tie 5.4}
+@xrdef{Arithmetic-title}{Arithmetic}
+@xrdef{Arithmetic-snt}{Section@tie 5.5}
+@xrdef{Single precision-title}{Single precision}
+@xrdef{Single precision-snt}{Section@tie 5.5.1}
+@xrdef{Boolean Flags-pg}{52}
+@xrdef{Arithmetic-pg}{52}
+@xrdef{Single precision-pg}{52}
+@xrdef{Double precision-title}{Double precision}
+@xrdef{Double precision-snt}{Section@tie 5.5.2}
+@xrdef{Bitwise operations-title}{Bitwise operations}
+@xrdef{Bitwise operations-snt}{Section@tie 5.5.3}
+@xrdef{Double precision-pg}{53}
+@xrdef{Bitwise operations-pg}{53}
+@xrdef{Numeric comparison-title}{Numeric comparison}
+@xrdef{Numeric comparison-snt}{Section@tie 5.5.4}
+@xrdef{Numeric comparison-pg}{54}
+@xrdef{Mixed precision-title}{Mixed precision}
+@xrdef{Mixed precision-snt}{Section@tie 5.5.5}
+@xrdef{Floating Point-title}{Floating Point}
+@xrdef{Floating Point-snt}{Section@tie 5.5.6}
+@xrdef{Mixed precision-pg}{55}
+@xrdef{Floating Point-pg}{55}
+@xrdef{Stack Manipulation-title}{Stack Manipulation}
+@xrdef{Stack Manipulation-snt}{Section@tie 5.6}
+@xrdef{Data stack-title}{Data stack}
+@xrdef{Data stack-snt}{Section@tie 5.6.1}
+@xrdef{Floating point stack-title}{Floating point stack}
+@xrdef{Floating point stack-snt}{Section@tie 5.6.2}
+@xrdef{Stack Manipulation-pg}{58}
+@xrdef{Data stack-pg}{58}
+@xrdef{Return stack-title}{Return stack}
+@xrdef{Return stack-snt}{Section@tie 5.6.3}
+@xrdef{Locals stack-title}{Locals stack}
+@xrdef{Locals stack-snt}{Section@tie 5.6.4}
+@xrdef{Stack pointer manipulation-title}{Stack pointer manipulation}
+@xrdef{Stack pointer manipulation-snt}{Section@tie 5.6.5}
+@xrdef{Floating point stack-pg}{59}
+@xrdef{Return stack-pg}{59}
+@xrdef{Locals stack-pg}{59}
+@xrdef{Memory-title}{Memory}
+@xrdef{Memory-snt}{Section@tie 5.7}
+@xrdef{Memory model-title}{ANS Forth and Gforth memory models}
+@xrdef{Memory model-snt}{Section@tie 5.7.1}
+@xrdef{Dictionary allocation-title}{Dictionary allocation}
+@xrdef{Dictionary allocation-snt}{Section@tie 5.7.2}
+@xrdef{Stack pointer manipulation-pg}{60}
+@xrdef{Memory-pg}{60}
+@xrdef{Memory model-pg}{60}
+@xrdef{Dictionary allocation-pg}{61}
+@xrdef{Heap Allocation-title}{Heap allocation}
+@xrdef{Heap Allocation-snt}{Section@tie 5.7.3}
+@xrdef{Memory Access-title}{Memory Access}
+@xrdef{Memory Access-snt}{Section@tie 5.7.4}
+@xrdef{Heap Allocation-pg}{62}
+@xrdef{Memory Access-pg}{62}
+@xrdef{Address arithmetic-title}{Address arithmetic}
+@xrdef{Address arithmetic-snt}{Section@tie 5.7.5}
+@xrdef{Address arithmetic-pg}{63}
+@xrdef{Memory Blocks-title}{Memory Blocks}
+@xrdef{Memory Blocks-snt}{Section@tie 5.7.6}
+@xrdef{Memory Blocks-pg}{65}
+@xrdef{Control Structures-title}{Control Structures}
+@xrdef{Control Structures-snt}{Section@tie 5.8}
+@xrdef{Selection-title}{Selection}
+@xrdef{Selection-snt}{Section@tie 5.8.1}
+@xrdef{Control Structures-pg}{67}
+@xrdef{Selection-pg}{67}
+@xrdef{Simple Loops-title}{Simple Loops}
+@xrdef{Simple Loops-snt}{Section@tie 5.8.2}
+@xrdef{Counted Loops-title}{Counted Loops}
+@xrdef{Counted Loops-snt}{Section@tie 5.8.3}
+@xrdef{Simple Loops-pg}{68}
+@xrdef{Counted Loops-pg}{68}
+@xrdef{Arbitrary control structures-title}{Arbitrary control structures}
+@xrdef{Arbitrary control structures-snt}{Section@tie 5.8.4}
+@xrdef{Arbitrary control structures-pg}{70}
+@xrdef{Calls and returns-title}{Calls and returns}
+@xrdef{Calls and returns-snt}{Section@tie 5.8.5}
+@xrdef{Calls and returns-pg}{72}
+@xrdef{Exception Handling-title}{Exception Handling}
+@xrdef{Exception Handling-snt}{Section@tie 5.8.6}
+@xrdef{Exception Handling-pg}{73}
+@xrdef{Defining Words-title}{Defining Words}
+@xrdef{Defining Words-snt}{Section@tie 5.9}
+@xrdef{CREATE-title}{@code {CREATE}}
+@xrdef{CREATE-snt}{Section@tie 5.9.1}
+@xrdef{Defining Words-pg}{76}
+@xrdef{CREATE-pg}{76}
+@xrdef{Variables-title}{Variables}
+@xrdef{Variables-snt}{Section@tie 5.9.2}
+@xrdef{Variables-pg}{77}
+@xrdef{Constants-title}{Constants}
+@xrdef{Constants-snt}{Section@tie 5.9.3}
+@xrdef{Constants-pg}{78}
+@xrdef{Values-title}{Values}
+@xrdef{Values-snt}{Section@tie 5.9.4}
+@xrdef{Colon Definitions-title}{Colon Definitions}
+@xrdef{Colon Definitions-snt}{Section@tie 5.9.5}
+@xrdef{Anonymous Definitions-title}{Anonymous Definitions}
+@xrdef{Anonymous Definitions-snt}{Section@tie 5.9.6}
+@xrdef{Values-pg}{79}
+@xrdef{Colon Definitions-pg}{79}
+@xrdef{Anonymous Definitions-pg}{79}
+@xrdef{Supplying names-title}{Supplying the name of a defined word}
+@xrdef{Supplying names-snt}{Section@tie 5.9.7}
+@xrdef{User-defined Defining Words-title}{User-defined Defining Words}
+@xrdef{User-defined Defining Words-snt}{Section@tie 5.9.8}
+@xrdef{Supplying names-pg}{80}
+@xrdef{User-defined Defining Words-pg}{80}
+@xrdef{CREATE..DOES> applications-title}{Applications of @code {CREATE..DOES>}}
+@xrdef{CREATE..DOES> applications-snt}{Section@tie 5.9.8.1}
+@xrdef{CREATE..DOES> details-title}{The gory details of @code {CREATE..DOES>}}
+@xrdef{CREATE..DOES> details-snt}{Section@tie 5.9.8.2}
+@xrdef{CREATE..DOES> applications-pg}{83}
+@xrdef{Advanced does> usage example-title}{Advanced does> usage example}
+@xrdef{Advanced does> usage example-snt}{Section@tie 5.9.8.3}
+@xrdef{CREATE..DOES> details-pg}{84}
+@xrdef{Advanced does> usage example-pg}{84}
+@xrdef{Const-does>-title}{@code {Const-does>}}
+@xrdef{Const-does>-snt}{Section@tie 5.9.8.4}
+@xrdef{Deferred Words-title}{Deferred Words}
+@xrdef{Deferred Words-snt}{Section@tie 5.9.9}
+@xrdef{Const-does>-pg}{86}
+@xrdef{Deferred Words-pg}{87}
+@xrdef{Aliases-title}{Aliases}
+@xrdef{Aliases-snt}{Section@tie 5.9.10}
+@xrdef{Aliases-pg}{88}
+@xrdef{Interpretation and Compilation Semantics-title}{Interpretation and Compilation Semantics}
+@xrdef{Interpretation and Compilation Semantics-snt}{Section@tie 5.10}
+@xrdef{Combined words-title}{Combined Words}
+@xrdef{Combined words-snt}{Section@tie 5.10.1}
+@xrdef{Interpretation and Compilation Semantics-pg}{89}
+@xrdef{state-smartness-title}{Combined Words}
+@xrdef{state-smartness-snt}{}
+@xrdef{Combined words-pg}{90}
+@xrdef{state-smartness-pg}{90}
+@xrdef{Tokens for Words-title}{Tokens for Words}
+@xrdef{Tokens for Words-snt}{Section@tie 5.11}
+@xrdef{Execution token-title}{Execution token}
+@xrdef{Execution token-snt}{Section@tie 5.11.1}
+@xrdef{Tokens for Words-pg}{91}
+@xrdef{Execution token-pg}{91}
+@xrdef{Compilation token-title}{Compilation token}
+@xrdef{Compilation token-snt}{Section@tie 5.11.2}
+@xrdef{Compilation token-pg}{92}
+@xrdef{Name token-title}{Name token}
+@xrdef{Name token-snt}{Section@tie 5.11.3}
+@xrdef{Name token-pg}{93}
+@xrdef{Compiling words-title}{Compiling words}
+@xrdef{Compiling words-snt}{Section@tie 5.12}
+@xrdef{Literals-title}{Literals}
+@xrdef{Literals-snt}{Section@tie 5.12.1}
+@xrdef{Compiling words-pg}{94}
+@xrdef{Literals-pg}{94}
+@xrdef{Macros-title}{Macros}
+@xrdef{Macros-snt}{Section@tie 5.12.2}
+@xrdef{Macros-pg}{95}
+@xrdef{The Text Interpreter-title}{The Text Interpreter}
+@xrdef{The Text Interpreter-snt}{Section@tie 5.13}
+@xrdef{The Text Interpreter-pg}{97}
+@xrdef{Input Sources-title}{Input Sources}
+@xrdef{Input Sources-snt}{Section@tie 5.13.1}
+@xrdef{Input Sources-pg}{99}
+@xrdef{Number Conversion-title}{Number Conversion}
+@xrdef{Number Conversion-snt}{Section@tie 5.13.2}
+@xrdef{Number Conversion-pg}{100}
+@xrdef{Interpret/Compile states-title}{Interpret/Compile states}
+@xrdef{Interpret/Compile states-snt}{Section@tie 5.13.3}
+@xrdef{Interpreter Directives-title}{Interpreter Directives}
+@xrdef{Interpreter Directives-snt}{Section@tie 5.13.4}
+@xrdef{Interpret/Compile states-pg}{102}
+@xrdef{Interpreter Directives-pg}{102}
+@xrdef{The Input Stream-title}{The Input Stream}
+@xrdef{The Input Stream-snt}{Section@tie 5.14}
+@xrdef{The Input Stream-pg}{104}
+@xrdef{Word Lists-title}{Word Lists}
+@xrdef{Word Lists-snt}{Section@tie 5.15}
+@xrdef{Word Lists-pg}{105}
+@xrdef{Vocabularies-title}{Vocabularies}
+@xrdef{Vocabularies-snt}{Section@tie 5.15.1}
+@xrdef{Vocabularies-pg}{107}
+@xrdef{Why use word lists?-title}{Why use word lists?}
+@xrdef{Why use word lists?-snt}{Section@tie 5.15.2}
+@xrdef{Word list example-title}{Word list example}
+@xrdef{Word list example-snt}{Section@tie 5.15.3}
+@xrdef{Why use word lists?-pg}{108}
+@xrdef{Word list example-pg}{108}
+@xrdef{Environmental Queries-title}{Environmental Queries}
+@xrdef{Environmental Queries-snt}{Section@tie 5.16}
+@xrdef{Environmental Queries-pg}{109}
+@xrdef{Files-title}{Files}
+@xrdef{Files-snt}{Section@tie 5.17}
+@xrdef{Forth source files-title}{Forth source files}
+@xrdef{Forth source files-snt}{Section@tie 5.17.1}
+@xrdef{Files-pg}{110}
+@xrdef{Forth source files-pg}{110}
+@xrdef{General files-title}{General files}
+@xrdef{General files-snt}{Section@tie 5.17.2}
+@xrdef{General files-pg}{111}
+@xrdef{Redirection-title}{Redirection}
+@xrdef{Redirection-snt}{Section@tie 5.17.3}
+@xrdef{Search Paths-title}{Search Paths}
+@xrdef{Search Paths-snt}{Section@tie 5.17.4}
+@xrdef{Source Search Paths-title}{Source Search Paths}
+@xrdef{Source Search Paths-snt}{Section@tie 5.17.4.1}
+@xrdef{Redirection-pg}{113}
+@xrdef{Search Paths-pg}{113}
+@xrdef{Source Search Paths-pg}{113}
+@xrdef{General Search Paths-title}{General Search Paths}
+@xrdef{General Search Paths-snt}{Section@tie 5.17.4.2}
+@xrdef{Blocks-title}{Blocks}
+@xrdef{Blocks-snt}{Section@tie 5.18}
+@xrdef{General Search Paths-pg}{114}
+@xrdef{Blocks-pg}{114}
+@xrdef{Other I/O-title}{Other I/O}
+@xrdef{Other I/O-snt}{Section@tie 5.19}
+@xrdef{Simple numeric output-title}{Simple numeric output}
+@xrdef{Simple numeric output-snt}{Section@tie 5.19.1}
+@xrdef{Other I/O-pg}{118}
+@xrdef{Simple numeric output-pg}{118}
+@xrdef{Formatted numeric output-title}{Formatted numeric output}
+@xrdef{Formatted numeric output-snt}{Section@tie 5.19.2}
+@xrdef{Formatted numeric output-pg}{119}
+@xrdef{String Formats-title}{String Formats}
+@xrdef{String Formats-snt}{Section@tie 5.19.3}
+@xrdef{Displaying characters and strings-title}{Displaying characters and strings}
+@xrdef{Displaying characters and strings-snt}{Section@tie 5.19.4}
+@xrdef{String Formats-pg}{122}
+@xrdef{Displaying characters and strings-pg}{122}
+@xrdef{Terminal output-title}{Terminal output}
+@xrdef{Terminal output-snt}{Section@tie 5.19.5}
+@xrdef{Terminal output-pg}{124}
+@xrdef{Single-key input-title}{Single-key input}
+@xrdef{Single-key input-snt}{Section@tie 5.19.6}
+@xrdef{Single-key input-pg}{125}
+@xrdef{Line input and conversion-title}{Line input and conversion}
+@xrdef{Line input and conversion-snt}{Section@tie 5.19.7}
+@xrdef{Line input and conversion-pg}{127}
+@xrdef{Pipes-title}{Pipes}
+@xrdef{Pipes-snt}{Section@tie 5.19.8}
+@xrdef{Xchars and Unicode-title}{Xchars and Unicode}
+@xrdef{Xchars and Unicode-snt}{Section@tie 5.19.9}
+@xrdef{Pipes-pg}{128}
+@xrdef{Xchars and Unicode-pg}{128}
+@xrdef{OS command line arguments-title}{OS command line arguments}
+@xrdef{OS command line arguments-snt}{Section@tie 5.20}
+@xrdef{Locals-title}{Locals}
+@xrdef{Locals-snt}{Section@tie 5.21}
+@xrdef{OS command line arguments-pg}{130}
+@xrdef{Gforth locals-title}{Gforth locals}
+@xrdef{Gforth locals-snt}{Section@tie 5.21.1}
+@xrdef{Locals-pg}{131}
+@xrdef{Gforth locals-pg}{131}
+@xrdef{Where are locals visible by name?-title}{Where are locals visible by name?}
+@xrdef{Where are locals visible by name?-snt}{Section@tie 5.21.1.1}
+@xrdef{Where are locals visible by name?-pg}{132}
+@xrdef{How long do locals live?-title}{How long do locals live?}
+@xrdef{How long do locals live?-snt}{Section@tie 5.21.1.2}
+@xrdef{Locals programming style-title}{Locals programming style}
+@xrdef{Locals programming style-snt}{Section@tie 5.21.1.3}
+@xrdef{How long do locals live?-pg}{134}
+@xrdef{Locals programming style-pg}{134}
+@xrdef{Locals implementation-title}{Locals implementation}
+@xrdef{Locals implementation-snt}{Section@tie 5.21.1.4}
+@xrdef{Locals implementation-pg}{135}
+@xrdef{ANS Forth locals-title}{ANS Forth locals}
+@xrdef{ANS Forth locals-snt}{Section@tie 5.21.2}
+@xrdef{ANS Forth locals-pg}{137}
+@xrdef{Structures-title}{Structures}
+@xrdef{Structures-snt}{Section@tie 5.22}
+@xrdef{Why explicit structure support?-title}{Why explicit structure support?}
+@xrdef{Why explicit structure support?-snt}{Section@tie 5.22.1}
+@xrdef{Structures-pg}{138}
+@xrdef{Why explicit structure support?-pg}{138}
+@xrdef{Structure Usage-title}{Structure Usage}
+@xrdef{Structure Usage-snt}{Section@tie 5.22.2}
+@xrdef{Structure Usage-pg}{139}
+@xrdef{Structure Naming Convention-title}{Structure Naming Convention}
+@xrdef{Structure Naming Convention-snt}{Section@tie 5.22.3}
+@xrdef{Structure Implementation-title}{Structure Implementation}
+@xrdef{Structure Implementation-snt}{Section@tie 5.22.4}
+@xrdef{Structure Glossary-title}{Structure Glossary}
+@xrdef{Structure Glossary-snt}{Section@tie 5.22.5}
+@xrdef{Structure Naming Convention-pg}{141}
+@xrdef{Structure Implementation-pg}{141}
+@xrdef{Structure Glossary-pg}{141}
+@xrdef{Forth200x Structures-title}{Forth200x Structures}
+@xrdef{Forth200x Structures-snt}{Section@tie 5.22.6}
+@xrdef{Forth200x Structures-pg}{142}
+@xrdef{Object-oriented Forth-title}{Object-oriented Forth}
+@xrdef{Object-oriented Forth-snt}{Section@tie 5.23}
+@xrdef{Why object-oriented programming?-title}{Why object-oriented programming?}
+@xrdef{Why object-oriented programming?-snt}{Section@tie 5.23.1}
+@xrdef{Object-Oriented Terminology-title}{Object-Oriented Terminology}
+@xrdef{Object-Oriented Terminology-snt}{Section@tie 5.23.2}
+@xrdef{Object-oriented Forth-pg}{143}
+@xrdef{Why object-oriented programming?-pg}{143}
+@xrdef{Object-Oriented Terminology-pg}{143}
+@xrdef{Objects-title}{The @file {objects.fs} model}
+@xrdef{Objects-snt}{Section@tie 5.23.3}
+@xrdef{Properties of the Objects model-title}{Properties of the @file {objects.fs} model}
+@xrdef{Properties of the Objects model-snt}{Section@tie 5.23.3.1}
+@xrdef{Objects-pg}{144}
+@xrdef{Properties of the Objects model-pg}{144}
+@xrdef{Basic Objects Usage-title}{Basic @file {objects.fs} Usage}
+@xrdef{Basic Objects Usage-snt}{Section@tie 5.23.3.2}
+@xrdef{Basic Objects Usage-pg}{145}
+@xrdef{The Objects base class-title}{The @file {object.fs} base class}
+@xrdef{The Objects base class-snt}{Section@tie 5.23.3.3}
+@xrdef{Creating objects-title}{Creating objects}
+@xrdef{Creating objects-snt}{Section@tie 5.23.3.4}
+@xrdef{Object-Oriented Programming Style-title}{Object-Oriented Programming Style}
+@xrdef{Object-Oriented Programming Style-snt}{Section@tie 5.23.3.5}
+@xrdef{Class Binding-title}{Class Binding}
+@xrdef{Class Binding-snt}{Section@tie 5.23.3.6}
+@xrdef{The Objects base class-pg}{146}
+@xrdef{Creating objects-pg}{146}
+@xrdef{Object-Oriented Programming Style-pg}{146}
+@xrdef{Class Binding-pg}{146}
+@xrdef{Method conveniences-title}{Method conveniences}
+@xrdef{Method conveniences-snt}{Section@tie 5.23.3.7}
+@xrdef{Method conveniences-pg}{147}
+@xrdef{Classes and Scoping-title}{Classes and Scoping}
+@xrdef{Classes and Scoping-snt}{Section@tie 5.23.3.8}
+@xrdef{Dividing classes-title}{Dividing classes}
+@xrdef{Dividing classes-snt}{Section@tie 5.23.3.9}
+@xrdef{Classes and Scoping-pg}{148}
+@xrdef{Dividing classes-pg}{148}
+@xrdef{Object Interfaces-title}{Object Interfaces}
+@xrdef{Object Interfaces-snt}{Section@tie 5.23.3.10}
+@xrdef{Object Interfaces-pg}{149}
+@xrdef{Objects Implementation-title}{@file {objects.fs} Implementation}
+@xrdef{Objects Implementation-snt}{Section@tie 5.23.3.11}
+@xrdef{Objects Implementation-pg}{150}
+@xrdef{Objects Glossary-title}{@file {objects.fs} Glossary}
+@xrdef{Objects Glossary-snt}{Section@tie 5.23.3.12}
+@xrdef{Objects Glossary-pg}{151}
+@xrdef{OOF-title}{The @file {oof.fs} model}
+@xrdef{OOF-snt}{Section@tie 5.23.4}
+@xrdef{Properties of the OOF model-title}{Properties of the @file {oof.fs} model}
+@xrdef{Properties of the OOF model-snt}{Section@tie 5.23.4.1}
+@xrdef{OOF-pg}{154}
+@xrdef{Properties of the OOF model-pg}{154}
+@xrdef{Basic OOF Usage-title}{Basic @file {oof.fs} Usage}
+@xrdef{Basic OOF Usage-snt}{Section@tie 5.23.4.2}
+@xrdef{Basic OOF Usage-pg}{155}
+@xrdef{The OOF base class-title}{The @file {oof.fs} base class}
+@xrdef{The OOF base class-snt}{Section@tie 5.23.4.3}
+@xrdef{The OOF base class-pg}{156}
+@xrdef{Class Declaration-title}{Class Declaration}
+@xrdef{Class Declaration-snt}{Section@tie 5.23.4.4}
+@xrdef{Class Implementation-title}{Class Implementation}
+@xrdef{Class Implementation-snt}{Section@tie 5.23.4.5}
+@xrdef{Mini-OOF-title}{The @file {mini-oof.fs} model}
+@xrdef{Mini-OOF-snt}{Section@tie 5.23.5}
+@xrdef{Basic Mini-OOF Usage-title}{Basic @file {mini-oof.fs} Usage}
+@xrdef{Basic Mini-OOF Usage-snt}{Section@tie 5.23.5.1}
+@xrdef{Class Declaration-pg}{157}
+@xrdef{Class Implementation-pg}{157}
+@xrdef{Mini-OOF-pg}{157}
+@xrdef{Mini-OOF Example-title}{Mini-OOF Example}
+@xrdef{Mini-OOF Example-snt}{Section@tie 5.23.5.2}
+@xrdef{Basic Mini-OOF Usage-pg}{158}
+@xrdef{Mini-OOF Example-pg}{158}
+@xrdef{Mini-OOF Implementation-title}{@file {mini-oof.fs} Implementation}
+@xrdef{Mini-OOF Implementation-snt}{Section@tie 5.23.5.3}
+@xrdef{Mini-OOF Implementation-pg}{159}
+@xrdef{Comparison with other object models-title}{Comparison with other object models}
+@xrdef{Comparison with other object models-snt}{Section@tie 5.23.6}
+@xrdef{Comparison with other object models-pg}{161}
+@xrdef{Programming Tools-title}{Programming Tools}
+@xrdef{Programming Tools-snt}{Section@tie 5.24}
+@xrdef{Examining-title}{Examining data and code}
+@xrdef{Examining-snt}{Section@tie 5.24.1}
+@xrdef{Programming Tools-pg}{162}
+@xrdef{Examining-pg}{162}
+@xrdef{Forgetting words-title}{Forgetting words}
+@xrdef{Forgetting words-snt}{Section@tie 5.24.2}
+@xrdef{Debugging-title}{Debugging}
+@xrdef{Debugging-snt}{Section@tie 5.24.3}
+@xrdef{Forgetting words-pg}{163}
+@xrdef{Debugging-pg}{163}
+@xrdef{Assertions-title}{Assertions}
+@xrdef{Assertions-snt}{Section@tie 5.24.4}
+@xrdef{Assertions-pg}{164}
+@xrdef{Singlestep Debugger-title}{Singlestep Debugger}
+@xrdef{Singlestep Debugger-snt}{Section@tie 5.24.5}
+@xrdef{Singlestep Debugger-pg}{165}
+@xrdef{C Interface-title}{C Interface}
+@xrdef{C Interface-snt}{Section@tie 5.25}
+@xrdef{Calling C Functions-title}{Calling C functions}
+@xrdef{Calling C Functions-snt}{Section@tie 5.25.1}
+@xrdef{C Interface-pg}{166}
+@xrdef{Calling C Functions-pg}{166}
+@xrdef{Declaring C Functions-title}{Declaring C Functions}
+@xrdef{Declaring C Functions-snt}{Section@tie 5.25.2}
+@xrdef{Declaring C Functions-pg}{167}
+@xrdef{Calling C function pointers-title}{Calling C function pointers from Forth}
+@xrdef{Calling C function pointers-snt}{Section@tie 5.25.3}
+@xrdef{Calling C function pointers-pg}{168}
+@xrdef{Defining library interfaces-title}{Defining library interfaces}
+@xrdef{Defining library interfaces-snt}{Section@tie 5.25.4}
+@xrdef{Declaring OS-level libraries-title}{Declaring OS-level libraries}
+@xrdef{Declaring OS-level libraries-snt}{Section@tie 5.25.5}
+@xrdef{Defining library interfaces-pg}{169}
+@xrdef{Declaring OS-level libraries-pg}{169}
+@xrdef{Callbacks-title}{Callbacks}
+@xrdef{Callbacks-snt}{Section@tie 5.25.6}
+@xrdef{C interface internals-title}{How the C interface works}
+@xrdef{C interface internals-snt}{Section@tie 5.25.7}
+@xrdef{Low-Level C Interface Words-title}{Low-Level C Interface Words}
+@xrdef{Low-Level C Interface Words-snt}{Section@tie 5.25.8}
+@xrdef{Assembler and Code Words-title}{Assembler and Code Words}
+@xrdef{Assembler and Code Words-snt}{Section@tie 5.26}
+@xrdef{Code and ;code-title}{@code {Code} and @code {;code}}
+@xrdef{Code and ;code-snt}{Section@tie 5.26.1}
+@xrdef{Callbacks-pg}{170}
+@xrdef{C interface internals-pg}{170}
+@xrdef{Low-Level C Interface Words-pg}{170}
+@xrdef{Assembler and Code Words-pg}{171}
+@xrdef{Code and ;code-pg}{171}
+@xrdef{Common Assembler-title}{Common Assembler}
+@xrdef{Common Assembler-snt}{Section@tie 5.26.2}
+@xrdef{Common Assembler-pg}{172}
+@xrdef{Common Disassembler-title}{Common Disassembler}
+@xrdef{Common Disassembler-snt}{Section@tie 5.26.3}
+@xrdef{386 Assembler-title}{386 Assembler}
+@xrdef{386 Assembler-snt}{Section@tie 5.26.4}
+@xrdef{Common Disassembler-pg}{173}
+@xrdef{386 Assembler-pg}{173}
+@xrdef{Alpha Assembler-title}{Alpha Assembler}
+@xrdef{Alpha Assembler-snt}{Section@tie 5.26.5}
+@xrdef{MIPS assembler-title}{MIPS assembler}
+@xrdef{MIPS assembler-snt}{Section@tie 5.26.6}
+@xrdef{Alpha Assembler-pg}{175}
+@xrdef{MIPS assembler-pg}{175}
+@xrdef{PowerPC assembler-title}{PowerPC assembler}
+@xrdef{PowerPC assembler-snt}{Section@tie 5.26.7}
+@xrdef{ARM Assembler-title}{ARM Assembler}
+@xrdef{ARM Assembler-snt}{Section@tie 5.26.8}
+@xrdef{PowerPC assembler-pg}{176}
+@xrdef{ARM Assembler-pg}{176}
+@xrdef{Other assemblers-title}{Other assemblers}
+@xrdef{Other assemblers-snt}{Section@tie 5.26.9}
+@xrdef{Threading Words-title}{Threading Words}
+@xrdef{Threading Words-snt}{Section@tie 5.27}
+@xrdef{Other assemblers-pg}{178}
+@xrdef{Threading Words-pg}{178}
+@xrdef{Passing Commands to the OS-title}{Passing Commands to the Operating System}
+@xrdef{Passing Commands to the OS-snt}{Section@tie 5.28}
+@xrdef{Keeping track of Time-title}{Keeping track of Time}
+@xrdef{Keeping track of Time-snt}{Section@tie 5.29}
+@xrdef{Miscellaneous Words-title}{Miscellaneous Words}
+@xrdef{Miscellaneous Words-snt}{Section@tie 5.30}
+@xrdef{Passing Commands to the OS-pg}{180}
+@xrdef{Keeping track of Time-pg}{180}
+@xrdef{Miscellaneous Words-pg}{181}
+@xrdef{Error messages-title}{Error messages}
+@xrdef{Error messages-snt}{Chapter@tie 6}
+@xrdef{Error messages-pg}{182}
+@xrdef{Tools-title}{Tools}
+@xrdef{Tools-snt}{Chapter@tie 7}
+@xrdef{ANS Report-title}{@file {ans-report.fs}: Report the words used, sorted by wordset}
+@xrdef{ANS Report-snt}{Section@tie 7.1}
+@xrdef{Stack depth changes-title}{Stack depth changes during interpretation}
+@xrdef{Stack depth changes-snt}{Section@tie 7.2}
+@xrdef{Tools-pg}{183}
+@xrdef{ANS Report-pg}{183}
+@xrdef{Stack depth changes-pg}{183}
+@xrdef{ANS conformance-title}{ANS conformance}
+@xrdef{ANS conformance-snt}{Chapter@tie 8}
+@xrdef{The Core Words-title}{The Core Words}
+@xrdef{The Core Words-snt}{Section@tie 8.1}
+@xrdef{core-idef-title}{Implementation Defined Options}
+@xrdef{core-idef-snt}{Section@tie 8.1.1}
+@xrdef{ANS conformance-pg}{185}
+@xrdef{The Core Words-pg}{186}
+@xrdef{core-idef-pg}{186}
+@xrdef{core-ambcond-title}{Ambiguous conditions}
+@xrdef{core-ambcond-snt}{Section@tie 8.1.2}
+@xrdef{core-ambcond-pg}{189}
+@xrdef{core-other-title}{Other system documentation}
+@xrdef{core-other-snt}{Section@tie 8.1.3}
+@xrdef{The optional Block word set-title}{The optional Block word set}
+@xrdef{The optional Block word set-snt}{Section@tie 8.2}
+@xrdef{block-idef-title}{Implementation Defined Options}
+@xrdef{block-idef-snt}{Section@tie 8.2.1}
+@xrdef{block-ambcond-title}{Ambiguous conditions}
+@xrdef{block-ambcond-snt}{Section@tie 8.2.2}
+@xrdef{core-other-pg}{192}
+@xrdef{The optional Block word set-pg}{192}
+@xrdef{block-idef-pg}{192}
+@xrdef{block-ambcond-pg}{192}
+@xrdef{block-other-title}{Other system documentation}
+@xrdef{block-other-snt}{Section@tie 8.2.3}
+@xrdef{The optional Double Number word set-title}{The optional Double Number word set}
+@xrdef{The optional Double Number word set-snt}{Section@tie 8.3}
+@xrdef{double-ambcond-title}{Ambiguous conditions}
+@xrdef{double-ambcond-snt}{Section@tie 8.3.1}
+@xrdef{The optional Exception word set-title}{The optional Exception word set}
+@xrdef{The optional Exception word set-snt}{Section@tie 8.4}
+@xrdef{exception-idef-title}{Implementation Defined Options}
+@xrdef{exception-idef-snt}{Section@tie 8.4.1}
+@xrdef{The optional Facility word set-title}{The optional Facility word set}
+@xrdef{The optional Facility word set-snt}{Section@tie 8.5}
+@xrdef{facility-idef-title}{Implementation Defined Options}
+@xrdef{facility-idef-snt}{Section@tie 8.5.1}
+@xrdef{block-other-pg}{193}
+@xrdef{The optional Double Number word set-pg}{193}
+@xrdef{double-ambcond-pg}{193}
+@xrdef{The optional Exception word set-pg}{193}
+@xrdef{exception-idef-pg}{193}
+@xrdef{The optional Facility word set-pg}{193}
+@xrdef{facility-idef-pg}{193}
+@xrdef{facility-ambcond-title}{Ambiguous conditions}
+@xrdef{facility-ambcond-snt}{Section@tie 8.5.2}
+@xrdef{The optional File-Access word set-title}{The optional File-Access word set}
+@xrdef{The optional File-Access word set-snt}{Section@tie 8.6}
+@xrdef{file-idef-title}{Implementation Defined Options}
+@xrdef{file-idef-snt}{Section@tie 8.6.1}
+@xrdef{facility-ambcond-pg}{194}
+@xrdef{The optional File-Access word set-pg}{194}
+@xrdef{file-idef-pg}{194}
+@xrdef{file-ambcond-title}{Ambiguous conditions}
+@xrdef{file-ambcond-snt}{Section@tie 8.6.2}
+@xrdef{The optional Floating-Point word set-title}{The optional Floating-Point word set}
+@xrdef{The optional Floating-Point word set-snt}{Section@tie 8.7}
+@xrdef{floating-idef-title}{Implementation Defined Options}
+@xrdef{floating-idef-snt}{Section@tie 8.7.1}
+@xrdef{file-ambcond-pg}{195}
+@xrdef{The optional Floating-Point word set-pg}{195}
+@xrdef{floating-idef-pg}{195}
+@xrdef{floating-ambcond-title}{Ambiguous conditions}
+@xrdef{floating-ambcond-snt}{Section@tie 8.7.2}
+@xrdef{floating-ambcond-pg}{196}
+@xrdef{The optional Locals word set-title}{The optional Locals word set}
+@xrdef{The optional Locals word set-snt}{Section@tie 8.8}
+@xrdef{locals-idef-title}{Implementation Defined Options}
+@xrdef{locals-idef-snt}{Section@tie 8.8.1}
+@xrdef{locals-ambcond-title}{Ambiguous conditions}
+@xrdef{locals-ambcond-snt}{Section@tie 8.8.2}
+@xrdef{The optional Memory-Allocation word set-title}{The optional Memory-Allocation word set}
+@xrdef{The optional Memory-Allocation word set-snt}{Section@tie 8.9}
+@xrdef{memory-idef-title}{Implementation Defined Options}
+@xrdef{memory-idef-snt}{Section@tie 8.9.1}
+@xrdef{The optional Programming-Tools word set-title}{The optional Programming-Tools word set}
+@xrdef{The optional Programming-Tools word set-snt}{Section@tie 8.10}
+@xrdef{The optional Locals word set-pg}{197}
+@xrdef{locals-idef-pg}{197}
+@xrdef{locals-ambcond-pg}{197}
+@xrdef{The optional Memory-Allocation word set-pg}{197}
+@xrdef{memory-idef-pg}{197}
+@xrdef{programming-idef-title}{Implementation Defined Options}
+@xrdef{programming-idef-snt}{Section@tie 8.10.1}
+@xrdef{programming-ambcond-title}{Ambiguous conditions}
+@xrdef{programming-ambcond-snt}{Section@tie 8.10.2}
+@xrdef{The optional Search-Order word set-title}{The optional Search-Order word set}
+@xrdef{The optional Search-Order word set-snt}{Section@tie 8.11}
+@xrdef{search-idef-title}{Implementation Defined Options}
+@xrdef{search-idef-snt}{Section@tie 8.11.1}
+@xrdef{The optional Programming-Tools word set-pg}{198}
+@xrdef{programming-idef-pg}{198}
+@xrdef{programming-ambcond-pg}{198}
+@xrdef{The optional Search-Order word set-pg}{198}
+@xrdef{search-idef-pg}{198}
+@xrdef{search-ambcond-title}{Ambiguous conditions}
+@xrdef{search-ambcond-snt}{Section@tie 8.11.2}
+@xrdef{search-ambcond-pg}{199}
+@xrdef{Standard vs Extensions-title}{Should I use Gforth extensions?}
+@xrdef{Standard vs Extensions-snt}{Chapter@tie 9}
+@xrdef{Standard vs Extensions-pg}{200}
+@xrdef{Model-title}{Model}
+@xrdef{Model-snt}{Chapter@tie 10}
+@xrdef{Model-pg}{201}
+@xrdef{Integrating Gforth-title}{Integrating Gforth into C programs}
+@xrdef{Integrating Gforth-snt}{Chapter@tie 11}
+@xrdef{Integrating Gforth-pg}{202}
+@xrdef{Emacs and Gforth-title}{Emacs and Gforth}
+@xrdef{Emacs and Gforth-snt}{Chapter@tie 12}
+@xrdef{Installing gforth.el-title}{Installing gforth.el}
+@xrdef{Installing gforth.el-snt}{Section@tie 12.1}
+@xrdef{Emacs Tags-title}{Emacs Tags}
+@xrdef{Emacs Tags-snt}{Section@tie 12.2}
+@xrdef{Emacs and Gforth-pg}{203}
+@xrdef{Installing gforth.el-pg}{203}
+@xrdef{Emacs Tags-pg}{203}
+@xrdef{Hilighting-title}{Hilighting}
+@xrdef{Hilighting-snt}{Section@tie 12.3}
+@xrdef{Auto-Indentation-title}{Auto-Indentation}
+@xrdef{Auto-Indentation-snt}{Section@tie 12.4}
+@xrdef{Hilighting-pg}{204}
+@xrdef{Auto-Indentation-pg}{204}
+@xrdef{Blocks Files-title}{Blocks Files}
+@xrdef{Blocks Files-snt}{Section@tie 12.5}
+@xrdef{Blocks Files-pg}{205}
+@xrdef{Image Files-title}{Image Files}
+@xrdef{Image Files-snt}{Chapter@tie 13}
+@xrdef{Image Licensing Issues-title}{Image Licensing Issues}
+@xrdef{Image Licensing Issues-snt}{Section@tie 13.1}
+@xrdef{Image File Background-title}{Image File Background}
+@xrdef{Image File Background-snt}{Section@tie 13.2}
+@xrdef{Image Files-pg}{206}
+@xrdef{Image Licensing Issues-pg}{206}
+@xrdef{Image File Background-pg}{206}
+@xrdef{Non-Relocatable Image Files-title}{Non-Relocatable Image Files}
+@xrdef{Non-Relocatable Image Files-snt}{Section@tie 13.3}
+@xrdef{Data-Relocatable Image Files-title}{Data-Relocatable Image Files}
+@xrdef{Data-Relocatable Image Files-snt}{Section@tie 13.4}
+@xrdef{Fully Relocatable Image Files-title}{Fully Relocatable Image Files}
+@xrdef{Fully Relocatable Image Files-snt}{Section@tie 13.5}
+@xrdef{Non-Relocatable Image Files-pg}{207}
+@xrdef{Data-Relocatable Image Files-pg}{207}
+@xrdef{gforthmi-title}{@file {gforthmi}}
+@xrdef{gforthmi-snt}{Section@tie 13.5.1}
+@xrdef{cross.fs-title}{@file {cross.fs}}
+@xrdef{cross.fs-snt}{Section@tie 13.5.2}
+@xrdef{Fully Relocatable Image Files-pg}{208}
+@xrdef{gforthmi-pg}{208}
+@xrdef{cross.fs-pg}{208}
+@xrdef{Stack and Dictionary Sizes-title}{Stack and Dictionary Sizes}
+@xrdef{Stack and Dictionary Sizes-snt}{Section@tie 13.6}
+@xrdef{Running Image Files-title}{Running Image Files}
+@xrdef{Running Image Files-snt}{Section@tie 13.7}
+@xrdef{Stack and Dictionary Sizes-pg}{209}
+@xrdef{Running Image Files-pg}{209}
+@xrdef{Modifying the Startup Sequence-title}{Modifying the Startup Sequence}
+@xrdef{Modifying the Startup Sequence-snt}{Section@tie 13.8}
+@xrdef{Modifying the Startup Sequence-pg}{210}
+@xrdef{Engine-title}{Engine}
+@xrdef{Engine-snt}{Chapter@tie 14}
+@xrdef{Portability-title}{Portability}
+@xrdef{Portability-snt}{Section@tie 14.1}
+@xrdef{Threading-title}{Threading}
+@xrdef{Threading-snt}{Section@tie 14.2}
+@xrdef{Engine-pg}{211}
+@xrdef{Portability-pg}{211}
+@xrdef{Scheduling-title}{Scheduling}
+@xrdef{Scheduling-snt}{Section@tie 14.2.1}
+@xrdef{Threading-pg}{212}
+@xrdef{Scheduling-pg}{212}
+@xrdef{Direct or Indirect Threaded?-title}{Direct or Indirect Threaded?}
+@xrdef{Direct or Indirect Threaded?-snt}{Section@tie 14.2.2}
+@xrdef{Dynamic Superinstructions-title}{Dynamic Superinstructions}
+@xrdef{Dynamic Superinstructions-snt}{Section@tie 14.2.3}
+@xrdef{Direct or Indirect Threaded?-pg}{213}
+@xrdef{Dynamic Superinstructions-pg}{213}
+@xrdef{DOES>-title}{DOES>}
+@xrdef{DOES>-snt}{Section@tie 14.2.4}
+@xrdef{Primitives-title}{Primitives}
+@xrdef{Primitives-snt}{Section@tie 14.3}
+@xrdef{Automatic Generation-title}{Automatic Generation}
+@xrdef{Automatic Generation-snt}{Section@tie 14.3.1}
+@xrdef{DOES>-pg}{215}
+@xrdef{Primitives-pg}{215}
+@xrdef{Automatic Generation-pg}{215}
+@xrdef{TOS Optimization-title}{TOS Optimization}
+@xrdef{TOS Optimization-snt}{Section@tie 14.3.2}
+@xrdef{Produced code-title}{Produced code}
+@xrdef{Produced code-snt}{Section@tie 14.3.3}
+@xrdef{Performance-title}{Performance}
+@xrdef{Performance-snt}{Section@tie 14.4}
+@xrdef{TOS Optimization-pg}{217}
+@xrdef{Produced code-pg}{217}
+@xrdef{Performance-pg}{217}
+@xrdef{Cross Compiler-title}{Cross Compiler}
+@xrdef{Cross Compiler-snt}{Chapter@tie 15}
+@xrdef{Using the Cross Compiler-title}{Using the Cross Compiler}
+@xrdef{Using the Cross Compiler-snt}{Section@tie 15.1}
+@xrdef{Cross Compiler-pg}{220}
+@xrdef{Using the Cross Compiler-pg}{220}
+@xrdef{How the Cross Compiler Works-title}{How the Cross Compiler Works}
+@xrdef{How the Cross Compiler Works-snt}{Section@tie 15.2}
+@xrdef{How the Cross Compiler Works-pg}{222}
+@xrdef{Bugs-title}{Bugs}
+@xrdef{Bugs-snt}{Appendix@tie @char65{}}
+@xrdef{Bugs-pg}{223}
+@xrdef{Origin-title}{Authors and Ancestors of Gforth}
+@xrdef{Origin-snt}{Appendix@tie @char66{}}
+@xrdef{Origin-pg}{224}
+@xrdef{Forth-related information-title}{Other Forth-related information}
+@xrdef{Forth-related information-snt}{Appendix@tie @char67{}}
+@xrdef{Forth-related information-pg}{225}
+@xrdef{Licenses-title}{Licenses}
+@xrdef{Licenses-snt}{Appendix@tie @char68{}}
+@xrdef{GNU Free Documentation License-title}{GNU Free Documentation License}
+@xrdef{GNU Free Documentation License-snt}{Section@tie @char68.1}
+@xrdef{Licenses-pg}{226}
+@xrdef{GNU Free Documentation License-pg}{226}
+@xrdef{Copying-title}{GNU GENERAL PUBLIC LICENSE}
+@xrdef{Copying-snt}{Section@tie @char68.2}
+@xrdef{Copying-pg}{232}
+@xrdef{Word Index-title}{Word Index}
+@xrdef{Word Index-snt}{}
+@xrdef{Word Index-pg}{244}
+@xrdef{Concept Index-title}{Concept and Word Index}
+@xrdef{Concept Index-snt}{}
+@xrdef{Concept Index-pg}{254}

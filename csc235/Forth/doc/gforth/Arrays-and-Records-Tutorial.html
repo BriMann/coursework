@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Arrays and Records Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Arrays and Records Tutorial (Gforth Manual)">
+<meta name="keywords" content="Arrays and Records Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="POSTPONE-Tutorial.html" rel="next" title="POSTPONE Tutorial">
+<link href="Defining-Words-Tutorial.html" rel="prev" title="Defining Words Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Arrays-and-Records-Tutorial"></span><div class="header">
+<p>
+Next: <a href="POSTPONE-Tutorial.html" accesskey="n" rel="next">POSTPONE Tutorial</a>, Previous: <a href="Defining-Words-Tutorial.html" accesskey="p" rel="prev">Defining Words Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Arrays-and-Records"></span><h3 class="section">3.32 Arrays and Records</h3>
+<span id="index-arrays-tutorial"></span>
+<span id="index-records-tutorial"></span>
+<span id="index-structs-tutorial"></span>
+
+<p>Forth has no standard words for defining data structures such as arrays
+and records (structs in C terminology), but you can build them yourself
+based on address arithmetic.  You can also define words for defining
+arrays and records (see <a href="Defining-Words-Tutorial.html">Defining Words</a>).
+</p>
+<p>One of the first projects a Forth newcomer sets out upon when learning
+about defining words is an array defining word (possibly for
+n-dimensional arrays).  Go ahead and do it, I did it, too; you will
+learn something from it.  However, don&rsquo;t be disappointed when you later
+learn that you have little use for these words (inappropriate use would
+be even worse).  I have not found a set of useful array words yet;
+the needs are just too diverse, and named, global arrays (the result of
+naive use of defining words) are often not flexible enough (e.g.,
+consider how to pass them as parameters).  Another such project is a set
+of words to help dealing with strings.
+</p>
+<p>On the other hand, there is a useful set of record words, and it has
+been defined in <samp>compat/struct.fs</samp>; these words are predefined in
+Gforth.  They are explained in depth elsewhere in this manual (see
+see <a href="Structures.html">Structures</a>).  The <code>simple-field</code> example above is
+simplified variant of fields in this package.
+</p>
+
+
+
+
+</body>
+</html>

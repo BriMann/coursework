@@ -1,0 +1,38 @@
+]0;~/csc235/Forth[01;34m~/csc235/Forth[00m
+$ gforth
+bash: gforth: command not found
+]0;~/csc235/Forth[01;34m~/csc235/Forth[00m
+$ ./gforth
+Gforth 0.7.3, Copyright (C) 1995-2008 Free Software Foundation, Inc.
+Gforth comes with ABSOLUTELY NO WARRANTY; for details type `license'
+Type `bye' to exit
+aaa a a ba ba b a b a b 2a b 2a b 2da b 2da b 2dua b 2dua b 2dupa b 2dupa b 2dup 
+:1: Undefined word
+>>>a<<< b 2dup
+Backtrace:
+$7F52228F5A08 throw 
+$7F522290BC90 no.extensions 
+$7F52228F5CC8 interpreter-notfound1 
+333 3 3 43 43 4 3 4 3 4 23 4 23 4 2d3 4 2d3 4 2du3 4 2du3 4 2dup3 4 2dup3 4 2dup  ok
+...s.s.s <4> 3 4 3 4  ok
+222d2d2dr2dr2dro2dro2drop2drop2drop  ok
+111=1=1= 
+:5: Undefined word
+>>>1=<<<
+Backtrace:
+$7F52228F5A08 throw 
+$7F522290BC90 no.extensions 
+$7F52228F5CC8 interpreter-notfound1 
+111 1 1 =1 =1 = 
+:6: Stack underflow
+1 >>>=<<<
+Backtrace:
+...s.s.s <0>  ok
+333 3 3 43 43 4 3 4 3 4 53 4 53 4 5 3 4 5 3 4 5 a3 4 5 a3 4 5 a 
+:8: Undefined word
+3 4 5 >>>a<<<
+Backtrace:
+$7F52228F5A08 throw 
+$7F522290BC90 no.extensions 
+$7F52228F5CC8 interpreter-notfound1 
+...s.s.s <0>  ok

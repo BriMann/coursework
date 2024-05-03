@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Single precision (Gforth Manual)</title>
+
+<meta name="description" content="Single precision (Gforth Manual)">
+<meta name="keywords" content="Single precision (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Arithmetic.html" rel="up" title="Arithmetic">
+<link href="Double-precision.html" rel="next" title="Double precision">
+<link href="Arithmetic.html" rel="prev" title="Arithmetic">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Single-precision"></span><div class="header">
+<p>
+Next: <a href="Double-precision.html" accesskey="n" rel="next">Double precision</a>, Previous: <a href="Arithmetic.html" accesskey="p" rel="prev">Arithmetic</a>, Up: <a href="Arithmetic.html" accesskey="u" rel="up">Arithmetic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Single-precision-1"></span><h4 class="subsection">5.5.1 Single precision</h4>
+<span id="index-single-precision-arithmetic-words"></span>
+
+
+<p>By default, numbers in Forth are single-precision integers that are one
+cell in size. They can be signed or unsigned, depending upon how you
+treat them. For the rules used by the text interpreter for recognising
+single-precision integers see <a href="Number-Conversion.html">Number Conversion</a>.
+</p>
+<p>These words are all defined for signed operands, but some of them also
+work for unsigned numbers: <code>+</code>, <code>1+</code>, <code>-</code>, <code>1-</code>,
+<code>*</code>.
+</p>
+<span id="index-_002b--n1-n2-_002d_002d-n--core"></span>
+<span id="index-_002b"></span>
+<span id="index-_002b-1"></span>
+<div class="format">
+<pre class="format"><code>+</code>       <i>n1 n2 &ndash; n </i>       core       &ldquo;plus&rdquo;
+</pre></div>
+
+<span id="index-1_002b--n1-_002d_002d-n2--core"></span>
+<span id="index-1_002b"></span>
+<span id="index-1_002b-1"></span>
+<div class="format">
+<pre class="format"><code>1+</code>       <i>n1 &ndash; n2 </i>       core       &ldquo;one-plus&rdquo;
+</pre></div>
+
+<span id="index-under_002b--n1-n2-n3-_002d_002d-n-n2--gforth"></span>
+<span id="index-under_002b"></span>
+<span id="index-under_002b-1"></span>
+<div class="format">
+<pre class="format"><code>under+</code>       <i>n1 n2 n3 &ndash; n n2 </i>       gforth       &ldquo;under-plus&rdquo;
+</pre></div>
+<p>add <i>n3</i> to <i>n1</i> (giving <i>n</i>)
+</p>
+<span id="index-_002d--n1-n2-_002d_002d-n--core"></span>
+<span id="index-_002d"></span>
+<span id="index-_002d-1"></span>
+<div class="format">
+<pre class="format"><code>-</code>       <i>n1 n2 &ndash; n </i>       core       &ldquo;minus&rdquo;
+</pre></div>
+
+<span id="index-1_002d--n1-_002d_002d-n2--core"></span>
+<span id="index-1_002d"></span>
+<span id="index-1_002d-1"></span>
+<div class="format">
+<pre class="format"><code>1-</code>       <i>n1 &ndash; n2 </i>       core       &ldquo;one-minus&rdquo;
+</pre></div>
+
+<span id="index-_002a--n1-n2-_002d_002d-n--core"></span>
+<span id="index-_002a"></span>
+<span id="index-_002a-1"></span>
+<div class="format">
+<pre class="format"><code>*</code>       <i>n1 n2 &ndash; n </i>       core       &ldquo;star&rdquo;
+</pre></div>
+
+<span id="index-_002f--n1-n2-_002d_002d-n--core"></span>
+<span id="index-_002f"></span>
+<span id="index-_002f-1"></span>
+<div class="format">
+<pre class="format"><code>/</code>       <i>n1 n2 &ndash; n </i>       core       &ldquo;slash&rdquo;
+</pre></div>
+
+<span id="index-mod--n1-n2-_002d_002d-n--core"></span>
+<span id="index-mod"></span>
+<span id="index-mod-1"></span>
+<div class="format">
+<pre class="format"><code>mod</code>       <i>n1 n2 &ndash; n </i>       core       &ldquo;mod&rdquo;
+</pre></div>
+
+<span id="index-_002fmod--n1-n2-_002d_002d-n3-n4--core"></span>
+<span id="index-_002fmod"></span>
+<span id="index-_002fmod-1"></span>
+<div class="format">
+<pre class="format"><code>/mod</code>       <i>n1 n2 &ndash; n3 n4 </i>       core       &ldquo;slash-mod&rdquo;
+</pre></div>
+
+<span id="index-negate--n1-_002d_002d-n2--core"></span>
+<span id="index-negate"></span>
+<span id="index-negate-1"></span>
+<div class="format">
+<pre class="format"><code>negate</code>       <i>n1 &ndash; n2 </i>       core       &ldquo;negate&rdquo;
+</pre></div>
+
+<span id="index-abs--n-_002d_002d-u--core"></span>
+<span id="index-abs"></span>
+<span id="index-abs-1"></span>
+<div class="format">
+<pre class="format"><code>abs</code>       <i>n &ndash; u </i>       core       &ldquo;abs&rdquo;
+</pre></div>
+
+<span id="index-min--n1-n2-_002d_002d-n--core"></span>
+<span id="index-min"></span>
+<span id="index-min-1"></span>
+<div class="format">
+<pre class="format"><code>min</code>       <i>n1 n2 &ndash; n </i>       core       &ldquo;min&rdquo;
+</pre></div>
+
+<span id="index-max--n1-n2-_002d_002d-n--core"></span>
+<span id="index-max"></span>
+<span id="index-max-1"></span>
+<div class="format">
+<pre class="format"><code>max</code>       <i>n1 n2 &ndash; n </i>       core       &ldquo;max&rdquo;
+</pre></div>
+
+<span id="index-FLOORED--_002d_002d-f--environment"></span>
+<span id="index-FLOORED"></span>
+<span id="index-FLOORED-1"></span>
+<div class="format">
+<pre class="format"><code>FLOORED</code>       <i>&ndash; f  </i>       environment       &ldquo;FLOORED&rdquo;
+</pre></div>
+<p>True if <code>/</code> etc. perform floored division
+</p>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Double-precision.html" accesskey="n" rel="next">Double precision</a>, Previous: <a href="Arithmetic.html" accesskey="p" rel="prev">Arithmetic</a>, Up: <a href="Arithmetic.html" accesskey="u" rel="up">Arithmetic</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

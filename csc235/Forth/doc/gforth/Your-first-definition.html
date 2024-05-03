@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Your first definition (Gforth Manual)</title>
+
+<meta name="description" content="Your first definition (Gforth Manual)">
+<meta name="keywords" content="Your first definition (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Introduction.html" rel="up" title="Introduction">
+<link href="How-does-that-work_003f.html" rel="next" title="How does that work?">
+<link href="Stacks-and-Postfix-notation.html" rel="prev" title="Stacks and Postfix notation">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Your-first-definition"></span><div class="header">
+<p>
+Next: <a href="How-does-that-work_003f.html" accesskey="n" rel="next">How does that work?</a>, Previous: <a href="Stacks-and-Postfix-notation.html" accesskey="p" rel="prev">Stacks and Postfix notation</a>, Up: <a href="Introduction.html" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Your-first-Forth-definition"></span><h3 class="section">4.3 Your first Forth definition</h3>
+<span id="index-first-definition"></span>
+
+<p>Until now, the examples we&rsquo;ve seen have been trivial; we&rsquo;ve just been
+using Forth as a bigger-than-pocket calculator. Also, each calculation
+we&rsquo;ve shown has been a &ldquo;one-off&rdquo; &ndash; to repeat it we&rsquo;d need to type it in
+again<a id="DOCF7" href="#FOOT7"><sup>7</sup></a> In this section we&rsquo;ll see how to add new
+words to Forth&rsquo;s vocabulary.
+</p>
+<p>The easiest way to create a new word is to use a <em>colon
+definition</em>. We&rsquo;ll define a few and try them out before worrying too
+much about how they work. Try typing in these examples; be careful to
+copy the spaces accurately:
+</p>
+<div class="example">
+<pre class="example">: add-two 2 + . ;
+: greet .&quot; Hello and welcome&quot; ;
+: demo 5 add-two ;
+</pre></div>
+
+<p>Now try them out:
+</p>
+<div class="example">
+<pre class="example"><kbd>greet<span class="key">RET</span></kbd> Hello and welcome  ok
+<kbd>greet greet<span class="key">RET</span></kbd> Hello and welcomeHello and welcome  ok
+<kbd>4 add-two<span class="key">RET</span></kbd> 6  ok
+<kbd>demo<span class="key">RET</span></kbd> 7  ok
+<kbd>9 greet demo add-two<span class="key">RET</span></kbd> Hello and welcome7 11  ok
+</pre></div>
+
+<p>The first new thing that we&rsquo;ve introduced here is the pair of words
+<code>:</code> and <code>;</code>. These are used to start and terminate a new
+definition, respectively. The first word after the <code>:</code> is the name
+for the new definition.
+</p>
+<p>As you can see from the examples, a definition is built up of words that
+have already been defined; Forth makes no distinction between
+definitions that existed when you started the system up, and those that
+you define yourself.
+</p>
+<p>The examples also introduce the words <code>.</code> (dot), <code>.&quot;</code>
+(dot-quote) and <code>dup</code> (dewp). Dot takes the value from the top of
+the stack and displays it. It&rsquo;s like <code>.s</code> except that it only
+displays the top item of the stack and it is destructive; after it has
+executed, the number is no longer on the stack. There is always one
+space printed after the number, and no spaces before it. Dot-quote
+defines a string (a sequence of characters) that will be printed when
+the word is executed. The string can contain any printable characters
+except <code>&quot;</code>. A <code>&quot;</code> has a special function; it is not a Forth
+word but it acts as a delimiter (the way that delimiters work is
+described in the next section). Finally, <code>dup</code> duplicates the value
+at the top of the stack. Try typing <code>5 dup .s</code> to see what it does.
+</p>
+<p>We already know that the text interpreter searches through the
+dictionary to locate names. If you&rsquo;ve followed the examples earlier, you
+will already have a definition called <code>add-two</code>. Lets try modifying
+it by typing in a new definition:
+</p>
+<div class="example">
+<pre class="example"><kbd>: add-two dup . .&quot; + 2 =&quot; 2 + . ;<span class="key">RET</span></kbd> redefined add-two  ok
+</pre></div>
+
+<p>Forth recognised that we were defining a word that already exists, and
+printed a message to warn us of that fact. Let&rsquo;s try out the new
+definition:
+</p>
+<div class="example">
+<pre class="example"><kbd>9 add-two<span class="key">RET</span></kbd> 9 + 2 =11  ok
+</pre></div>
+
+<p>All that we&rsquo;ve actually done here, though, is to create a new
+definition, with a particular name. The fact that there was already a
+definition with the same name did not make any difference to the way
+that the new definition was created (except that Forth printed a warning
+message). The old definition of add-two still exists (try <code>demo</code>
+again to see that this is true). Any new definition will use the new
+definition of <code>add-two</code>, but old definitions continue to use the
+version that already existed at the time that they were <code>compiled</code>.
+</p>
+<p>Before you go on to the next section, try defining and redefining some
+words of your own.
+</p>
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT7" href="#DOCF7">(7)</a></h3>
+<p>That&rsquo;s not quite true. If you press the up-arrow key on
+your keyboard you should be able to scroll back to any earlier command,
+edit it and re-enter it.</p>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="How-does-that-work_003f.html" accesskey="n" rel="next">How does that work?</a>, Previous: <a href="Stacks-and-Postfix-notation.html" accesskey="p" rel="prev">Stacks and Postfix notation</a>, Up: <a href="Introduction.html" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

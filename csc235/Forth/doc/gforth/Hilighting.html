@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Hilighting (Gforth Manual)</title>
+
+<meta name="description" content="Hilighting (Gforth Manual)">
+<meta name="keywords" content="Hilighting (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacs-and-Gforth.html" rel="up" title="Emacs and Gforth">
+<link href="Auto_002dIndentation.html" rel="next" title="Auto-Indentation">
+<link href="Emacs-Tags.html" rel="prev" title="Emacs Tags">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Hilighting"></span><div class="header">
+<p>
+Next: <a href="Auto_002dIndentation.html" accesskey="n" rel="next">Auto-Indentation</a>, Previous: <a href="Emacs-Tags.html" accesskey="p" rel="prev">Emacs Tags</a>, Up: <a href="Emacs-and-Gforth.html" accesskey="u" rel="up">Emacs and Gforth</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Hilighting-1"></span><h3 class="section">12.3 Hilighting</h3>
+<span id="index-hilighting-Forth-code-in-Emacs"></span>
+<span id="index-highlighting-Forth-code-in-Emacs"></span>
+<p><samp>gforth.el</samp> comes with a custom source hilighting engine.  When
+you open a file in <code>forth-mode</code>, it will be completely parsed,
+assigning faces to keywords, comments, strings etc.  While you edit
+the file, modified regions get parsed and updated on-the-fly. 
+</p>
+<p>Use the variable &lsquo;forth-hilight-level&rsquo; to change the level of
+decoration from 0 (no hilighting at all) to 3 (the default).  Even if
+you set the hilighting level to 0, the parser will still work in the
+background, collecting information about whether regions of text are
+&ldquo;compiled&rdquo; or &ldquo;interpreted&rdquo;.  Those information are required for
+auto-indentation to work properly.  Set &lsquo;forth-disable-parser&rsquo; to
+non-nil if your computer is too slow to handle parsing.  This will
+have an impact on the smartness of the auto-indentation engine,
+though.
+</p>
+<p>Sometimes Forth sources define new features that should be hilighted,
+new control structures, defining-words etc.  You can use the variable
+&lsquo;forth-custom-words&rsquo; to make <code>forth-mode</code> hilight additional
+words and constructs.  See the docstring of &lsquo;forth-words&rsquo; for details
+(in Emacs, type <kbd>C-h v forth-words</kbd>).
+</p>
+<p>&lsquo;forth-custom-words&rsquo; is meant to be customized in your
+<samp>.emacs</samp> file.  To customize hilighing in a file-specific manner,
+set &lsquo;forth-local-words&rsquo; in a local-variables section at the end of
+your source file (see <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Local-Variables-in-Files.html#Local-Variables-in-Files">Variables</a> in <cite>Emacs Manual</cite>).
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example">0 [IF]
+   Local Variables:
+   forth-local-words:
+      (((&quot;t:&quot;) definition-starter (font-lock-keyword-face . 1)
+        &quot;[ \t\n]&quot; t name (font-lock-function-name-face . 3))
+       ((&quot;;t&quot;) definition-ender (font-lock-keyword-face . 1)))
+   End:
+[THEN]
+</pre></div>
+
+
+
+
+</body>
+</html>

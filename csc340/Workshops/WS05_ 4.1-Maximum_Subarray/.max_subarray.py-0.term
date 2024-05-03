@@ -1,0 +1,1970 @@
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+  File "./max_subarray.py", line 22
+    if high == low
+                 ^
+SyntaxError: invalid syntax
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+  File "./max_subarray.py", line 31
+    elseif right_sum >= left_sum and right_sum >= cross_sum:
+           ^
+SyntaxError: invalid syntax
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+  File "./max_subarray.py", line 40
+    return "The subarray" v + "[" + low + ", " + high +"]" + " = " + sub_sub
+                          ^
+SyntaxError: invalid syntax
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+Traceback (most recent call last):
+  File "./max_subarray.py", line 57, in <module>
+    main()
+  File "./max_subarray.py", line 46, in main
+    (low, high, true_sum) = find_max_subarray(A, 0, len(A)-1)
+  File "./max_subarray.py", line 26, in find_max_subarray
+    (left_low, left_high, left_sum) = find_max_subarray(A, low, mid)
+  File "./max_subarray.py", line 26, in find_max_subarray
+    (left_low, left_high, left_sum) = find_max_subarray(A, low, mid)
+  File "./max_subarray.py", line 26, in find_max_subarray
+    (left_low, left_high, left_sum) = find_max_subarray(A, low, mid)
+  File "./max_subarray.py", line 28, in find_max_subarray
+    (cross_low, cross_high, cross_sum) = find_max_crossing_subarray(A, low, mid, high)
+  File "./max_subarray.py", line 18, in find_max_crossing_subarray
+    return (max_left, max_right, (left_sum + right_sum))
+UnboundLocalError: local variable 'max_left' referenced before assignment
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+Traceback (most recent call last):
+  File "./max_subarray.py", line 59, in <module>
+    main()
+  File "./max_subarray.py", line 48, in main
+    (low, high, true_sum) = find_max_subarray(A, 0, len(A)-1)
+  File "./max_subarray.py", line 28, in find_max_subarray
+    (left_low, left_high, left_sum) = find_max_subarray(A, low, mid)
+  File "./max_subarray.py", line 28, in find_max_subarray
+    (left_low, left_high, left_sum) = find_max_subarray(A, low, mid)
+  File "./max_subarray.py", line 29, in find_max_subarray
+    (right_low, right_high, right_sum) = find_max_subarray(A, mid+1, high)
+  File "./max_subarray.py", line 34, in find_max_subarray
+    return (right-low, right-high, right_sum)
+NameError: name 'right' is not defined
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ [K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ [K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+Traceback (most recent call last):
+  File "./max_subarray.py", line 59, in <module>
+    main()
+  File "./max_subarray.py", line 50, in main
+    print_subarray(A, low, high)
+  File "./max_subarray.py", line 42, in print_subarray
+    return "The subarray" + v + "[" + low + ", " + high +"]" + " = " + sub_sub
+TypeError: can only concatenate str (not "list") to str
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+With the sum  20 has the greatest sum of any contiguous subarray  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The vector to be considered:  [1, -4, 3, -4]
+With the sum  20 has the greatest sum of any contiguous subarray  [1, -4, 3, -4]
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+With the sum  20 has the greatest sum of any contiguous subarray A
+The vector to be considered:  [1, -4, 3, -4]
+With the sum  20 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+With the sum  20 has the greatest sum of any contiguous subarray A
+The vector to be considered:  [1, -4, 3, -4]
+With the sum  20 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+With the sum  20 has the greatest sum of any contiguous subarray A
+The vector to be considered:  [1, -4, 3, -4]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ ]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ [K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ ]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ ]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ [K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$  python3 ./max_subarray.py
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+With the sum  20 has the greatest sum of any contiguous subarray A
+The vector to be considered:  [1, -4, 3, -4]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ [K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 0, 4] = [13, -3, -25, 20, -3]
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 3, 3] = [20]
+With the sum  20 has the greatest sum of any contiguous subarray A
+The vector to be considered:  [1, -4, 3, -4]
+The subarray [1, -4, 3, -4][ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.pyinsertion_sort.py[4Pmerge_sort.pyinsertion_sort.py[4Pmerge_sort.py[K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./merge_sort.py[K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./merge_sort.pyinsertion_sort.py[4Pmerge_sort.py
+python3: can't open file './merge_sort.py': [Errno 2] No such file or directory
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ [K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./merge_sort.py
+python3: can't open file './merge_sort.py': [Errno 2] No such file or directory
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./merge_sort.pyax_subarray.py
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 0, 4] = [13, -3, -25, 20, -3]
+-3
+-3
+1
+20
+20
+3
+-25
+-25
+2
+-5
+-5
+3
+-16
+-16
+5
+18
+18
+7
+-23
+-23
+6
+-5
+-5
+7
+-3
+-3
+4
+-19
+-42
+-24
+-7
+-7
+9
+-5
+-5
+11
+12
+12
+10
+7
+15
+15
+13
+7
+7
+15
+-12
+-12
+14
+-5
+-5
+15
+-22
+-22
+12
+-7
+-7
+13
+-19
+-12
+20
+20
+8
+13
+25
+25
+10
+20
+-2
+13
+1
+8
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 3, 3] = [20]
+With the sum  20 has the greatest sum of any contiguous subarray A
+-4
+-4
+1
+-4
+-4
+3
+3
+3
+2
+-1
+The vector to be considered:  [1, -4, 3, -4]
+The subarray [1, -4, 3, -4][ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ [K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 0, 4] = [13, -3, -25, 20, -3]
+-25
+-25
+2
+-23
+-23
+6
+-3
+-3
+4
+-19
+-42
+12
+12
+10
+-12
+-12
+14
+-22
+-22
+12
+-7
+-7
+13
+-19
+20
+20
+8
+13
+25
+25
+10
+20
+-2
+13
+1
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 3, 3] = [20]
+With the sum  20 has the greatest sum of any contiguous subarray A
+3
+3
+2
+The vector to be considered:  [1, -4, 3, -4]
+The subarray [1, -4, 3, -4][ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 0, 4] = [13, -3, -25, 20, -3]
+-3
+-3
+1
+20
+20
+3
+-25
+-25
+2
+-5
+-5
+3
+-16
+-16
+5
+18
+18
+7
+-23
+-23
+6
+-5
+-5
+7
+-3
+-3
+4
+-19
+-42
+-24
+-7
+-7
+9
+-5
+-5
+11
+12
+12
+10
+7
+15
+15
+13
+7
+7
+15
+-12
+-12
+14
+-5
+-5
+15
+-22
+-22
+12
+-7
+-7
+13
+-19
+-12
+20
+20
+8
+13
+25
+25
+10
+20
+-2
+13
+1
+8
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 3, 3] = [20]
+With the sum  20 has the greatest sum of any contiguous subarray A
+-4
+-4
+1
+-4
+-4
+3
+3
+3
+2
+-1
+The vector to be considered:  [1, -4, 3, -4]
+The subarray [1, -4, 3, -4][ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 0, 4] = [13, -3, -25, 20, -3]
+13
+13
+0
+-3
+-3
+1
+-25
+-25
+2
+-28
+-15
+-15
+0
+20
+20
+3
+-3
+-3
+1
+10
+10
+0
+-25
+-25
+2
+-5
+-5
+3
+-3
+-3
+4
+17
+17
+3
+-8
+-11
+2
+-16
+-16
+5
+-23
+-23
+6
+-39
+-42
+-22
+-22
+3
+-47
+-50
+-37
+18
+18
+7
+-16
+-16
+5
+-19
+1
+1
+3
+-24
+-27
+-14
+-23
+-23
+6
+-5
+-5
+7
+20
+20
+3
+-5
+-8
+5
+-3
+-3
+4
+-19
+-42
+-24
+20
+20
+8
+38
+38
+7
+15
+-1
+-4
+16
+-9
+-12
+1
+-7
+-7
+9
+12
+12
+10
+5
+25
+25
+8
+43
+43
+7
+20
+4
+1
+21
+-4
+-7
+6
+-5
+-5
+11
+-7
+-7
+9
+13
+13
+8
+31
+31
+7
+8
+-8
+-11
+9
+-16
+-19
+-6
+12
+12
+10
+7
+-22
+-22
+12
+-27
+-15
+-15
+10
+-22
+-2
+-2
+8
+16
+16
+7
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+15
+15
+13
+-12
+-12
+14
+3
+3
+13
+-19
+-24
+-12
+-19
+1
+19
+19
+7
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+7
+7
+15
+15
+15
+13
+-7
+-12
+0
+-7
+13
+31
+31
+7
+8
+-8
+-11
+9
+-16
+-19
+-6
+-12
+-12
+14
+-5
+-5
+15
+-5
+-5
+11
+7
+7
+10
+0
+20
+20
+8
+38
+38
+7
+15
+-1
+-4
+16
+-9
+-12
+1
+-22
+-22
+12
+-7
+-7
+13
+-19
+-12
+18
+18
+7
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+20
+20
+8
+13
+25
+25
+10
+20
+-2
+13
+1
+8
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 7, 10] = [18, 20, -7, 12]
+With the sum  43 has the greatest sum of any contiguous subarray A
+1
+1
+0
+-4
+-4
+1
+3
+3
+2
+-1
+0
+-4
+-4
+3
+-4
+-4
+1
+-3
+-3
+0
+3
+3
+2
+-1
+The vector to be considered:  [1, -4, 3, -4]
+The subarray [1, -4, 3, -4][ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 0, 4] = [13, -3, -25, 20, -3]
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 7, 10] = [18, 20, -7, 12]
+With the sum  43 has the greatest sum of any contiguous subarray A
+1
+3
+-1
+0
+-4
+-3
+The vector to be considered:  [1, -4, 3, -4]
+The subarray [1, -4, 3, -4][ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 0, 4] = [13, -3, -25, 20, -3]
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 7, 10] = [18, 20, -7, 12]
+With the sum  43 has the greatest sum of any contiguous subarray A
+1
+3
+-1
+0
+-4
+-3
+The vector to be considered:  [1, -4, 3, -4]
+The subarray [1, -4, 3, -4][ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 0, 4] = [13, -3, -25, 20, -3]
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subarray [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7][ 7, 10] = [18, 20, -7, 12]
+With the sum  43 has the greatest sum of any contiguous subarray A
+1
+3
+-1
+0
+-4
+-3
+The vector to be considered:  [1, -4, 3, -4]
+The subarray [1, -4, 3, -4][ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ ]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ ]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+from [ 0, 4] = [13, -3, -25, 20, -3]
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+from [ 7, 10] = [18, 20, -7, 12]
+The subarray A None
+With the sum  43 has the greatest sum of any contiguous subarray A
+1
+3
+-1
+0
+-4
+-3
+The vector to be considered:  [1, -4, 3, -4]
+from [ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+from [ 0, 4] = [13, -3, -25, 20, -3]
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+from [ 7, 10] = [18, 20, -7, 12]
+Traceback (most recent call last):
+  File "./max_subarray.py", line 66, in <module>
+    main()
+  File "./max_subarray.py", line 57, in main
+    print("The subarray A" + print_subarray(A, low, high))
+TypeError: can only concatenate str (not "NoneType") to str
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+from [ 0, 4] = [13, -3, -25, 20, -3]
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+from [ 7, 10] = [18, 20, -7, 12]
+The subbarray A None
+With the sum  43 has the greatest sum of any contiguous subarray A
+1
+3
+-1
+0
+-4
+-3
+The vector to be considered:  [1, -4, 3, -4]
+from [ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+from [ 0, 4] = [13, -3, -25, 20, -3]
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+from [ 7, 10] = [18, 20, -7, 12]
+Traceback (most recent call last):
+  File "./max_subarray.py", line 67, in <module>
+    main()
+  File "./max_subarray.py", line 58, in main
+    print( "The subbarray A"+ str_)
+TypeError: can only concatenate str (not "NoneType") to str
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+from [ 0, 4] = [13, -3, -25, 20, -3]
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subbarray A
+from [ 7, 10] = [18, 20, -7, 12]
+With the sum  43 has the greatest sum of any contiguous subarray A
+1
+3
+-1
+0
+-4
+-3
+The vector to be considered:  [1, -4, 3, -4]
+The subbarray B
+from [ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+from [ 0, 4] = [13, -3, -25, 20, -3]
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subbarray A
+from [ 7, 10] = [18, 20, -7, 12]
+With the sum  43 has the greatest sum of any contiguous subarray A
+1
+3
+-1
+0
+-4
+-3
+The vector to be considered:  [1, -4, 3, -4]
+The subbarray B
+from [ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+13
+-25
+-28
+-15
+-3
+10
+-3
+17
+-8
+-11
+2
+-23
+-39
+-42
+-22
+-47
+-50
+-37
+-16
+-19
+1
+-24
+-27
+-14
+20
+-5
+-8
+5
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+12
+5
+25
+43
+20
+4
+1
+21
+-4
+-7
+6
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-22
+-27
+-15
+-22
+-2
+16
+-7
+-23
+-26
+-6
+-31
+-34
+-21
+-12
+3
+-19
+-24
+-12
+-19
+1
+19
+-4
+-20
+-23
+-3
+-28
+-31
+-18
+15
+-7
+-12
+0
+-7
+13
+31
+8
+-8
+-11
+9
+-16
+-19
+-6
+-5
+7
+0
+20
+38
+15
+-1
+-4
+16
+-9
+-12
+1
+18
+-5
+-21
+-24
+-4
+-29
+-32
+-19
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subbarray A
+from [ 7, 10] = [18, 20, -7, 12]
+With the sum  43 has the greatest sum of any contiguous subarray A
+1
+3
+-1
+0
+-4
+-3
+The vector to be considered:  [1, -4, 3, -4]
+The subbarray B
+from [ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subbarray A
+from [ 7, 10] = [18, 20, -7, 12]
+With the sum  43 has the greatest sum of any contiguous subarray A
+The vector to be considered:  [1, -4, 3, -4]
+The subbarray B
+from [ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ ]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ ]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ [K]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ python3 ./max_subarray.py
+The vector to be considered:  [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -12, 7]
+The subbarray A
+from [ 7, 10] = [18, 20, -7, 12]
+With the sum  43 has the greatest sum of any contiguous subarray A
+The vector to be considered:  [1, -4, 3, -4]
+The subbarray B
+from [ 2, 2] = [3]
+With the sum  3 has the greatest sum of any contiguous subarray B
+]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ ]0;~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[01;34m~/csc340/Workshops/WS05: 4.1-Maximum_Subarray[00m$ 

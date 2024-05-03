@@ -1,0 +1,42 @@
+]0;~/csc340/Midterm-2-HEAPSORT[01;34m~/csc340/Midterm-2-HEAPSORT[00m$ python3 heapsort.py
+  File "heapsort.py", line 66
+    for i in range((n, 2, -1):
+                             ^
+SyntaxError: invalid syntax
+]0;~/csc340/Midterm-2-HEAPSORT[01;34m~/csc340/Midterm-2-HEAPSORT[00m$ python3 heapsort.py
+Run max-heapify on vector: A = [-1000, 16, 4, 10, 14, 7, 9, 3, 2, 8, 1]
+Heap A = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1]
+
+After max-heapify: A = [-1000, 16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+Heap A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+
+Consider array: B = [-1000, 5, 13, 2, 25, 7, 17, 20, 8, 4]
+Heap B = [5, 13, 2, 25, 7, 17, 20, 8, 4]
+
+After heapsort: B = [-1000, 4, 2, 5, 7, 8, 13, 17, 20, 25]
+Heap B = [4, 2, 5, 7, 8, 13, 17, 20, 25]
+]0;~/csc340/Midterm-2-HEAPSORT[01;34m~/csc340/Midterm-2-HEAPSORT[00m$ python3 heapsort.py
+Run max-heapify on vector: A = [-1000, 16, 4, 10, 14, 7, 9, 3, 2, 8, 1]
+Heap A = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1]
+
+After max-heapify: A = [-1000, 16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+Heap A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+
+Consider array: B = [-1000, 5, 13, 2, 25, 7, 17, 20, 8, 4]
+Heap B = [5, 13, 2, 25, 7, 17, 20, 8, 4]
+
+After heapsort: B = [-1000, 2, 4, 5, 7, 8, 13, 17, 20, 25]
+Heap B = [2, 4, 5, 7, 8, 13, 17, 20, 25]
+]0;~/csc340/Midterm-2-HEAPSORT[01;34m~/csc340/Midterm-2-HEAPSORT[00m$ ]0;~/2022-Spring/CSC-340-collect/csc340/Midterm-2-HEAPSORT/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Midterm-2-HEAPSORT/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ python3 heapsort.py 
+Run max-heapify on vector: A = [-1000, 16, 4, 10, 14, 7, 9, 3, 2, 8, 1]
+Heap A = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1]
+
+After max-heapify: A = [-1000, 16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+Heap A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
+
+Consider array: B = [-1000, 5, 13, 2, 25, 7, 17, 20, 8, 4]
+Heap B = [5, 13, 2, 25, 7, 17, 20, 8, 4]
+
+After heapsort: B = [-1000, 2, 4, 5, 7, 8, 13, 17, 20, 25]
+Heap B = [2, 4, 5, 7, 8, 13, 17, 20, 25]
+]0;~/2022-Spring/CSC-340-collect/csc340/Midterm-2-HEAPSORT/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Midterm-2-HEAPSORT/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ ]0;~/2022-Spring/CSC-340-collect/csc340/Midterm-2-HEAPSORT/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Midterm-2-HEAPSORT/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ 

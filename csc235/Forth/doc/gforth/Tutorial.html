@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Tutorial (Gforth Manual)">
+<meta name="keywords" content="Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="Starting-Gforth-Tutorial.html" rel="next" title="Starting Gforth Tutorial">
+<link href="Startup-speed.html" rel="prev" title="Startup speed">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Tutorial"></span><div class="header">
+<p>
+Next: <a href="Introduction.html" accesskey="n" rel="next">Introduction</a>, Previous: <a href="Gforth-Environment.html" accesskey="p" rel="prev">Gforth Environment</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Forth-Tutorial"></span><h2 class="chapter">3 Forth Tutorial</h2>
+<span id="index-Tutorial"></span>
+<span id="index-Forth-Tutorial"></span>
+
+
+<p>The difference of this chapter from the Introduction
+(see <a href="Introduction.html">Introduction</a>) is that this tutorial is more fast-paced, should
+be used while sitting in front of a computer, and covers much more
+material, but does not explain how the Forth system works.
+</p>
+<p>This tutorial can be used with any ANS-compliant Forth; any
+Gforth-specific features are marked as such and you can skip them if you
+work with another Forth.  This tutorial does not explain all features of
+Forth, just enough to get you started and give you some ideas about the
+facilities available in Forth.  Read the rest of the manual and the
+standard when you are through this.
+</p>
+<p>The intended way to use this tutorial is that you work through it while
+sitting in front of the console, take a look at the examples and predict
+what they will do, then try them out; if the outcome is not as expected,
+find out why (e.g., by trying out variations of the example), so you
+understand what&rsquo;s going on.  There are also some assignments that you
+should solve.
+</p>
+<p>This tutorial assumes that you have programmed before and know what,
+e.g., a loop is.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Starting-Gforth-Tutorial.html" accesskey="1">Starting Gforth Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Syntax-Tutorial.html" accesskey="2">Syntax Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Crash-Course-Tutorial.html" accesskey="3">Crash Course Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack-Tutorial.html" accesskey="4">Stack Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Arithmetics-Tutorial.html" accesskey="5">Arithmetics Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack-Manipulation-Tutorial.html" accesskey="6">Stack Manipulation Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Using-files-for-Forth-code-Tutorial.html" accesskey="7">Using files for Forth code Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Comments-Tutorial.html" accesskey="8">Comments Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Colon-Definitions-Tutorial.html" accesskey="9">Colon Definitions Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Decompilation-Tutorial.html">Decompilation Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Stack_002dEffect-Comments-Tutorial.html">Stack-Effect Comments Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Types-Tutorial.html">Types Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Factoring-Tutorial.html">Factoring Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Designing-the-stack-effect-Tutorial.html">Designing the stack effect Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Local-Variables-Tutorial.html">Local Variables Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Conditional-execution-Tutorial.html">Conditional execution Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Flags-and-Comparisons-Tutorial.html">Flags and Comparisons Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="General-Loops-Tutorial.html">General Loops Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Counted-loops-Tutorial.html">Counted loops Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Recursion-Tutorial.html">Recursion Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Leaving-definitions-or-loops-Tutorial.html">Leaving definitions or loops Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Return-Stack-Tutorial.html">Return Stack Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Memory-Tutorial.html">Memory Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Characters-and-Strings-Tutorial.html">Characters and Strings Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Alignment-Tutorial.html">Alignment Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Floating-Point-Tutorial.html">Floating Point Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Files-Tutorial.html">Files Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Interpretation-and-Compilation-Semantics-and-Immediacy-Tutorial.html">Interpretation and Compilation Semantics and Immediacy Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Execution-Tokens-Tutorial.html">Execution Tokens Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Exceptions-Tutorial.html">Exceptions Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Defining-Words-Tutorial.html">Defining Words Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Arrays-and-Records-Tutorial.html">Arrays and Records Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="POSTPONE-Tutorial.html">POSTPONE Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Literal-Tutorial.html">Literal Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Advanced-macros-Tutorial.html">Advanced macros Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Compilation-Tokens-Tutorial.html">Compilation Tokens Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Wordlists-and-Search-Order-Tutorial.html">Wordlists and Search Order Tutorial</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Introduction.html" accesskey="n" rel="next">Introduction</a>, Previous: <a href="Gforth-Environment.html" accesskey="p" rel="prev">Gforth Environment</a>, Up: <a href="index.html" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

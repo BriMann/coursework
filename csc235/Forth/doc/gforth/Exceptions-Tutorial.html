@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Exceptions Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Exceptions Tutorial (Gforth Manual)">
+<meta name="keywords" content="Exceptions Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="Defining-Words-Tutorial.html" rel="next" title="Defining Words Tutorial">
+<link href="Execution-Tokens-Tutorial.html" rel="prev" title="Execution Tokens Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Exceptions-Tutorial"></span><div class="header">
+<p>
+Next: <a href="Defining-Words-Tutorial.html" accesskey="n" rel="next">Defining Words Tutorial</a>, Previous: <a href="Execution-Tokens-Tutorial.html" accesskey="p" rel="prev">Execution Tokens Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Exceptions"></span><h3 class="section">3.30 Exceptions</h3>
+<span id="index-exceptions-tutorial"></span>
+
+<p><code>throw ( n -- )</code> causes an exception unless n is zero.
+</p>
+<div class="example">
+<pre class="example">100 throw .s
+0 throw .s
+</pre></div>
+
+<p><code>catch ( ... xt -- ... n )</code> behaves similar to <code>execute</code>, but
+it catches exceptions and pushes the number of the exception on the
+stack (or 0, if the xt executed without exception).  If there was an
+exception, the stacks have the same depth as when entering <code>catch</code>:
+</p>
+<div class="example">
+<pre class="example">.s
+3 0 ' / catch .s
+3 2 ' / catch .s
+</pre></div>
+
+<blockquote>
+<p><b>Assignment:</b> Try the same with <code>execute</code> instead of <code>catch</code>.
+</p></blockquote>
+
+<p><code>Throw</code> always jumps to the dynamically next enclosing
+<code>catch</code>, even if it has to leave several call levels to achieve
+this:
+</p>
+<div class="example">
+<pre class="example">: foo 100 throw ;
+: foo1 foo .&quot; after foo&quot; ;
+: bar ['] foo1 catch ;
+bar .
+</pre></div>
+
+<p>It is often important to restore a value upon leaving a definition, even
+if the definition is left through an exception.  You can ensure this
+like this:
+</p>
+<div class="example">
+<pre class="example">: ...
+   save-x
+   ['] word-changing-x catch ( ... n )
+   restore-x
+   ( ... n ) throw ;
+</pre></div>
+
+<p>However, this is still not safe against, e.g., the user pressing
+<kbd>Ctrl-C</kbd> when execution is between the <code>catch</code> and
+<code>restore-x</code>.
+</p>
+<p>Gforth provides an alternative exception handling syntax that is safe
+against such cases: <code>try ... restore ... endtry</code>.  If the code
+between <code>try</code> and <code>endtry</code> has an exception, the stack
+depths are restored, the exception number is pushed on the stack, and
+the execution continues right after <code>restore</code>.
+</p>
+<p>The safer equivalent to the restoration code above is
+</p>
+<div class="example">
+<pre class="example">: ...
+  save-x
+  try
+    word-changing-x 0
+  restore
+    restore-x
+  endtry
+  throw ;
+</pre></div>
+
+<p>Reference: <a href="Exception-Handling.html">Exception Handling</a>.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Defining-Words-Tutorial.html" accesskey="n" rel="next">Defining Words Tutorial</a>, Previous: <a href="Execution-Tokens-Tutorial.html" accesskey="p" rel="prev">Execution Tokens Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>User-defined Defining Words (Gforth Manual)</title>
+
+<meta name="description" content="User-defined Defining Words (Gforth Manual)">
+<meta name="keywords" content="User-defined Defining Words (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Defining-Words.html" rel="up" title="Defining Words">
+<link href="CREATE_002e_002eDOES_003e-applications.html" rel="next" title="CREATE..DOES&gt; applications">
+<link href="Supplying-names.html" rel="prev" title="Supplying names">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="User_002ddefined-Defining-Words"></span><div class="header">
+<p>
+Next: <a href="Deferred-Words.html" accesskey="n" rel="next">Deferred Words</a>, Previous: <a href="Supplying-names.html" accesskey="p" rel="prev">Supplying names</a>, Up: <a href="Defining-Words.html" accesskey="u" rel="up">Defining Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="User_002ddefined-Defining-Words-1"></span><h4 class="subsection">5.9.8 User-defined Defining Words</h4>
+<span id="index-user_002ddefined-defining-words"></span>
+<span id="index-defining-words_002c-user_002ddefined"></span>
+
+<p>You can create a new defining word by wrapping defining-time code around
+an existing defining word and putting the sequence in a colon
+definition. 
+</p>
+
+<p>For example, suppose that you have a word <code>stats</code> that
+gathers statistics about colon definitions given the <i>xt</i> of the
+definition, and you want every colon definition in your application to
+make a call to <code>stats</code>. You can define and use a new version of
+<code>:</code> like this:
+</p>
+<div class="example">
+<pre class="example">: stats ( xt -- ) DUP .&quot; (Gathering statistics for &quot; . .&quot; )&quot;
+  ... ;  \ other code
+
+: my: : latestxt postpone literal ['] stats compile, ;
+
+my: foo + - ;
+</pre></div>
+
+<p>When <code>foo</code> is defined using <code>my:</code> these steps occur:
+</p>
+<ul>
+<li> <code>my:</code> is executed.
+</li><li> The <code>:</code> within the definition (the one between <code>my:</code> and
+<code>latestxt</code>) is executed, and does just what it always does; it parses
+the input stream for a name, builds a dictionary header for the name
+<code>foo</code> and switches <code>state</code> from interpret to compile.
+</li><li> The word <code>latestxt</code> is executed. It puts the <i>xt</i> for the word that is
+being defined &ndash; <code>foo</code> &ndash; onto the stack.
+</li><li> The code that was produced by <code>postpone literal</code> is executed; this
+causes the value on the stack to be compiled as a literal in the code
+area of <code>foo</code>.
+</li><li> The code <code>['] stats</code> compiles a literal into the definition of
+<code>my:</code>. When <code>compile,</code> is executed, that literal &ndash; the
+execution token for <code>stats</code> &ndash; is layed down in the code area of
+<code>foo</code> , following the literal<a id="DOCF15" href="#FOOT15"><sup>15</sup></a>.
+</li><li> At this point, the execution of <code>my:</code> is complete, and control
+returns to the text interpreter. The text interpreter is in compile
+state, so subsequent text <code>+ -</code> is compiled into the definition of
+<code>foo</code> and the <code>;</code> terminates the definition as always.
+</li></ul>
+
+<p>You can use <code>see</code> to decompile a word that was defined using
+<code>my:</code> and see how it is different from a normal <code>:</code>
+definition. For example:
+</p>
+<div class="example">
+<pre class="example">: bar + - ;  \ like foo but using : rather than my:
+see bar
+: bar
+  + - ;
+see foo
+: foo
+  107645672 stats + - ;
+
+\ use ' foo . to show that 107645672 is the xt for foo
+</pre></div>
+
+<p>You can use techniques like this to make new defining words in terms of
+<i>any</i> existing defining word.
+</p>
+
+<span id="index-defining-defining-words"></span>
+<span id="index-CREATE-_002e_002e_002e-DOES_003e"></span>
+<p>If you want the words defined with your defining words to behave
+differently from words defined with standard defining words, you can
+write your defining word like this:
+</p>
+<div class="example">
+<pre class="example">: def-word ( &quot;name&quot; -- )
+    CREATE <i>code1</i>
+DOES&gt; ( ... -- ... )
+    <i>code2</i> ;
+
+def-word name
+</pre></div>
+
+<span id="index-child-words"></span>
+<p>This fragment defines a <em>defining word</em> <code>def-word</code> and then
+executes it.  When <code>def-word</code> executes, it <code>CREATE</code>s a new
+word, <code>name</code>, and executes the code <i>code1</i>. The code <i>code2</i>
+is not executed at this time. The word <code>name</code> is sometimes called a
+<em>child</em> of <code>def-word</code>.
+</p>
+<p>When you execute <code>name</code>, the address of the body of <code>name</code> is
+put on the data stack and <i>code2</i> is executed (the address of the body
+of <code>name</code> is the address <code>HERE</code> returns immediately after the
+<code>CREATE</code>, i.e., the address a <code>create</code>d word returns by
+default).
+</p>
+
+<p>You can use <code>def-word</code> to define a set of child words that behave
+similarly; they all have a common run-time behaviour determined by
+<i>code2</i>. Typically, the <i>code1</i> sequence builds a data area in the
+body of the child word. The structure of the data is common to all
+children of <code>def-word</code>, but the data values are specific &ndash; and
+private &ndash; to each child word. When a child word is executed, the
+address of its private data area is passed as a parameter on TOS to be
+used and manipulated<a id="DOCF16" href="#FOOT16"><sup>16</sup></a> by <i>code2</i>.
+</p>
+<p>The two fragments of code that make up the defining words act (are
+executed) at two completely separate times:
+</p>
+<ul>
+<li> At <i>define time</i>, the defining word executes <i>code1</i> to generate a
+child word
+</li><li> At <i>child execution time</i>, when a child word is invoked, <i>code2</i>
+is executed, using parameters (data) that are private and specific to
+the child word.
+</li></ul>
+
+<p>Another way of understanding the behaviour of <code>def-word</code> and
+<code>name</code> is to say that, if you make the following definitions:
+</p><div class="example">
+<pre class="example">: def-word1 ( &quot;name&quot; -- )
+    CREATE <i>code1</i> ;
+
+: action1 ( ... -- ... )
+    <i>code2</i> ;
+
+def-word1 name1
+</pre></div>
+
+<p>Then using <code>name1 action1</code> is equivalent to using <code>name</code>.
+</p>
+<p>The classic example is that you can define <code>CONSTANT</code> in this way:
+</p>
+<div class="example">
+<pre class="example">: CONSTANT ( w &quot;name&quot; -- )
+    CREATE ,
+DOES&gt; ( -- w )
+    @ ;
+</pre></div>
+
+
+<p>When you create a constant with <code>5 CONSTANT five</code>, a set of
+define-time actions take place; first a new word <code>five</code> is created,
+then the value 5 is laid down in the body of <code>five</code> with
+<code>,</code>. When <code>five</code> is executed, the address of the body is put on
+the stack, and <code>@</code> retrieves the value 5. The word <code>five</code> has
+no code of its own; it simply contains a data field and a pointer to the
+code that follows <code>DOES&gt;</code> in its defining word. That makes words
+created in this way very compact.
+</p>
+<p>The final example in this section is intended to remind you that space
+reserved in <code>CREATE</code>d words is <i>data</i> space and therefore can be
+both read and written by a Standard program<a id="DOCF17" href="#FOOT17"><sup>17</sup></a>:
+</p>
+<div class="example">
+<pre class="example">: foo ( &quot;name&quot; -- )
+    CREATE -1 ,
+DOES&gt; ( -- )
+    @ . ;
+
+foo first-word
+foo second-word
+
+123 ' first-word &gt;BODY !
+</pre></div>
+
+<p>If <code>first-word</code> had been a <code>CREATE</code>d word, we could simply
+have executed it to get the address of its data field. However, since it
+was defined to have <code>DOES&gt;</code> actions, its execution semantics are to
+perform those <code>DOES&gt;</code> actions. To get the address of its data field
+it&rsquo;s necessary to use <code>'</code> to get its xt, then <code>&gt;BODY</code> to
+translate the xt into the address of the data field.  When you execute
+<code>first-word</code>, it will display <code>123</code>. When you execute
+<code>second-word</code> it will display <code>-1</code>.
+</p>
+<span id="index-stack-effect-of-DOES_003e_002dparts"></span>
+<span id="index-DOES_003e_002dparts_002c-stack-effect"></span>
+<p>In the examples above the stack comment after the <code>DOES&gt;</code> specifies
+the stack effect of the defined words, not the stack effect of the
+following code (the following code expects the address of the body on
+the top of stack, which is not reflected in the stack comment). This is
+the convention that I use and recommend (it clashes a bit with using
+locals declarations for stack effect specification, though).
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="CREATE_002e_002eDOES_003e-applications.html" accesskey="1">CREATE..DOES&gt; applications</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="CREATE_002e_002eDOES_003e-details.html" accesskey="2">CREATE..DOES&gt; details</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Advanced-does_003e-usage-example.html" accesskey="3">Advanced does&gt; usage example</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Const_002ddoes_003e.html" accesskey="4">Const-does&gt;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT15" href="#DOCF15">(15)</a></h3>
+<p>Strictly speaking, the
+mechanism that <code>compile,</code> uses to convert an <i>xt</i> into something
+in the code area is implementation-dependent. A threaded implementation
+might spit out the execution token directly whilst another
+implementation might spit out a native code sequence.</p>
+<h5><a id="FOOT16" href="#DOCF16">(16)</a></h3>
+<p>It is legitimate both to read and write to
+this data area.</p>
+<h5><a id="FOOT17" href="#DOCF17">(17)</a></h3>
+<p>Exercise: use this
+example as a starting point for your own implementation of <code>Value</code>
+and <code>TO</code> &ndash; if you get stuck, investigate the behaviour of <code>'</code> and
+<code>[']</code>.</p>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Deferred-Words.html" accesskey="n" rel="next">Deferred Words</a>, Previous: <a href="Supplying-names.html" accesskey="p" rel="prev">Supplying names</a>, Up: <a href="Defining-Words.html" accesskey="u" rel="up">Defining Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Memory Access (Gforth Manual)</title>
+
+<meta name="description" content="Memory Access (Gforth Manual)">
+<meta name="keywords" content="Memory Access (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Memory.html" rel="up" title="Memory">
+<link href="Address-arithmetic.html" rel="next" title="Address arithmetic">
+<link href="Heap-Allocation.html" rel="prev" title="Heap Allocation">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Memory-Access"></span><div class="header">
+<p>
+Next: <a href="Address-arithmetic.html" accesskey="n" rel="next">Address arithmetic</a>, Previous: <a href="Heap-Allocation.html" accesskey="p" rel="prev">Heap Allocation</a>, Up: <a href="Memory.html" accesskey="u" rel="up">Memory</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Memory-Access-1"></span><h4 class="subsection">5.7.4 Memory Access</h4>
+<span id="index-memory-access-words"></span>
+
+<span id="index-_0040--a_002daddr-_002d_002d-w--core"></span>
+<span id="index-_0040"></span>
+<span id="index-_0040-1"></span>
+<div class="format">
+<pre class="format"><code>@</code>       <i>a-addr &ndash; w </i>       core       &ldquo;fetch&rdquo;
+</pre></div>
+<p><i>w</i> is the cell stored at <i>a_addr</i>.
+</p>
+<span id="index-_0021--w-a_002daddr-_002d_002d--core"></span>
+<span id="index-_0021"></span>
+<span id="index-_0021-1"></span>
+<div class="format">
+<pre class="format"><code>!</code>       <i>w a-addr &ndash; </i>       core       &ldquo;store&rdquo;
+</pre></div>
+<p>Store <i>w</i> into the cell at <i>a-addr</i>.
+</p>
+<span id="index-_002b_0021--n-a_002daddr-_002d_002d--core"></span>
+<span id="index-_002b_0021"></span>
+<span id="index-_002b_0021-1"></span>
+<div class="format">
+<pre class="format"><code>+!</code>       <i>n a-addr &ndash; </i>       core       &ldquo;plus-store&rdquo;
+</pre></div>
+<p>Add <i>n</i> to the cell at <i>a-addr</i>.
+</p>
+<span id="index-c_0040--c_002daddr-_002d_002d-c--core"></span>
+<span id="index-c_0040"></span>
+<span id="index-c_0040-1"></span>
+<div class="format">
+<pre class="format"><code>c@</code>       <i>c-addr &ndash; c </i>       core       &ldquo;c-fetch&rdquo;
+</pre></div>
+<p><i>c</i> is the char stored at <i>c_addr</i>.
+</p>
+<span id="index-c_0021--c-c_002daddr-_002d_002d--core"></span>
+<span id="index-c_0021"></span>
+<span id="index-c_0021-1"></span>
+<div class="format">
+<pre class="format"><code>c!</code>       <i>c c-addr &ndash; </i>       core       &ldquo;c-store&rdquo;
+</pre></div>
+<p>Store <i>c</i> into the char at <i>c-addr</i>.
+</p>
+<span id="index-2_0040--a_002daddr-_002d_002d-w1-w2--core"></span>
+<span id="index-2_0040"></span>
+<span id="index-2_0040-1"></span>
+<div class="format">
+<pre class="format"><code>2@</code>       <i>a-addr &ndash; w1 w2 </i>       core       &ldquo;two-fetch&rdquo;
+</pre></div>
+<p><i>w2</i> is the content of the cell stored at <i>a-addr</i>, <i>w1</i> is
+the content of the next cell.
+</p>
+<span id="index-2_0021--w1-w2-a_002daddr-_002d_002d--core"></span>
+<span id="index-2_0021"></span>
+<span id="index-2_0021-1"></span>
+<div class="format">
+<pre class="format"><code>2!</code>       <i>w1 w2 a-addr &ndash; </i>       core       &ldquo;two-store&rdquo;
+</pre></div>
+<p>Store <i>w2</i> into the cell at <i>c-addr</i> and <i>w1</i> into the next cell.
+</p>
+<span id="index-f_0040--f_002daddr-_002d_002d-r--float"></span>
+<span id="index-f_0040"></span>
+<span id="index-f_0040-1"></span>
+<div class="format">
+<pre class="format"><code>f@</code>       <i>f-addr &ndash; r </i>       float       &ldquo;f-fetch&rdquo;
+</pre></div>
+<p><i>r</i> is the float at address <i>f-addr</i>.
+</p>
+<span id="index-f_0021--r-f_002daddr-_002d_002d--float"></span>
+<span id="index-f_0021"></span>
+<span id="index-f_0021-1"></span>
+<div class="format">
+<pre class="format"><code>f!</code>       <i>r f-addr &ndash; </i>       float       &ldquo;f-store&rdquo;
+</pre></div>
+<p>Store <i>r</i> into the float at address <i>f-addr</i>.
+</p>
+<span id="index-sf_0040--sf_002daddr-_002d_002d-r--float_002dext"></span>
+<span id="index-sf_0040"></span>
+<span id="index-sf_0040-1"></span>
+<div class="format">
+<pre class="format"><code>sf@</code>       <i>sf-addr &ndash; r </i>       float-ext       &ldquo;s-f-fetch&rdquo;
+</pre></div>
+<p>Fetch the single-precision IEEE floating-point value <i>r</i> from the address <i>sf-addr</i>.
+</p>
+<span id="index-sf_0021--r-sf_002daddr-_002d_002d--float_002dext"></span>
+<span id="index-sf_0021"></span>
+<span id="index-sf_0021-1"></span>
+<div class="format">
+<pre class="format"><code>sf!</code>       <i>r sf-addr &ndash; </i>       float-ext       &ldquo;s-f-store&rdquo;
+</pre></div>
+<p>Store <i>r</i> as single-precision IEEE floating-point value to the
+address <i>sf-addr</i>.
+</p>
+<span id="index-df_0040--df_002daddr-_002d_002d-r--float_002dext"></span>
+<span id="index-df_0040"></span>
+<span id="index-df_0040-1"></span>
+<div class="format">
+<pre class="format"><code>df@</code>       <i>df-addr &ndash; r </i>       float-ext       &ldquo;d-f-fetch&rdquo;
+</pre></div>
+<p>Fetch the double-precision IEEE floating-point value <i>r</i> from the address <i>df-addr</i>.
+</p>
+<span id="index-df_0021--r-df_002daddr-_002d_002d--float_002dext"></span>
+<span id="index-df_0021"></span>
+<span id="index-df_0021-1"></span>
+<div class="format">
+<pre class="format"><code>df!</code>       <i>r df-addr &ndash; </i>       float-ext       &ldquo;d-f-store&rdquo;
+</pre></div>
+<p>Store <i>r</i> as double-precision IEEE floating-point value to the
+address <i>df-addr</i>.
+</p>
+<span id="index-sw_0040--c_002daddr-_002d_002d-n--gforth"></span>
+<span id="index-sw_0040"></span>
+<span id="index-sw_0040-1"></span>
+<div class="format">
+<pre class="format"><code>sw@</code>       <i>c-addr &ndash; n </i>       gforth       &ldquo;s-w-fetch&rdquo;
+</pre></div>
+<p><i>n</i> is the sign-extended 16-bit value stored at <i>c_addr</i>.
+</p>
+<span id="index-uw_0040--c_002daddr-_002d_002d-u--gforth"></span>
+<span id="index-uw_0040"></span>
+<span id="index-uw_0040-1"></span>
+<div class="format">
+<pre class="format"><code>uw@</code>       <i>c-addr &ndash; u </i>       gforth       &ldquo;u-w-fetch&rdquo;
+</pre></div>
+<p><i>u</i> is the zero-extended 16-bit value stored at <i>c_addr</i>.
+</p>
+<span id="index-w_0021--w-c_002daddr-_002d_002d--gforth"></span>
+<span id="index-w_0021"></span>
+<span id="index-w_0021-1"></span>
+<div class="format">
+<pre class="format"><code>w!</code>       <i>w c-addr &ndash; </i>       gforth       &ldquo;w-store&rdquo;
+</pre></div>
+<p>Store the bottom 16 bits of <i>w</i> at <i>c_addr</i>.
+</p>
+<span id="index-sl_0040--c_002daddr-_002d_002d-n--gforth"></span>
+<span id="index-sl_0040"></span>
+<span id="index-sl_0040-1"></span>
+<div class="format">
+<pre class="format"><code>sl@</code>       <i>c-addr &ndash; n </i>       gforth       &ldquo;s-l-fetch&rdquo;
+</pre></div>
+<p><i>n</i> is the sign-extended 32-bit value stored at <i>c_addr</i>.
+</p>
+<span id="index-ul_0040--c_002daddr-_002d_002d-u--gforth"></span>
+<span id="index-ul_0040"></span>
+<span id="index-ul_0040-1"></span>
+<div class="format">
+<pre class="format"><code>ul@</code>       <i>c-addr &ndash; u </i>       gforth       &ldquo;u-l-fetch&rdquo;
+</pre></div>
+<p><i>u</i> is the zero-extended 32-bit value stored at <i>c_addr</i>.
+</p>
+<span id="index-l_0021--w-c_002daddr-_002d_002d--gforth"></span>
+<span id="index-l_0021"></span>
+<span id="index-l_0021-1"></span>
+<div class="format">
+<pre class="format"><code>l!</code>       <i>w c-addr &ndash; </i>       gforth       &ldquo;l-store&rdquo;
+</pre></div>
+<p>Store the bottom 32 bits of <i>w</i> at <i>c_addr</i>.
+</p>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Address-arithmetic.html" accesskey="n" rel="next">Address arithmetic</a>, Previous: <a href="Heap-Allocation.html" accesskey="p" rel="prev">Heap Allocation</a>, Up: <a href="Memory.html" accesskey="u" rel="up">Memory</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>core-other (Gforth Manual)</title>
+
+<meta name="description" content="core-other (Gforth Manual)">
+<meta name="keywords" content="core-other (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="The-Core-Words.html" rel="up" title="The Core Words">
+<link href="The-optional-Block-word-set.html" rel="next" title="The optional Block word set">
+<link href="core_002dambcond.html" rel="prev" title="core-ambcond">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="core_002dother"></span><div class="header">
+<p>
+Previous: <a href="core_002dambcond.html" accesskey="p" rel="prev">core-ambcond</a>, Up: <a href="The-Core-Words.html" accesskey="u" rel="up">The Core Words</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Other-system-documentation"></span><h4 class="subsection">8.1.3 Other system documentation</h4>
+<span id="index-other-system-documentation_002c-core-words"></span>
+<span id="index-core-words_002c-other-system-documentation"></span>
+
+<dl compact="compact">
+<dt><i>nonstandard words using <code>PAD</code>:</i></dt>
+<dd><span id="index-PAD-use-by-nonstandard-words"></span>
+<p>None.
+</p>
+</dd>
+<dt><i>operator&rsquo;s terminal facilities available:</i></dt>
+<dd><span id="index-operator_0027s-terminal-facilities-available"></span>
+<p>After processing the OS&rsquo;s command line, Gforth goes into interactive mode,
+and you can give commands to Gforth interactively. The actual facilities
+available depend on how you invoke Gforth.
+</p>
+</dd>
+<dt><i>program data space available:</i></dt>
+<dd><span id="index-program-data-space-available"></span>
+<span id="index-data-space-available"></span>
+<p><code>UNUSED .</code> gives the remaining dictionary space. The total
+dictionary space can be specified with the <code>-m</code> switch
+(see <a href="Invoking-Gforth.html">Invoking Gforth</a>) when Gforth starts up.
+</p>
+</dd>
+<dt><i>return stack space available:</i></dt>
+<dd><span id="index-return-stack-space-available"></span>
+<p>You can compute the total return stack space in cells with
+<code>s&quot; RETURN-STACK-CELLS&quot; environment? drop .</code>. You can specify it at
+startup time with the <code>-r</code> switch (see <a href="Invoking-Gforth.html">Invoking Gforth</a>).
+</p>
+</dd>
+<dt><i>stack space available:</i></dt>
+<dd><span id="index-stack-space-available"></span>
+<p>You can compute the total data stack space in cells with
+<code>s&quot; STACK-CELLS&quot; environment? drop .</code>. You can specify it at
+startup time with the <code>-d</code> switch (see <a href="Invoking-Gforth.html">Invoking Gforth</a>).
+</p>
+</dd>
+<dt><i>system dictionary space required, in address units:</i></dt>
+<dd><span id="index-system-dictionary-space-required_002c-in-address-units"></span>
+<p>Type <code>here forthstart - .</code> after startup. At the time of this
+writing, this gives 80080 (bytes) on a 32-bit system.
+</p></dd>
+</dl>
+
+
+
+
+
+</body>
+</html>

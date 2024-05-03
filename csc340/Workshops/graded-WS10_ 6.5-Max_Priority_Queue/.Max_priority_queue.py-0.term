@@ -1,0 +1,335 @@
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priotiy[K[K[Krity_queue.py
+  File "Max_priority_queue.py", line 41
+    error "heap underflow"
+          ^
+SyntaxError: invalid syntax
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+  File "Max_priority_queue.py", line 55
+    exchange A[i] with A[parent(i)]
+             ^
+SyntaxError: invalid syntax
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 67, in main
+    HEAP_EXTRACT_MAX(A,len(heap_A))
+NameError: name 'A' is not defined
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 67, in main
+    HEAP_EXTRACT_MAX(heap_A,len(heap_A))
+  File "Max_priority_queue.py", line 44, in HEAP_EXTRACT_MAX
+    A[1] = A[n]
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[15, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C)-1)
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[15, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[15, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 63, in MAX_HEAP_INSERT
+    HEAP_INCREASE_KEY(A,n,key)
+  File "Max_priority_queue.py", line 51, in HEAP_INCREASE_KEY
+    raise Exception("new key is smaller than current key")
+Exception: new key is smaller than current key
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[15, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[15, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n-1] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[15, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 67, in main
+    HEAP_EXTRACT_MAX(heap_A,len(heap_A))
+  File "Max_priority_queue.py", line 44, in HEAP_EXTRACT_MAX
+    A[1] = A[n]
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[15, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[13, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[13, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 12, 6, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+  File "Max_priority_queue.py", line 54
+    while i > 1 and A[parent(i)] =< A[i]:
+                                 ^
+SyntaxError: invalid syntax
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[13, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[13, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 63, in MAX_HEAP_INSERT
+    HEAP_INCREASE_KEY(A,n,key)
+  File "Max_priority_queue.py", line 51, in HEAP_INCREASE_KEY
+    raise Exception("new key is smaller than current key")
+Exception: new key is smaller than current key
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[13, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C)-1)
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[13, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 74, in <module>
+    main()
+  File "Max_priority_queue.py", line 72, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C)-1)
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    HEAP_INCREASE_KEY(A,n,key)
+  File "Max_priority_queue.py", line 51, in HEAP_INCREASE_KEY
+    raise Exception("new key is smaller than current key")
+Exception: new key is smaller than current key
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ ]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ ]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[13, 9, 12, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 13, 5, 9, 8, 7, 4, 0, 12, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 75, in <module>
+    main()
+  File "Max_priority_queue.py", line 73, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 62, in MAX_HEAP_INSERT
+    A[n] = 100000
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ [K]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 79, in <module>
+    main()
+  File "Max_priority_queue.py", line 71, in main
+    HEAP_EXTRACT_MAX(heap_A,len(heap_A)-1)
+  File "Max_priority_queue.py", line 50, in HEAP_EXTRACT_MAX
+    MAX_HEAPIFY(A, 1, n)
+  File "Max_priority_queue.py", line 13, in MAX_HEAPIFY
+    l = left(i)
+NameError: name 'left' is not defined
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 79, in <module>
+    main()
+  File "Max_priority_queue.py", line 71, in main
+    HEAP_EXTRACT_MAX(heap_A,len(heap_A)-1)
+  File "Max_priority_queue.py", line 50, in HEAP_EXTRACT_MAX
+    MAX_HEAPIFY(A, 1, n)
+  File "Max_priority_queue.py", line 27, in MAX_HEAPIFY
+    max_heapify(A, largest, n);
+NameError: name 'max_heapify' is not defined
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ [K]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ [K]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[-10000, 13, 12, 9, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[-10000, 15, 14, 9, 13, 12, 8, 7, 4, 5, 6, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 79, in <module>
+    main()
+  File "Max_priority_queue.py", line 77, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 66, in MAX_HEAP_INSERT
+    A[n] = sentinel
+IndexError: list assignment index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ [K]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[-10000, 13, 12, 9, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[-10000, 15, 14, 9, 13, 12, 8, 7, 4, 5, 6, 2, 1]
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 79, in <module>
+    main()
+  File "Max_priority_queue.py", line 77, in main
+    MAX_HEAP_INSERT(heap_C, 10, len(heap_C))
+  File "Max_priority_queue.py", line 67, in MAX_HEAP_INSERT
+    HEAP_INCREASE_KEY(A,n,key)
+  File "Max_priority_queue.py", line 54, in HEAP_INCREASE_KEY
+    if key < A[i]:
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[-10000, 13, 12, 9, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[-10000, 15, 14, 9, 13, 12, 8, 7, 4, 5, 6, 2, 1]
+[-10000, 15, 13, 10, 5, 12, 9, 7, 4, 0, 6, 2, 1, 8]
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[13, 12, 9, 5, 6, 8, 7, 4, 0, 1, 2, 1]
+[15, 14, 9, 13, 12, 8, 7, 4, 5, 6, 2, 1]
+[15, 13, 10, 5, 12, 9, 7, 4, 0, 6, 2, 1, 8]
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ ]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ ]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ [K]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ ]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ python3 Max_priority_queue.py
+[13, 12, 9, 5, 6, 8, 7, 4, 0, 1, 2]
+[15, 14, 9, 13, 12, 8, 7, 4, 5, 6, 2, 1]
+[15, 13, 10, 5, 12, 9, 7, 4, 0, 6, 2, 1, 8]
+]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ ]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ [K]0;~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[01;34m~/csc340/Workshops/WS10: 6.5-Max_Priority_Queue[00m$ ]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ [K[A]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d4
+1c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ [K[A]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d4
+1c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ python3 Max_priority_queue.py 
+[13, 12, 9, 5, 6, 8, 7, 4, 0, 1, 2]
+[15, 14, 9, 13, 12, 8, 7, 4, 5, 6, 2, 1]
+[15, 13, 10, 5, 12, 9, 7, 4, 0, 6, 2, 1, 8]
+
+****************Test Code***************
+
+Extracting from empty heap...
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 110, in <module>
+    main()
+  File "Max_priority_queue.py", line 85, in main
+    test_max = heap_extract_max(test, len(test)-1)
+  File "Max_priority_queue.py", line 44, in heap_extract_max
+    raise Exception("heap underflow")
+Exception: heap underflow
+]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ python3 Max_priority_queue.py 
+[13, 12, 9, 5, 6, 8, 7, 4, 0, 1, 2]
+[15, 14, 9, 13, 12, 8, 7, 4, 5, 6, 2, 1]
+[15, 13, 10, 5, 12, 9, 7, 4, 0, 6, 2, 1, 8]
+
+****************Test Code***************
+
+Extracting from empty heap...
+
+Inserting into empty heap...
+Max-heap test = [102, 101, 98, 100]
+
+Extracting from test heap...
+The maximum of test was 102.
+Max-heap test = [101, 100, 98]
+
+Attempting to increase the value at index 2 to 14...
+Traceback (most recent call last):
+  File "Max_priority_queue.py", line 110, in <module>
+    main()
+  File "Max_priority_queue.py", line 102, in main
+    heap_increase_key(test, 2, 14)
+  File "Max_priority_queue.py", line 55, in heap_increase_key
+    raise Exception("new key is smaller than current key")
+Exception: new key is smaller than current key
+]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ python3 Max_priority_queue.py 
+[13, 12, 9, 5, 6, 8, 7, 4, 0, 1, 2]
+[15, 14, 9, 13, 12, 8, 7, 4, 5, 6, 2, 1]
+[15, 13, 10, 5, 12, 9, 7, 4, 0, 6, 2, 1, 8]
+
+****************Test Code***************
+
+Extracting from empty heap...
+
+Inserting into empty heap...
+Max-heap test = [102, 101, 98, 100]
+
+Extracting from test heap...
+The maximum of test was 102.
+Max-heap test = [101, 100, 98]
+
+Attempting to increase the value at index 2 to 14...
+After increasing the value Max-heap test = [101, 100, 98]
+
+Attempting to increase the value at index 2 to 140...
+
+After increasing the value Max-heap test = [140, 101, 98]
+]0;~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[01;34m~/2022-Spring/CSC-340-collect/csc340/Workshops/WS10: 6.5-Max_Priority_Queue/48d41c4c-5dbf-45e3-a7b7-3cbaba0ba61f[00m$ 

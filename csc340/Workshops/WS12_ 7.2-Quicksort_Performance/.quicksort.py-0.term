@@ -1,0 +1,120 @@
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+Traceback (most recent call last):
+  File "quicksort.py", line 35, in <module>
+    main()
+  File "quicksort.py", line 33, in main
+    quicksort(A)
+TypeError: quicksort() missing 2 required positional arguments: 'p' and 'r'
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+Traceback (most recent call last):
+  File "quicksort.py", line 35, in <module>
+    main()
+  File "quicksort.py", line 33, in main
+    quicksort(A, 0 )
+TypeError: quicksort() missing 1 required positional argument: 'r'
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+Traceback (most recent call last):
+  File "quicksort.py", line 35, in <module>
+    main()
+  File "quicksort.py", line 33, in main
+    quicksort(A, 0 , len(A)-1)
+  File "quicksort.py", line 20, in quicksort
+    QUICKSORT(A,p,q-1)
+NameError: name 'QUICKSORT' is not defined
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+[2, 5, 7, 8, 9, 4, 11, 13, 12, 19, 21, 6]
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+[2, 5, 7, 8, 9, 4, 11, 13, 12, 19, 21, 6]
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+Traceback (most recent call last):
+  File "quicksort.py", line 35, in <module>
+    main()
+  File "quicksort.py", line 33, in main
+    quicksort(A, 0 , len(A))
+  File "quicksort.py", line 19, in quicksort
+    q = partition(A,p,r)
+  File "quicksort.py", line 4, in partition
+    x = A[r]
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+Traceback (most recent call last):
+  File "quicksort.py", line 35, in <module>
+    main()
+  File "quicksort.py", line 33, in main
+    quicksort(A, 0 , len(A))
+  File "quicksort.py", line 19, in quicksort
+    q = partition(A,p,r)
+  File "quicksort.py", line 4, in partition
+    x = A[r]
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+Traceback (most recent call last):
+  File "quicksort.py", line 35, in <module>
+    main()
+  File "quicksort.py", line 33, in main
+    quicksort(A, 0 , len(A))
+  File "quicksort.py", line 19, in quicksort
+    q = partition(A,p,r)
+  File "quicksort.py", line 4, in partition
+    x = A[r]
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+Traceback (most recent call last):
+  File "quicksort.py", line 35, in <module>
+    main()
+  File "quicksort.py", line 33, in main
+    quicksort(A, 0 , len(A))
+  File "quicksort.py", line 19, in quicksort
+    q = partition(A,p,r)
+  File "quicksort.py", line 4, in partition
+    x = A[r]
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+Traceback (most recent call last):
+  File "quicksort.py", line 35, in <module>
+    main()
+  File "quicksort.py", line 33, in main
+    quicksort(A, 0 , len(A)-1)
+  File "quicksort.py", line 20, in quicksort
+    quicksort(A,p,q-1)
+  File "quicksort.py", line 21, in quicksort
+    QUICKSORT(A,q+1,r)
+NameError: name 'QUICKSORT' is not defined
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+[2, 5, 7, 8, 9, 4, 11, 13, 12, 19, 21, 6]
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+[2, 5, 7, 8, 9, 4, 11, 13, 12, 19, 21, 6]
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+Traceback (most recent call last):
+  File "quicksort.py", line 35, in <module>
+    main()
+  File "quicksort.py", line 33, in main
+    quicksort(A, 1 , len(A))
+  File "quicksort.py", line 19, in quicksort
+    q = partition(A,p,r)
+  File "quicksort.py", line 4, in partition
+    x = A[r]
+IndexError: list index out of range
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+[2, 5, 7, 8, 9, 4, 11, 13, 12, 19, 21, 6]
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+[2, 4, 5, 6, 7, 8, 9, 11, 12, 13, 19, 21]
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ ]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ python3 quicksort.py
+[13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]
+[2, 4, 5, 6, 7, 8, 9, 11, 12, 13, 19, 21]
+]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ ]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ [K]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ ]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ ]0;~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[01;34m~/csc340/Workshops/WS12: 7.2-Quicksort_Performance[00m$ 

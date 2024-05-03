@@ -1,0 +1,238 @@
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ [K]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q0', 'q1', 'q2'}, {'b', 'c', 'e', 'd', 'a'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'1', 'q'}
+False
+{frozenset({'q1'}), frozenset({'q2', 'q1'}), frozenset({'q0', 'q1', 'q2'}), frozenset({'q2'}), frozenset({'q0'}), frozenset({'q0', 'q2'}), frozenset(), frozenset({'q0', 'q1'})}
+q1
+{'q0', 'q1', 'q2'}
+A = {'q0', 'q1', 'q2'}, {'b', 'c', 'e', 'epsilon', 'd', 'a'}, q0, {'q0': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q1': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q2': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}}, q1
+{'q2', 'q1'}
+Traceback (most recent call last):
+  File "dfa.py", line 146, in <module>
+    Hat_2 = N.NFA_delta_hat(S_2, 'abced')
+  File "dfa.py", line 93, in NFA_delta_hat
+    temp.add(self.Ntransitions[s][sequence[0]])
+AttributeError: 'list' object has no attribute 'add'
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q1', 'q0', 'q2'}, {'a', 'e', 'b', 'c', 'd'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'1', 'q'}
+False
+{frozenset({'q2'}), frozenset({'q1', 'q0', 'q2'}), frozenset({'q0'}), frozenset({'q0', 'q2'}), frozenset({'q1', 'q2'}), frozenset(), frozenset({'q1'}), frozenset({'q1', 'q0'})}
+q1
+{'q1', 'q0', 'q2'}
+A = {'q1', 'q0', 'q2'}, {'epsilon', 'a', 'e', 'b', 'c', 'd'}, q0, {'q0': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q1': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q2': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}}, q1
+{'q1', 'q2'}
+Traceback (most recent call last):
+  File "dfa.py", line 146, in <module>
+    Hat_2 = N.NFA_delta_hat(S_2, 'abced')
+  File "dfa.py", line 93, in NFA_delta_hat
+    temp.add(self.Ntransitions[s][sequence[0]])
+TypeError: unhashable type: 'set'
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ [K]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ [K]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ [K]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ [K]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q1', 'q2', 'q0'}, {'d', 'c', 'e', 'b', 'a'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'q', '1'}
+False
+{frozenset({'q2', 'q0'}), frozenset({'q2'}), frozenset({'q0'}), frozenset({'q1'}), frozenset({'q1', 'q2', 'q0'}), frozenset({'q1', 'q0'}), frozenset(), frozenset({'q1', 'q2'})}
+q1
+{'q1', 'q2', 'q0'}
+A = {'q1', 'q2', 'q0'}, {'d', 'c', 'e', 'b', 'epsilon', 'a'}, q0, {'q0': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q1': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q2': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}}, q1
+{'q1', 'q2'}
+Traceback (most recent call last):
+  File "dfa.py", line 146, in <module>
+    Hat_2 = N.NFA_delta_hat(S_2, 'abced')
+  File "dfa.py", line 93, in NFA_delta_hat
+    temp.add(self.NFA_do_delta(s,sequence[0]))
+AttributeError: 'list' object has no attribute 'add'
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+  File "dfa.py", line 97
+    elif:
+        ^
+SyntaxError: invalid syntax
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q0', 'q2', 'q1'}, {'c', 'd', 'a', 'e', 'b'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'1', 'q'}
+False
+{frozenset({'q0', 'q2', 'q1'}), frozenset({'q2', 'q1'}), frozenset({'q0', 'q1'}), frozenset({'q0', 'q2'}), frozenset({'q1'}), frozenset(), frozenset({'q0'}), frozenset({'q2'})}
+q1
+{'q0', 'q2', 'q1'}
+A = {'q0', 'q2', 'q1'}, {'epsilon', 'c', 'd', 'a', 'e', 'b'}, q0, {'q0': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q1': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q2': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}}, q1
+{'q2', 'q1'}
+Traceback (most recent call last):
+  File "dfa.py", line 148, in <module>
+    Hat_2 = N.NFA_delta_hat(S_2, 'abced')
+  File "dfa.py", line 94, in NFA_delta_hat
+    delta_union = (set(temp)|set(temp))
+TypeError: unhashable type: 'set'
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+  File "dfa.py", line 94
+    delta_union = (set(temp)|set(temp))
+    ^
+SyntaxError: invalid syntax
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+  File "dfa.py", line 94
+    delta_union = (temp|temp)
+    ^
+SyntaxError: invalid syntax
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+  File "dfa.py", line 94
+    delta_union = (temp|temp)
+    ^
+SyntaxError: invalid syntax
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+  File "dfa.py", line 94
+    delta_union = (temp|temp)
+    ^
+SyntaxError: invalid syntax
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q0', 'q1', 'q2'}, {'c', 'd', 'a', 'e', 'b'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'q', '1'}
+False
+{frozenset({'q2'}), frozenset({'q0', 'q2'}), frozenset({'q0', 'q1'}), frozenset({'q1', 'q2'}), frozenset({'q0'}), frozenset({'q0', 'q1', 'q2'}), frozenset(), frozenset({'q1'})}
+q1
+{'q0', 'q1', 'q2'}
+A = {'q0', 'q1', 'q2'}, {'c', 'd', 'a', 'epsilon', 'e', 'b'}, q0, {'q0': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q1': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q2': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}}, q1
+{'q1', 'q2'}
+Traceback (most recent call last):
+  File "dfa.py", line 148, in <module>
+    Hat_2 = N.NFA_delta_hat(S_2, 'abced')
+  File "dfa.py", line 94, in NFA_delta_hat
+    delta_union = (temp|temp)
+TypeError: unsupported operand type(s) for |: 'list' and 'list'
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q1', 'q0', 'q2'}, {'b', 'c', 'a', 'd', 'e'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'q', '1'}
+False
+{frozenset({'q2'}), frozenset({'q1', 'q2'}), frozenset({'q1'}), frozenset({'q0', 'q2'}), frozenset({'q1', 'q0', 'q2'}), frozenset({'q1', 'q0'}), frozenset({'q0'}), frozenset()}
+q1
+{'q1', 'q0', 'q2'}
+A = {'q1', 'q0', 'q2'}, {'b', 'c', 'a', 'epsilon', 'd', 'e'}, q0, {'q0': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q1': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q2': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}}, q1
+{'q1', 'q2'}
+Traceback (most recent call last):
+  File "dfa.py", line 148, in <module>
+    Hat_2 = N.NFA_delta_hat(S_2, 'abced')
+  File "dfa.py", line 94, in NFA_delta_hat
+    delta_union = (set(temp)|set(temp))
+TypeError: unhashable type: 'list'
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q1', 'q0', 'q2'}, {'e', 'd', 'a', 'c', 'b'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'1', 'q'}
+False
+{frozenset({'q0'}), frozenset({'q1', 'q2'}), frozenset({'q1', 'q0'}), frozenset({'q2'}), frozenset({'q1'}), frozenset({'q0', 'q2'}), frozenset(), frozenset({'q1', 'q0', 'q2'})}
+q1
+{'q1', 'q0', 'q2'}
+A = {'q1', 'q0', 'q2'}, {'e', 'd', 'a', 'c', 'epsilon', 'b'}, q0, {'q0': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q1': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q2': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}}, q1
+{'q1', 'q2'}
+Traceback (most recent call last):
+  File "dfa.py", line 151, in <module>
+    Hat_2 = N.NFA_delta_hat(S_2, 'abced')
+  File "dfa.py", line 101, in NFA_delta_hat
+    return self.NFA_delta_hat(Naccept_states, sequence[1:])
+  File "dfa.py", line 101, in NFA_delta_hat
+    return self.NFA_delta_hat(Naccept_states, sequence[1:])
+  File "dfa.py", line 101, in NFA_delta_hat
+    return self.NFA_delta_hat(Naccept_states, sequence[1:])
+  [Previous line repeated 1 more time]
+  File "dfa.py", line 103, in NFA_delta_hat
+    return false
+NameError: name 'false' is not defined
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q2', 'q1', 'q0'}, {'e', 'a', 'b', 'd', 'c'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'1', 'q'}
+False
+{frozenset({'q1', 'q0'}), frozenset({'q1'}), frozenset({'q2', 'q1'}), frozenset({'q2', 'q0'}), frozenset({'q2', 'q1', 'q0'}), frozenset({'q2'}), frozenset(), frozenset({'q0'})}
+q1
+{'q2', 'q1', 'q0'}
+A = {'q2', 'q1', 'q0'}, {'e', 'a', 'b', 'd', 'epsilon', 'c'}, q0, {'q0': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q1': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q2': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}}, q1
+{'q2', 'q1'}
+False
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q2', 'q0', 'q1'}, {'a', 'e', 'b', 'd', 'c'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'q', '1'}
+False
+{frozenset({'q1'}), frozenset({'q0'}), frozenset({'q2', 'q0', 'q1'}), frozenset({'q2', 'q1'}), frozenset({'q2'}), frozenset(), frozenset({'q0', 'q1'}), frozenset({'q2', 'q0'})}
+q1
+{'q2', 'q0', 'q1'}
+A = {'q2', 'q0', 'q1'}, {'epsilon', 'a', 'e', 'b', 'd', 'c'}, q0, {'q0': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q1': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q2': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}}, q1
+{'q2', 'q1'}
+False
+Traceback (most recent call last):
+  File "dfa.py", line 155, in <module>
+    new_DFA = N.NFA_DFA(delta_2, S_2, Q_2, E_2)
+AttributeError: 'NFA' object has no attribute 'NFA_DFA'
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q1', 'q0', 'q2'}, {'b', 'd', 'c', 'a', 'e'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'q', '1'}
+False
+{frozenset({'q0'}), frozenset({'q1'}), frozenset({'q1', 'q0', 'q2'}), frozenset({'q0', 'q2'}), frozenset({'q2'}), frozenset(), frozenset({'q1', 'q2'}), frozenset({'q1', 'q0'})}
+q1
+{'q1', 'q0', 'q2'}
+A = {'q1', 'q0', 'q2'}, {'epsilon', 'b', 'd', 'c', 'a', 'e'}, q0, {'q0': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q1': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q2': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}}, q1
+{'q1', 'q2'}
+False
+Traceback (most recent call last):
+  File "dfa.py", line 155, in <module>
+    new_DFA = N.NFA_to_DFA(delta_2, S_2, Q_2, E_2)
+  File "dfa.py", line 113, in NFA_to_DFA
+    new_dfa[state] = {}
+NameError: name 'state' is not defined
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q0', 'q2', 'q1'}, {'e', 'a', 'c', 'b', 'd'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'1', 'q'}
+False
+{frozenset({'q0', 'q2', 'q1'}), frozenset({'q1'}), frozenset({'q0'}), frozenset({'q0', 'q2'}), frozenset({'q2', 'q1'}), frozenset(), frozenset({'q2'}), frozenset({'q0', 'q1'})}
+q1
+{'q0', 'q2', 'q1'}
+A = {'q0', 'q2', 'q1'}, {'e', 'a', 'c', 'b', 'd', 'epsilon'}, q0, {'q0': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q1': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q2': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}}, q1
+{'q2', 'q1'}
+False
+Traceback (most recent call last):
+  File "dfa.py", line 155, in <module>
+    new_DFA = N.NFA_to_DFA(delta_2, S_2, Q_2, E_2)
+  File "dfa.py", line 120, in NFA_to_DFA
+    temp.add(transitions[substate][letters])
+NameError: name 'substate' is not defined
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q1', 'q0', 'q2'}, {'e', 'c', 'b', 'd', 'a'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'1', 'q'}
+False
+{frozenset({'q2'}), frozenset({'q1', 'q0'}), frozenset({'q1', 'q2'}), frozenset({'q0', 'q2'}), frozenset({'q1', 'q0', 'q2'}), frozenset({'q0'}), frozenset({'q1'}), frozenset()}
+q1
+{'q1', 'q0', 'q2'}
+A = {'q1', 'q0', 'q2'}, {'e', 'c', 'b', 'd', 'a', 'epsilon'}, q0, {'q0': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q1': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q2': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}}, q1
+{'q1', 'q2'}
+False
+Traceback (most recent call last):
+  File "dfa.py", line 155, in <module>
+    new_DFA = N.NFA_to_DFA(delta_2, S_2, Q_2, E_2)
+  File "dfa.py", line 115, in NFA_to_DFA
+    if state is None:
+NameError: name 'state' is not defined
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q1', 'q2', 'q0'}, {'a', 'e', 'd', 'c', 'b'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'q', '1'}
+False
+{frozenset({'q1', 'q0'}), frozenset({'q2', 'q0'}), frozenset({'q1'}), frozenset({'q1', 'q2'}), frozenset({'q1', 'q2', 'q0'}), frozenset({'q2'}), frozenset(), frozenset({'q0'})}
+q1
+{'q1', 'q2', 'q0'}
+A = {'q1', 'q2', 'q0'}, {'a', 'e', 'd', 'c', 'epsilon', 'b'}, q0, {'q0': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q1': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q2': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}}, q1
+{'q1', 'q2'}
+False
+Traceback (most recent call last):
+  File "dfa.py", line 155, in <module>
+    new_DFA = N.NFA_to_DFA(delta_2, S_2, Q_2, E_2)
+  File "dfa.py", line 120, in NFA_to_DFA
+    temp.add(transitions[substates][letters])
+KeyError: 'epsilon'
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q2', 'q1', 'q0'}, {'b', 'e', 'd', 'a', 'c'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'1', 'q'}
+False
+{frozenset({'q1', 'q0'}), frozenset({'q0'}), frozenset({'q2', 'q0'}), frozenset({'q2', 'q1', 'q0'}), frozenset({'q2'}), frozenset({'q1', 'q2'}), frozenset({'q1'}), frozenset()}
+q1
+{'q2', 'q1', 'q0'}
+A = {'q2', 'q1', 'q0'}, {'epsilon', 'b', 'e', 'd', 'a', 'c'}, q0, {'q0': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q1': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}, 'q2': {'a': {'q1', 'q2'}, 'b': {'q1', 'q2'}, 'c': {'q1', 'q2'}, 'd': {'q1', 'q2'}, 'e': {'q1', 'q2'}, 'epsilon': {'q1', 'q2'}}}, q1
+{'q1', 'q2'}
+False
+Traceback (most recent call last):
+  File "dfa.py", line 155, in <module>
+    new_DFA = N.NFA_to_DFA(delta_2, S_2, Q_2, E_2)
+  File "dfa.py", line 120, in NFA_to_DFA
+    temp.add(self.NFA_do_delta(substates,letters))
+TypeError: unhashable type: 'set'
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 dfa.py
+A = {'q2', 'q1', 'q0'}, {'c', 'b', 'd', 'e', 'a'}, q0, {'q0': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q1': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}, 'q2': {'a': 'q1', 'b': 'q1', 'c': 'q1', 'd': 'q1', 'e': 'q1'}}, {'q', '1'}
+False
+{frozenset({'q2', 'q1', 'q0'}), frozenset({'q0'}), frozenset({'q1'}), frozenset({'q2', 'q0'}), frozenset({'q2', 'q1'}), frozenset({'q1', 'q0'}), frozenset({'q2'}), frozenset()}
+q1
+{'q2', 'q1', 'q0'}
+A = {'q2', 'q1', 'q0'}, {'c', 'b', 'd', 'epsilon', 'e', 'a'}, q0, {'q0': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q1': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, 'q2': {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}}, q1
+{'q2', 'q1'}
+False
+{frozenset({'q2', 'q1', 'q0'}): {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, frozenset({'q0'}): {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, frozenset({'q1'}): {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, frozenset({'q2', 'q0'}): {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, frozenset({'q2', 'q1'}): {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, frozenset({'q1', 'q0'}): {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, frozenset({'q2'}): {'a': {'q2', 'q1'}, 'b': {'q2', 'q1'}, 'c': {'q2', 'q1'}, 'd': {'q2', 'q1'}, 'e': {'q2', 'q1'}, 'epsilon': {'q2', 'q1'}}, frozenset(): {'a': set(), 'b': set(), 'c': set(), 'd': set(), 'e': set(), 'epsilon': set()}}
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ 

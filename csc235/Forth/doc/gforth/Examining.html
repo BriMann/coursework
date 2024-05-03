@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Examining (Gforth Manual)</title>
+
+<meta name="description" content="Examining (Gforth Manual)">
+<meta name="keywords" content="Examining (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Programming-Tools.html" rel="up" title="Programming Tools">
+<link href="Forgetting-words.html" rel="next" title="Forgetting words">
+<link href="Programming-Tools.html" rel="prev" title="Programming Tools">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Examining"></span><div class="header">
+<p>
+Next: <a href="Forgetting-words.html" accesskey="n" rel="next">Forgetting words</a>, Previous: <a href="Programming-Tools.html" accesskey="p" rel="prev">Programming Tools</a>, Up: <a href="Programming-Tools.html" accesskey="u" rel="up">Programming Tools</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Examining-data-and-code"></span><h4 class="subsection">5.24.1 Examining data and code</h4>
+<span id="index-examining-data-and-code"></span>
+<span id="index-data-examination"></span>
+<span id="index-code-examination"></span>
+
+<p>The following words inspect the stack non-destructively:
+</p>
+<span id="index-_002es--_002d_002d--tools"></span>
+<span id="index-_002es"></span>
+<span id="index-_002es-1"></span>
+<div class="format">
+<pre class="format"><code>.s</code>       <i>&ndash;  </i>       tools       &ldquo;dot-s&rdquo;
+</pre></div>
+<p>Display the number of items on the data stack, followed by a list
+of the items (but not more than specified by <code>maxdepth-.s</code>;
+TOS is the right-most item.
+</p>
+
+<span id="index-f_002es--_002d_002d--gforth"></span>
+<span id="index-f_002es"></span>
+<span id="index-f_002es-1"></span>
+<div class="format">
+<pre class="format"><code>f.s</code>       <i>&ndash;  </i>       gforth       &ldquo;f-dot-s&rdquo;
+</pre></div>
+<p>Display the number of items on the floating-point stack, followed
+by a list of the items (but not more than specified by
+<code>maxdepth-.s</code>; TOS is the right-most item.
+</p>
+
+<span id="index-maxdepth_002d_002es--_002d_002d-addr--gforth"></span>
+<span id="index-maxdepth_002d_002es"></span>
+<span id="index-maxdepth_002d_002es-1"></span>
+<div class="format">
+<pre class="format"><code>maxdepth-.s</code>       <i>&ndash; addr  </i>       gforth       &ldquo;maxdepth-dot-s&rdquo;
+</pre></div>
+<p>A variable containing 9 by default.  <code>.s</code> and <code>f.s</code>
+display at most that many stack items.
+</p>
+
+
+<p>There is a word <code>.r</code> but it does <i>not</i> display the return stack!
+It is used for formatted numeric output (see <a href="Simple-numeric-output.html">Simple numeric output</a>).
+</p>
+<span id="index-depth--_002d_002d-_002bn--core"></span>
+<span id="index-depth"></span>
+<span id="index-depth-1"></span>
+<div class="format">
+<pre class="format"><code>depth</code>       <i>&ndash; +n  </i>       core       &ldquo;depth&rdquo;
+</pre></div>
+<p><var>+n</var> is the number of values that were on the data stack before
+<var>+n</var> itself was placed on the stack.
+</p>
+
+<span id="index-fdepth--_002d_002d-_002bn--float"></span>
+<span id="index-fdepth"></span>
+<span id="index-fdepth-1"></span>
+<div class="format">
+<pre class="format"><code>fdepth</code>       <i>&ndash; +n  </i>       float       &ldquo;f-depth&rdquo;
+</pre></div>
+<p><i>+n</i> is the current number of (floating-point) values on the
+floating-point stack.
+</p>
+
+<span id="index-clearstack--_002e_002e_002e-_002d_002d--gforth"></span>
+<span id="index-clearstack"></span>
+<span id="index-clearstack-1"></span>
+<div class="format">
+<pre class="format"><code>clearstack</code>       <i>... &ndash;  </i>       gforth       &ldquo;clear-stack&rdquo;
+</pre></div>
+<p>remove and discard all/any items from the data stack.
+</p>
+
+<span id="index-clearstacks--_002e_002e_002e-_002d_002d--gforth"></span>
+<span id="index-clearstacks"></span>
+<span id="index-clearstacks-1"></span>
+<div class="format">
+<pre class="format"><code>clearstacks</code>       <i>... &ndash;  </i>       gforth       &ldquo;clear-stacks&rdquo;
+</pre></div>
+<p>empty data and FP stack
+</p>
+
+
+<p>The following words inspect memory.
+</p>
+<span id="index-_003f--a_002daddr-_002d_002d--tools"></span>
+<span id="index-_003f"></span>
+<span id="index-_003f-1"></span>
+<div class="format">
+<pre class="format"><code>?</code>       <i>a-addr &ndash;  </i>       tools       &ldquo;question&rdquo;
+</pre></div>
+<p>Display the contents of address <var>a-addr</var> in the current number base.
+</p>
+
+<span id="index-dump--addr-u-_002d_002d--tools"></span>
+<span id="index-dump"></span>
+<span id="index-dump-1"></span>
+<div class="format">
+<pre class="format"><code>dump</code>       <i>addr u &ndash;  </i>       tools       &ldquo;dump&rdquo;
+</pre></div>
+<p>Display <var>u</var> lines of memory starting at address <var>addr</var>. Each line
+displays the contents of 16 bytes. When Gforth is running under
+an operating system you may get <samp>Invalid memory address</samp> errors
+if you attempt to access arbitrary locations.
+</p>
+
+
+<p>And finally, <code>see</code> allows to inspect code:
+</p>
+<span id="index-see--_0022_003cspaces_003ename_0022-_002d_002d--tools"></span>
+<span id="index-see"></span>
+<span id="index-see-1"></span>
+<div class="format">
+<pre class="format"><code>see</code>       <i>&quot;&lt;spaces&gt;name&quot; &ndash;  </i>       tools       &ldquo;see&rdquo;
+</pre></div>
+<p>Locate <var>name</var> using the current search order. Display the
+definition of <var>name</var>. Since this is achieved by decompiling
+the definition, the formatting is mechanised and some source
+information (comments, interpreted sequences within definitions
+etc.) is lost.
+</p>
+
+<span id="index-xt_002dsee--xt-_002d_002d--gforth"></span>
+<span id="index-xt_002dsee"></span>
+<span id="index-xt_002dsee-1"></span>
+<div class="format">
+<pre class="format"><code>xt-see</code>       <i>xt &ndash;  </i>       gforth       &ldquo;xt-see&rdquo;
+</pre></div>
+<p>Decompile the definition represented by <i>xt</i>.
+</p>
+
+<span id="index-simple_002dsee--_0022name_0022-_002d_002d--gforth"></span>
+<span id="index-simple_002dsee"></span>
+<span id="index-simple_002dsee-1"></span>
+<div class="format">
+<pre class="format"><code>simple-see</code>       <i>&quot;name&quot; &ndash;  </i>       gforth       &ldquo;simple-see&rdquo;
+</pre></div>
+<p>a simple decompiler that&rsquo;s closer to <code>dump</code> than <code>see</code>.
+</p>
+
+<span id="index-simple_002dsee_002drange--addr1-addr2-_002d_002d--gforth"></span>
+<span id="index-simple_002dsee_002drange"></span>
+<span id="index-simple_002dsee_002drange-1"></span>
+<div class="format">
+<pre class="format"><code>simple-see-range</code>       <i>addr1 addr2 &ndash;  </i>       gforth       &ldquo;simple-see-range&rdquo;
+</pre></div>
+
+<span id="index-see_002dcode--_0022name_0022-_002d_002d--gforth"></span>
+<span id="index-see_002dcode"></span>
+<span id="index-see_002dcode-1"></span>
+<div class="format">
+<pre class="format"><code>see-code</code>       <i>&quot;name&quot; &ndash;  </i>       gforth       &ldquo;see-code&rdquo;
+</pre></div>
+<p>like <code>simple-see</code>, but also shows the dynamic native code for
+the inlined primitives (except for the last).
+</p>
+
+<span id="index-see_002dcode_002drange--addr1-addr2-_002d_002d--gforth"></span>
+<span id="index-see_002dcode_002drange"></span>
+<span id="index-see_002dcode_002drange-1"></span>
+<div class="format">
+<pre class="format"><code>see-code-range</code>       <i>addr1 addr2 &ndash;  </i>       gforth       &ldquo;see-code-range&rdquo;
+</pre></div>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Forgetting-words.html" accesskey="n" rel="next">Forgetting words</a>, Previous: <a href="Programming-Tools.html" accesskey="p" rel="prev">Programming Tools</a>, Up: <a href="Programming-Tools.html" accesskey="u" rel="up">Programming Tools</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

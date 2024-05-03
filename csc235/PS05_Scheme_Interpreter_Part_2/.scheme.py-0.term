@@ -1,0 +1,1617 @@
+]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 06 --local- --localu --local[1@ [C[1P[1@7
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 7 > Suite 1 > Case 1
+(cases remaining: 6)
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> eval_all(Pair(2, nil), env)
+Choose the number of the correct choice:
+0) SchemeError
+1) 2
+? 1
+-- OK! --
+
+>>> eval_all(Pair(4, Pair(5, nil)), env)
+Choose the number of the correct choice:
+0) 4
+1) 5
+2) (4 5)
+3) SchemeError
+? 0
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) 4
+1) 5
+2) (4 5)
+3) SchemeError
+? 2
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) 4
+1) 5
+2) (4 5)
+3) SchemeError
+? 1
+-- OK! --
+
+>>> eval_all(nil, env) # return None (meaning undefined)
+---------------------------------------------------------------------
+Problem 7 > Suite 1 > Case 2
+(cases remaining: 5)
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> lst = Pair(1, Pair(2, Pair(3, nil)))
+>>> eval_all(lst, env)
+? 1
+-- Not quite. Try again! --
+
+? 2
+-- Not quite. Try again! --
+
+? 3
+-- OK! --
+
+>>> lst     # The list should not be mutated!
+? (1 2 3)
+-- Not quite. Try again! --
+
+? (123)
+-- Not quite. Try again! --
+
+? 1 2 3
+-- Not quite. Try again! --
+
+? SchemeError
+-- Not quite. Try again! --
+
+? (2 3)
+-- Not quite. Try again! --
+
+? nil
+-- Not quite. Try again! --
+
+? (1 2)
+-- Not quite. Try again! --
+
+? (3)
+-- Not quite. Try again! --
+
+? (1)
+-- Not quite. Try again! --
+
+? (2)
+-- Not quite. Try again! --
+
+? (12)
+-- Not quite. Try again! --
+
+? env
+-- Not quite. Try again! --
+
+? None
+-- Not quite. Try again! --
+
+? (1 2 3)
+-- Not quite. Try again! --
+
+? Pair(1, Pair(2, Pair(3, nil)))
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 2 > Case 1
+(cases remaining: 4)
+
+
+scm> (begin (+ 2 3) (+ 5 6))
+? 11
+-- OK! --
+
+scm> (begin (define x 3) x)
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 2 > Case 2
+(cases remaining: 3)
+
+
+scm> (begin 30 '(+ 2 2))
+Choose the number of the correct choice:
+0) 4
+1) '(+ 2 2)
+2) 30
+3) (+ 2 2)
+? 1
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) 4
+1) '(+ 2 2)
+2) 30
+3) (+ 2 2)
+? 2
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) 4
+1) '(+ 2 2)
+2) 30
+3) (+ 2 2)
+? 3
+-- OK! --
+
+scm> (define x 0)
+? x
+-- OK! --
+
+scm> (begin (define x (+ x 1)) 42 (define y (+ x 1)))
+? 42
+-- Not quite. Try again! --
+
+? 44
+-- Not quite. Try again! --
+
+? 43
+-- Not quite. Try again! --
+
+? 45
+-- Not quite. Try again! --
+
+? 46
+-- Not quite. Try again! --
+
+? 42
+-- Not quite. Try again! --
+
+? 41
+-- Not quite. Try again! --
+
+? (+ x 1)
+-- Not quite. Try again! --
+
+? (define y (x[K+ x 1)
+-- Not quite. Try again! --
+
+? (define y (+ x 1))
+-- Not quite. Try again! --
+
+? x
+-- Not quite. Try again! --
+
+? y
+-- OK! --
+
+scm> x
+? 43
+-- Not quite. Try again! --
+
+? 42
+-- Not quite. Try again! --
+
+? (+ x 1)
+-- Not quite. Try again! --
+
+? x
+-- Not quite. Try again! --
+
+? y
+-- Not quite. Try again! --
+
+? 44
+-- Not quite. Try again! --
+
+? 1
+-- OK! --
+
+scm> y
+? 43
+-- Not quite. Try again! --
+
+? 42
+-- Not quite. Try again! --
+
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 2 > Case 3
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 2 > Case 4
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 7 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 07 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    6 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 07 --local[C[1P --local8 --local[C --local- --localu --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 8 > Suite 1 > Case 1
+(cases remaining: 4)
+
+
+scm> (lambda (x y) (+ x y))
+? (x y)
+-- Not quite. Try again! --
+
+? (+ x y)
+-- Not quite. Try again! --
+
+? x
+-- Not quite. Try again! --
+
+? y
+-- Not quite. Try again! --
+
+? x y
+-- Not quite. Try again! --
+
+? lambda
+-- Not quite. Try again! --
+
+? (lambda (x y) (+ x y))
+-- OK! --
+
+scm> (lambda (x))
+? x
+-- Not quite. Try again! --
+
+? CC[K[KV[K
+-- Exiting unlocker --
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 08 -u --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 8 > Suite 1 > Case 1
+(cases remaining: 4)
+
+
+scm> (lambda (x y) (+ x y))
+(lambda (x y) (+ x y))
+scm> (lambda (x))
+? scm> (lambda (x))[K[K[Kx))[C[C[C[1P[1P[1P[1P
+-- Not quite. Try again! --
+
+? (lambda (x))
+-- Not quite. Try again! --
+
+? (lambda (x))
+-- Not quite. Try again! --
+
+? (lambda (x))[K[K)[C[1P
+-- Not quite. Try again! --
+
+? lambda (x)[K[K[K
+-- Not quite. Try again! --
+
+? x
+-- Not quite. Try again! --
+
+? (x)
+-- Not quite. Try again! --
+
+? (lambda x)
+-- Not quite. Try again! --
+
+? (lambda x)[C[C[Cx)[K[2Pxlambda (x)[C[C(lambda (x))[C[C[2Plambda (x)[K[K[C[Cx[K(x)lambda x)[C[C[K(lambda x)[C[C[Cx)[K[2Pxlambda (x)[C[C(lambda (x))
+-- Not quite. Try again! --
+
+? nil
+-- Not quite. Try again! --
+
+? None
+-- Not quite. Try again! --
+
+? 0
+-- Not quite. Try again! --
+
+? 1
+-- Not quite. Try again! --
+
+? SchemeError
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 1 > Case 2
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 1 > Case 3
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 2 > Case 1
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 8 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 08 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    4 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 08 --local[1P --local9 --local[C --local- --localu --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+(cases remaining: 7)
+
+
+scm> (define (f x y) (+ x y))
+? f
+-- OK! --
+
+scm> f
+Choose the number of the correct choice:
+0) (define f (lambda (x y) (+ x y)))
+1) (lambda (f x y) (+ x y))
+2) (lambda (x y) (+ x y))
+3) (f (x y) (+ x y))
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 2
+(cases remaining: 6)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 3
+(cases remaining: 5)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 4
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 5
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 6
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 2 > Case 1
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 9 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 268, in do_define_form
+    env.bindings[target] = LambdaProcedure(formals, expressions.rest, env)
+TypeError: unhashable type: 'Pair'
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: unhashable type: 'Pair'
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+(f x y)
+
+# Error: expected
+#     f
+# but got
+#     (f x y)
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 268, in do_define_form
+    env.bindings[target.first.first] = LambdaProcedure(formals, expressions.rest, env)
+AttributeError: 'str' object has no attribute 'first'
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'str' object has no attribute 'first'
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 267, in do_define_form
+    name = targest.first
+NameError: name 'targest' is not defined
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'targest' is not defined
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+(f x y)
+
+# Error: expected
+#     f
+# but got
+#     (f x y)
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 269, in do_define_form
+    env.bindings[name] = LambdaProcedure(formals, expressions.rest.first, env)
+TypeError: unhashable type: 'Pair'
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: unhashable type: 'Pair'
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 269, in do_define_form
+    env.bindings[name] = LambdaProcedure(formals, expressions.rest.first, env)
+TypeError: unhashable type: 'Pair'
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: unhashable type: 'Pair'
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+# Error: too few operands in form
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: too few operands in form
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+# Error: too few operands in form
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: too few operands in form
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 267, in do_define_form
+    name = target,first
+NameError: name 'first' is not defined
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'first' is not defined
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 6
+
+scm> (define (f 1 2 3) 4) ; check that you have valid formals
+f
+
+# Error: expected
+#     SchemeError
+# but got
+#     f
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 6"
+---------------------------------------------------------------------
+Test summary
+    5 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 6
+
+scm> (define (f 1 2 3) 4) ; check that you have valid formals
+f
+
+# Error: expected
+#     SchemeError
+# but got
+#     f
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 6"
+---------------------------------------------------------------------
+Test summary
+    5 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ [K]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 6
+
+scm> (define (f 1 2 3) 4) ; check that you have valid formals
+f
+
+# Error: expected
+#     SchemeError
+# but got
+#     f
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 6"
+---------------------------------------------------------------------
+Test summary
+    5 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+# Error: argument 0 of LambdaProcedure has wrong type (bool)
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: argument 0 of LambdaProcedure has wrong type (bool)
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+# Error: argument 0 of LambdaProcedure has wrong type (bool)
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: argument 0 of LambdaProcedure has wrong type (bool)
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+# Error: argument 0 of LambdaProcedure has wrong type (bool)
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: argument 0 of LambdaProcedure has wrong type (bool)
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 6
+
+scm> (define (f 1 2 3) 4) ; check that you have valid formals
+f
+
+# Error: expected
+#     SchemeError
+# but got
+#     f
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 6"
+---------------------------------------------------------------------
+Test summary
+    5 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    def __init__(self, parent):
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 269
+    if formals = nil:
+               ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+# Error: 
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: 
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+# Error: 
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: 
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+# Error: 
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: 
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 6
+
+scm> (define (f 1 2 3) 4) ; check that you have valid formals
+f
+
+# Error: expected
+#     SchemeError
+# but got
+#     f
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 6"
+---------------------------------------------------------------------
+Test summary
+    5 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+# Error: 
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: 
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+
+scm> (define (f x y) (+ x y))
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 277, in do_define_form
+    if all_truep(formals) == False:
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 263, in all_truep
+    return all_truep(lst.rest, env)
+TypeError: all_truep() takes 1 positional argument but 2 were given
+
+# Error: expected
+#     f
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: all_truep() takes 1 positional argument but 2 were given
+
+Run only this test case with "python3 ok -q 09 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    7 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local[C\ --local[1P --local- --localu --local[1P[C[1P[1@1[1@0[1@ 
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 1
+(cases remaining: 6)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> formals = Pair('a', Pair('b', Pair('c', nil)))
+>>> vals = Pair(1, Pair(2, Pair(3, nil)))
+>>> frame = global_frame.make_child_frame(formals, vals)
+>>> global_frame.lookup('a') # Type SchemeError if you think this errors
+? a
+-- Not quite. Try again! --
+
+? SchmeError
+-- Not quite. Try again! --
+
+? ([K1
+-- Not quite. Try again! --
+
+? (1)
+-- Not quite. Try again! --
+
+? a:1
+-- Not quite. Try again! --
+
+? 2
+-- Not quite. Try again! --
+
+? 3
+-- Not quite. Try again! --
+
+? 1
+-- Not quite. Try again! --
+
+? Pair
+-- Not quite. Try again! --
+
+? 1
+-- Not quite. Try again! --
+
+? Pair(1, nil)
+-- Not quite. Try again! --
+
+? ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    7 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 09 --localu --local[1P[1P[1@1[1@0
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 1
+(cases remaining: 6)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> formals = Pair('a', Pair('b', Pair('c', nil)))
+>>> vals = Pair(1, Pair(2, Pair(3, nil)))
+>>> frame = global_frame.make_child_frame(formals, vals)
+>>> global_frame.lookup('a') # Type SchemeError if you think this errors
+? SchemeError
+-- OK! --
+
+>>> frame.lookup('a')        # Type SchemeError if you think this errors
+? 1
+-- OK! --
+
+>>> frame.lookup('b')        # Type SchemeError if you think this errors
+? 2
+-- OK! --
+
+>>> frame.lookup('c')        # Type SchemeError if you think this errors
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 2
+(cases remaining: 5)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> frame = global_frame.make_child_frame(nil, nil)
+>>> frame.parent is global_frame
+? True
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 3
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 2 > Case 1
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 2 > Case 2
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 2 > Case 3
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 10 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 10 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> formals = Pair('a', Pair('b', Pair('c', nil)))
+>>> vals = Pair(1, Pair(2, Pair(3, nil)))
+>>> frame = global_frame.make_child_frame(formals, vals)
+Traceback (most recent call last):
+  File "/home/user/csc235/PS05_Scheme_Interpreter_Part_2/scheme.py", line 133, in make_child_frame
+    self.Frame(self.parent)
+AttributeError: 'Frame' object has no attribute 'Frame'
+
+# Error: expected
+
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'Frame' object has no attribute 'Frame'
+
+Run only this test case with "python3 ok -q 10 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 10 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    6 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 10 --localu --local[3P09[C[C[C[C[C[C[C[C[3@10 -u[C[C[C[C[C[C[C[C[C[1P[1@1
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 11 > Suite 1 > Case 1
+(cases remaining: 6)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 1 > Case 2
+(cases remaining: 5)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 2 > Case 1
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 2 > Case 2
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 3 > Case 1
+(cases remaining: 2)
+
+
+scm> (define (outer x y)
+....   (define (inner z x)
+....     (+ x (* y 2) (* z 3)))
+....   (inner x 10))
+? 10
+-- Not quite. Try again! --
+
+? ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 10 --localu --local[1P[1@1
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 11 > Suite 1 > Case 1
+(cases remaining: 6)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 1 > Case 2
+(cases remaining: 5)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 2 > Case 1
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 2 > Case 2
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 3 > Case 1
+(cases remaining: 2)
+
+
+scm> (define (outer x y)
+....   (define (inner z x)
+....     (+ x (* y 2) (* z 3)))
+....   (inner x 10))
+? outrt[K[Ker
+-- OK! --
+
+scm> (outer 1 2)
+? 17
+-- OK! --
+
+scm> (define (outer-func x y)
+....   (define (inner z x)
+....     (+ x (* y 2) (* z 3)))
+....   inner)
+? inner
+-- Not quite. Try again! --
+
+? outer-func
+-- OK! --
+
+scm> ((outer-func 1 2) 1 10)
+? 17
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 3 > Case 2
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 11 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 11 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 11 > Suite 2 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> double = do_lambda_form(read_line("((n) (* 2 n))"), env) # make double a LambdaProcedure that doubles a number
+>>> f1 = double.make_call_frame(Pair(10, nil), env)
+>>> f1.lookup('n')
+10
+>>> env.define('n', 5)
+>>> add_n = do_lambda_form(read_line("((x) (+ x n))"), env)
+>>> f2 = add_n.make_call_frame(Pair(5, nil), f1) # pass in a different environment as env
+>>> f2.lookup('x')
+5
+>>> f2.lookup('n') # Hint: make sure you're using self.env not env
+10
+
+# Error: expected
+#     5
+# but got
+#     10
+
+Run only this test case with "python3 ok -q 11 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ python3 ok -q 11 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    6 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ ]0;~/csc235/PS05_Scheme_Interpreter_Part_2[01;34m~/csc235/PS05_Scheme_Interpreter_Part_2[00m$ 

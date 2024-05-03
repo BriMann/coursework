@@ -1,0 +1,38 @@
+@numchapentry{Introduction}{1}{Introduction}{1}
+@numchapentry{Why interpreters?}{2}{Why interpreters?}{3}
+@numchapentry{Concepts}{3}{Concepts}{4}
+@numsecentry{Front end and VM interpreter}{3.1}{Front end and VM interpreter}{4}
+@numsecentry{Data handling}{3.2}{Data handling}{4}
+@numsecentry{Dispatch}{3.3}{Dispatch}{5}
+@numchapentry{Invoking Vmgen}{4}{Invoking Vmgen}{6}
+@numchapentry{Example}{5}{Example}{7}
+@numsecentry{Example overview}{5.1}{Example overview}{7}
+@numsecentry{Using profiling to create superinstructions}{5.2}{Using profiling to create superinstructions}{8}
+@numchapentry{Input File Format}{6}{Input File Format}{9}
+@numsecentry{Input File Grammar}{6.1}{Input File Grammar}{9}
+@numsubsecentry{Eval escapes}{6.1.1}{Eval escapes}{10}
+@numsecentry{Simple instructions}{6.2}{Simple instructions}{10}
+@numsubsecentry{Explicit stack access}{6.2.1}{Explicit stack access}{11}
+@numsubsecentry{C Code Macros}{6.2.2}{C Code Macros}{12}
+@numsubsecentry{C Code restrictions}{6.2.3}{C Code restrictions}{13}
+@numsubsecentry{Stack growth direction}{6.2.4}{Stack growth direction}{13}
+@numsecentry{Superinstructions}{6.3}{Superinstructions}{14}
+@numsecentry{Store Optimization}{6.4}{Store Optimization}{15}
+@numsecentry{Register Machines}{6.5}{Register Machines}{15}
+@numchapentry{Error messages}{7}{Error messages}{17}
+@numchapentry{Using the generated code}{8}{Using the generated code}{18}
+@numsecentry{VM engine}{8.1}{VM engine}{18}
+@numsecentry{VM instruction table}{8.2}{VM instruction table}{21}
+@numsecentry{VM code generation}{8.3}{VM code generation}{21}
+@numsecentry{Peephole optimization}{8.4}{Peephole optimization}{22}
+@numsecentry{VM disassembler}{8.5}{VM disassembler}{23}
+@numsecentry{VM profiler}{8.6}{VM profiler}{23}
+@numchapentry{Hints}{9}{Hints}{25}
+@numsecentry{Floating point}{9.1}{Floating point}{25}
+@numchapentry{The future}{10}{The future}{26}
+@numchapentry{Changes}{11}{Changes}{27}
+@numchapentry{Contact}{12}{Contact}{28}
+@appentry{Copying This Manual}{A}{Copying This Manual}{29}
+@appsecentry{GNU Free Documentation License}{A.1}{GNU Free Documentation License}{29}
+@appsubsecentry{ADDENDUM: How to use this License for your documents}{A.1.1}{}{35}
+@unnchapentry{Index}{10001}{Index}{36}

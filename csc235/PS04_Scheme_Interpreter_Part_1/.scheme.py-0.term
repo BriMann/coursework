@@ -1,0 +1,3935 @@
+]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python ok --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+
+There are still locked tests! Use the -u option to unlock them
+---------------------------------------------------------------------
+Test summary
+    Locked: 7
+    1 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 -u --lpcal[K[K[K[Kocal
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 1
+(cases remaining: 5)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> global_frame.define("x", 3)
+>>> global_frame.parent is None
+? 
+-- Exiting unlocker --
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+
+There are still locked tests! Use the -u option to unlock them
+---------------------------------------------------------------------
+Test summary
+    Locked: 4
+    0 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local[K[K[K[K[K[K[K
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+
+There are still locked tests! Use the -u option to unlock them
+---------------------------------------------------------------------
+Test summary
+    Locked: 4
+    0 test cases passed! No cases failed.
+
+Performing authentication
+Please enter your school email (.edu): ^C[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+
+There are still locked tests! Use the -u option to unlock them
+---------------------------------------------------------------------
+Test summary
+    Locked: 4
+    0 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 42, in load
+    def self_evaluating(expr):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 741, in create_global_frame
+    env.define('eval',
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 95, in define
+    self.bindings.symbol(value)
+AttributeError: 'dict' object has no attribute 'symbol'
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 42, in load
+    def self_evaluating(expr):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 741, in create_global_frame
+    env.define('eval',
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 95, in define
+    symbol = self.bindings(value)
+TypeError: 'dict' object is not callable
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+
+There are still locked tests! Use the -u option to unlock them
+---------------------------------------------------------------------
+Test summary
+    Locked: 4
+    0 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+
+There are still locked tests! Use the -u option to unlock them
+---------------------------------------------------------------------
+Test summary
+    Locked: 4
+    0 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+
+There are still locked tests! Use the -u option to unlock them
+---------------------------------------------------------------------
+Test summary
+    Locked: 4
+    0 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local[C --local- --localu --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 1
+(cases remaining: 5)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> global_frame.define("x", 3)
+>>> global_frame.parent is None
+? 3
+-- Not quite. Try again! --
+
+? x = 3
+-- Not quite. Try again! --
+
+? (x 3)
+-- Not quite. Try again! --
+
+? n[Ktrue
+-- Not quite. Try again! --
+
+? True
+-- OK! --
+
+>>> global_frame.lookup("x")
+? 3
+-- OK! --
+
+>>> global_frame.define("x", 2)
+>>> global_frame.lookup("x")
+? 2
+-- OK! --
+
+>>> global_frame.lookup("foo")
+Choose the number of the correct choice:
+0) SchemeError
+1) 3
+2) None
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 2
+(cases remaining: 4)
+
+>>> from scheme import *
+>>> first_frame = create_global_frame()
+>>> first_frame.define("x", 3)
+>>> first_frame.define("y", False)
+>>> second_frame = Frame(first_frame)
+>>> second_frame.parent == first_frame
+? False
+-- Not quite. Try again! --
+
+? 3
+-- Not quite. Try again! --
+
+? True
+-- OK! --
+
+>>> second_frame.lookup("x")
+? 3
+-- OK! --
+
+>>> second_frame.lookup("y")
+? False
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 3
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 4
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 2 > Case 1
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 2 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 -u --local[1P --local[1P --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 104
+    return lookup(self.parent())no
+                                ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 104
+    return lookup(self.parent())no
+                                ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> global_frame.define("x", 3)
+>>> global_frame.parent is None
+True
+>>> global_frame.lookup("x")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 101, in lookup
+    if symbol in self.current():
+AttributeError: 'Frame' object has no attribute 'current'
+
+# Error: expected
+#     3
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'Frame' object has no attribute 'current'
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> global_frame.define("x", 3)
+>>> global_frame.parent is None
+True
+>>> global_frame.lookup("x")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 101, in lookup
+    if symbol in self.bindings():
+TypeError: 'dict' object is not callable
+
+# Error: expected
+#     3
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: 'dict' object is not callable
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 2
+
+>>> from scheme import *
+>>> first_frame = create_global_frame()
+>>> first_frame.define("x", 3)
+>>> first_frame.define("y", False)
+>>> second_frame = Frame(first_frame)
+>>> second_frame.parent == first_frame
+True
+>>> second_frame.lookup("x")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 107, in lookup
+    raise SchemeError('unknown identifier: {0}'.format(symbol))
+scheme_builtins.SchemeError: unknown identifier: x
+
+# Error: expected
+#     3
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: unknown identifier: x
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 2"
+---------------------------------------------------------------------
+Test summary
+    1 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> global_frame.define("x", 3)
+>>> global_frame.parent is None
+True
+>>> global_frame.lookup("x")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 107, in lookup
+    raise SchemeError('unknown identifier: {0}'.format(symbol))
+scheme_builtins.SchemeError: unknown identifier: x
+
+# Error: expected
+#     3
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: unknown identifier: x
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> global_frame.define("x", 3)
+>>> global_frame.parent is None
+True
+>>> global_frame.lookup("x")
+3
+>>> global_frame.define("x", 2)
+>>> global_frame.lookup("x")
+2
+>>> global_frame.lookup("foo")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 103, in lookup
+    elif symbol not in self.bindings.keys() and self.parent == parent:
+NameError: name 'parent' is not defined
+
+# Error: expected
+#     SchemeError
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'parent' is not defined
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 103
+    elif symbol not in self.bindings.keys() and self.parent = parent:
+                                                            ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 103
+    elif symbol not in self.bindings.keys() and self.parent = parent:
+                                                            ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> global_frame.define("x", 3)
+>>> global_frame.parent is None
+True
+>>> global_frame.lookup("x")
+3
+>>> global_frame.define("x", 2)
+>>> global_frame.lookup("x")
+2
+>>> global_frame.lookup("foo")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 103, in lookup
+    elif symbol not in self.bindings.keys() and self.parent == parent:
+NameError: name 'parent' is not defined
+
+# Error: expected
+#     SchemeError
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'parent' is not defined
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 2
+
+>>> from scheme import *
+>>> first_frame = create_global_frame()
+>>> first_frame.define("x", 3)
+>>> first_frame.define("y", False)
+>>> second_frame = Frame(first_frame)
+>>> second_frame.parent == first_frame
+True
+>>> second_frame.lookup("x")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 104, in lookup
+    return lookup(self.parent)
+NameError: name 'lookup' is not defined
+
+# Error: expected
+#     3
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'lookup' is not defined
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 2"
+---------------------------------------------------------------------
+Test summary
+    1 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 2
+
+>>> from scheme import *
+>>> first_frame = create_global_frame()
+>>> first_frame.define("x", 3)
+>>> first_frame.define("y", False)
+>>> second_frame = Frame(first_frame)
+>>> second_frame.parent == first_frame
+True
+>>> second_frame.lookup("x")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 104, in lookup
+    return lookup(self.parent, symbol)
+NameError: name 'lookup' is not defined
+
+# Error: expected
+#     3
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'lookup' is not defined
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 2"
+---------------------------------------------------------------------
+Test summary
+    1 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 163
+    python_args += arguments.first
+    ^
+IndentationError: expected an indented block
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02  --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 163
+    python_args += arguments.first
+    ^
+IndentationError: expected an indented block
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 2
+
+>>> from scheme import *
+>>> first_frame = create_global_frame()
+>>> first_frame.define("x", 3)
+>>> first_frame.define("y", False)
+>>> second_frame = Frame(first_frame)
+>>> second_frame.parent == first_frame
+True
+>>> second_frame.lookup("x")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 104, in lookup
+    return self.lookup(self.parent, symbol)
+TypeError: lookup() takes 2 positional arguments but 3 were given
+
+# Error: expected
+#     3
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: lookup() takes 2 positional arguments but 3 were given
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 2"
+---------------------------------------------------------------------
+Test summary
+    1 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 2
+
+>>> from scheme import *
+>>> first_frame = create_global_frame()
+>>> first_frame.define("x", 3)
+>>> first_frame.define("y", False)
+>>> second_frame = Frame(first_frame)
+>>> second_frame.parent == first_frame
+True
+>>> second_frame.lookup("x")
+Traceback (most recent call last):
+  ...
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "<string>", line 1, in <module>
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 104, in lookup
+    return self.lookup(self.parent)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 104, in lookup
+    return self.lookup(self.parent)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 104, in lookup
+    return self.lookup(self.parent)
+  [Previous line repeated 991 more times]
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 101, in lookup
+    if symbol in self.bindings.keys():
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
+# Error: expected
+#     3
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     RecursionError: maximum recursion depth exceeded while calling a Python object
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 2"
+---------------------------------------------------------------------
+Test summary
+    1 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 2
+
+>>> from scheme import *
+>>> first_frame = create_global_frame()
+>>> first_frame.define("x", 3)
+>>> first_frame.define("y", False)
+>>> second_frame = Frame(first_frame)
+>>> second_frame.parent == first_frame
+True
+>>> second_frame.lookup("x")
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 104, in lookup
+    return parent.lookup(symbol)
+NameError: name 'parent' is not defined
+
+# Error: expected
+#     3
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'parent' is not defined
+
+Run only this test case with "python3 ok -q 02 --suite 1 --case 2"
+---------------------------------------------------------------------
+Test summary
+    1 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    5 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 02 --local[1@3[C[1P --local[C --local- --localu --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 166
+    if self.use_env = True:
+                    ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 -u --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+(cases remaining: 5)
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+? 4
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 2
+(cases remaining: 4)
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> oddp = BuiltinProcedure(scheme_oddp) # odd? procedure
+>>> scheme_apply(oddp, twos, env) # Type SchemeError if you think this errors
+? 4
+-- Not quite. Try again! --
+
+? SchemeError
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 3
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 4
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 5
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 3 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 162, in apply
+    if self.args.rest is nil:
+AttributeError: 'BuiltinProcedure' object has no attribute 'args'
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'BuiltinProcedure' object has no attribute 'args'
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 165, in apply
+    return self.apply(args.rest)
+TypeError: apply() missing 1 required positional argument: 'env'
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: apply() missing 1 required positional argument: 'env'
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+2
+
+# Error: expected
+#     4
+# but got
+#     2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+2
+
+# Error: expected
+#     4
+# but got
+#     2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    return '<{{{0}}} -> {1}>'.format(', '.join(s), repr(self.parent))
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 162
+    if args.rest = nil:
+                 ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+2
+
+# Error: expected
+#     4
+# but got
+#     2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 165, in apply
+    return self.apply(args.rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 163, in apply
+    python_args.append(args.pop_first())
+AttributeError: 'Pair' object has no attribute 'pop_first'
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'Pair' object has no attribute 'pop_first'
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+2
+
+# Error: expected
+#     4
+# but got
+#     2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 165, in apply
+    a = args.pop(1)
+AttributeError: 'Pair' object has no attribute 'pop'
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'Pair' object has no attribute 'pop'
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+2
+
+# Error: expected
+#     4
+# but got
+#     2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 165, in apply
+    result = args.first.data
+AttributeError: 'int' object has no attribute 'data'
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'int' object has no attribute 'data'
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 166, in apply
+    move_on = args.rest.next
+AttributeError: 'Pair' object has no attribute 'next'
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'Pair' object has no attribute 'next'
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 165, in apply
+    result = args.first.data
+AttributeError: 'int' object has no attribute 'data'
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'int' object has no attribute 'data'
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 165, in apply
+    result = args.first.data
+AttributeError: 'int' object has no attribute 'data'
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'int' object has no attribute 'data'
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 165, in apply
+    return self.apply(args.rest.first, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 158, in apply
+    raise SchemeError('arguments are not in a list: {0}'.format(args))
+scheme_builtins.SchemeError: arguments are not in a list: 2
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: arguments are not in a list: 2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+2
+
+# Error: expected
+#     4
+# but got
+#     2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 165, in apply
+    return self.apply(args.rest.first, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 158, in apply
+    raise SchemeError('arguments are not in a list: {0}'.format(args))
+scheme_builtins.SchemeError: arguments are not in a list: 2
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: arguments are not in a list: 2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+2
+
+# Error: expected
+#     4
+# but got
+#     2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 168, in apply
+    return self.apply(move_on, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 158, in apply
+    raise SchemeError('arguments are not in a list: {0}'.format(args))
+scheme_builtins.SchemeError: arguments are not in a list: 2
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: arguments are not in a list: 2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+2
+
+# Error: expected
+#     4
+# but got
+#     2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 168, in apply
+    return self.apply(move_on, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 158, in apply
+    raise SchemeError('arguments are not in a list: {0}'.format(args))
+scheme_builtins.SchemeError: arguments are not in a list: 2
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: arguments are not in a list: 2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 168, in apply
+    return self.apply(move_on, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 158, in apply
+    raise SchemeError('arguments are not in a list: {0}'.format(args))
+scheme_builtins.SchemeError: arguments are not in a list: 2
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: arguments are not in a list: 2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+2
+
+# Error: expected
+#     4
+# but got
+#     2
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 50, in scheme_apply
+    return procedure.apply(args, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 164, in apply
+    args.rest = args.rest.first
+AttributeError: 'int' object has no attribute 'first'
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'int' object has no attribute 'first'
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+# Error: evaluation exceeded 10 seconds - check for infinite loops
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     Timeout: 
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 3 > Suite 1 > Case 1
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+# Error: evaluation exceeded 10 seconds - check for infinite loops
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     Timeout: 
+
+Run only this test case with "python3 ok -q 03 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 03 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    5 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 -u --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 4 > Suite 1 > Case 1
+(cases remaining: 6)
+
+>>> from scheme_reader import *
+>>> from scheme import *
+
+>>> @builtin("print-then-return")
+... def scheme_print_return(val1, val2):
+...     print(repl_str(val1))
+...     return val2
+>>> expr = read_line('(+ 2 2)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+? 4
+-- OK! --
+
+>>> scheme_eval(Pair('+', Pair(2, Pair(2, nil))), create_global_frame()) # Type SchemeError if you think this errors
+? SchemeError
+-- Not quite. Try again! --
+
+? 4
+-- OK! --
+
+>>> expr = read_line('(+ (+ 2 2) (+ 1 3) (* 1 4))')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+? 12
+-- OK! --
+
+>>> expr = read_line('(yolo)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+? Scheme [KError
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 1
+(cases remaining: 5)
+
+
+scm> (* (+ 3 2) (+ 1 7)) ; Type SchemeError if you think this errors
+? 40
+-- OK! --
+
+scm> (1 2) ; Type SchemeError if you think this errors
+? 3
+-- Not quite. Try again! --
+
+? SchemeError
+-- OK! --
+
+scm> (1 (print 0)) ; validate_procedure should be called before operands are evaluated
+? SchemeError
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 2
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 3
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 4
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 3 > Case 1
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 4 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    """An environment frame binds Scheme symbols to Scheme values."""
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 46
+    else:
+    ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    """An environment frame binds Scheme symbols to Scheme values."""
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 46
+    else:
+    ^
+SyntaxError: invalid syntax
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "ok/__main__.py", line 46, in <module>
+  File "ok/client/cli/ok.py", line 212, in main
+  File "ok/client/api/assignment.py", line 30, in load_assignment
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/api/assignment.py", line 278, in post_instantiation
+  File "ok/client/api/assignment.py", line 339, in _load_tests
+  File "ok/client/sources/ok_test/__init__.py", line 59, in load
+  File "ok/client/sources/common/core.py", line 187, in __call__
+  File "ok/client/sources/ok_test/models.py", line 46, in post_instantiation
+  File "ok/client/sources/common/core.py", line 170, in __call__
+  File "ok/client/sources/ok_test/doctest.py", line 20, in __init__
+    Then running the module as a script will cause the examples in the
+  File "ok/client/sources/common/interpreter.py", line 192, in __init__
+  File "ok/client/sources/ok_test/scheme.py", line 36, in load
+    return SPECIAL_FORMS[first](rest, env)
+  File "ok/client/sources/ok_test/scheme.py", line 90, in _import_scheme
+    self.bindings = {}
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 844, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 981, in get_code
+  File "<frozen importlib._bootstrap_external>", line 911, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 41
+    break
+    ^
+SyntaxError: 'break' outside loop
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 4 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> from scheme import *
+>>> @builtin("print-then-return")
+... def scheme_print_return(val1, val2):
+...     print(repl_str(val1))
+...     return val2
+>>> expr = read_line('(+ 2 2)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 39, in scheme_eval
+    a = validate_procedure(first)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 493, in validate_procedure
+    raise SchemeError('{0} is not callable: {1}'.format(
+scheme_builtins.SchemeError: str is not callable: +
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: str is not callable: +
+
+Run only this test case with "python3 ok -q 04 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 4 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> from scheme import *
+>>> @builtin("print-then-return")
+... def scheme_print_return(val1, val2):
+...     print(repl_str(val1))
+...     return val2
+>>> expr = read_line('(+ 2 2)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 39, in scheme_eval
+    op = scheme_eval(rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 39, in scheme_eval
+    op = scheme_eval(rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 40, in scheme_eval
+    a = validate_procedure(first)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 493, in validate_procedure
+    raise SchemeError('{0} is not callable: {1}'.format(
+scheme_builtins.SchemeError: int is not callable: 2
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: int is not callable: 2
+
+Run only this test case with "python3 ok -q 04 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 4 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> from scheme import *
+>>> @builtin("print-then-return")
+... def scheme_print_return(val1, val2):
+...     print(repl_str(val1))
+...     return val2
+>>> expr = read_line('(+ 2 2)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 40, in scheme_eval
+    a = validate_procedure(first)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 493, in validate_procedure
+    raise SchemeError('{0} is not callable: {1}'.format(
+scheme_builtins.SchemeError: str is not callable: +
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: str is not callable: +
+
+Run only this test case with "python3 ok -q 04 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 4 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> from scheme import *
+>>> @builtin("print-then-return")
+... def scheme_print_return(val1, val2):
+...     print(repl_str(val1))
+...     return val2
+>>> expr = read_line('(+ 2 2)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 39, in scheme_eval
+    a = validate_procedure(first)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 493, in validate_procedure
+    raise SchemeError('{0} is not callable: {1}'.format(
+scheme_builtins.SchemeError: str is not callable: +
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: str is not callable: +
+
+Run only this test case with "python3 ok -q 04 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 4 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> from scheme import *
+>>> @builtin("print-then-return")
+... def scheme_print_return(val1, val2):
+...     print(repl_str(val1))
+...     return val2
+>>> expr = read_line('(+ 2 2)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 41, in scheme_eval
+    b = map(rest, (lambda x: scheme_eval(x, env) ))
+TypeError: 'function' object is not iterable
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: 'function' object is not iterable
+
+Run only this test case with "python3 ok -q 04 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 4 > Suite 1 > Case 1
+
+>>> from scheme_reader import *
+>>> from scheme import *
+>>> @builtin("print-then-return")
+... def scheme_print_return(val1, val2):
+...     print(repl_str(val1))
+...     return val2
+>>> expr = read_line('(+ 2 2)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+Traceback (most recent call last):
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 41, in scheme_eval
+    b = self.map(rest, (lambda x: scheme_eval(x, env) ))
+NameError: name 'self' is not defined
+
+# Error: expected
+#     4
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'self' is not defined
+
+Run only this test case with "python3 ok -q 04 --suite 1 --case 1"
+---------------------------------------------------------------------
+Test summary
+    0 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    6 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 04 --local[1P --local5 --local[C --local- --localu --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 5 > Suite 1 > Case 1
+(cases remaining: 7)
+
+Q: What is the structure of the expressions argument to do_define_form?
+Choose the number of the correct choice:
+0) Pair(A, B), where:
+       A is the symbol being bound,
+       B is an expression whose value should be evaluated and bound to A
+1) Pair('define', Pair(A, Pair(B, nil))), where:
+       A is the symbol being bound,
+       B is an expression whose value should be evaluated and bound to A
+2) Pair(A, Pair(B, nil)), where:
+       A is the symbol being bound,
+       B is an expression whose value should be evaluated and bound to A
+3) Pair(A, Pair(B, nil)), where:
+       A is the symbol being bound,
+       B is the value that should be bound to A
+4) Pair(A, B), where:
+       A is the symbol being bound,
+       B is the value that should be bound to A
+? 1
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) Pair(A, B), where:
+       A is the symbol being bound,
+       B is an expression whose value should be evaluated and bound to A
+1) Pair('define', Pair(A, Pair(B, nil))), where:
+       A is the symbol being bound,
+       B is an expression whose value should be evaluated and bound to A
+2) Pair(A, Pair(B, nil)), where:
+       A is the symbol being bound,
+       B is an expression whose value should be evaluated and bound to A
+3) Pair(A, Pair(B, nil)), where:
+       A is the symbol being bound,
+       B is the value that should be bound to A
+4) Pair(A, B), where:
+       A is the symbol being bound,
+       B is the value that should be bound to A
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 1 > Case 2
+(cases remaining: 6)
+
+Q: What method of a Frame instance will bind
+a value to a symbol in that frame?
+Choose the number of the correct choice:
+0) bindings
+1) define
+2) lookup
+3) make_child_frame
+? [K? 0
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) bindings
+1) define
+2) lookup
+3) make_child_frame
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+(cases remaining: 5)
+
+
+scm> (define size 2)
+? size
+-- OK! --
+
+scm> size
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 2
+(cases remaining: 4)
+
+
+scm> (define x (+ 2 3))
+? x
+-- OK! --
+
+scm> x
+? 5
+-- OK! --
+
+scm> (define x (+ 2 7))
+? x
+-- OK! --
+
+scm> x
+? 9
+-- OK! --
+
+scm> (eval (define x 1.4)) ; eval takes an expression represented as a list and evaluates it
+? x
+-- Not quite. Try again! --
+
+? x[KTrur[Ke
+-- Not quite. Try again! --
+
+? false[K[K[K[K[KFalse
+-- Not quite. Try again! --
+
+? 1.4
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 3
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 4
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 5
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 5 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+# Error: int is not callable: 2
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: int is not callable: 2
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+# Error: int is not callable: 2
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: int is not callable: 2
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+# Error: int is not callable: 2
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: int is not callable: 2
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    define(target, expressions.rest.first)
+NameError: name 'define' is not defined
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'define' is not defined
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    self.define(target, expressions.rest.first)
+NameError: name 'self' is not defined
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'self' is not defined
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    Frame.define(target, expressions.rest.first)
+TypeError: define() missing 1 required positional argument: 'value'
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: define() missing 1 required positional argument: 'value'
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    Frame.define(target, expressions.rest)
+TypeError: define() missing 1 required positional argument: 'value'
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: define() missing 1 required positional argument: 'value'
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    Frame.define(target, a)
+TypeError: define() missing 1 required positional argument: 'value'
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: define() missing 1 required positional argument: 'value'
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+# Error: int is not callable: 2
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: int is not callable: 2
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    Frame.define(target, a)
+TypeError: define() missing 1 required positional argument: 'value'
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: define() missing 1 required positional argument: 'value'
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    Frame.define(target, expressions.rest.first)
+TypeError: define() missing 1 required positional argument: 'value'
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: define() missing 1 required positional argument: 'value'
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    Frame.define(target, a)
+TypeError: define() missing 1 required positional argument: 'value'
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: define() missing 1 required positional argument: 'value'
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    self.Frame.define(target, a)
+NameError: name 'self' is not defined
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'self' is not defined
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 1
+
+scm> (define size 2)
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 58, in evaluate
+    result = timer.timed(self.timeout, self.scheme.scheme_eval,
+  File "ok/client/utils/timer.py", line 33, in timed
+    raise submission.error
+  File "ok/client/utils/timer.py", line 49, in run
+    self.result = self.fn(*self.args, **self.kargs)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 36, in scheme_eval
+    return SPECIAL_FORMS[first](rest, env)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme.py", line 256, in do_define_form
+    Frame.define(target, a)
+TypeError: define() missing 1 required positional argument: 'value'
+
+# Error: expected
+#     size
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: define() missing 1 required positional argument: 'value'
+
+Run only this test case with "python3 ok -q 05 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Test summary
+    7 test cases passed! No cases failed.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --local[C[C[1P --local6 --local[C --local- --localu --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 6 > Suite 1 > Case 1
+(cases remaining: 8)
+
+Q: What is the structure of the expressions argument to do_quote_form?
+Choose the number of the correct choice:
+0) A, where:
+       A is the quoted expression
+1) [A], where:
+       A is the quoted expression
+2) Pair('quote', Pair(A, nil)), where:
+       A is the quoted expression
+3) Pair(A, nil), where:
+       A is the quoted expression
+? a[K0
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) A, where:
+       A is the quoted expression
+1) [A], where:
+       A is the quoted expression
+2) Pair('quote', Pair(A, nil)), where:
+       A is the quoted expression
+3) Pair(A, nil), where:
+       A is the quoted expression
+? 1
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) A, where:
+       A is the quoted expression
+1) [A], where:
+       A is the quoted expression
+2) Pair('quote', Pair(A, nil)), where:
+       A is the quoted expression
+3) Pair(A, nil), where:
+       A is the quoted expression
+? 2
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) A, where:
+       A is the quoted expression
+1) [A], where:
+       A is the quoted expression
+2) Pair('quote', Pair(A, nil)), where:
+       A is the quoted expression
+3) Pair(A, nil), where:
+       A is the quoted expression
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 1
+(cases remaining: 7)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> do_quote_form(Pair(3, nil), global_frame)
+? 3
+-- OK! --
+
+>>> do_quote_form(Pair('hi', nil), global_frame)
+? hi
+-- Not quite. Try again! --
+
+? 'hi'
+-- OK! --
+
+>>> expr = Pair(Pair('+', Pair('x', Pair(2, nil))), nil)
+>>> do_quote_form(expr, global_frame)
+? '+' 'X'[K[Kx' 2
+-- Not quite. Try again! --
+
+? x + 2
+-- Not quite. Try again! --
+
+? + x 2
+-- Not quite. Try again! --
+
+? +x2
+-- Not quite. Try again! --
+
+? '+' 'x' 2
+-- Not quite. Try again! --
+
+? '=[K+'
+-- Not quite. Try again! --
+
+? 'x'
+-- Not quite. Try again! --
+
+? 2
+-- Not quite. Try again! --
+
+? Pair
+-- Not quite. Try again! --
+
+? (=[K+ x 2)
+-- Not quite. Try again! --
+
+? ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 05 --localu --local[3P4[C[C[C[C[C[C[C[C[3@5 -u[C[C[C[C[C[C[C[C[1P[1@6
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 6 > Suite 1 > Case 1
+(cases remaining: 8)
+
+Q: What is the structure of the expressions argument to do_quote_form?
+Choose the number of the correct choice:
+0) A, where:
+       A is the quoted expression
+1) [A], where:
+       A is the quoted expression
+2) Pair('quote', Pair(A, nil)), where:
+       A is the quoted expression
+3) Pair(A, nil), where:
+       A is the quoted expression
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 1
+(cases remaining: 7)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> do_quote_form(Pair(3, nil), global_frame)
+? 3
+-- OK! --
+
+>>> do_quote_form(Pair('hi', nil), global_frame)
+? hi
+-- Not quite. Try again! --
+
+? 'hi'
+-- OK! --
+
+>>> expr = Pair(Pair('+', Pair('x', Pair(2, nil))), nil)
+>>> do_quote_form(expr, global_frame)
+? (+ x 2)
+-- Not quite. Try again! --
+
+? Pair( + x 2 )[1@'[C[1P[1P[1@'[C[1@'[C[1@'[C[1@'[C
+-- Not quite. Try again! --
+
+? Pair('+'[K[K[K[K[K[K[K[KPair('+', Pair('x', Pair(2, nil))), nil)
+-- Not quite. Try again! --
+
+? Pair('+', Pair('x', Pair(2, nil))), nil)[K[K[K[K[K[K
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+(cases remaining: 6)
+
+
+scm> ''hello
+Choose the number of the correct choice:
+0) (quote (quote (hello)))
+1) hello
+2) (hello)
+3) (quote hello)
+? 1
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) (quote (quote (hello)))
+1) hello
+2) (hello)
+3) (quote hello)
+? 2
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) (quote (quote (hello)))
+1) hello
+2) (hello)
+3) (quote hello)
+? 3
+-- OK! --
+
+scm> (quote (1 2))
+? (1 2)
+-- OK! --
+
+scm> (car '(1 2 3))
+? quote (2 3[K[K[K1)
+-- Not quite. Try again! --
+
+? 1
+-- OK! --
+
+scm> (cdr '(1 2))
+? 2
+-- Not quite. Try again! --
+
+? 1
+-- Not quite. Try again! --
+
+? 1 2
+-- Not quite. Try again! --
+
+? (1 2)
+-- Not quite. Try again! --
+
+? 92[K[K(20[K)
+-- OK! --
+
+scm> (eval (cons 'car '('(4 2))))
+? 4
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 4 > Case 1
+(cases remaining: 5)
+
+>>> from scheme_reader import *
+>>> read_line(" 'x ")
+Choose the number of the correct choice:
+0) Pair('quote', 'x')
+1) Pair('quote', Pair('x', nil))
+2) Pair('x', nil)
+3) 'x'
+? 0
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) Pair('quote', 'x')
+1) Pair('quote', Pair('x', nil))
+2) Pair('x', nil)
+3) 'x'
+? 1
+-- OK! --
+
+>>> read_line(" '(a b) ")
+Choose the number of the correct choice:
+0) Pair('quote', Pair('a', 'b'))
+1) Pair('a', Pair('b', nil))
+2) Pair('quote', Pair('a', Pair('b', nil)))
+3) Pair('quote', Pair(Pair('a', Pair('b', nil)), nil))
+? 2
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) Pair('quote', Pair('a', 'b'))
+1) Pair('a', Pair('b', nil))
+2) Pair('quote', Pair('a', Pair('b', nil)))
+3) Pair('quote', Pair(Pair('a', Pair('b', nil)), nil))
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 4 > Case 2
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 4 > Case 3
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 4 > Case 4
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 5 > Case 1
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 6 unlocked.
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 -u --local[1P --local[1P --local[1P--local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 1
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> do_quote_form(Pair(3, nil), global_frame)
+Pair(3, nil)
+
+# Error: expected
+#     3
+# but got
+#     Pair(3, nil)
+
+Run only this test case with "python3 ok -q 06 --suite 2 --case 1"
+---------------------------------------------------------------------
+Test summary
+    1 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 57, in evaluate
+    exp = self.scheme.read_line(code)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 192, in read_line
+    result = scheme_read(buf)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 142, in scheme_read
+    a = do_quote_form(src)
+NameError: name 'do_quote_form' is not defined
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'do_quote_form' is not defined
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 57, in evaluate
+    exp = self.scheme.read_line(code)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 191, in read_line
+    result = scheme_read(buf)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 142, in scheme_read
+    return scheme_read(a)
+NameError: name 'a' is not defined
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     NameError: name 'a' is not defined
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+# Error: unknown identifier: hello
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: unknown identifier: hello
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 57, in evaluate
+    exp = self.scheme.read_line(code)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 191, in read_line
+    result = scheme_read(buf)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 142, in scheme_read
+    return scheme_read('quote', src)
+TypeError: scheme_read() takes 1 positional argument but 2 were given
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     TypeError: scheme_read() takes 1 positional argument but 2 were given
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+# Error: unknown identifier: hello
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: unknown identifier: hello
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+# Error: unknown identifier: hello
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: unknown identifier: hello
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+# Error: unknown identifier: hello
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: unknown identifier: hello
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+# Error: unknown identifier: hello
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: unknown identifier: hello
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+# Error: unknown identifier: hello
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: unknown identifier: hello
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local[Kpython3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 57, in evaluate
+    exp = self.scheme.read_line(code)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 191, in read_line
+    result = scheme_read(buf)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 142, in scheme_read
+    return scheme_read(src.rest)
+AttributeError: 'Buffer' object has no attribute 'rest'
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'Buffer' object has no attribute 'rest'
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+Traceback (most recent call last):
+k (most recent call last):
+  File "ok/client/sources/ok_test/scheme.py", line 57, in evaluate
+    exp = self.scheme.read_line(code)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 192, in read_line
+    result = scheme_read(buf)
+  File "/home/user/csc235/PS04_Scheme_Interpreter_Part_1/scheme_reader.py", line 142, in scheme_read
+    Pair('quote', src.rest)
+AttributeError: 'Buffer' object has no attribute 'rest'
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     AttributeError: 'Buffer' object has no attribute 'rest'
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+1: ' >> ' hello Buffer
+# Error: cdr can only be a pair, nil, or a promise but was 1: ' >> ' hello
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: cdr can only be a pair, nil, or a promise but was 1: ' >> ' hello
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+# Error: malformed list: ('quote', Pair(('quote', Pair('hello', nil)), nil))
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: malformed list: ('quote', Pair(('quote', Pair('hello', nil)), nil))
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 06 --local
+=====================================================================
+Assignment: Project 4: Scheme Interpreter
+OK, version v1.15.0
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running tests
+
+---------------------------------------------------------------------
+Problem 6 > Suite 3 > Case 1
+
+scm> ''hello
+# Error: malformed list: ('quote', Pair(('quote', Pair('hello', nil)), nil))
+
+# Error: expected
+#     (quote hello)
+# but got
+#     Traceback (most recent call last):
+#       ...
+#     SchemeError: malformed list: ('quote', Pair(('quote', Pair('hello', nil)), nil))
+
+Run only this test case with "python3 ok -q 06 --suite 3 --case 1"
+---------------------------------------------------------------------
+Test summary
+    2 test cases passed before encountering first failed test case
+
+[33mCannot backup when running ok with --local.[0m
+[0m]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ ]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ python3 ok -q 11 --localu --local[3P0[C[C[C[C[C[C[C[Cu --local[3P09[C[C[C[C[C[C[C[Cu --local[3P8[C[C[C[C[C[C[C[Cu --local[3P7[C[C[C[C[C[C[C[Cu --local[3P6[C[C[C[C[C[C[C[Cu --local[3P5[C[C[C[C[C[C[C[C]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ [K]0;~/csc235/PS04_Scheme_Interpreter_Part_1[01;34m~/csc235/PS04_Scheme_Interpreter_Part_1[00m$ 

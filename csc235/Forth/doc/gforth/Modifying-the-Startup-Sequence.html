@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Modifying the Startup Sequence (Gforth Manual)</title>
+
+<meta name="description" content="Modifying the Startup Sequence (Gforth Manual)">
+<meta name="keywords" content="Modifying the Startup Sequence (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Image-Files.html" rel="up" title="Image Files">
+<link href="Engine.html" rel="next" title="Engine">
+<link href="Running-Image-Files.html" rel="prev" title="Running Image Files">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Modifying-the-Startup-Sequence"></span><div class="header">
+<p>
+Previous: <a href="Running-Image-Files.html" accesskey="p" rel="prev">Running Image Files</a>, Up: <a href="Image-Files.html" accesskey="u" rel="up">Image Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Modifying-the-Startup-Sequence-1"></span><h3 class="section">13.8 Modifying the Startup Sequence</h3>
+<span id="index-startup-sequence-for-image-file"></span>
+<span id="index-image-file-initialization-sequence"></span>
+<span id="index-initialization-sequence-of-image-file"></span>
+
+<p>You can add your own initialization to the startup sequence of an image
+through the deferred word <code>'cold</code>. <code>'cold</code> is invoked just
+before the image-specific command line processing (i.e., loading files
+and evaluating (<code>-e</code>) strings) starts.
+</p>
+<p>A sequence for adding your initialization usually looks like this:
+</p>
+<div class="example">
+<pre class="example">:noname
+    Defers 'cold \ do other initialization stuff (e.g., rehashing wordlists)
+    ... \ your stuff
+; IS 'cold
+</pre></div>
+
+<p>After <code>'cold</code>, Gforth processes the image options
+(see <a href="Invoking-Gforth.html">Invoking Gforth</a>), and then it performs <code>bootmessage</code>,
+another deferred word.  This normally prints Gforth&rsquo;s startup message
+and does nothing else.
+</p>
+<span id="index-turnkey-image-files"></span>
+<span id="index-image-file_002c-turnkey-applications"></span>
+<p>So, if you want to make a turnkey image (i.e., an image for an
+application instead of an extended Forth system), you can do this in
+two ways:
+</p>
+<ul>
+<li> If you want to do your interpretation of the OS command-line
+arguments, hook into <code>'cold</code>.  In that case you probably also
+want to build the image with <code>gforthmi --application</code>
+(see <a href="gforthmi.html">gforthmi</a>) to keep the engine from processing OS command line
+options.  You can then do your own command-line processing with
+<code>next-arg</code> 
+
+</li><li> If you want to have the normal Gforth processing of OS command-line
+arguments, hook into <code>bootmessage</code>.
+
+</li></ul>
+
+<p>In either case, you probably do not want the word that you execute in
+these hooks to exit normally, but use <code>bye</code> or <code>throw</code>.
+Otherwise the Gforth startup process would continue and eventually
+present the Forth command line to the user.
+</p>
+<span id="index-_0027cold--_002d_002d--gforth"></span>
+<span id="index-_0027cold"></span>
+<span id="index-_0027cold-1"></span>
+<div class="format">
+<pre class="format"><code>'cold</code>       <i>&ndash;  </i>       gforth       &ldquo;tick-cold&rdquo;
+</pre></div>
+<p>Hook (deferred word) for things to do right before interpreting the
+OS command-line arguments.  Normally does some initializations that
+you also want to perform.
+</p>
+
+<span id="index-bootmessage--_002d_002d--gforth"></span>
+<span id="index-bootmessage"></span>
+<span id="index-bootmessage-1"></span>
+<div class="format">
+<pre class="format"><code>bootmessage</code>       <i>&ndash;  </i>       gforth       &ldquo;bootmessage&rdquo;
+</pre></div>
+<p>Hook (deferred word) executed right after interpreting the OS
+command-line arguments.  Normally prints the Gforth startup
+message.
+</p>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Running-Image-Files.html" accesskey="p" rel="prev">Running Image Files</a>, Up: <a href="Image-Files.html" accesskey="u" rel="up">Image Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

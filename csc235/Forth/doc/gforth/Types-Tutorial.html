@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Gforth (version 0.7.3, June 14, 2014),
+a fast and portable implementation of the ANS Forth language.  It
+serves as reference manual, but it also contains an introduction to
+Forth and a Forth tutorial.
+
+Copyright (C) 1995, 1996, 1997, 1998, 2000, 2003, 2004,2005,2006,2007,2008 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled "GNU Free Documentation
+License."
+
+(a) The FSF's Back-Cover Text is: "You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development." -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Types Tutorial (Gforth Manual)</title>
+
+<meta name="description" content="Types Tutorial (Gforth Manual)">
+<meta name="keywords" content="Types Tutorial (Gforth Manual)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html" rel="start" title="Top">
+<link href="Word-Index.html" rel="index" title="Word Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorial.html" rel="up" title="Tutorial">
+<link href="Factoring-Tutorial.html" rel="next" title="Factoring Tutorial">
+<link href="Stack_002dEffect-Comments-Tutorial.html" rel="prev" title="Stack-Effect Comments Tutorial">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<span id="Types-Tutorial"></span><div class="header">
+<p>
+Next: <a href="Factoring-Tutorial.html" accesskey="n" rel="next">Factoring Tutorial</a>, Previous: <a href="Stack_002dEffect-Comments-Tutorial.html" accesskey="p" rel="prev">Stack-Effect Comments Tutorial</a>, Up: <a href="Tutorial.html" accesskey="u" rel="up">Tutorial</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Word-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Types"></span><h3 class="section">3.12 Types</h3>
+<span id="index-types-tutorial"></span>
+
+<p>In Forth the names of the operations are not overloaded; so similar
+operations on different types need different names; e.g., <code>+</code> adds
+integers, and you have to use <code>f+</code> to add floating-point numbers.
+The following prefixes are often used for related operations on
+different types:
+</p>
+<dl compact="compact">
+<dt><code>(none)</code></dt>
+<dd><p>signed integer
+</p></dd>
+<dt><code>u</code></dt>
+<dd><p>unsigned integer
+</p></dd>
+<dt><code>c</code></dt>
+<dd><p>character
+</p></dd>
+<dt><code>d</code></dt>
+<dd><p>signed double-cell integer
+</p></dd>
+<dt><code>ud, du</code></dt>
+<dd><p>unsigned double-cell integer
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>two cells (not-necessarily double-cell numbers)
+</p></dd>
+<dt><code>m, um</code></dt>
+<dd><p>mixed single-cell and double-cell operations
+</p></dd>
+<dt><code>f</code></dt>
+<dd><p>floating-point (note that in stack comments &lsquo;<samp>f</samp>&rsquo; represents flags,
+and &lsquo;<samp>r</samp>&rsquo; represents FP numbers).
+</p></dd>
+</dl>
+
+<p>If there are no differences between the signed and the unsigned variant
+(e.g., for <code>+</code>), there is only the prefix-less variant.
+</p>
+<p>Forth does not perform type checking, neither at compile time, nor at
+run time.  If you use the wrong oeration, the data are interpreted
+incorrectly:
+</p>
+<div class="example">
+<pre class="example">-1 u.
+</pre></div>
+
+<p>If you have only experience with type-checked languages until now, and
+have heard how important type-checking is, don&rsquo;t panic!  In my
+experience (and that of other Forthers), type errors in Forth code are
+usually easy to find (once you get used to it), the increased vigilance
+of the programmer tends to catch some harder errors in addition to most
+type errors, and you never have to work around the type system, so in
+most situations the lack of type-checking seems to be a win (projects to
+add type checking to Forth have not caught on).
+</p>
+
+
+
+
+</body>
+</html>
